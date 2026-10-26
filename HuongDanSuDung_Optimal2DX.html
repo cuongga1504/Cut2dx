@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn sử dụng Thư viện Optimal2DX (C# / .NET)</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --secondary: #107c41;
+            --accent: #d83b01;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --code-bg: #1e1e1e;
+            --code-color: #d4d4d4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        #sidebar {
+            width: 300px;
+            height: 100vh;
+            background: #ffffff;
+            border-right: 1px solid var(--border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 24px 16px;
+            z-index: 100;
+        }
+
+        #sidebar h2 {
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #sidebar ul {
+            list-style: none;
+        }
+
+        #sidebar li {
+            margin-bottom: 6px;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        #sidebar a:hover {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            padding-left: 16px;
+        }
+
+        /* Main Content */
+        #content {
+            margin-left: 300px;
+            padding: 40px 60px;
+            max-width: 1100px;
+            width: calc(100% - 300px);
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .badge-ver {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            scroll-margin-top: 20px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: #334155;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: #334155;
+        }
+
+        ul, ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+            color: #334155;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Alert boxes */
+        .alert {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .alert-info {
+            border-color: var(--primary);
+            background-color: #f0f7ff;
+        }
+
+        .alert-success {
+            border-color: var(--secondary);
+            background-color: #f0fdf4;
+        }
+
+        .alert-warning {
+            border-color: var(--accent);
+            background-color: #fffaf0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 28px 0;
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.92rem;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: var(--code-bg);
+            color: var(--code-color);
+            padding: 18px 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 16px 0 24px 0;
+            font-family: "Cascadia Code", Consolas, Monaco, "Courier New", monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        code {
+            font-family: "Cascadia Code", Consolas, Monaco, "Courier New", monospace;
+            background-color: #f1f5f9;
+            color: #e11d48;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.88em;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            font-size: inherit;
+        }
+
+        /* Card grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            #sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            #content {
+                margin-left: 0;
+                width: 100%;
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar">
+        <h2>📖 Mục lục tài liệu</h2>
+        <ul>
+            <li><a href="#intro">1. Giới thiệu tổng quan</a></li>
+            <li><a href="#algorithms">2. Các loại thuật toán cắt 2D</a></li>
+            <li><a href="#integration">3. Cài đặt & Tích hợp vào C#</a></li>
+            <li><a href="#workflow">4. Quy trình 5 bước tối ưu hóa</a></li>
+            <li><a href="#example-vb">5. Phân tích chi tiết ví dụ chuẩn</a></li>
+            <li><a href="#api-ref">6. Tra cứu toàn bộ API</a></li>
+            <li><a href="#concepts">7. Các thông số & Khái niệm cốt lõi</a></li>
+            <li><a href="#winforms-guide">8. Ứng dụng WinForms trực quan</a></li>
+            <li><a href="#faq">9. Câu hỏi thường gặp (FAQ)</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="content">
+        <header>
+            <span class="badge-ver">Optimal2DX for .NET / C# • Phiên bản 4.0</span>
+            <h1>Hướng dẫn sử dụng Thư viện Optimal2DX</h1>
+            <p>Tài liệu hướng dẫn lập trình toàn diện, phân tích thuật toán tối ưu hóa cắt tấm 2D (2D Cutting Stock & Rectangular Nesting) bằng ngôn ngữ C#.</p>
+        </header>
+
+        <!-- 1. Giới thiệu -->
+        <section id="intro">
+            <h2>1. Giới thiệu tổng quan</h2>
+            <p>
+                <strong>Optimal2DX</strong> (tiền thân là <code>optimal2dx.dll</code>) là thư viện thuật toán công nghiệp hàng đầu chuyên giải quyết bài toán <strong>Cắt tối ưu 2D (2D Rectangular Nesting / Cutting Stock Problem)</strong>. Thư viện giúp các nhà máy và xưởng sản xuất gỗ tấm, kính xây dựng, tôn cuộn, cơ khí kim loại tấm, v.v. bố trí các chi tiết cần cắt lên các tấm phôi nguyên liệu có sẵn sao cho <em>tối đa hóa diện tích sử dụng</em> và <em>giảm thiểu tối đa phần trăm phế liệu dư thừa</em>.
+            </p>
+            <div class="alert alert-success">
+                <strong>💡 Điểm nổi bật của bản C# tái lập trình:</strong>
+                <ul style="margin-top: 8px; margin-bottom: 0;">
+                    <li>Mã nguồn C# thuần túy (Pure C# .NET 10 / .NET Core), tương thích 100% API của DLL 32-bit gốc.</li>
+                    <li>Không còn phụ thuộc vào đăng ký COM (regsvr32), không lo lỗi môi trường Win32/x64.</li>
+                    <li>Tốc độ tính toán siêu nhanh, hỗ trợ đa luồng và dễ dàng nhúng vào Console, WinForms, WPF, Web API hoặc ASP.NET Core.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 2. Thuật toán -->
+        <section id="algorithms">
+            <h2>2. Các loại thuật toán cắt 2D</h2>
+            <p>Thư viện cung cấp 3 phương thức tối ưu hóa chuyên biệt phù hợp cho từng loại máy móc cắt:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>✂️ 1. Guillotine Cuttings</h4>
+                    <p><strong>Phương thức:</strong> <code>StartGuillotine()</code></p>
+                    <p>Cắt xẻ thẳng hoàn toàn từ mép này sang mép kia của tấm phôi (song song với các trục tọa độ). Phù hợp cho máy cưa bàn trượt, máy cắt kính, cưa panel saw công nghiệp.</p>
+                </div>
+                <div class="card">
+                    <h4>🧩 2. Non-Guillotine (Nested)</h4>
+                    <p><strong>Phương thức:</strong> <code>StartNested()</code></p>
+                    <p>Xếp lồng chi tiết tự do theo thuật toán Maximal Rectangles. Không yêu cầu đường cưa phải chạy suốt mép. Thích hợp cho máy cắt Laser, Plasma CNC, hoặc máy cắt tia nước (Waterjet).</p>
+                </div>
+                <div class="card">
+                    <h4>📐 3. Multi-Stages Guillotine</h4>
+                    <p><strong>Phương thức:</strong> <code>StartMultiStages()</code></p>
+                    <p>Cắt Guillotine phân tầng nghiêm ngặt (2 tầng, 3 tầng, hoặc N tầng). Trong mỗi tầng chỉ được phép cắt theo một chiều (Dọc hoặc Ngang). Phù hợp dây chuyền cắt phôi tự động.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Tích hợp -->
+        <section id="integration">
+            <h2>3. Cài đặt & Tích hợp vào dự án C# / .NET</h2>
+            <p>Bạn có thể tham chiếu trực tiếp project hoặc file <code>Optimal2DX.dll</code> vào ứng dụng C# của mình:</p>
+
+            <pre><code>// 1. Thêm tham chiếu thư viện vào file .csproj:
+&lt;ItemGroup&gt;
+    &lt;ProjectReference Include="..\Optimal2DX\Optimal2DX.csproj" /&gt;
+&lt;/ItemGroup&gt;
+
+// 2. Sử dụng namespace trong code C#:
+using Optimal2DX;
+using Optimal2DX.Models;</code></pre>
+
+            <p>Khởi tạo đối tượng tối ưu hóa:</p>
+            <pre><code>var opt = new Optimization2DX();
+Console.WriteLine($"Phiên bản: {opt.Version}");</code></pre>
+        </section>
+
+        <!-- 4. Quy trình 5 bước -->
+        <section id="workflow">
+            <h2>4. Quy trình 5 bước tối ưu hóa</h2>
+            <p>Toàn bộ quá trình tối ưu hóa vận hành theo 5 bước tuần tự chuẩn mực:</p>
+
+            <h3><span class="step-num">1</span> Khai báo chi tiết cần cắt (Demand Pieces / Parts)</h3>
+            <p>Thiết lập tổng số lượng chi tiết và kích thước từng tấm cần cắt:</p>
+            <pre><code>// Tổng số lượng chi tiết cần cắt là 14 tấm:
+opt.NumberOfDemandPieces = 14;
+
+// SetDemandPiece(Index, Length, Width, CanRotate, ExternalID, Priority)
+opt.SetDemandPiece(0, 60, 40, 1, 0, 0); // Tấm #0: 60x40, cho phép xoay (1), mã ID = 0</code></pre>
+
+            <h3><span class="step-num">2</span> Khai báo các tấm nguyên liệu có sẵn trong kho (Stock / Repository)</h3>
+            <p>Khai báo kích thước các tấm phôi và các mép cắt tỉa hư hỏng (nếu có):</p>
+            <pre><code>// Kho có 3 tấm phôi:
+opt.NumberOfRepositoryPieces = 3;
+
+// SetRepositoryPiece(Index, Length, Width, TrimTop, TrimLeft, TrimBottom, TrimRight, ExternalID, Priority, NumberOfHoles)
+opt.SetRepositoryPiece(0, 300, 200, 0, 0, 0, 0, 0, 0, 0); // Tấm 300x200 mm
+opt.SetRepositoryPiece(1, 200, 200, 0, 0, 0, 0, 1, 0, 0); // Tấm 200x200 mm
+opt.SetRepositoryPiece(2, 300, 250, 0, 0, 0, 0, 2, 0, 0); // Tấm 300x250 mm</code></pre>
+
+            <h3><span class="step-num">3</span> Thiết lập các tham số tối ưu (Parameters)</h3>
+            <pre><code>opt.BladeWidth = 0;          // Bề dày mạch cưa hao hụt khi cắt (kerf) = 0
+opt.OptimizationLevel = 50;  // Cấp độ giải thuật di truyền (1 - 100)
+opt.RandomSeed = 1;          // Seed ngẫu nhiên để tái lặp chính xác kết quả
+opt.MinimalUsefulSize = 20;  // Kích thước tối thiểu để tính phế liệu tái sử dụng</code></pre>
+
+            <h3><span class="step-num">4</span> Kích hoạt thuật toán tối ưu hóa</h3>
+            <pre><code>// Chọn 1 trong 3 phương thức cắt:
+opt.StartGuillotine();   // Cắt thẳng Guillotine
+// opt.StartNested();    // hoặc Cắt xếp lồng Laser/Plasma
+// opt.StartMultiStages();// hoặc Cắt phân tầng</code></pre>
+
+            <h3><span class="step-num">5</span> Trích xuất kết quả</h3>
+            <pre><code>// 1. Số lượng tấm kho đã dùng:
+int totalSheets = opt.TotalNumberOfUtilizedRepositoryPieces;
+
+// 2. Lặp qua từng tấm để lấy thông tin chi tiết:
+for (int sheet = 0; sheet &lt; totalSheets; sheet++)
+{
+    // Tỷ lệ diện tích hữu ích che phủ (%):
+    opt.SurfaceCovered(sheet, out double surfCovered, out int repIndex, out int repId);
+
+    // Lấy danh sách các nhát cắt:
+    opt.NumberOfCuttings(sheet, out int noCuts, out _, out _);
+    for (int i = 0; i &lt; noCuts; i++) {
+        opt.GetCut(sheet, i, out int tx, out int ty, out int bx, out int by, out int thick, out _, out _);
+        // Vẽ đường cắt từ (tx, ty) đến (bx, by)
+    }
+
+    // Lấy vị trí các chi tiết đã xếp lên tấm:
+    opt.NumberOfUtilizedDemandPieces(sheet, out int noPieces, out _, out _);
+    for (int i = 0; i &lt; noPieces; i++) {
+        opt.GetUtilizedDemandPiece(sheet, i, out int tx, out int ty, out int bx, out int by, 
+                                   out int rot, out _, out int demIdx, out _, out int demId);
+        // Chi tiết nằm trong hình chữ nhật từ góc (tx, ty) tới (bx, by)
+    }
+
+    // Lấy các mảnh thừa phế liệu:
+    opt.NumberOfWastePieces(sheet, out int noWastes, out _, out _);
+    for (int i = 0; i &lt; noWastes; i++) {
+        opt.GetWastePiece(sheet, i, out int tx, out int ty, out int bx, out int by, out _, out _);
+        // Tọa độ mảnh phế liệu (tx, ty) tới (bx, by)
+    }
+}</code></pre>
+        </section>
+
+        <!-- 5. Ví dụ chuẩn -->
+        <section id="example-vb">
+            <h2>5. Phân tích chi tiết ví dụ chuẩn (VB 2005 / C#)</h2>
+            <p>Dưới đây là toàn bộ mã nguồn chương trình Console hoàn chỉnh tái hiện chính xác ví dụ tại trang hướng dẫn của hãng:</p>
+
+            <pre><code>using System;
+using Optimal2DX;
+
+class Program
+{
+    static void Main()
+    {
+        var opt = new Optimization2DX();
+
+        // Bước 1: 14 chi tiết cần cắt
+        opt.NumberOfDemandPieces = 14;
+        opt.SetDemandPiece(0,  60,  40, 1, 0, 0);
+        opt.SetDemandPiece(1,  60,  40, 1, 1, 0);
+        opt.SetDemandPiece(2,  48,  40, 1, 2, 0);
+        opt.SetDemandPiece(3,  60,  53, 1, 3, 0);
+        opt.SetDemandPiece(4,  45,  45, 1, 4, 0);
+        opt.SetDemandPiece(5,  50,  80, 1, 5, 0);
+        opt.SetDemandPiece(6,  45,  75, 1, 6, 0);
+        opt.SetDemandPiece(7, 100, 100, 1, 7, 0);
+        opt.SetDemandPiece(8, 100, 100, 1, 8, 0);
+        opt.SetDemandPiece(9,  90,  90, 1, 9, 0);
+        opt.SetDemandPiece(10, 90,  90, 1, 10, 0);
+        opt.SetDemandPiece(11, 90,  90, 1, 11, 0);
+        opt.SetDemandPiece(12, 110, 110, 1, 12, 0);
+        opt.SetDemandPiece(13, 110, 110, 1, 13, 0);
+
+        // Bước 2: 3 tấm nguyên liệu trong kho
+        opt.NumberOfRepositoryPieces = 3;
+        opt.SetRepositoryPiece(0, 300, 200, 0, 0, 0, 0, 0, 0, 0);
+        opt.SetRepositoryPiece(1, 200, 200, 0, 0, 0, 0, 1, 0, 0);
+        opt.SetRepositoryPiece(2, 300, 250, 0, 0, 0, 0, 2, 0, 0);
+
+        // Bước 3: Tham số
+        opt.BladeWidth = 0;
+        opt.OptimizationLevel = 50;
+        opt.RandomSeed = 1;
+
+        // Bước 4: Chạy tối ưu hóa
+        Console.WriteLine("Đang tối ưu hóa cắt Guillotine...");
+        opt.StartGuillotine();
+
+        // Bước 5: Xem kết quả
+        Console.WriteLine($"Số tấm đã dùng: {opt.TotalNumberOfUtilizedRepositoryPieces}");
+        Console.WriteLine($"Số chi tiết đã cắt: {opt.TotalNumberOfUtilizedDemandPieces} / 14");
+
+        for (int sheet = 0; sheet &lt; opt.TotalNumberOfUtilizedRepositoryPieces; sheet++)
+        {
+            opt.SurfaceCovered(sheet, out double surfCovered, out int repIndex, out int repId);
+            Console.WriteLine($"\n--- TẤM #{sheet + 1} (Kho ID = {repId}) - Độ phủ: {surfCovered:F2}% ---");
+
+            // In nhát cắt
+            opt.NumberOfCuttings(sheet, out int noCuts, out _, out _);
+            Console.WriteLine($"Số nhát cắt: {noCuts}");
+            for (int i = 0; i &lt; noCuts; i++) {
+                opt.GetCut(sheet, i, out int tx, out int ty, out int bx, out int by, out int thick, out _, out _);
+                Console.WriteLine($"  Nhát cưa {i+1}: ({tx}, {ty}) -&gt; ({bx}, {by}), bề dày = {thick}");
+            }
+
+            // In vị trí chi tiết
+            opt.NumberOfUtilizedDemandPieces(sheet, out int noPieces, out _, out _);
+            Console.WriteLine($"Chi tiết đặt được: {noPieces}");
+            for (int i = 0; i &lt; noPieces; i++) {
+                opt.GetUtilizedDemandPiece(sheet, i, out int tx, out int ty, out int bx, out int by, 
+                                           out int rot, out _, out _, out _, out int demId);
+                Console.WriteLine($"  Chi tiết [DemID={demId}]: ({tx},{ty}) - ({bx},{by}) | Kích thước: {Math.Abs(bx-tx)}x{Math.Abs(by-ty)} | Xoay 90°: {(rot == 1 ? "Có" : "Không")}");
+            }
+        }
+    }
+}</code></pre>
+        </section>
+
+        <!-- 6. Tra cứu API -->
+        <section id="api-ref">
+            <h2>6. Tra cứu toàn bộ API (API Reference)</h2>
+
+            <h3>6.1. Bảng Thuộc tính (Properties)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Tên thuộc tính</th>
+                        <th style="width: 15%;">Kiểu dữ liệu</th>
+                        <th>Mô tả chi tiết</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>NumberOfDemandPieces</code></td>
+                        <td><code>int</code></td>
+                        <td>Số lượng chi tiết cần cắt. Thiết lập giá trị này sẽ cấp phát mảng dữ liệu chi tiết.</td>
+                    </tr>
+                    <tr>
+                        <td><code>NumberOfRepositoryPieces</code></td>
+                        <td><code>int</code></td>
+                        <td>Số lượng tấm nguyên liệu trong kho. Thiết lập giá trị này sẽ cấp phát mảng tấm kho.</td>
+                    </tr>
+                    <tr>
+                        <td><code>BladeWidth</code></td>
+                        <td><code>int</code></td>
+                        <td>Bề dày của mạch cưa / tia cắt (kerf). Vật liệu bị tiêu hao giữa các nhát cưa. Mặc định: <code>0</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>OptimizationLevel</code></td>
+                        <td><code>int</code></td>
+                        <td>Cấp độ tìm kiếm di truyền (1 đến 100). Càng cao thì thuật toán tìm nghiệm càng kỹ. Mặc định: <code>50</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>RandomSeed</code></td>
+                        <td><code>int</code></td>
+                        <td>Seed khởi tạo bộ sinh ngẫu nhiên. Giữ nguyên seed sẽ cho ra kết quả sắp xếp giống hệt nhau. Mặc định: <code>1</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>MinimalUsefulSize</code></td>
+                        <td><code>int</code></td>
+                        <td>Kích thước cạnh tối thiểu để một mảnh thừa được coi là "phế liệu có ích / tái sử dụng". Mảnh nhỏ hơn sẽ tính là "phế phẩm vụn" (Garbage).</td>
+                    </tr>
+                    <tr>
+                        <td><code>MaximalCutLength</code></td>
+                        <td><code>int</code></td>
+                        <td>Giới hạn chiều dài tối đa của một đường cắt xẻ (phù hợp với giới hạn hành trình của máy cưa). <code>0</code> = không giới hạn.</td>
+                    </tr>
+                    <tr>
+                        <td><code>FirstDirectionMultiStages</code></td>
+                        <td><code>int</code></td>
+                        <td>Hướng cắt đầu tiên trong chế độ Multi-Stages. <code>0</code> = Cắt ngang thành dải trước, <code>1</code> = Cắt dọc trước.</td>
+                    </tr>
+                    <tr>
+                        <td><code>CutAllStripsFirst</code></td>
+                        <td><code>int</code></td>
+                        <td>Ưu tiên cắt toàn bộ các dải chính trước khi cắt chia nhỏ.</td>
+                    </tr>
+                    <tr>
+                        <td><code>TotalNumberOfUtilizedRepositoryPieces</code></td>
+                        <td><code>int (get)</code></td>
+                        <td>Tổng số tấm nguyên liệu kho thực tế đã được sử dụng sau khi tối ưu.</td>
+                    </tr>
+                    <tr>
+                        <td><code>TotalNumberOfUtilizedDemandPieces</code></td>
+                        <td><code>int (get)</code></td>
+                        <td>Tổng số chi tiết cần cắt đã được xếp thành công lên các tấm phôi.</td>
+                    </tr>
+                    <tr>
+                        <td><code>TotalWaste</code></td>
+                        <td><code>double (get)</code></td>
+                        <td>Tổng diện tích phế liệu hao phí trên tất cả các tấm.</td>
+                    </tr>
+                    <tr>
+                        <td><code>Version</code></td>
+                        <td><code>string (get)</code></td>
+                        <td>Phiên bản của thư viện (ví dụ <code>"4.0.0 (C# Edition)"</code>).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6.2. Bảng Phương thức (Methods)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Phương thức</th>
+                        <th>Chức năng & Các tham số</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>SetDemandPiece(index, length, width, canRotate, externalId, priority)</code></td>
+                        <td>
+                            Khai báo thông số của một chi tiết cần cắt:
+                            <ul>
+                                <li><code>index</code>: Thứ tự chi tiết (<code>0</code> đến <code>NumberOfDemandPieces - 1</code>).</li>
+                                <li><code>length</code>, <code>width</code>: Chiều dài và chiều rộng (số nguyên &gt; 0).</li>
+                                <li><code>canRotate</code>: <code>1</code> cho phép xoay 90 độ, <code>0</code> không được xoay (giữ hướng vân gỗ).</li>
+                                <li><code>externalId</code>: Mã định danh tùy chọn của bạn để theo dõi chi tiết.</li>
+                                <li><code>priority</code>: Mức độ ưu tiên cắt (0 = ưu tiên cao nhất).</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>SetRepositoryPiece(index, length, width, trimTop, trimLeft, trimBottom, trimRight, externalId, priority, numHoles)</code></td>
+                        <td>
+                            Khai báo thông số một tấm phôi trong kho:
+                            <ul>
+                                <li><code>length</code>, <code>width</code>: Kích thước tấm phôi thô.</li>
+                                <li><code>trimTop/Left/Bottom/Right</code>: Bề rộng viền mép biên bị lỗi cần tỉa bỏ trước khi cắt.</li>
+                                <li><code>externalId</code>: Mã định danh tấm kho.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>StartGuillotine()</code></td>
+                        <td>Chạy tối ưu hóa theo phương pháp cưa xẻ thẳng Guillotine (từ mép này sang mép kia).</td>
+                    </tr>
+                    <tr>
+                        <td><code>StartNested()</code></td>
+                        <td>Chạy tối ưu hóa theo phương pháp xếp lồng tự do (Laser, Plasma, Tia nước).</td>
+                    </tr>
+                    <tr>
+                        <td><code>StartMultiStages()</code></td>
+                        <td>Chạy tối ưu hóa theo phương pháp cắt Guillotine phân tầng (Multi-Stages).</td>
+                    </tr>
+                    <tr>
+                        <td><code>SurfaceCovered(sheetIndex, out surfCovered, out repIndex, out repId)</code></td>
+                        <td>Lấy tỷ lệ diện tích che phủ hữu ích (<code>0% - 100%</code>) trên tấm có thứ tự <code>sheetIndex</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>GetCut(sheetIndex, cutIndex, out tx, out ty, out bx, out by, out thick, out repIndex, out repId)</code></td>
+                        <td>
+                            Lấy tọa độ đường cắt thứ <code>cutIndex</code> trên tấm:
+                            <ul>
+                                <li><code>(tx, ty)</code>: Tọa độ điểm đầu của nhát cắt.</li>
+                                <li><code>(bx, by)</code>: Tọa độ điểm cuối của nhát cắt.</li>
+                                <li><code>thick</code>: Độ dày nhát cắt (bằng <code>BladeWidth</code>).</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>GetUtilizedDemandPiece(sheetIndex, pieceIndex, out tx, out ty, out bx, out by, out rot, out repIndex, out demIdx, out repId, out demId)</code></td>
+                        <td>
+                            Lấy tọa độ hình chữ nhật chứa chi tiết đặt trên tấm:
+                            <ul>
+                                <li><code>(tx, ty)</code>: Góc trên - trái.</li>
+                                <li><code>(bx, by)</code>: Góc dưới - phải.</li>
+                                <li><code>rot</code>: <code>1</code> nếu chi tiết bị xoay 90°, <code>0</code> nếu giữ nguyên hướng.</li>
+                                <li><code>demIdx</code>, <code>demId</code>: Chỉ số và mã ID của chi tiết tương ứng.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>GetWastePiece(sheetIndex, wasteIndex, out tx, out ty, out bx, out by, out repIndex, out repId)</code></td>
+                        <td>Lấy tọa độ hình chữ nhật của mảnh phế liệu dư thừa thứ <code>wasteIndex</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>SaveToFile(fileName, saveInput, saveParams, saveResults)</code></td>
+                        <td>Lưu toàn bộ dữ liệu bài toán và kết quả ra file văn bản (.txt) tương thích định dạng của Cut2DX.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 7. Khái niệm cốt lõi -->
+        <section id="concepts">
+            <h2>7. Các thông số & Khái niệm kỹ thuật quan trọng</h2>
+
+            <h3>7.1. Hướng vân gỗ (Grain Direction) & Tham số CanRotate</h3>
+            <p>
+                Đối với các vật liệu như gỗ tự nhiên, gỗ công nghiệp phủ Melamine/Veneer, tấm inox xước bề mặt,... đều có một chiều hướng vân/thớ (Grain Direction) cố định. Để đảm bảo tính thẩm mỹ của sản phẩm nội thất và cơ lý tính của gỗ, các chi tiết cần được cắt đúng theo chiều vân thớ đã định sẵn.
+            </p>
+            <div class="alert alert-info">
+                <strong>🪵 Quy tắc 3 bước xử lý thớ gỗ (Theo chuẩn Cut2DX):</strong>
+                <ol style="margin-top: 8px; padding-left: 20px;">
+                    <li><strong>Tấm kho (Repository Piece):</strong> Khai báo tấm nguyên liệu với chiều <code>Length</code> luôn song song với hướng thớ gỗ của tấm ván.</li>
+                    <li><strong>Chi tiết cần cắt (Demand Piece):</strong> Cạnh nào bạn muốn song song với hướng thớ gỗ thì cạnh đó bắt buộc phải khai báo là <code>Length</code>. Cạnh còn lại vuông góc với thớ gỗ sẽ là <code>Width</code>.</li>
+                    <li><strong>Khóa góc xoay (CanRotate = 0):</strong> Thiết lập <code>CanRotate = 0</code> trong hàm <code>SetDemandPiece</code> để thuật toán không được phép xoay chi tiết 90 độ, đảm bảo chi tiết cắt ra luôn thuận vân thớ 100%.</li>
+                </ol>
+            </div>
+            <p><strong>Ví dụ thực tế từ tài liệu chính hãng:</strong></p>
+            <ul>
+                <li>Tấm ván kho: kích thước <code>3000 x 2000 mm</code>, thớ gỗ chạy dọc theo chiều dài (3000).</li>
+                <li>Chi tiết cần cắt: kích thước <code>500 x 600 mm</code>. Bạn muốn chiều thớ gỗ chạy dọc theo cạnh 600 mm.</li>
+                <li>Mã lệnh cấu hình chuẩn:
+                    <pre><code class="language-csharp">// Tấm kho: Length = 3000 (chiều vân), Width = 2000
+opt.SetRepositoryPiece(0, 3000, 2000, 0, 0, 0, 0, 0, 0, 0);
+
+// Chi tiết: Cạnh 600 song song thớ gỗ -> đưa vào làm Length, CanRotate = 0 (cấm xoay)
+opt.SetDemandPiece(0, 600, 500, 0, 0, 0);</code></pre>
+                </li>
+            </ul>
+            <p><strong>Trong ứng dụng WinForms:</strong> Cung cấp cột chọn <em>"Thớ gỗ (Grain Direction)"</em> cực kỳ trực quan với 4 chế độ:
+                <ul>
+                    <li><code>Tự do (Không thớ)</code>: Cho phép xoay 90° (<code>CanRotate = 1</code>) để tiết kiệm diện tích tối đa.</li>
+                    <li><code>Dọc (Theo Dài)</code>: Thớ gỗ chạy dọc cạnh Dài, tự động đặt <code>CanRotate = 0</code>.</li>
+                    <li><code>Ngang (Theo Rộng)</code>: Thớ gỗ chạy dọc cạnh Rộng, tự động hoán đổi kích thước theo quy tắc Cut2DX và khóa xoay.</li>
+                    <li><code>Cố định (Không xoay)</code>: Giữ nguyên hướng và kích thước ban đầu, không cho phép xoay.</li>
+                </ul>
+            </p>
+
+            <h3>7.2. Cắt tỉa mép (Trim Margins)</h3>
+            <p>
+                Các tấm phôi khi vận chuyển thường bị nứt, móp méo hoặc dập góc ở 4 mép biên:
+            </p>
+            <ul>
+                <li>Khai báo <code>TrimTop</code>, <code>TrimLeft</code>, <code>TrimBottom</code>, <code>TrimRight</code> trong hàm <code>SetRepositoryPiece</code>.</li>
+                <li>Thuật toán sẽ tự động trừ đi các dải mép lỗi này. Phần diện tích hữu dụng thực tế để bố trí chi tiết sẽ bắt đầu từ tọa độ <code>(TrimLeft, TrimTop)</code>.</li>
+            </ul>
+
+            <h3>7.3. Bề dày mạch cắt (BladeWidth / Kerf)</h3>
+            <p>
+                Lưỡi cưa đĩa kim loại thường có bề dày từ <code>2.8 mm - 4.2 mm</code>. Khi cưa một đường, một lượng phôi sẽ bị nghiền thành mùn cưa và biến mất:
+            </p>
+            <ul>
+                <li>Thiết lập <code>BladeWidth = 3</code> (ví dụ với lưỡi cưa 3 mm).</li>
+                <li>Thuật toán sẽ tự động cộng bù khoảng cách <code>3 mm</code> giữa tất cả các chi tiết liền kề để sau khi cưa, kích thước các tấm thành phẩm vẫn chuẩn xác 100%.</li>
+            </ul>
+        </section>
+
+        <!-- 8. WinForms -->
+        <section id="winforms-guide">
+            <h2>8. Ứng dụng WinForms trực quan (Optimal2DX.WinForms)</h2>
+            <p>
+                Dự án mẫu WinForms đã được lập trình sẵn tại thư mục <code>E:\Cut2dx\Optimal2DX_CSharp\Optimal2DX.WinForms</code>. Ứng dụng cung cấp giao diện đồ họa hoàn chỉnh với bảng vẽ GDI+ trực quan:
+            </p>
+            <div class="alert alert-info">
+                <strong>🖥️ Cách khởi chạy ứng dụng WinForms:</strong>
+                <p style="margin-top: 8px;">Mở PowerShell hoặc Command Prompt và chạy lệnh sau:</p>
+                <pre><code>dotnet run --project "E:\Cut2dx\Optimal2DX_CSharp\Optimal2DX.WinForms\Optimal2DX.WinForms.csproj"</code></pre>
+                <p>Hoặc nhấp đúp vào file thực thi: <code>Optimal2DX.WinForms.exe</code></p>
+            </div>
+            <ul>
+                <li><strong>Gom nhóm các sơ đồ giống nhau (Pattern Grouping):</strong> Khi cắt hàng loạt hoặc khi số lượng chi tiết lớn, thuật toán sẽ sinh ra nhiều tấm có sơ đồ cắt hoàn toàn trùng khớp. Ứng dụng tự động phát hiện và gom nhóm các tấm này lại thành từng mẫu sơ đồ duy nhất (ví dụ: <em>Sơ đồ #1 x 4 tấm, Sơ đồ #2 x 2 tấm</em>), thợ cưa chỉ cần xem một bản vẽ là có thể cắt lặp lại số lượng lớn mà không sợ nhầm lẫn.</li>
+                <li><strong>Bảng tổng hợp sơ đồ cắt (📊 Summary Patterns):</strong> Cung cấp bảng tổng quan toàn bộ các mẫu sơ đồ, số lượng tấm cần cắt theo từng mẫu, tỷ lệ che phủ và phế liệu. Nhấp đúp vào dòng để chuyển nhanh đến sơ đồ đó trên bản vẽ.</li>
+                <li><strong>Con dấu số lượng cắt trên bản vẽ:</strong> Trên khung vẽ sơ đồ tấm, hiển thị con dấu nổi bật <code>✂ CẮT x{SL} TẤM</code> ở góc trên cùng bên phải.</li>
+                <li><strong>Nhập theo Quy cách & Số lượng (Quantity):</strong> Thay vì phải nhập từng dòng lặp lại, bạn chỉ cần nhập kích thước cùng <strong>Số lượng (SL)</strong> cho từng loại chi tiết (ví dụ: <em>Cánh tủ số lượng 4</em>) và từng loại tấm kho có sẵn. Hệ thống sẽ tự động nhân bản thành danh sách chi tiết cắt thực tế.</li>
+                <li><strong>Quản lý Tên / Nhãn chi tiết (Labels):</strong> Cho phép đặt tên gợi nhớ cho từng chi tiết (ví dụ: <em>Cánh tủ, Hông tủ trái, Mặt bàn,...</em>) và từng tấm kho (ví dụ: <em>Ván MDF chống ẩm, MFC An Cường Sồi,...</em>).</li>
+                <li><strong>Khung vẽ sơ đồ cắt (Canvas):</strong> Vẽ trực tiếp Tên chi tiết in đậm rõ ràng kèm kích thước và hướng thớ gỗ lên từng mảnh phôi, vẽ tên tấm kho lên khung bản vẽ, nền vân gỗ tự nhiên, các đường cắt cưa đỏ nét đứt cùng số thứ tự bước cắt.</li>
+                <li><strong>Mô phỏng vân thớ gỗ trên từng chi tiết:</strong> Các chi tiết có cấu hình thớ gỗ sẽ được vẽ các đường vân sọc tinh tế cùng ký hiệu <code>[⟷ Dọc]</code> hoặc <code>[↕ Ngang]</code>, chi tiết không vân hiển thị <code>[⟳ Tự do]</code> kèm góc xoay <code>0°</code> hoặc <code>90°</code>.</li>
+                <li><strong>Nút nạp mẫu Cắt hàng loạt & Thớ gỗ:</strong> Tích hợp các nút mẫu trên thanh công cụ: <em>"🪵 Ví dụ Thớ gỗ & Số lượng"</em> và <em>"🏭 Ví dụ Cắt hàng loạt (Gom sơ đồ)"</em> để thử nghiệm ngay lập tức.</li>
+                <li><strong>Nút chuyển sơ đồ / tấm (◀ / ▶):</strong> Dễ dàng lật trang xem từng mẫu sơ đồ hoặc chuyển sang chế độ xem từng tấm đơn lẻ qua checkbox <em>"Gom sơ đồ giống nhau"</em>.</li>
+                <li><strong>Xuất file báo cáo chi tiết:</strong> Nút <em>"💾 Xuất file kết quả"</em> xuất báo cáo đầy đủ bảng tổng hợp các mẫu sơ đồ kèm số lượng lặp lại, quy cách yêu cầu, danh sách chi tiết và nhát cắt.</li>
+            </ul>
+        </section>
+
+        <!-- 9. FAQ -->
+        <section id="faq">
+            <h2>9. Câu hỏi thường gặp (FAQ)</h2>
+            
+            <div class="card" style="margin-bottom: 16px;">
+                <h4>Q: Thuật toán có hỗ trợ số thập phân (số thực như 125.5 mm) không?</h4>
+                <p><strong>A:</strong> Hàm API nhận số nguyên (<code>long/int</code>). Để làm việc với số thực, bạn chỉ cần nhân tất cả các kích thước với 10 (để đơn vị thành 0.1 mm) hoặc 100 (để thành 0.01 mm). Ví dụ: <code>125.5 mm</code> nhập là <code>1255</code>.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 16px;">
+                <h4>Q: Làm thế nào để dừng thuật toán nếu thời gian tính toán quá lâu?</h4>
+                <p><strong>A:</strong> Gọi phương thức <code>opt.Stop()</code> từ một sự kiện nút bấm hoặc tiến trình khác. Thuật toán sẽ ngay lập tức trả về phương án tốt nhất đã tìm thấy được tại thời điểm đó.</p>
+            </div>
+
+            <div class="card">
+                <h4>Q: Tôi có cần cài đặt phần mềm khác hoặc đăng ký bản quyền không?</h4>
+                <p><strong>A:</strong> Không cần. Thư viện C# này hoạt động hoàn toàn độc lập, không cần đăng ký COM vào Windows Registry, chạy tốt trên mọi máy tính cài đặt .NET Core / .NET 6 trở lên.</p>
+            </div>
+        </section>
+
+        <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+            <p>Tài liệu hướng dẫn kỹ thuật Thư viện Optimal2DX C# • Tạo ngày: 21/10/2026</p>
+        </footer>
+    </main>
+
+</body>
+</html>

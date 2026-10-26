@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Optimal2DX.Example/Optimal2DX.Example.csproj" />
+  <Project Path="Optimal2DX.Web/Optimal2DX.Web.csproj" />
+  <Project Path="Optimal2DX.WinForms/Optimal2DX.WinForms.csproj" />
+  <Project Path="Optimal2DX/Optimal2DX.csproj" />
+</Solution>

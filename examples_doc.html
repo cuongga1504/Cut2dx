@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>How to use it</title>
+</head>
+
+<body>
+
+		<center><h1>Examples</h1></center>
+<br>
+		<p><b><a href="#VB_2005_Example">VB 2005 example</a></b></p>
+		<p><b><a href="#Delphi_7_Example">Delphi 7 example</a></b></p>
+	<br>
+
+		<h2>
+		<a name="VB_2005_Example">VB 2005 Example</a></h2>
+		
+<p><b>Prerequisite</b>: check our VB 2005 sample to see the other components and their placement on the form</p>
+	<br>
+		<p><b>Step 1</b>. Set pieces to be cut (also called 
+		parts or DEMAND pieces). Take care of <a href="grain_direction.htm">
+		grain direction</a> if you work with wood.</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="number_of_demand_pieces.htm">NumberOfDemandPieces</a> = 14</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(0, 60, 40, 1, 0, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(1, 
+		60, 40, 1, 1, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(2, 
+		48, 40, 1, 2, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(3, 
+		60, 53, 1, 3, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(4, 
+		45, 45, 1, 4, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(5, 
+		50, 80, 1, 5, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(6, 
+		45, 75, 1, 6, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(7, 
+		100, 100, 1, 7, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(8, 
+		100, 100, 1, 8, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(9, 
+		90, 90, 1, 9, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(10, 
+		90, 90, 1, 10, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(11, 
+		90, 90, 1, 11, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(12, 
+		110, 110, 1, 12, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(13, 
+		110, 110, 1, 13, 0)<br>
+&nbsp;</p>
+	<br>
+		<p><b>Step 2</b>. Set the sheets to cut from (also 
+		called stock or REPOSITORY pieces).</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="number_of_repository_pieces.htm">NumberOfRepositoryPieces</a> = 
+		3</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="set_repository_piece.htm">SetRepositoryPiece</a>(0, 300, 200, 0, 0, 0, 0, 0, 0, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="set_repository_piece.htm">SetRepositoryPiece</a>(1, 200, 200, 0, 0, 0, 0, 1, 0, 0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="set_repository_piece.htm">SetRepositoryPiece</a>(2, 300, 250, 0, 0, 0, 0, 2, 0, 0)<br>
+&nbsp;</p>
+	<br>
+		<p><b>Step 3</b>. Set other parameters.</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="blade_width.htm">BladeWidth</a> = 0</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="optimization_level.htm">OptimizationLevel</a> = 50</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="random_seed.htm">RandomSeed</a> = 1</p>
+	<br>
+	<br>
+		<p><b>Step 4</b>. Start the optimization process. You 
+		may choose one out of 3 optimization types.</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="start_guillotine.htm">StartGuillotine</a>()</p>
+	<br>
+	<br>
+		<p><b>Step 5</b>. Use the <a href="on_finish.htm">OnFinish</a> event to extract 
+		the results of optimization.</p>
+	<br>
+		<p>' this example displays only the first sheet.</p>
+		<p>' if you want to obtain information about all 
+		sheets just iterate through all of them<br>
+		' sheets are indexed from 0 to
+		<a href="total_number_of_utilized_repository_pieces.htm">TotalNumberOfUtilizedRepositoryPieces</a><br>
+		' usually the first parameter of the methods is the sheet index<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Dim</b> SheetIndex <b>As</b> <b>
+		Long</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SheetIndex = 0 ' this is the first 
+		sheet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Dim</b> bm <b>As</b> Bitmap = <b>
+		New</b> Bitmap(Picture1.Width, Picture1.Height)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Dim</b> g <b>As</b> Graphics = 
+		Graphics.FromImage(bm)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Dim</b> surf_covered <b>As</b> <b>
+		Double</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="surface_covered.htm">SurfaceCovered</a>(SheetIndex, 
+		surf_covered, rep_Index, rep_ID)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tbUtilizedSurface.Text = 
+		CStr(surf_covered)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.Clear(Color.White)<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g.DrawRectangle(myPen, 0, 0, 300, 
+		200)' draw the repository piece<br>
+&nbsp;</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="number_of_cuttings.htm">NumberOfCuttings</a>(SheetIndex, 
+		NoCuttings, rep_Index, rep_ID)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>For</b> i = 0 <b>To</b> NoCuttings 
+		- 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="get_cut.htm">GetCut</a>(SheetIndex, i, tx, ty, 
+		bx, by, thick, rep_Index, rep_ID)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		g.DrawLine(myPen, tx, ty, bx, by)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Next</b> i<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="number_of_utilized_demand_pieces.htm">NumberOfUtilizedDemandPieces</a>(SheetIndex, 
+		NoPieces, rep_Index, rep_ID)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>For</b> i = 0 <b>To</b> NoPieces - 
+		1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="get_utilized_demand_piece.htm">GetUtilizedDemandPiece</a>(SheetIndex, 
+		i, tx, ty, bx, by, rotated, rep_Index, dem_Index, rep_ID, dem_ID)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		text_size = g.MeasureString(CStr(System.Math.Abs(bx - tx)) &amp; &quot;x&quot; &amp; 
+		CStr(System.Math.Abs(by - ty)), Font)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		g.DrawString(CStr(System.Math.Abs(bx - tx)) &amp; &quot;x&quot; &amp; 
+		CStr(System.Math.Abs(by - ty)), Font, Brushes.Black, (bx + tx) / 2 - 
+		text_size.Width / 2, (by + ty) / 2 - text_size.Height / 2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Next</b> i<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="number_of_waste_pieces.htm">NumberOfWastePieces</a>(SheetIndex, 
+		NoWastes, rep_Index, rep_ID)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>For</b> i = 0 <b>To</b> NoWastes - 
+		1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="get_waste_piece.htm">GetWastePiece</a>(SheetIndex, 
+		i, tx, ty, bx, by, rep_Index, rep_ID)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		text_size = g.MeasureString(&quot;w&quot;, Font)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		g.DrawString(&quot;w&quot;, Font, Brushes.Black, (bx + tx) / 2 - text_size.Width / 
+		2, (by + ty) / 2 - text_size.Height / 2)' draw some text in the center 
+		of the waste<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Next</b> i<br>
+		Picture1.Image = bm<br>
+&nbsp;</p>
+	<br>
+		
+		<h2>
+		<a name="Delphi_7_Example">Delphi 7 Example</a></h2>
+	<br>
+<p><b>Prerequisite</b>: check our Delphi 7/ 2007 sample to see 
+the components and their placement on form.</p>
+	<br>
+		<p><b>Step 1</b>. Set pieces to be cut (also called 
+		parts or DEMAND pieces).&nbsp; Take care of
+		<a href="grain_direction.htm">grain direction</a> if you work with wood.</p>
+	<br>
+		<p><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="number_of_demand_pieces.htm">NumberOfDemandPieces</a> 
+		:= 14;<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(0, 
+		60, 40, 1, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(1, 
+		60, 40, 1, 1, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(2, 
+		48, 40, 1, 2, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(3, 
+		60, 53, 1, 3, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(4, 
+		45, 45, 1, 4, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(5, 
+		50, 80, 1, 5, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(6, 
+		45, 75, 1, 6, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(7, 
+		100, 100, 1, 7, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(8, 
+		100, 100, 1, 8, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(9, 
+		90, 90, 1, 9, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(10, 
+		90, 90, 1, 10, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(11, 
+		90, 90, 1, 11, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(12, 
+		110, 110, 1, 12, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_demand_piece.htm">SetDemandPiece</a>(13, 
+		110, 110, 1, 13, 0);</p>
+	<br>
+		<p><b>Step 2</b>. Set the sheets to cut from (also 
+		called stock or REPOSITORY pieces).</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="number_of_repository_pieces.htm">NumberOfRepositoryPieces</a> 
+		:= 3;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_repository_piece.htm">SetRepositoryPiece</a>(0, 
+		300, 200, 0, 0, 0, 0, 0, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_repository_piece.htm">SetRepositoryPiece</a>(1, 
+		300, 200, 0, 0, 0, 0, 1, 0, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="set_repository_piece.htm">SetRepositoryPiece</a>(2, 
+		300, 200, 0, 0, 0, 0, 2, 0, 0);</p>
+	<br>
+		<p><b>Step 3</b>. Set other parameters.</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="blade_width.htm">BladeWidth</a> := 0;</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="optimization_level.htm">OptimizationLevel</a> 
+		:= 50;</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="random_seed.htm">RandomSeed</a> := 1;</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="maximal_cut_length.htm">MaximalCutLength</a> 
+		:= 300;<br>
+&nbsp;</p>
+	<br>
+		<p><b>Step 4</b>. Start the optimization process.</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="start_guillotine.htm">StartGuillotine</a>();</p>
+	<br>
+		<p><b>Step 5</b>. Use the <a href="on_finish.htm">OnFinish</a> event to extract 
+		the results of optimization.</p>
+	<br>
+		<p>' this example displays only the first sheet.</p>
+		<p>' if you want to obtain information about all 
+		sheets just iterate through all of them<br>
+		' sheets are indexed from 0 to
+		<a href="total_number_of_utilized_repository_pieces.htm">TotalNumberOfUtilizedRepositoryPieces</a><br>
+		' usually the first parameter of the methods is the sheet index<br>
+		&nbsp;</p>
+		<p>// the variables<br>
+&nbsp; <b>var</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NoWastes, NoCuttings, NoPieces, i :
+		<b>integer</b>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tx, ty, bx, by, thick, rotated : <b>
+		longint</b>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poz_x, poz_y : <b>integer</b>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rep_ID, rep_Index, dem_Index, dem_ID:
+		<b>longint</b>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sf_cov : <b>double</b>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SheetIndex : <b>longint</b>;<br>
+&nbsp;</p>
+		<p>// the actual code</p>
+	<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="surface_covered.htm">SurfaceCovered</a>(SheetIndex, 
+		sf_cov, rep_Index, rep_ID);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eSurfaceCovered.Text := 
+		FloatToStr(sf_cov);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Image1.Canvas.Rectangle(0, 0, 300, 
+		200); // clear the drawing surface<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="number_of_cuttings.htm">NumberOfCuttings</a>(SheetIndex, 
+		NoCuttings, rep_Index, rep_ID);<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>for</b> i := 0 <b>to</b> 
+		NoCuttings - 1 <b>do</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>begin</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="get_cut.htm">GetCut</a>(SheetIndex, i, tx, ty, 
+		bx, by, thick, rep_Index, rep_ID);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Image1.Canvas.MoveTo(tx, ty);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Image1.Canvas.LineTo(bx, by); // draw the cuttings<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>end</b>;<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // utilized rectangles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="number_of_utilized_demand_pieces.htm">NumberOfUtilizedDemandPieces</a>(SheetIndex, 
+		NoPieces, rep_Index, rep_ID);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>for</b> i := 0 <b>to</b> NoPieces 
+		- 1 <b>do</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>begin</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="get_utilized_demand_piece.htm">GetUtilizedDemandPiece</a>(SheetIndex, 
+		i, tx, ty, bx, by, rotated, rep_Index, dem_Index, rep_ID, dem_ID); // 
+		get the position of each piece<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poz_x := (bx+tx) 
+		div 2 - Image1.Canvas.TextWidth(FloatToStr(bx-tx)+'x'+FloatToStr(by-ty))
+		<b>div</b> 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poz_y := (by+ty) 
+		div 2 - Image1.Canvas.TextHeight(FloatToStr(bx-tx)+'x'+FloatToStr(by-ty))
+		<b>div</b> 2;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Image1.Canvas.TextOut(poz_x, poz_y, FloatToStr(abs(bx - tx)) + 'x' + 
+		FloatToStr(abs(by - ty)));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>end</b>;<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // waste rectangles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.<a href="number_of_waste_pieces.htm">NumberOfWastePieces</a>(SheetIndex, 
+		NoWastes, rep_Index, rep_ID);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>for</b> i := 0 <b>to</b> NoWastes 
+		- 1 <b>do</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>begin</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Optimization2DX1.<a href="get_waste_piece.htm">GetWastePiece</a>(SheetIndex, 
+		i, tx, ty, bx, by, rep_Index, rep_ID); // get each wastes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		lbWaste.AddItem(FloatToStr(abs(tx - bx)) + ' x ' + FloatToStr(abs(by - 
+		ty)), <b>nil</b>);<br>
+		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poz_x := (bx 
+		+ tx) div 2 - Image1.Canvas.TextWidth('w') <b>div</b> 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poz_y := (by 
+		+ ty) div 2 - Image1.Canvas.TextHeight('w') <b>div</b> 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		Image1.Canvas.TextOut(poz_x, poz_y, 'w'); // draw a text &quot;w&quot; in the 
+		middle of the waste<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>end</b>;<br>
+		<br>
+&nbsp;</p>
+
+<br><br>
+<p><b>Links</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.htm">back to index</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.optimalprograms.com">www.optimalprograms.com</a></p>
+</body>
+
+</html>

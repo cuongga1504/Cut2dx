@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>GetCut</title>
+
+</head>
+
+<body>
+
+		<center><h1>GetCut</h1></center>
+<br>
+<p><b>Name</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>GetCut</i></p>
+		<br>
+		<p><b>When to use it</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; During the 
+		<a href="on_finish.htm">OnFinish</a> 
+		event.</p>
+		<br>
+		<p><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This method is 
+		available only for guillotine cuts (methods 
+		<a href="start_guillotine.htm">StartGuillotine</a> and 
+		<a href="start_multi_stages.htm">StartMultiStages</a>). For
+		<a href="start_nested.htm">StartNested</a> the result provided by this method 
+		is undefined.</font></p>
+		<br>
+		
+		<p><b>Prototype</b></p>
+		<br>
+		<p><b>HRESULT</b> <i>GetCut</i>(</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>SheetIndex</i>: <b>long</b>/*[in]*/,
+		</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>CutIndex</i>: <b>long</b>/*[in]*/,
+		</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>TopX</i>: <b>long</b> /*[out]*/, </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>TopY</i>: <b>long</b> /*[out]*/, </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>BottomX</i>: <b>long</b> /*[out]*/,
+		</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>BottomY</i>: <b>long</b> /*[out]*/,
+		</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>CutThickness</i>: <b>long</b> 
+		/*[out]*/, </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>RepositoryIndex</i>: <b>long</b> 
+		/*[out]*/, </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>RepositoryExternalID</i>: <b>long</b> 
+		/*[out]*/</p>
+		<p>);</p>
+		<br>
+		<p><b>Explanations</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This method returns information about 
+		one cut.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The number of cuts performed is 
+		obtained using the property <a href="number_of_cuttings.htm">NumberOfCuttings</a>.</p>
+		<br>
+		<p><b>Parameters</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>SheetIndex</i> - Is the index of the 
+		layout (sheet) where the cut is performed. <i>SheetIndex</i> must be 
+		between 0 and <a href="total_number_of_utilized_repository_pieces.htm">TotalNumberOfUtilizedRepositoryPieces</a> - 1.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>CutIndex</i> - the index of the cut 
+		whose information are extracted. This number is in range [0...<a href="number_of_cuttings.htm">NumberOfCuttings</a> 
+		- 1].</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i> TopX, TopY, BottomX </i>and<i> 
+		BottomY </i>are coordinates of the current cut.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>CutThickness</i> - the actual 
+		thickness of a cut (see below). </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>RepositoryIndex</i> - The index of 
+		the Repository piece where the cut is performed. <i>RepositoryIndex</i> 
+		is between 0 and 
+		<a href="number_of_repository_pieces.htm">NumberOfRepositoryPieces </a>&nbsp;- 
+		1.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>RepositoryExternalID</i>- The 
+		external ID of the Repository piece where the cut is performed.</p>
+		<br>
+		<br>
+		<p>In most of the cases <i>CutThickness</i> is equal 
+		to <a href="blade_width.htm">BladeWidth</a>, but there are some cases 
+		(specially at the margins of the table or when there is only one piece 
+		left tu extract) where the thickness is smaller. See picture below:</p>
+		<br>
+		<center>
+		<img src="waste_mic.jpg" width="524" height="309" alt=Waste>&nbsp;</center>
+		<br>
+		<p><b>Note</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This property is available only for 
+		guillotine cuts (from one side to another side of the material). </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		For multi-stages cuts you may use <a href="get_cut_multi_stages.htm">
+		GetCutMultiStages</a>. It gives you the stage of the cut too.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For non-guillotine cuts this method has 
+		no meaning.</p>
+		<br>
+		
+		<p><b>See Also:</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<a href="number_of_cuttings.htm">NumberOfCuttings</a>,
+		<a href="blade_width.htm">BladeWidth</a>,
+		<a href="get_cut_multi_stages.htm">GetCutMultiStages</a>,
+		<a href="get_utilized_demand_piece.htm">GetUtilizedDemandPiece</a>,
+		<a href="start_guillotine.htm">StartGuillotine</a>, 
+		<a href="start_multi_stages.htm">StartMultiStages</a>, <a href="on_finish.htm">OnFinish</a>.</p>
+		<br><br>
+		<p><b>Links</b></p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.htm">back to index</a></p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.optimalprograms.com">www.optimalprograms.com</a></p>
+</body>
+
+</html>

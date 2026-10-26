@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>grain direction</title>
+
+</head>
+
+<body>
+
+<center><h1>Grain direction</h1></center>
+<br>
+<p>Some materials (such as wood) have a particular 
+direction for grain. You would want to cut your demand with a specific grain 
+direction.</p>
+<br>
+<p>For this purpose do the followings:</p>
+<br>
+
+<p>1. Enter the <a href="set_repository_piece.htm">
+Repository</a> pieces (the sheets) with the <i>Length</i> parallel with the 
+grain direction.</p>
+<br>
+
+<p>2. Enter the <a href="set_demand_piece.htm">Demand</a> 
+pieces (the parts) with the edge, that you want to be parallel to the grain 
+direction, as <i>Length</i>. The other size - which should be perpendicular on 
+the grain direction - would be the <i>Width</i>.</p>
+<br>
+
+<p>3. Do not allow rotation for the demand piece. See 
+the method <a href="set_demand_piece.htm">SetDemandPiece</a> which has a 
+parameter for this purpose.</p>
+<br>
+
+<p>In this way demand pieces will be cut as you have 
+enter them and the grain will have the expected direction.</p>
+<br>
+<p>
+<p><b>Example</b>:</p>
+<br>
+
+<p>Repository piece: 3000 x 2000, grain direction is 
+parallel to the length (3000).</p>
+<br>
+<p>Demand piece: 500 x 600. You want the grain 
+direction to be parallel with the 600 size.</p>
+<br>
+
+<p>The code should be:</p>
+<br>
+
+<p><a href="set_repository_piece.htm">
+SetRepositoryPiece</a>(0, 3000, 2000, 0, 0, 0, 0, 0, 0, 0);</p>
+<br>
+<p><a href="set_demand_piece.htm">SetDemandPiece</a>(0, 
+600, 500, 0, 0, 0);</p>
+<br>
+
+<p><b>See also:</b></p>
+
+<br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="set_demand_piece.htm">SetDemandPiece</a>,
+<a href="set_repository_piece.htm">SetRepositoryPiece</a>.</p>
+
+<br><br>
+<p><b>Links</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.htm">back to index</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.optimalprograms.com">www.optimalprograms.com</a></p>
+</body>
+
+</html>

@@ -1,0 +1,5933 @@
+//FormatVersion 2
+//ComponentVersion 4.0.0 (C# Edition)
+//DEMAND PARTS
+Optimization2DX2->set_NumberOfDemandPieces(1050);
+Optimization2DX2->SetDemandPiece(0, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(1, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(2, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(3, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(4, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(5, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(6, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(7, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(8, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(9, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(10, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(11, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(12, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(13, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(14, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(15, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(16, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(17, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(18, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(19, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(20, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(21, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(22, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(23, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(24, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(25, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(26, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(27, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(28, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(29, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(30, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(31, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(32, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(33, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(34, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(35, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(36, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(37, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(38, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(39, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(40, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(41, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(42, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(43, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(44, 1568, 953, 0, 1, 0);
+Optimization2DX2->SetDemandPiece(45, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(46, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(47, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(48, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(49, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(50, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(51, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(52, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(53, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(54, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(55, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(56, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(57, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(58, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(59, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(60, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(61, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(62, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(63, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(64, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(65, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(66, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(67, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(68, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(69, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(70, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(71, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(72, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(73, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(74, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(75, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(76, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(77, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(78, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(79, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(80, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(81, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(82, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(83, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(84, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(85, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(86, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(87, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(88, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(89, 754, 1008, 0, 2, 0);
+Optimization2DX2->SetDemandPiece(90, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(91, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(92, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(93, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(94, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(95, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(96, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(97, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(98, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(99, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(100, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(101, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(102, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(103, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(104, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(105, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(106, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(107, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(108, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(109, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(110, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(111, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(112, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(113, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(114, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(115, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(116, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(117, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(118, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(119, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(120, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(121, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(122, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(123, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(124, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(125, 1284, 959, 0, 3, 0);
+Optimization2DX2->SetDemandPiece(126, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(127, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(128, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(129, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(130, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(131, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(132, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(133, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(134, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(135, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(136, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(137, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(138, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(139, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(140, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(141, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(142, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(143, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(144, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(145, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(146, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(147, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(148, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(149, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(150, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(151, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(152, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(153, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(154, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(155, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(156, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(157, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(158, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(159, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(160, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(161, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(162, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(163, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(164, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(165, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(166, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(167, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(168, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(169, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(170, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(171, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(172, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(173, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(174, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(175, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(176, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(177, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(178, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(179, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(180, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(181, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(182, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(183, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(184, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(185, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(186, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(187, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(188, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(189, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(190, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(191, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(192, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(193, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(194, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(195, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(196, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(197, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(198, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(199, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(200, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(201, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(202, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(203, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(204, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(205, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(206, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(207, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(208, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(209, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(210, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(211, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(212, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(213, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(214, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(215, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(216, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(217, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(218, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(219, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(220, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(221, 618, 642, 0, 4, 0);
+Optimization2DX2->SetDemandPiece(222, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(223, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(224, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(225, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(226, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(227, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(228, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(229, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(230, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(231, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(232, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(233, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(234, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(235, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(236, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(237, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(238, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(239, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(240, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(241, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(242, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(243, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(244, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(245, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(246, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(247, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(248, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(249, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(250, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(251, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(252, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(253, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(254, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(255, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(256, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(257, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(258, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(259, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(260, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(261, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(262, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(263, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(264, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(265, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(266, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(267, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(268, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(269, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(270, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(271, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(272, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(273, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(274, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(275, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(276, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(277, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(278, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(279, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(280, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(281, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(282, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(283, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(284, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(285, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(286, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(287, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(288, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(289, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(290, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(291, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(292, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(293, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(294, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(295, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(296, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(297, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(298, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(299, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(300, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(301, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(302, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(303, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(304, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(305, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(306, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(307, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(308, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(309, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(310, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(311, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(312, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(313, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(314, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(315, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(316, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(317, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(318, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(319, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(320, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(321, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(322, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(323, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(324, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(325, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(326, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(327, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(328, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(329, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(330, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(331, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(332, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(333, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(334, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(335, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(336, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(337, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(338, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(339, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(340, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(341, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(342, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(343, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(344, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(345, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(346, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(347, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(348, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(349, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(350, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(351, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(352, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(353, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(354, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(355, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(356, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(357, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(358, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(359, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(360, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(361, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(362, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(363, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(364, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(365, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(366, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(367, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(368, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(369, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(370, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(371, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(372, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(373, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(374, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(375, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(376, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(377, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(378, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(379, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(380, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(381, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(382, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(383, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(384, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(385, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(386, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(387, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(388, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(389, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(390, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(391, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(392, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(393, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(394, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(395, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(396, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(397, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(398, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(399, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(400, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(401, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(402, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(403, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(404, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(405, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(406, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(407, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(408, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(409, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(410, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(411, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(412, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(413, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(414, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(415, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(416, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(417, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(418, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(419, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(420, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(421, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(422, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(423, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(424, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(425, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(426, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(427, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(428, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(429, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(430, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(431, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(432, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(433, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(434, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(435, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(436, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(437, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(438, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(439, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(440, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(441, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(442, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(443, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(444, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(445, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(446, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(447, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(448, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(449, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(450, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(451, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(452, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(453, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(454, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(455, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(456, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(457, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(458, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(459, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(460, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(461, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(462, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(463, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(464, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(465, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(466, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(467, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(468, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(469, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(470, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(471, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(472, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(473, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(474, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(475, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(476, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(477, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(478, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(479, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(480, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(481, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(482, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(483, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(484, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(485, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(486, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(487, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(488, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(489, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(490, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(491, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(492, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(493, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(494, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(495, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(496, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(497, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(498, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(499, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(500, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(501, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(502, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(503, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(504, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(505, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(506, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(507, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(508, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(509, 482, 340, 0, 5, 0);
+Optimization2DX2->SetDemandPiece(510, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(511, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(512, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(513, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(514, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(515, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(516, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(517, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(518, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(519, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(520, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(521, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(522, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(523, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(524, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(525, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(526, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(527, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(528, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(529, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(530, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(531, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(532, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(533, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(534, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(535, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(536, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(537, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(538, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(539, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(540, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(541, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(542, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(543, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(544, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(545, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(546, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(547, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(548, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(549, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(550, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(551, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(552, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(553, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(554, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(555, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(556, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(557, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(558, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(559, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(560, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(561, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(562, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(563, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(564, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(565, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(566, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(567, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(568, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(569, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(570, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(571, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(572, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(573, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(574, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(575, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(576, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(577, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(578, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(579, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(580, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(581, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(582, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(583, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(584, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(585, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(586, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(587, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(588, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(589, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(590, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(591, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(592, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(593, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(594, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(595, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(596, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(597, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(598, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(599, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(600, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(601, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(602, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(603, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(604, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(605, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(606, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(607, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(608, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(609, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(610, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(611, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(612, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(613, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(614, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(615, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(616, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(617, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(618, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(619, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(620, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(621, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(622, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(623, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(624, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(625, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(626, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(627, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(628, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(629, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(630, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(631, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(632, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(633, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(634, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(635, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(636, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(637, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(638, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(639, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(640, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(641, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(642, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(643, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(644, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(645, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(646, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(647, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(648, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(649, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(650, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(651, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(652, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(653, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(654, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(655, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(656, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(657, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(658, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(659, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(660, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(661, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(662, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(663, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(664, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(665, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(666, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(667, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(668, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(669, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(670, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(671, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(672, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(673, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(674, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(675, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(676, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(677, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(678, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(679, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(680, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(681, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(682, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(683, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(684, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(685, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(686, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(687, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(688, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(689, 779, 340, 0, 6, 0);
+Optimization2DX2->SetDemandPiece(690, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(691, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(692, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(693, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(694, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(695, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(696, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(697, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(698, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(699, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(700, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(701, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(702, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(703, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(704, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(705, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(706, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(707, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(708, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(709, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(710, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(711, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(712, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(713, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(714, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(715, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(716, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(717, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(718, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(719, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(720, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(721, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(722, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(723, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(724, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(725, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(726, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(727, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(728, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(729, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(730, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(731, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(732, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(733, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(734, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(735, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(736, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(737, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(738, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(739, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(740, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(741, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(742, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(743, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(744, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(745, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(746, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(747, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(748, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(749, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(750, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(751, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(752, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(753, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(754, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(755, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(756, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(757, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(758, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(759, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(760, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(761, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(762, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(763, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(764, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(765, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(766, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(767, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(768, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(769, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(770, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(771, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(772, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(773, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(774, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(775, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(776, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(777, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(778, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(779, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(780, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(781, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(782, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(783, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(784, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(785, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(786, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(787, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(788, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(789, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(790, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(791, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(792, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(793, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(794, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(795, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(796, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(797, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(798, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(799, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(800, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(801, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(802, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(803, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(804, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(805, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(806, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(807, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(808, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(809, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(810, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(811, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(812, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(813, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(814, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(815, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(816, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(817, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(818, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(819, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(820, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(821, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(822, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(823, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(824, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(825, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(826, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(827, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(828, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(829, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(830, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(831, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(832, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(833, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(834, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(835, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(836, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(837, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(838, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(839, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(840, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(841, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(842, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(843, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(844, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(845, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(846, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(847, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(848, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(849, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(850, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(851, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(852, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(853, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(854, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(855, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(856, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(857, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(858, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(859, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(860, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(861, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(862, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(863, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(864, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(865, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(866, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(867, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(868, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(869, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(870, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(871, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(872, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(873, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(874, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(875, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(876, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(877, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(878, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(879, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(880, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(881, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(882, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(883, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(884, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(885, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(886, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(887, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(888, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(889, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(890, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(891, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(892, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(893, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(894, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(895, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(896, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(897, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(898, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(899, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(900, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(901, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(902, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(903, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(904, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(905, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(906, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(907, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(908, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(909, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(910, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(911, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(912, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(913, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(914, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(915, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(916, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(917, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(918, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(919, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(920, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(921, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(922, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(923, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(924, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(925, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(926, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(927, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(928, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(929, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(930, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(931, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(932, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(933, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(934, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(935, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(936, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(937, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(938, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(939, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(940, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(941, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(942, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(943, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(944, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(945, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(946, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(947, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(948, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(949, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(950, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(951, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(952, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(953, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(954, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(955, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(956, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(957, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(958, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(959, 663, 340, 0, 7, 0);
+Optimization2DX2->SetDemandPiece(960, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(961, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(962, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(963, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(964, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(965, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(966, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(967, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(968, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(969, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(970, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(971, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(972, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(973, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(974, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(975, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(976, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(977, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(978, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(979, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(980, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(981, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(982, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(983, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(984, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(985, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(986, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(987, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(988, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(989, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(990, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(991, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(992, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(993, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(994, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(995, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(996, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(997, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(998, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(999, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1000, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1001, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1002, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1003, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1004, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1005, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1006, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1007, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1008, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1009, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1010, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1011, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1012, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1013, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1014, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1015, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1016, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1017, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1018, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1019, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1020, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1021, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1022, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1023, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1024, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1025, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1026, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1027, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1028, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1029, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1030, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1031, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1032, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1033, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1034, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1035, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1036, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1037, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1038, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1039, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1040, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1041, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1042, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1043, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1044, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1045, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1046, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1047, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1048, 650, 340, 0, 8, 0);
+Optimization2DX2->SetDemandPiece(1049, 650, 340, 0, 8, 0);
+//REPOSITORY PARTS
+Optimization2DX2->set_NumberOfRepositoryPieces(163);
+Optimization2DX2->SetRepositoryPiece(0, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(1, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(2, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(3, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(4, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(5, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(6, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(7, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(8, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(9, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(10, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(11, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(12, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(13, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(14, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(15, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(16, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(17, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(18, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(19, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(20, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(21, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(22, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(23, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(24, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(25, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(26, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(27, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(28, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(29, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(30, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(31, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(32, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(33, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(34, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(35, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(36, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(37, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(38, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(39, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(40, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(41, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(42, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(43, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(44, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(45, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(46, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(47, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(48, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(49, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(50, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(51, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(52, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(53, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(54, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(55, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(56, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(57, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(58, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(59, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(60, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(61, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(62, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(63, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(64, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(65, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(66, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(67, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(68, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(69, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(70, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(71, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(72, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(73, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(74, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(75, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(76, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(77, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(78, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(79, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(80, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(81, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(82, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(83, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(84, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(85, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(86, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(87, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(88, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(89, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(90, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(91, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(92, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(93, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(94, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(95, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(96, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(97, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(98, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(99, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(100, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(101, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(102, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(103, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(104, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(105, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(106, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(107, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(108, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(109, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(110, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(111, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(112, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(113, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(114, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(115, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(116, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(117, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(118, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(119, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(120, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(121, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(122, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(123, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(124, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(125, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(126, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(127, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(128, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(129, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(130, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(131, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(132, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(133, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(134, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(135, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(136, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(137, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(138, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(139, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(140, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(141, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(142, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(143, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(144, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(145, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(146, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(147, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(148, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(149, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(150, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(151, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(152, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(153, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(154, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(155, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(156, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(157, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(158, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(159, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(160, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(161, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+Optimization2DX2->SetRepositoryPiece(162, 2440, 1220, 2, 2, 0, 0, 0, 0, 0);
+//PARAMETERS
+Optimization2DX2->set_OptimizationLevel(15);
+Optimization2DX2->set_BladeWidth(3);
+Optimization2DX2->set_RandomSeed(1);
+Optimization2DX2->set_MinimalUsefulSize(100);
+RESULTS
+NumberOfSheets 163
+SheetIndex 0 0 0
+NumberOfPieces 12
+2 2 484 342 0 478 5
+487 2 1266 342 0 679 6
+487 345 1150 685 0 761 7
+487 688 1150 1028 0 910 7
+2 345 484 685 0 452 5
+1269 2 1932 342 0 712 7
+2 688 484 1028 0 341 5
+1935 2 2417 342 0 457 5
+1935 345 2417 685 0 428 5
+1269 345 1932 685 0 920 7
+1269 688 1932 1028 0 919 7
+1935 688 2417 1028 0 449 5
+NumberOfWastes 11
+1153 345 1266 685
+1153 688 1266 1028
+487 1031 1266 1220
+2 1031 484 1220
+2420 2 2440 342
+2420 345 2440 685
+1269 1031 1932 1220
+1935 1031 2417 1220
+2420 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 20
+484 2 484 1220 3 0
+2 342 484 342 3 0
+1266 2 1266 1220 3 0
+487 342 1266 342 3 0
+487 685 1266 685 3 0
+1150 345 1150 685 3 0
+487 1028 1266 1028 3 0
+1150 688 1150 1028 3 0
+2 685 484 685 3 0
+1932 2 1932 1220 3 0
+1269 342 1932 342 3 0
+2 1028 484 1028 3 0
+1935 342 2440 342 3 0
+2417 2 2417 342 3 0
+1935 685 2440 685 3 0
+2417 345 2417 685 3 0
+1269 685 1932 685 3 0
+1269 1028 1932 1028 3 0
+2417 688 2417 1220 3 0
+1935 1028 2417 1028 3 0
+SheetIndex 1 1 0
+NumberOfPieces 7
+2 2 1286 961 0 90 3
+1289 2 1771 342 0 493 5
+1774 2 2256 342 0 325 5
+1289 345 1939 685 0 984 8
+1942 345 2424 685 0 227 5
+1942 688 2424 1028 0 469 5
+1289 688 1939 1028 0 1030 8
+NumberOfWastes 8
+2 964 1286 1220
+2259 2 2440 342
+2427 345 2440 685
+2427 688 2440 1028
+1942 1031 2440 1220
+1289 1031 1939 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1771 2 1771 342 3 0
+2256 2 2256 342 3 0
+1939 345 1939 1220 3 0
+1289 685 1939 685 3 0
+1942 685 2440 685 3 0
+2424 345 2424 685 3 0
+1942 1028 2440 1028 3 0
+2424 688 2424 1028 3 0
+1289 1028 1939 1028 3 0
+SheetIndex 2 2 0
+NumberOfPieces 4
+2 2 1570 955 0 22 1
+1573 2 2223 342 0 1029 8
+1573 345 2223 685 0 1041 8
+1573 688 2055 1028 0 412 5
+NumberOfWastes 7
+2 958 1570 1220
+2226 2 2440 342
+2226 345 2440 1220
+1573 1031 2055 1220
+2058 688 2223 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2223 2 2223 342 3 0
+2223 345 2223 1220 3 0
+1573 685 2223 685 3 0
+2055 688 2055 1220 3 0
+1573 1028 2055 1028 3 0
+SheetIndex 3 3 0
+NumberOfPieces 4
+2 2 1570 955 0 39 1
+1573 2 2236 342 0 888 7
+1573 345 2236 685 0 834 7
+1573 688 2055 1028 0 425 5
+NumberOfWastes 7
+2 958 1570 1220
+2239 2 2440 342
+2239 345 2440 1220
+2058 688 2236 1028
+1573 1031 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+2236 345 2236 1220 3 0
+1573 685 2236 685 3 0
+1573 1028 2236 1028 3 0
+2055 688 2055 1028 3 0
+SheetIndex 4 4 0
+NumberOfPieces 6
+2 2 1286 961 0 112 3
+1289 2 1939 342 0 998 8
+1942 2 2424 342 0 292 5
+1942 345 2424 685 0 247 5
+1289 345 1907 987 0 194 4
+1942 688 2424 1028 0 435 5
+NumberOfWastes 7
+2 964 1286 1220
+2427 2 2440 1220
+1910 345 1939 987
+1289 990 1939 1220
+1942 1031 2424 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1939 2 1939 1220 3 0
+1289 342 1939 342 3 0
+2424 2 2424 1220 3 0
+1942 342 2424 342 3 0
+1942 685 2424 685 3 0
+1289 987 1939 987 3 0
+1907 345 1907 987 3 0
+1942 1028 2424 1028 3 0
+SheetIndex 5 5 0
+NumberOfPieces 10
+2 2 665 342 0 955 7
+2 345 665 685 0 735 7
+2 688 665 1028 0 872 7
+668 2 1331 342 0 936 7
+1334 2 1997 342 0 742 7
+668 345 1331 685 0 764 7
+1334 345 1952 987 0 175 4
+668 688 1331 1028 0 820 7
+1955 345 2437 685 0 321 5
+1955 688 2437 1028 0 406 5
+NumberOfWastes 7
+2 1031 665 1220
+2000 2 2440 342
+1334 990 1952 1220
+668 1031 1331 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+665 2 665 1220 3 0
+2 342 665 342 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+668 342 2440 342 3 0
+1331 2 1331 342 3 0
+1997 2 1997 342 3 0
+1331 345 1331 1220 3 0
+668 685 1331 685 3 0
+1952 345 1952 1220 3 0
+1334 987 1952 987 3 0
+668 1028 1331 1028 3 0
+1955 685 2440 685 3 0
+2437 345 2437 685 3 0
+2437 688 2437 1220 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 6 6 0
+NumberOfPieces 2
+2 2 1286 961 0 101 3
+1289 2 2043 1010 0 86 2
+NumberOfWastes 5
+2 964 1286 1220
+1289 1013 2043 1220
+2046 2 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+2043 2 2043 1220 3 0
+1289 1010 2043 1010 3 0
+SheetIndex 7 7 0
+NumberOfPieces 3
+2 2 756 1010 0 54 2
+759 2 1513 1010 0 48 2
+1516 2 2270 1010 0 57 2
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2273 2 2440 1010
+1516 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 1010 2440 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 8 8 0
+NumberOfPieces 3
+2 2 756 1010 0 46 2
+759 2 1513 1010 0 84 2
+1516 2 2270 1010 0 56 2
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2273 2 2440 1010
+1516 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 1010 2440 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 9 9 0
+NumberOfPieces 3
+2 2 756 1010 0 83 2
+759 2 1513 1010 0 63 2
+1516 2 2270 1010 0 51 2
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2273 2 2440 1010
+1516 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 1010 2440 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 10 10 0
+NumberOfPieces 3
+2 2 756 1010 0 65 2
+759 2 1513 1010 0 79 2
+1516 2 2270 1010 0 81 2
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2273 2 2440 1010
+1516 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 1010 2440 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 11 11 0
+NumberOfPieces 3
+2 2 756 1010 0 66 2
+759 2 1513 1010 0 76 2
+1516 2 2270 1010 0 75 2
+NumberOfWastes 5
+2 1013 756 1220
+759 1013 2440 1220
+2273 2 2440 1010
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 5
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+759 1010 2440 1010 3 0
+1513 2 1513 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 12 12 0
+NumberOfPieces 3
+2 2 756 1010 0 78 2
+759 2 1513 1010 0 67 2
+1516 2 2270 1010 0 68 2
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2273 2 2440 1010
+1516 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 1010 2440 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 13 13 0
+NumberOfPieces 3
+2 2 756 1010 0 64 2
+759 2 1513 1010 0 72 2
+1516 2 2270 1010 0 71 2
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2273 2 2440 1010
+1516 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 1010 2440 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 14 14 0
+NumberOfPieces 9
+2 2 620 644 0 172 4
+623 2 1241 644 0 191 4
+1244 2 1862 644 0 190 4
+1865 2 2347 342 0 315 5
+1865 345 2347 685 0 286 5
+1865 688 2347 1028 0 489 5
+2 647 484 987 0 270 5
+623 647 1105 987 0 506 5
+1244 647 1726 987 0 503 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+1865 1031 2347 1220
+2350 688 2440 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+2347 688 2347 1220 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 15 15 0
+NumberOfPieces 9
+2 2 781 342 0 676 6
+784 2 1563 342 0 672 6
+1566 2 2345 342 0 615 6
+2 345 781 685 0 611 6
+2 688 665 1028 0 787 7
+784 345 1447 685 0 789 7
+1450 345 2113 685 0 800 7
+784 688 1447 1028 0 825 7
+1450 688 2100 1028 0 965 8
+NumberOfWastes 8
+2348 2 2440 342
+2 1031 665 1220
+668 688 781 1220
+2116 345 2440 685
+784 1031 2440 1220
+2103 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+781 345 781 1220 3 0
+2 685 781 685 3 0
+665 688 665 1220 3 0
+2 1028 665 1028 3 0
+784 685 2440 685 3 0
+1447 345 1447 685 3 0
+2113 345 2113 685 3 0
+784 1028 2440 1028 3 0
+1447 688 1447 1028 3 0
+2100 688 2100 1028 3 0
+SheetIndex 16 16 0
+NumberOfPieces 7
+2 2 665 342 0 902 7
+2 345 620 987 0 188 4
+668 2 1286 644 0 187 4
+1289 2 1907 644 0 192 4
+1289 647 2068 987 0 571 6
+1910 2 2392 342 0 289 5
+668 647 1150 987 0 451 5
+NumberOfWastes 10
+623 345 665 987
+2 990 665 1220
+2071 647 2440 987
+1289 990 2440 1220
+1910 345 2392 644
+2395 2 2440 644
+1153 647 1286 987
+668 990 1286 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+665 2 665 1220 3 0
+2 342 665 342 3 0
+2 987 665 987 3 0
+620 345 620 987 3 0
+1286 2 1286 1220 3 0
+668 644 1286 644 3 0
+1289 644 2440 644 3 0
+1907 2 1907 644 3 0
+1289 987 2440 987 3 0
+2068 647 2068 987 3 0
+2392 2 2392 644 3 0
+1910 342 2392 342 3 0
+668 987 1286 987 3 0
+1150 647 1150 987 3 0
+SheetIndex 17 17 0
+NumberOfPieces 9
+2 2 620 644 0 185 4
+623 2 1241 644 0 180 4
+1244 2 1862 644 0 179 4
+1865 2 2347 342 0 296 5
+1865 345 2347 685 0 400 5
+1865 688 2347 1028 0 420 5
+2 647 484 987 0 444 5
+623 647 1105 987 0 282 5
+1244 647 1726 987 0 230 5
+NumberOfWastes 10
+2350 2 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+2347 2 2347 1220 3 0
+1865 342 2347 342 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 18 18 0
+NumberOfPieces 9
+2 2 620 644 0 177 4
+623 2 1241 644 0 176 4
+1244 2 1862 644 0 196 4
+1865 2 2347 342 0 448 5
+1865 345 2347 685 0 416 5
+1865 688 2347 1028 0 468 5
+2 647 484 987 0 284 5
+623 647 1105 987 0 350 5
+1244 647 1726 987 0 326 5
+NumberOfWastes 10
+2350 2 2440 1220
+1865 1031 2347 1220
+2 990 484 1220
+487 647 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+2347 2 2347 1220 3 0
+1865 342 2347 342 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 19 19 0
+NumberOfPieces 9
+2 2 620 644 0 218 4
+623 2 1241 644 0 197 4
+1244 2 1862 644 0 199 4
+1865 2 2347 342 0 358 5
+1865 345 2347 685 0 445 5
+1865 688 2347 1028 0 473 5
+2 647 484 987 0 370 5
+623 647 1105 987 0 307 5
+1244 647 1726 987 0 365 5
+NumberOfWastes 11
+2350 2 2440 342
+2350 345 2440 1220
+1865 1031 2347 1220
+2 990 484 1220
+487 647 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 17
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+2347 345 2347 1220 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 20 20 0
+NumberOfPieces 9
+2 2 620 644 0 207 4
+623 2 1241 644 0 220 4
+1244 2 1862 644 0 200 4
+1865 2 2347 342 0 324 5
+1865 345 2347 685 0 395 5
+1865 688 2347 1028 0 234 5
+2 647 484 987 0 460 5
+623 647 1105 987 0 248 5
+1244 647 1726 987 0 278 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+2350 688 2440 1028
+1865 1031 2440 1220
+2 990 484 1220
+487 647 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+1865 1028 2440 1028 3 0
+2347 688 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 21 21 0
+NumberOfPieces 9
+2 2 620 644 0 216 4
+623 2 1241 644 0 217 4
+1244 2 1862 644 0 211 4
+1865 2 2347 342 0 508 5
+1865 345 2347 685 0 391 5
+1865 688 2347 1028 0 354 5
+2 647 484 987 0 422 5
+623 647 1105 987 0 260 5
+1244 647 1726 987 0 440 5
+NumberOfWastes 11
+2350 2 2440 342
+2350 345 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 17
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+2347 345 2347 1220 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 22 22 0
+NumberOfPieces 9
+2 2 620 644 0 215 4
+623 2 1241 644 0 214 4
+1244 2 1862 644 0 213 4
+1865 2 2347 342 0 232 5
+1865 345 2347 685 0 352 5
+1865 688 2347 1028 0 318 5
+2 647 484 987 0 368 5
+623 647 1105 987 0 280 5
+1244 647 1726 987 0 495 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+2350 688 2440 1028
+1865 1031 2440 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+1865 1028 2440 1028 3 0
+2347 688 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 23 23 0
+NumberOfPieces 9
+2 2 620 644 0 212 4
+623 2 1241 644 0 198 4
+1244 2 1862 644 0 209 4
+1865 2 2347 342 0 402 5
+1865 345 2347 685 0 485 5
+1865 688 2347 1028 0 439 5
+2 647 484 987 0 229 5
+623 647 1105 987 0 314 5
+1244 647 1726 987 0 393 5
+NumberOfWastes 11
+2350 2 2440 342
+2350 345 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 17
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+2347 345 2347 1220 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 24 24 0
+NumberOfPieces 9
+2 2 620 644 0 208 4
+623 2 1241 644 0 206 4
+1244 2 1862 644 0 205 4
+1865 2 2347 342 0 322 5
+1865 345 2347 685 0 498 5
+1865 688 2347 1028 0 377 5
+2 647 484 987 0 383 5
+623 647 1105 987 0 496 5
+1244 647 1726 987 0 499 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+2350 688 2440 1028
+1865 1031 2440 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+1865 1028 2440 1028 3 0
+2347 688 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 25 25 0
+NumberOfPieces 9
+2 2 620 644 0 203 4
+623 2 1241 644 0 201 4
+1244 2 1862 644 0 174 4
+1865 2 2347 342 0 488 5
+1865 345 2347 685 0 237 5
+1865 688 2347 1028 0 407 5
+2 647 484 987 0 293 5
+623 647 1105 987 0 330 5
+1244 647 1726 987 0 479 5
+NumberOfWastes 10
+2350 2 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+2347 2 2347 1220 3 0
+1865 342 2347 342 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 26 26 0
+NumberOfPieces 9
+2 2 620 644 0 210 4
+623 2 1241 644 0 186 4
+1244 2 1862 644 0 162 4
+1865 2 2347 342 0 482 5
+1865 345 2347 685 0 372 5
+1865 688 2347 1028 0 500 5
+2 647 484 987 0 421 5
+623 647 1105 987 0 360 5
+1244 647 1726 987 0 276 5
+NumberOfWastes 10
+2350 2 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+2347 2 2347 1220 3 0
+1865 342 2347 342 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 27 27 0
+NumberOfPieces 9
+2 2 620 644 0 128 4
+623 2 1241 644 0 145 4
+1244 2 1862 644 0 144 4
+1865 2 2347 342 0 294 5
+1865 345 2347 685 0 246 5
+1865 688 2347 1028 0 502 5
+2 647 484 987 0 288 5
+623 647 1105 987 0 415 5
+1244 647 1726 987 0 494 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+1865 1031 2347 1220
+2350 688 2440 1220
+2 990 484 1220
+487 647 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+2347 688 2347 1220 3 0
+1865 1028 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 28 28 0
+NumberOfPieces 9
+2 2 620 644 0 143 4
+623 2 1241 644 0 142 4
+1244 2 1862 644 0 141 4
+1865 2 2347 342 0 467 5
+1865 345 2347 685 0 265 5
+1865 688 2347 1028 0 369 5
+2 647 484 987 0 331 5
+623 647 1105 987 0 475 5
+1244 647 1726 987 0 490 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+2350 688 2440 1028
+1865 1031 2440 1220
+2 990 484 1220
+487 647 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+1865 1028 2440 1028 3 0
+2347 688 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 29 29 0
+NumberOfPieces 9
+2 2 620 644 0 140 4
+623 2 1241 644 0 139 4
+1244 2 1862 644 0 138 4
+1865 2 2347 342 0 355 5
+1865 345 2347 685 0 336 5
+1865 688 2347 1028 0 244 5
+2 647 484 987 0 463 5
+623 647 1105 987 0 312 5
+1244 647 1726 987 0 361 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+2350 688 2440 1028
+1865 1031 2440 1220
+2 990 484 1220
+487 647 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+1865 1028 2440 1028 3 0
+2347 688 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 30 30 0
+NumberOfPieces 9
+2 2 620 644 0 137 4
+623 2 1241 644 0 136 4
+1244 2 1862 644 0 135 4
+1865 2 2347 342 0 310 5
+1865 345 2347 685 0 433 5
+1865 688 2347 1028 0 443 5
+2 647 484 987 0 255 5
+623 647 1105 987 0 471 5
+1244 647 1726 987 0 465 5
+NumberOfWastes 11
+2350 2 2440 342
+2350 345 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 17
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+2347 345 2347 1220 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 31 31 0
+NumberOfPieces 9
+2 2 620 644 0 134 4
+623 2 1241 644 0 133 4
+1244 2 1862 644 0 132 4
+1865 2 2347 342 0 287 5
+1865 345 2347 685 0 413 5
+1865 688 2347 1028 0 252 5
+2 647 484 987 0 302 5
+623 647 1105 987 0 353 5
+1244 647 1726 987 0 464 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+2350 688 2440 1028
+1865 1031 2440 1220
+2 990 484 1220
+487 647 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+1865 1028 2440 1028 3 0
+2347 688 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 32 32 0
+NumberOfPieces 9
+2 2 620 644 0 131 4
+623 2 1241 644 0 130 4
+1244 2 1862 644 0 127 4
+1865 2 2347 342 0 458 5
+1865 345 2347 685 0 309 5
+1865 688 2347 1028 0 373 5
+2 647 484 987 0 349 5
+623 647 1105 987 0 281 5
+1244 647 1726 987 0 409 5
+NumberOfWastes 11
+2350 2 2440 342
+2350 345 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 17
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+2347 345 2347 1220 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 33 33 0
+NumberOfPieces 9
+2 2 620 644 0 126 4
+623 2 1241 644 0 146 4
+1244 2 1862 644 0 147 4
+1865 2 2347 342 0 386 5
+1865 345 2347 685 0 272 5
+1865 688 2347 1028 0 403 5
+2 647 484 987 0 320 5
+623 647 1105 987 0 268 5
+1244 647 1726 987 0 419 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+2350 688 2440 1028
+1865 1031 2440 1220
+487 647 620 987
+2 990 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+1865 1028 2440 1028 3 0
+2347 688 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 34 34 0
+NumberOfPieces 9
+2 2 620 644 0 148 4
+623 2 1241 644 0 129 4
+1244 2 1862 644 0 173 4
+1865 2 2347 342 0 359 5
+1865 345 2347 685 0 311 5
+1865 688 2347 1028 0 491 5
+2 647 484 987 0 388 5
+623 647 1105 987 0 374 5
+1244 647 1726 987 0 301 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+1865 1031 2347 1220
+2350 688 2440 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+2347 688 2347 1220 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 35 35 0
+NumberOfPieces 9
+2 2 620 644 0 149 4
+623 2 1241 644 0 150 4
+1244 2 1862 644 0 170 4
+1865 2 2347 342 0 456 5
+1865 345 2347 685 0 453 5
+1865 688 2347 1028 0 474 5
+2 647 484 987 0 313 5
+623 647 1105 987 0 366 5
+1244 647 1726 987 0 259 5
+NumberOfWastes 10
+2350 2 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+2347 2 2347 1220 3 0
+1865 342 2347 342 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 36 36 0
+NumberOfPieces 9
+2 2 620 644 0 166 4
+623 2 1241 644 0 165 4
+1244 2 1862 644 0 164 4
+1865 2 2347 342 0 470 5
+1865 345 2347 685 0 384 5
+1865 688 2347 1028 0 333 5
+2 647 484 987 0 397 5
+623 647 1105 987 0 267 5
+1244 647 1726 987 0 434 5
+NumberOfWastes 10
+2350 2 2440 1220
+1865 1031 2347 1220
+2 990 484 1220
+487 647 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+2347 2 2347 1220 3 0
+1865 342 2347 342 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 37 37 0
+NumberOfPieces 9
+2 2 620 644 0 163 4
+623 2 1241 644 0 161 4
+1244 2 1862 644 0 169 4
+1865 2 2347 342 0 426 5
+1865 345 2347 685 0 404 5
+1865 688 2347 1028 0 392 5
+2 647 484 987 0 328 5
+623 647 1105 987 0 300 5
+1244 647 1726 987 0 364 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+1865 1031 2347 1220
+2350 688 2440 1220
+2 990 484 1220
+487 647 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+2347 688 2347 1220 3 0
+1865 1028 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 38 38 0
+NumberOfPieces 9
+2 2 620 644 0 159 4
+623 2 1241 644 0 168 4
+1244 2 1862 644 0 151 4
+1865 2 2347 342 0 351 5
+1865 345 2347 685 0 295 5
+1865 688 2347 1028 0 459 5
+2 647 484 987 0 477 5
+623 647 1105 987 0 447 5
+1244 647 1726 987 0 249 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+1865 1031 2347 1220
+2350 688 2440 1220
+487 647 620 987
+2 990 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+2347 688 2347 1220 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 39 39 0
+NumberOfPieces 9
+2 2 620 644 0 160 4
+623 2 1241 644 0 154 4
+1244 2 1862 644 0 158 4
+1865 2 2347 342 0 375 5
+1865 345 2347 685 0 396 5
+1865 688 2347 1028 0 262 5
+2 647 484 987 0 339 5
+623 647 1105 987 0 240 5
+1244 647 1726 987 0 241 5
+NumberOfWastes 10
+2350 2 2440 1220
+1865 1031 2347 1220
+2 990 484 1220
+487 647 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+2347 2 2347 1220 3 0
+1865 342 2347 342 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 40 40 0
+NumberOfPieces 9
+2 2 620 644 0 157 4
+623 2 1241 644 0 156 4
+1244 2 1862 644 0 195 4
+1865 2 2347 342 0 279 5
+1865 345 2347 685 0 405 5
+1865 688 2347 1028 0 429 5
+2 647 484 987 0 345 5
+623 647 1105 987 0 437 5
+1244 647 1726 987 0 492 5
+NumberOfWastes 10
+2350 2 2440 1220
+1865 1031 2347 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1729 647 1862 987
+1244 990 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 16
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+2347 2 2347 1220 3 0
+1865 342 2347 342 3 0
+1865 685 2347 685 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1244 987 1862 987 3 0
+1726 647 1726 987 3 0
+SheetIndex 41 41 0
+NumberOfPieces 9
+2 2 620 644 0 155 4
+623 2 1241 644 0 153 4
+1244 2 1862 644 0 152 4
+1865 2 2347 342 0 454 5
+1865 345 2347 685 0 285 5
+1865 688 2347 1028 0 254 5
+2 647 484 987 0 410 5
+623 647 1105 987 0 236 5
+1244 647 1726 987 0 329 5
+NumberOfWastes 12
+2350 2 2440 342
+2350 345 2440 685
+1865 1031 2347 1220
+2350 688 2440 1220
+487 647 620 987
+2 990 620 1220
+1108 647 1241 987
+623 990 1241 1220
+1244 990 1726 1220
+1729 647 1862 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1862 2 1862 1220 3 0
+1244 644 1862 644 3 0
+1865 342 2440 342 3 0
+2347 2 2347 342 3 0
+1865 685 2440 685 3 0
+2347 345 2347 685 3 0
+2347 688 2347 1220 3 0
+1865 1028 2347 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+623 987 1241 987 3 0
+1105 647 1105 987 3 0
+1726 647 1726 1220 3 0
+1244 987 1726 987 3 0
+SheetIndex 42 42 0
+NumberOfPieces 9
+2 2 781 342 0 576 6
+784 2 1563 342 0 575 6
+1566 2 2345 342 0 574 6
+2 345 781 685 0 562 6
+2 688 781 1028 0 578 6
+784 345 1563 685 0 560 6
+784 688 1563 1028 0 569 6
+1566 345 2345 685 0 565 6
+1566 688 2345 1028 0 588 6
+NumberOfWastes 7
+2348 2 2440 342
+2 1031 781 1220
+784 1031 1563 1220
+2348 345 2440 1220
+1566 1031 2345 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+781 345 781 1220 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+1563 345 1563 1220 3 0
+784 685 1563 685 3 0
+784 1028 1563 1028 3 0
+2345 345 2345 1220 3 0
+1566 685 2345 685 3 0
+1566 1028 2345 1028 3 0
+SheetIndex 43 43 0
+NumberOfPieces 9
+2 2 781 342 0 580 6
+784 2 1563 342 0 598 6
+1566 2 2345 342 0 558 6
+2 345 781 685 0 519 6
+2 688 781 1028 0 597 6
+784 345 1563 685 0 596 6
+1566 345 2345 685 0 595 6
+784 688 1563 1028 0 594 6
+1566 688 2345 1028 0 593 6
+NumberOfWastes 8
+2348 2 2440 342
+2 1031 781 1220
+2348 345 2440 685
+784 1031 1563 1220
+2348 688 2440 1028
+1566 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+781 345 781 1220 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+784 685 2440 685 3 0
+1563 345 1563 685 3 0
+2345 345 2345 685 3 0
+1563 688 1563 1220 3 0
+784 1028 1563 1028 3 0
+1566 1028 2440 1028 3 0
+2345 688 2345 1028 3 0
+SheetIndex 44 44 0
+NumberOfPieces 9
+2 2 781 342 0 592 6
+784 2 1563 342 0 579 6
+1566 2 2345 342 0 591 6
+2 345 781 685 0 589 6
+2 688 781 1028 0 587 6
+784 345 1563 685 0 586 6
+784 688 1563 1028 0 585 6
+1566 345 2345 685 0 584 6
+1566 688 2345 1028 0 583 6
+NumberOfWastes 7
+2348 2 2440 342
+2 1031 781 1220
+784 1031 1563 1220
+2348 345 2440 1220
+1566 1031 2345 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+781 345 781 1220 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+1563 345 1563 1220 3 0
+784 685 1563 685 3 0
+784 1028 1563 1028 3 0
+2345 345 2345 1220 3 0
+1566 685 2345 685 3 0
+1566 1028 2345 1028 3 0
+SheetIndex 45 45 0
+NumberOfPieces 9
+2 2 781 342 0 582 6
+2 345 781 685 0 581 6
+2 688 781 1028 0 590 6
+784 2 1563 342 0 557 6
+784 345 1563 685 0 533 6
+784 688 1563 1028 0 555 6
+1566 2 2345 342 0 531 6
+1566 345 2345 685 0 530 6
+1566 688 2345 1028 0 528 6
+NumberOfWastes 6
+2 1031 781 1220
+784 1031 1563 1220
+2348 2 2440 1220
+1566 1031 2345 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+1563 2 1563 1220 3 0
+784 342 1563 342 3 0
+784 685 1563 685 3 0
+784 1028 1563 1028 3 0
+2345 2 2345 1220 3 0
+1566 342 2345 342 3 0
+1566 685 2345 685 3 0
+1566 1028 2345 1028 3 0
+SheetIndex 46 46 0
+NumberOfPieces 8
+2 2 620 644 0 171 4
+623 2 1402 342 0 527 6
+623 345 1402 685 0 526 6
+623 688 1402 1028 0 525 6
+1405 2 2184 342 0 523 6
+1405 345 2184 685 0 522 6
+1405 688 2184 1028 0 521 6
+2 647 484 987 0 476 5
+NumberOfWastes 8
+623 1031 1402 1220
+2187 2 2440 342
+2187 345 2440 1220
+1405 1031 2184 1220
+487 647 620 987
+2 990 620 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1402 2 1402 1220 3 0
+623 342 1402 342 3 0
+623 685 1402 685 3 0
+623 1028 1402 1028 3 0
+1405 342 2440 342 3 0
+2184 2 2184 342 3 0
+2184 345 2184 1220 3 0
+1405 685 2184 685 3 0
+1405 1028 2184 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+SheetIndex 47 47 0
+NumberOfPieces 9
+2 2 781 342 0 520 6
+2 345 781 685 0 518 6
+2 688 781 1028 0 517 6
+784 2 1563 342 0 516 6
+784 345 1563 685 0 515 6
+784 688 1563 1028 0 512 6
+1566 2 2345 342 0 556 6
+1566 345 2345 685 0 599 6
+1566 688 2345 1028 0 535 6
+NumberOfWastes 6
+2 1031 781 1220
+784 1031 1563 1220
+2348 2 2440 1220
+1566 1031 2345 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+1563 2 1563 1220 3 0
+784 342 1563 342 3 0
+784 685 1563 685 3 0
+784 1028 1563 1028 3 0
+2345 2 2345 1220 3 0
+1566 342 2345 342 3 0
+1566 685 2345 685 3 0
+1566 1028 2345 1028 3 0
+SheetIndex 48 48 0
+NumberOfPieces 9
+2 2 781 342 0 554 6
+2 345 781 685 0 553 6
+2 688 781 1028 0 551 6
+784 2 1563 342 0 550 6
+1566 2 2345 342 0 549 6
+784 345 1563 685 0 548 6
+1566 345 2345 685 0 547 6
+784 688 1563 1028 0 543 6
+1566 688 2345 1028 0 542 6
+NumberOfWastes 8
+2 1031 781 1220
+2348 2 2440 342
+2348 345 2440 685
+784 1031 1563 1220
+1566 1031 2345 1220
+2348 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+784 342 2440 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+784 685 2440 685 3 0
+1563 345 1563 685 3 0
+2345 345 2345 685 3 0
+1563 688 1563 1220 3 0
+784 1028 1563 1028 3 0
+2345 688 2345 1220 3 0
+1566 1028 2345 1028 3 0
+SheetIndex 49 49 0
+NumberOfPieces 9
+2 2 781 342 0 540 6
+784 2 1563 342 0 539 6
+1566 2 2345 342 0 538 6
+2 345 781 685 0 537 6
+784 345 1563 685 0 536 6
+1566 345 2345 685 0 534 6
+2 688 781 1028 0 600 6
+784 688 1563 1028 0 624 6
+1566 688 2345 1028 0 602 6
+NumberOfWastes 6
+2348 2 2440 342
+2348 345 2440 685
+2 1031 2440 1220
+2348 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+2 685 2440 685 3 0
+781 345 781 685 3 0
+1563 345 1563 685 3 0
+2345 345 2345 685 3 0
+2 1028 2440 1028 3 0
+781 688 781 1028 3 0
+1563 688 1563 1028 3 0
+2345 688 2345 1028 3 0
+SheetIndex 50 50 0
+NumberOfPieces 9
+2 2 781 342 0 667 6
+784 2 1563 342 0 666 6
+1566 2 2345 342 0 664 6
+2 345 781 685 0 663 6
+2 688 781 1028 0 662 6
+784 345 1563 685 0 661 6
+784 688 1563 1028 0 660 6
+1566 345 2345 685 0 668 6
+1566 688 2345 1028 0 659 6
+NumberOfWastes 8
+2348 2 2440 342
+2 1031 781 1220
+784 1031 1563 1220
+2348 345 2440 685
+1566 1031 2345 1220
+2348 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+781 345 781 1220 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+1563 345 1563 1220 3 0
+784 685 1563 685 3 0
+784 1028 1563 1028 3 0
+1566 685 2440 685 3 0
+2345 345 2345 685 3 0
+2345 688 2345 1220 3 0
+1566 1028 2345 1028 3 0
+SheetIndex 51 51 0
+NumberOfPieces 9
+2 2 781 342 0 657 6
+784 2 1563 342 0 656 6
+1566 2 2345 342 0 655 6
+2 345 781 685 0 654 6
+784 345 1563 685 0 653 6
+1566 345 2345 685 0 652 6
+2 688 781 1028 0 651 6
+784 688 1563 1028 0 650 6
+1566 688 2345 1028 0 658 6
+NumberOfWastes 8
+2348 2 2440 342
+2348 345 2440 685
+2 1031 781 1220
+784 1031 1563 1220
+2348 688 2440 1028
+1566 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+2 685 2440 685 3 0
+781 345 781 685 3 0
+1563 345 1563 685 3 0
+2345 345 2345 685 3 0
+781 688 781 1220 3 0
+2 1028 781 1028 3 0
+1563 688 1563 1220 3 0
+784 1028 1563 1028 3 0
+1566 1028 2440 1028 3 0
+2345 688 2345 1028 3 0
+SheetIndex 52 52 0
+NumberOfPieces 9
+2 2 781 342 0 669 6
+2 345 781 685 0 670 6
+2 688 781 1028 0 671 6
+784 2 1563 342 0 511 6
+784 345 1447 685 0 877 7
+1566 2 2345 342 0 524 6
+784 688 1434 1028 0 1033 8
+1566 345 2216 685 0 969 8
+1566 688 2216 1028 0 1006 8
+NumberOfWastes 9
+2 1031 781 1220
+1450 345 1563 1220
+2348 2 2440 1220
+784 1031 1434 1220
+1437 688 1447 1220
+2219 345 2345 1220
+1566 1031 2216 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 15
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+1563 2 1563 1220 3 0
+784 342 1563 342 3 0
+1447 345 1447 1220 3 0
+784 685 1447 685 3 0
+2345 2 2345 1220 3 0
+1566 342 2345 342 3 0
+1434 688 1434 1220 3 0
+784 1028 1434 1028 3 0
+2216 345 2216 1220 3 0
+1566 685 2216 685 3 0
+1566 1028 2216 1028 3 0
+SheetIndex 53 53 0
+NumberOfPieces 7
+2 2 1286 961 0 123 3
+1289 2 1952 342 0 819 7
+1289 345 1952 685 0 767 7
+1289 688 1952 1028 0 713 7
+1955 2 2437 342 0 224 5
+1955 345 2437 685 0 398 5
+1955 688 2437 1028 0 446 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1289 1028 1952 1028 3 0
+1955 342 2440 342 3 0
+2437 2 2437 342 3 0
+1955 685 2440 685 3 0
+2437 345 2437 685 3 0
+1955 1028 2440 1028 3 0
+2437 688 2437 1028 3 0
+SheetIndex 54 54 0
+NumberOfPieces 7
+2 2 1286 961 0 109 3
+1289 2 1952 342 0 785 7
+1289 345 1952 685 0 883 7
+1289 688 1952 1028 0 817 7
+1955 2 2437 342 0 297 5
+1955 345 2437 685 0 441 5
+1955 688 2437 1028 0 258 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1952 345 1952 1220 3 0
+1289 685 1952 685 3 0
+1289 1028 1952 1028 3 0
+2437 2 2437 342 3 0
+1955 685 2440 685 3 0
+2437 345 2437 685 3 0
+1955 1028 2440 1028 3 0
+2437 688 2437 1028 3 0
+SheetIndex 55 55 0
+NumberOfPieces 4
+2 2 1570 955 0 30 1
+1573 2 2223 342 0 1013 8
+1573 345 2236 685 0 937 7
+1573 688 2352 1028 0 682 6
+NumberOfWastes 7
+2 958 1570 1220
+2226 2 2440 342
+2239 345 2440 685
+1573 1031 2352 1220
+2355 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2223 2 2223 342 3 0
+1573 685 2440 685 3 0
+2236 345 2236 685 3 0
+2352 688 2352 1220 3 0
+1573 1028 2352 1028 3 0
+SheetIndex 56 56 0
+NumberOfPieces 9
+2 2 781 342 0 613 6
+2 345 665 685 0 714 7
+2 688 665 1028 0 870 7
+784 2 1447 342 0 773 7
+1450 2 2113 342 0 721 7
+784 345 1447 685 0 731 7
+1450 345 2229 685 0 644 6
+784 688 1447 1028 0 943 7
+1450 688 2113 1028 0 792 7
+NumberOfWastes 9
+668 345 781 1220
+2 1031 665 1220
+2116 2 2440 342
+2232 345 2440 1220
+784 1031 1447 1220
+1450 1031 2113 1220
+2116 688 2229 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 15
+781 2 781 1220 3 0
+2 342 781 342 3 0
+665 345 665 1220 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+784 342 2440 342 3 0
+1447 2 1447 342 3 0
+2113 2 2113 342 3 0
+1447 345 1447 1220 3 0
+784 685 1447 685 3 0
+2229 345 2229 1220 3 0
+1450 685 2229 685 3 0
+784 1028 1447 1028 3 0
+2113 688 2113 1220 3 0
+1450 1028 2113 1028 3 0
+SheetIndex 57 57 0
+NumberOfPieces 9
+2 2 781 342 0 649 6
+2 345 781 685 0 683 6
+2 688 781 1028 0 618 6
+784 2 1563 342 0 604 6
+784 345 1447 685 0 836 7
+784 688 1447 1028 0 796 7
+1566 2 2345 342 0 688 6
+1566 345 2216 685 0 1027 8
+1566 688 2229 1028 0 860 7
+NumberOfWastes 9
+2 1031 781 1220
+1450 345 1563 1220
+784 1031 1447 1220
+2348 2 2440 1220
+2219 345 2345 685
+2232 688 2345 1028
+1566 1031 2345 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 15
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+1563 2 1563 1220 3 0
+784 342 1563 342 3 0
+1447 345 1447 1220 3 0
+784 685 1447 685 3 0
+784 1028 1447 1028 3 0
+2345 2 2345 1220 3 0
+1566 342 2345 342 3 0
+1566 685 2345 685 3 0
+2216 345 2216 685 3 0
+1566 1028 2345 1028 3 0
+2229 688 2229 1028 3 0
+SheetIndex 58 58 0
+NumberOfPieces 2
+2 2 1570 955 0 10 1
+1573 2 2327 1010 0 89 2
+NumberOfWastes 5
+2 958 1570 1220
+2330 2 2440 1010
+1573 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 1010 2440 1010 3 0
+2327 2 2327 1010 3 0
+SheetIndex 59 59 0
+NumberOfPieces 4
+2 2 1570 955 0 44 1
+1573 2 2236 342 0 775 7
+1573 345 2236 685 0 738 7
+1573 688 2236 1028 0 696 7
+NumberOfWastes 5
+2 958 1570 1220
+2239 2 2440 1220
+1573 1031 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+2236 2 2236 1220 3 0
+1573 342 2236 342 3 0
+1573 685 2236 685 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 60 60 0
+NumberOfPieces 4
+2 2 1286 961 0 116 3
+1289 2 2068 342 0 641 6
+1289 345 1952 685 0 805 7
+1289 688 1952 1028 0 857 7
+NumberOfWastes 7
+2 964 1286 1220
+2071 2 2440 1220
+1955 345 2068 685
+1289 1031 1952 1220
+1955 688 2068 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+2068 2 2068 1220 3 0
+1289 342 2068 342 3 0
+1289 685 2068 685 3 0
+1952 345 1952 685 3 0
+1952 688 1952 1220 3 0
+1289 1028 1952 1028 3 0
+SheetIndex 61 61 0
+NumberOfPieces 4
+2 2 1570 955 0 24 1
+1573 2 2236 342 0 815 7
+1573 345 2352 685 0 639 6
+1573 688 2352 1028 0 620 6
+NumberOfWastes 7
+2 958 1570 1220
+2239 2 2440 342
+2355 345 2440 685
+1573 1031 2352 1220
+2355 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+1573 685 2440 685 3 0
+2352 345 2352 685 3 0
+2352 688 2352 1220 3 0
+1573 1028 2352 1028 3 0
+SheetIndex 62 62 0
+NumberOfPieces 9
+2 2 665 342 0 854 7
+668 2 1447 342 0 601 6
+1450 2 2113 342 0 809 7
+2 345 665 685 0 856 7
+668 345 1447 685 0 643 6
+1450 345 2229 685 0 636 6
+668 688 1447 1028 0 685 6
+2 688 665 1028 0 801 7
+1450 688 2113 1028 0 816 7
+NumberOfWastes 7
+2116 2 2440 342
+2232 345 2440 685
+668 1031 2440 1220
+2 1031 665 1220
+2116 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+2 342 2440 342 3 0
+665 2 665 342 3 0
+1447 2 1447 342 3 0
+2113 2 2113 342 3 0
+665 345 665 1220 3 0
+2 685 665 685 3 0
+668 685 2440 685 3 0
+1447 345 1447 685 3 0
+2229 345 2229 685 3 0
+668 1028 2440 1028 3 0
+1447 688 1447 1028 3 0
+2 1028 665 1028 3 0
+2113 688 2113 1028 3 0
+SheetIndex 63 63 0
+NumberOfPieces 9
+2 2 781 342 0 546 6
+2 345 665 685 0 803 7
+2 688 781 1028 0 605 6
+784 2 1563 342 0 610 6
+784 345 1563 685 0 648 6
+784 688 1447 1028 0 855 7
+1566 2 2229 342 0 861 7
+1566 345 2229 685 0 851 7
+1566 688 2229 1028 0 824 7
+NumberOfWastes 8
+668 345 781 685
+2 1031 781 1220
+784 1031 1447 1220
+1450 688 1563 1220
+2232 2 2440 1220
+1566 1031 2229 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+665 345 665 685 3 0
+2 1028 781 1028 3 0
+1563 2 1563 1220 3 0
+784 342 1563 342 3 0
+784 685 1563 685 3 0
+1447 688 1447 1220 3 0
+784 1028 1447 1028 3 0
+2229 2 2229 1220 3 0
+1566 342 2229 342 3 0
+1566 685 2229 685 3 0
+1566 1028 2229 1028 3 0
+SheetIndex 64 64 0
+NumberOfPieces 9
+2 2 781 342 0 629 6
+2 345 781 685 0 631 6
+2 688 781 1028 0 646 6
+784 2 1563 342 0 630 6
+1566 2 2345 342 0 623 6
+784 345 1563 685 0 689 6
+784 688 1563 1028 0 680 6
+1566 345 2345 685 0 617 6
+1566 688 2229 1028 0 692 7
+NumberOfWastes 8
+2 1031 781 1220
+2348 2 2440 342
+784 1031 1563 1220
+2348 345 2440 685
+2232 688 2440 1028
+1566 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+784 342 2440 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+1563 345 1563 1220 3 0
+784 685 1563 685 3 0
+784 1028 1563 1028 3 0
+1566 685 2440 685 3 0
+2345 345 2345 685 3 0
+1566 1028 2440 1028 3 0
+2229 688 2229 1028 3 0
+SheetIndex 65 65 0
+NumberOfPieces 4
+2 2 1570 955 0 12 1
+1573 2 2236 342 0 704 7
+1573 345 2352 685 0 545 6
+1573 688 2236 1028 0 921 7
+NumberOfWastes 7
+2 958 1570 1220
+2239 2 2440 342
+2355 345 2440 1220
+1573 1031 2236 1220
+2239 688 2352 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+2352 345 2352 1220 3 0
+1573 685 2352 685 3 0
+2236 688 2236 1220 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 66 66 0
+NumberOfPieces 9
+2 2 665 342 0 875 7
+2 345 665 685 0 799 7
+668 2 1447 342 0 606 6
+2 688 665 1028 0 812 7
+668 345 1331 685 0 845 7
+668 688 1331 1028 0 813 7
+1450 2 2113 342 0 835 7
+1450 345 2100 685 0 981 8
+1450 688 2100 1028 0 1048 8
+NumberOfWastes 8
+2 1031 665 1220
+1334 345 1447 1220
+668 1031 1331 1220
+2116 2 2440 1220
+2103 345 2113 1220
+1450 1031 2100 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+665 2 665 1220 3 0
+2 342 665 342 3 0
+2 685 665 685 3 0
+1447 2 1447 1220 3 0
+668 342 1447 342 3 0
+2 1028 665 1028 3 0
+1331 345 1331 1220 3 0
+668 685 1331 685 3 0
+668 1028 1331 1028 3 0
+2113 2 2113 1220 3 0
+1450 342 2113 342 3 0
+2100 345 2100 1220 3 0
+1450 685 2100 685 3 0
+1450 1028 2100 1028 3 0
+SheetIndex 67 67 0
+NumberOfPieces 7
+2 2 1286 961 0 106 3
+1289 2 1952 342 0 743 7
+1289 345 1952 685 0 728 7
+1289 688 1952 1028 0 871 7
+1955 2 2437 342 0 356 5
+1955 345 2437 685 0 484 5
+1955 688 2437 1028 0 306 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1289 1028 1952 1028 3 0
+1955 342 2440 342 3 0
+2437 2 2437 342 3 0
+1955 685 2440 685 3 0
+2437 345 2437 685 3 0
+1955 1028 2440 1028 3 0
+2437 688 2437 1028 3 0
+SheetIndex 68 68 0
+NumberOfPieces 9
+2 2 781 342 0 632 6
+784 2 1447 342 0 924 7
+1450 2 2113 342 0 810 7
+2 345 665 685 0 725 7
+668 345 1331 685 0 826 7
+1334 345 1984 685 0 1042 8
+2 688 665 1028 0 784 7
+668 688 1447 1028 0 687 6
+1450 688 2229 1028 0 625 6
+NumberOfWastes 7
+2116 2 2440 342
+1987 345 2440 685
+2 1031 665 1220
+668 1031 2440 1220
+2232 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1447 2 1447 342 3 0
+2113 2 2113 342 3 0
+2 685 2440 685 3 0
+665 345 665 685 3 0
+1331 345 1331 685 3 0
+1984 345 1984 685 3 0
+665 688 665 1220 3 0
+2 1028 665 1028 3 0
+668 1028 2440 1028 3 0
+1447 688 1447 1028 3 0
+2229 688 2229 1028 3 0
+SheetIndex 69 69 0
+NumberOfPieces 9
+2 2 665 342 0 823 7
+2 345 665 685 0 791 7
+668 2 1447 342 0 627 6
+1450 2 2229 342 0 635 6
+2 688 665 1028 0 807 7
+668 345 1331 685 0 790 7
+668 688 1331 1028 0 788 7
+1334 345 2113 685 0 607 6
+1334 688 1997 1028 0 786 7
+NumberOfWastes 8
+2232 2 2440 342
+2 1031 665 1220
+668 1031 1331 1220
+2116 345 2440 1220
+1334 1031 1997 1220
+2000 688 2113 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+665 2 665 1220 3 0
+2 342 665 342 3 0
+2 685 665 685 3 0
+668 342 2440 342 3 0
+1447 2 1447 342 3 0
+2229 2 2229 342 3 0
+2 1028 665 1028 3 0
+1331 345 1331 1220 3 0
+668 685 1331 685 3 0
+668 1028 1331 1028 3 0
+2113 345 2113 1220 3 0
+1334 685 2113 685 3 0
+1997 688 1997 1220 3 0
+1334 1028 1997 1028 3 0
+SheetIndex 70 70 0
+NumberOfPieces 6
+2 2 1286 961 0 93 3
+1289 2 1952 342 0 722 7
+1289 345 2068 685 0 510 6
+1289 688 1952 1028 0 756 7
+1955 2 2437 342 0 264 5
+1955 688 2437 1028 0 275 5
+NumberOfWastes 6
+2 964 1286 1220
+2071 345 2440 685
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1289 685 2440 685 3 0
+2068 345 2068 685 3 0
+1952 688 1952 1220 3 0
+1289 1028 1952 1028 3 0
+2437 2 2437 342 3 0
+2437 688 2437 1220 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 71 71 0
+NumberOfPieces 9
+2 2 665 342 0 794 7
+668 2 1331 342 0 839 7
+2 345 620 987 0 202 4
+1334 2 2113 342 0 637 6
+623 345 1402 685 0 612 6
+1405 345 2068 685 0 873 7
+623 688 1286 1028 0 909 7
+1289 688 1952 1028 0 774 7
+1955 688 2437 1028 0 347 5
+NumberOfWastes 6
+2 990 620 1220
+2116 2 2440 342
+2071 345 2440 685
+623 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+2 342 2440 342 3 0
+665 2 665 342 3 0
+1331 2 1331 342 3 0
+620 345 620 1220 3 0
+2 987 620 987 3 0
+2113 2 2113 342 3 0
+623 685 2440 685 3 0
+1402 345 1402 685 3 0
+2068 345 2068 685 3 0
+623 1028 2440 1028 3 0
+1286 688 1286 1028 3 0
+1952 688 1952 1028 3 0
+2437 688 2437 1028 3 0
+SheetIndex 72 72 0
+NumberOfPieces 10
+2 2 620 644 0 219 4
+623 2 1241 644 0 178 4
+1244 2 1907 342 0 866 7
+1244 345 1907 685 0 859 7
+1244 688 1907 1028 0 848 7
+1910 2 2392 342 0 316 5
+1910 345 2392 685 0 323 5
+1910 688 2392 1028 0 504 5
+2 647 484 987 0 411 5
+623 647 1105 987 0 462 5
+NumberOfWastes 11
+1244 1031 1907 1220
+2395 2 2440 342
+2395 345 2440 685
+1910 1031 2392 1220
+2395 688 2440 1220
+487 647 620 987
+2 990 620 1220
+623 990 1105 1220
+1108 647 1241 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1241 2 1241 1220 3 0
+623 644 1241 644 3 0
+1907 2 1907 1220 3 0
+1244 342 1907 342 3 0
+1244 685 1907 685 3 0
+1244 1028 1907 1028 3 0
+1910 342 2440 342 3 0
+2392 2 2392 342 3 0
+1910 685 2440 685 3 0
+2392 345 2392 685 3 0
+2392 688 2392 1220 3 0
+1910 1028 2392 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+1105 647 1105 1220 3 0
+623 987 1105 987 3 0
+SheetIndex 73 73 0
+NumberOfPieces 9
+2 2 665 342 0 847 7
+668 2 1331 342 0 846 7
+1334 2 2113 342 0 561 6
+2 345 665 685 0 828 7
+2 688 665 1028 0 829 7
+668 345 1331 685 0 952 7
+668 688 1331 1028 0 706 7
+1334 345 1997 685 0 880 7
+1334 688 1984 1028 0 1000 8
+NumberOfWastes 8
+2116 2 2440 342
+2 1031 665 1220
+668 1031 1331 1220
+2000 345 2440 685
+1987 688 2440 1028
+1334 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+2 342 2440 342 3 0
+665 2 665 342 3 0
+1331 2 1331 342 3 0
+2113 2 2113 342 3 0
+665 345 665 1220 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+1331 345 1331 1220 3 0
+668 685 1331 685 3 0
+668 1028 1331 1028 3 0
+1334 685 2440 685 3 0
+1997 345 1997 685 3 0
+1334 1028 2440 1028 3 0
+1984 688 1984 1028 3 0
+SheetIndex 74 74 0
+NumberOfPieces 6
+2 2 756 1010 0 88 2
+759 2 1422 342 0 752 7
+1425 2 2075 342 0 1049 8
+759 345 1409 685 0 1012 8
+1412 345 2030 987 0 181 4
+759 688 1409 1028 0 976 8
+NumberOfWastes 7
+2 1013 756 1220
+2078 2 2440 342
+1412 990 2030 1220
+2033 345 2440 1220
+759 1031 1409 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+759 342 2440 342 3 0
+1422 2 1422 342 3 0
+2075 2 2075 342 3 0
+1409 345 1409 1220 3 0
+759 685 1409 685 3 0
+2030 345 2030 1220 3 0
+1412 987 2030 987 3 0
+759 1028 1409 1028 3 0
+SheetIndex 75 75 0
+NumberOfPieces 5
+2 2 1286 961 0 98 3
+1289 2 1907 644 0 167 4
+1289 647 1952 987 0 900 7
+1955 647 2437 987 0 225 5
+1910 2 2392 342 0 507 5
+NumberOfWastes 6
+2 964 1286 1220
+1289 990 2440 1220
+2395 2 2440 342
+1910 345 2440 644
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 9
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 644 2440 644 3 0
+1907 2 1907 644 3 0
+1289 987 2440 987 3 0
+1952 647 1952 987 3 0
+2437 647 2437 987 3 0
+1910 342 2440 342 3 0
+2392 2 2392 342 3 0
+SheetIndex 76 76 0
+NumberOfPieces 2
+2 2 1286 961 0 113 3
+1289 2 2043 1010 0 45 2
+NumberOfWastes 5
+2 964 1286 1220
+1289 1013 2043 1220
+2046 2 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+2043 2 2043 1220 3 0
+1289 1010 2043 1010 3 0
+SheetIndex 77 77 0
+NumberOfPieces 7
+2 2 1286 961 0 96 3
+1289 2 1952 342 0 934 7
+1289 345 1952 685 0 932 7
+1289 688 1952 1028 0 954 7
+1955 2 2437 342 0 438 5
+1955 345 2437 685 0 233 5
+1955 688 2437 1028 0 367 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1289 1028 1952 1028 3 0
+2437 2 2437 1220 3 0
+1955 342 2437 342 3 0
+1955 685 2437 685 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 78 78 0
+NumberOfPieces 7
+2 2 756 1010 0 52 2
+759 2 1409 342 0 1037 8
+1412 2 2075 342 0 841 7
+759 345 1422 685 0 739 7
+1425 345 2075 685 0 978 8
+759 688 1409 1028 0 995 8
+1412 688 2062 1028 0 1043 8
+NumberOfWastes 8
+2 1013 756 1220
+2078 2 2440 342
+2078 345 2440 685
+759 1031 1409 1220
+1412 1031 2062 1220
+2065 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+759 342 2440 342 3 0
+1409 2 1409 342 3 0
+2075 2 2075 342 3 0
+759 685 2440 685 3 0
+1422 345 1422 685 3 0
+2075 345 2075 685 3 0
+1409 688 1409 1220 3 0
+759 1028 1409 1028 3 0
+2062 688 2062 1220 3 0
+1412 1028 2062 1028 3 0
+SheetIndex 79 79 0
+NumberOfPieces 2
+2 2 756 1010 0 74 2
+759 2 2327 955 0 2 1
+NumberOfWastes 5
+2 1013 2440 1220
+759 958 2327 1010
+2330 2 2440 1010
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+2 1010 2440 1010 3 0
+756 2 756 1010 3 0
+2327 2 2327 1010 3 0
+759 955 2327 955 3 0
+SheetIndex 80 80 0
+NumberOfPieces 3
+2 2 756 1010 0 59 2
+759 2 1513 1010 0 50 2
+1516 2 2270 1010 0 53 2
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2273 2 2440 1010
+1516 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 1010 2440 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 81 81 0
+NumberOfPieces 11
+2 2 620 644 0 183 4
+623 2 1286 342 0 710 7
+1289 2 1952 342 0 736 7
+623 345 1286 685 0 778 7
+623 688 1286 1028 0 741 7
+1289 345 1952 685 0 907 7
+1289 688 1952 1028 0 942 7
+1955 2 2437 342 0 346 5
+1955 345 2437 685 0 223 5
+1955 688 2437 1028 0 357 5
+2 647 484 987 0 423 5
+NumberOfWastes 6
+623 1031 1286 1220
+1289 1031 2440 1220
+487 647 620 987
+2 990 620 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 17
+620 2 620 1220 3 0
+2 644 620 644 3 0
+623 342 2440 342 3 0
+1286 2 1286 342 3 0
+1952 2 1952 342 3 0
+1286 345 1286 1220 3 0
+623 685 1286 685 3 0
+623 1028 1286 1028 3 0
+1289 685 2440 685 3 0
+1952 345 1952 685 3 0
+1289 1028 2440 1028 3 0
+1952 688 1952 1028 3 0
+2437 2 2437 342 3 0
+2437 345 2437 685 3 0
+2437 688 2437 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+SheetIndex 82 82 0
+NumberOfPieces 3
+2 2 756 1010 0 60 2
+759 2 1513 1010 0 73 2
+1516 2 2270 1010 0 70 2
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2273 2 2440 1010
+1516 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 1010 2440 1010 3 0
+2270 2 2270 1010 3 0
+SheetIndex 83 83 0
+NumberOfPieces 2
+2 2 1570 955 0 3 1
+1573 2 2327 1010 0 77 2
+NumberOfWastes 5
+2 958 1570 1220
+2330 2 2440 1010
+1573 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 1010 2440 1010 3 0
+2327 2 2327 1010 3 0
+SheetIndex 84 84 0
+NumberOfPieces 2
+2 2 756 1010 0 85 2
+759 2 2327 955 0 4 1
+NumberOfWastes 5
+2 1013 2440 1220
+759 958 2327 1010
+2330 2 2440 1010
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+2 1010 2440 1010 3 0
+756 2 756 1010 3 0
+2327 2 2327 1010 3 0
+759 955 2327 955 3 0
+SheetIndex 85 85 0
+NumberOfPieces 4
+2 2 1570 955 0 37 1
+1573 2 2352 342 0 681 6
+1573 345 2352 685 0 638 6
+1573 688 2236 1028 0 832 7
+NumberOfWastes 7
+2 958 1570 1220
+2355 2 2440 342
+2355 345 2440 685
+1573 1031 2236 1220
+2239 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2352 2 2352 342 3 0
+1573 685 2440 685 3 0
+2352 345 2352 685 3 0
+2236 688 2236 1220 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 86 86 0
+NumberOfPieces 4
+2 2 1570 955 0 18 1
+1573 2 2236 342 0 763 7
+1573 345 2236 685 0 772 7
+1573 688 2236 1028 0 944 7
+NumberOfWastes 5
+2 958 1570 1220
+2239 2 2440 1220
+1573 1031 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+2236 2 2236 1220 3 0
+1573 342 2236 342 3 0
+1573 685 2236 685 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 87 87 0
+NumberOfPieces 11
+2 2 620 644 0 193 4
+623 2 1286 342 0 874 7
+1289 2 1952 342 0 925 7
+623 345 1273 685 0 1032 8
+1276 345 1939 685 0 945 7
+623 688 1273 1028 0 987 8
+1276 688 1939 1028 0 938 7
+1955 2 2437 342 0 427 5
+1942 345 2424 685 0 222 5
+1942 688 2424 1028 0 497 5
+2 647 484 987 0 304 5
+NumberOfWastes 9
+623 1031 1273 1220
+1276 1031 1939 1220
+2427 345 2440 685
+2427 688 2440 1028
+1942 1031 2440 1220
+2 990 484 1220
+487 647 620 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 18
+620 2 620 1220 3 0
+2 644 620 644 3 0
+623 342 2440 342 3 0
+1286 2 1286 342 3 0
+1952 2 1952 342 3 0
+623 685 2440 685 3 0
+1273 345 1273 685 3 0
+1939 345 1939 685 3 0
+1273 688 1273 1220 3 0
+623 1028 1273 1028 3 0
+1939 688 1939 1220 3 0
+1276 1028 1939 1028 3 0
+2437 2 2437 342 3 0
+2424 345 2424 685 3 0
+1942 1028 2440 1028 3 0
+2424 688 2424 1028 3 0
+484 647 484 1220 3 0
+2 987 484 987 3 0
+SheetIndex 88 88 0
+NumberOfPieces 2
+2 2 1570 955 0 6 1
+1573 2 2327 1010 0 61 2
+NumberOfWastes 5
+2 958 1570 1220
+2330 2 2440 1010
+1573 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 1010 2440 1010 3 0
+2327 2 2327 1010 3 0
+SheetIndex 89 89 0
+NumberOfPieces 4
+2 2 1570 955 0 20 1
+1573 2 2236 342 0 893 7
+1573 345 2236 685 0 702 7
+1573 688 2236 1028 0 889 7
+NumberOfWastes 5
+2 958 1570 1220
+2239 2 2440 1220
+1573 1031 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+2236 2 2236 1220 3 0
+1573 342 2236 342 3 0
+1573 685 2236 685 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 90 90 0
+NumberOfPieces 5
+2 2 756 1010 0 55 2
+759 2 1513 1010 0 87 2
+1516 2 2179 342 0 918 7
+1516 345 2179 685 0 833 7
+1516 688 2179 1028 0 928 7
+NumberOfWastes 8
+2 1013 756 1220
+759 1013 1513 1220
+2182 2 2440 342
+2182 345 2440 685
+1516 1031 2179 1220
+2182 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+1516 342 2440 342 3 0
+2179 2 2179 342 3 0
+1516 685 2440 685 3 0
+2179 345 2179 685 3 0
+2179 688 2179 1220 3 0
+1516 1028 2179 1028 3 0
+SheetIndex 91 91 0
+NumberOfPieces 2
+2 2 756 1010 0 69 2
+759 2 2327 955 0 36 1
+NumberOfWastes 5
+2 1013 756 1220
+2330 2 2440 955
+759 958 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+759 955 2440 955 3 0
+2327 2 2327 955 3 0
+SheetIndex 92 92 0
+NumberOfPieces 10
+2 2 620 644 0 184 4
+623 2 1286 342 0 782 7
+623 345 1286 685 0 927 7
+623 688 1273 1028 0 1007 8
+1289 2 1952 342 0 698 7
+1289 345 1907 987 0 189 4
+1955 2 2437 342 0 274 5
+1955 345 2437 685 0 251 5
+1955 688 2437 1028 0 399 5
+2 647 484 987 0 432 5
+NumberOfWastes 9
+1276 688 1286 1028
+623 1031 1286 1220
+1910 345 1952 987
+1289 990 1952 1220
+1955 1031 2440 1220
+487 647 620 987
+2 990 620 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 19
+620 2 620 1220 3 0
+2 644 620 644 3 0
+1286 2 1286 1220 3 0
+623 342 1286 342 3 0
+623 685 1286 685 3 0
+623 1028 1286 1028 3 0
+1273 688 1273 1028 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 987 1952 987 3 0
+1907 345 1907 987 3 0
+1955 342 2440 342 3 0
+2437 2 2437 342 3 0
+1955 685 2440 685 3 0
+2437 345 2437 685 3 0
+1955 1028 2440 1028 3 0
+2437 688 2437 1028 3 0
+2 987 620 987 3 0
+484 647 484 987 3 0
+SheetIndex 93 93 0
+NumberOfPieces 7
+2 2 1286 961 0 111 3
+1289 2 1939 342 0 966 8
+1289 345 1939 685 0 996 8
+1289 688 1939 1028 0 1004 8
+1942 2 2424 342 0 442 5
+1942 345 2424 685 0 273 5
+1942 688 2424 1028 0 389 5
+NumberOfWastes 6
+2 964 1286 1220
+1289 1031 1939 1220
+2427 2 2440 1220
+1942 1031 2424 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1939 2 1939 1220 3 0
+1289 342 1939 342 3 0
+1289 685 1939 685 3 0
+1289 1028 1939 1028 3 0
+2424 2 2424 1220 3 0
+1942 342 2424 342 3 0
+1942 685 2424 685 3 0
+1942 1028 2424 1028 3 0
+SheetIndex 94 94 0
+NumberOfPieces 7
+2 2 1286 961 0 107 3
+1289 2 1952 342 0 758 7
+1289 345 1952 685 0 693 7
+1289 688 1952 1028 0 949 7
+1955 2 2437 342 0 269 5
+1955 345 2437 685 0 291 5
+1955 688 2437 1028 0 363 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1289 1028 1952 1028 3 0
+2437 2 2437 1220 3 0
+1955 342 2437 342 3 0
+1955 685 2437 685 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 95 95 0
+NumberOfPieces 4
+2 2 1570 955 0 11 1
+1573 2 2236 342 0 887 7
+1573 345 2236 685 0 734 7
+1573 688 2236 1028 0 751 7
+NumberOfWastes 6
+2 958 1570 1220
+2239 2 2440 342
+2239 345 2440 1220
+1573 1031 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 7
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+2236 345 2236 1220 3 0
+1573 685 2236 685 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 96 96 0
+NumberOfPieces 7
+2 2 1286 961 0 94 3
+1289 2 1952 342 0 711 7
+1289 345 1939 685 0 1015 8
+1289 688 1952 1028 0 707 7
+1955 2 2437 342 0 261 5
+1955 345 2437 685 0 450 5
+1955 688 2437 1028 0 480 5
+NumberOfWastes 6
+2 964 1286 1220
+1942 345 1952 685
+1289 1031 1952 1220
+1955 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1939 345 1939 685 3 0
+1289 1028 1952 1028 3 0
+1955 342 2440 342 3 0
+2437 2 2437 342 3 0
+1955 685 2440 685 3 0
+2437 345 2437 685 3 0
+1955 1028 2440 1028 3 0
+2437 688 2437 1028 3 0
+SheetIndex 97 97 0
+NumberOfPieces 7
+2 2 1286 961 0 91 3
+1289 2 1952 342 0 868 7
+1289 345 1939 685 0 1040 8
+1289 688 1952 1028 0 844 7
+1955 2 2437 342 0 378 5
+1955 345 2437 685 0 385 5
+1955 688 2437 1028 0 271 5
+NumberOfWastes 6
+2 964 1286 1220
+1942 345 1952 685
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1939 345 1939 685 3 0
+1289 1028 1952 1028 3 0
+1955 342 2440 342 3 0
+2437 2 2437 342 3 0
+1955 685 2440 685 3 0
+2437 345 2437 685 3 0
+2437 688 2437 1220 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 98 98 0
+NumberOfPieces 4
+2 2 1570 955 0 34 1
+1573 2 2236 342 0 740 7
+1573 345 2236 685 0 694 7
+1573 688 2223 1028 0 963 8
+NumberOfWastes 7
+2 958 1570 1220
+2239 2 2440 342
+2239 345 2440 1220
+2226 688 2236 1028
+1573 1031 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+2236 345 2236 1220 3 0
+1573 685 2236 685 3 0
+1573 1028 2236 1028 3 0
+2223 688 2223 1028 3 0
+SheetIndex 99 99 0
+NumberOfPieces 7
+2 2 665 342 0 727 7
+668 2 1952 961 0 100 3
+2 345 652 685 0 974 8
+2 688 652 1028 0 1024 8
+1955 2 2437 342 0 290 5
+1955 345 2437 685 0 501 5
+1955 688 2437 1028 0 431 5
+NumberOfWastes 7
+668 964 1952 1220
+655 345 665 685
+655 688 665 1028
+2 1031 665 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+665 2 665 1220 3 0
+2 342 665 342 3 0
+1952 2 1952 1220 3 0
+668 961 1952 961 3 0
+2 685 665 685 3 0
+652 345 652 685 3 0
+2 1028 665 1028 3 0
+652 688 652 1028 3 0
+2437 2 2437 1220 3 0
+1955 342 2437 342 3 0
+1955 685 2437 685 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 100 100 0
+NumberOfPieces 9
+2 2 652 342 0 1038 8
+655 2 1318 342 0 916 7
+1321 2 1984 342 0 885 7
+2 345 665 685 0 719 7
+2 688 665 1028 0 905 7
+668 345 1331 685 0 700 7
+1334 345 1997 685 0 917 7
+668 688 1331 1028 0 818 7
+1334 688 1997 1028 0 703 7
+NumberOfWastes 8
+1987 2 2440 342
+2 1031 665 1220
+2000 345 2440 685
+668 1031 1331 1220
+2000 688 2440 1028
+1334 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+2 342 2440 342 3 0
+652 2 652 342 3 0
+1318 2 1318 342 3 0
+1984 2 1984 342 3 0
+665 345 665 1220 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+668 685 2440 685 3 0
+1331 345 1331 685 3 0
+1997 345 1997 685 3 0
+1331 688 1331 1220 3 0
+668 1028 1331 1028 3 0
+1334 1028 2440 1028 3 0
+1997 688 1997 1028 3 0
+SheetIndex 101 101 0
+NumberOfPieces 5
+2 2 1286 961 0 104 3
+1289 2 2068 342 0 677 6
+1289 345 1907 987 0 221 4
+1910 345 2392 685 0 298 5
+1910 688 2392 1028 0 319 5
+NumberOfWastes 8
+2 964 1286 1220
+2071 2 2440 342
+1289 990 1907 1220
+2395 345 2440 685
+2395 688 2440 1028
+1910 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+2068 2 2068 342 3 0
+1907 345 1907 1220 3 0
+1289 987 1907 987 3 0
+1910 685 2440 685 3 0
+2392 345 2392 685 3 0
+1910 1028 2440 1028 3 0
+2392 688 2392 1028 3 0
+SheetIndex 102 102 0
+NumberOfPieces 3
+2 2 1570 955 0 31 1
+1573 2 2236 342 0 793 7
+1573 345 2236 685 0 837 7
+NumberOfWastes 5
+2 958 2440 1220
+2239 2 2440 955
+1573 688 2236 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 5
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+2236 2 2236 955 3 0
+1573 342 2236 342 3 0
+1573 685 2236 685 3 0
+SheetIndex 103 103 0
+NumberOfPieces 2
+2 2 1570 955 0 29 1
+1573 2 2191 644 0 204 4
+NumberOfWastes 5
+2 958 2440 1220
+2194 2 2440 644
+1573 647 2440 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+1573 644 2440 644 3 0
+2191 2 2191 644 3 0
+SheetIndex 104 104 0
+NumberOfPieces 2
+2 2 1570 955 0 41 1
+1573 2 2327 1010 0 47 2
+NumberOfWastes 5
+2 958 1570 1220
+2330 2 2440 1010
+1573 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 1010 2440 1010 3 0
+2327 2 2327 1010 3 0
+SheetIndex 105 105 0
+NumberOfPieces 5
+2 2 756 1010 0 80 2
+759 2 1513 1010 0 49 2
+1516 2 2295 342 0 628 6
+1516 345 2295 685 0 573 6
+1516 688 2295 1028 0 572 6
+NumberOfWastes 6
+2 1013 756 1220
+759 1013 1513 1220
+2298 2 2440 1220
+1516 1031 2295 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+1513 2 1513 1220 3 0
+759 1010 1513 1010 3 0
+2295 2 2295 1220 3 0
+1516 342 2295 342 3 0
+1516 685 2295 685 3 0
+1516 1028 2295 1028 3 0
+SheetIndex 106 106 0
+NumberOfPieces 9
+2 2 781 342 0 577 6
+784 2 1563 342 0 564 6
+1566 2 2345 342 0 568 6
+2 345 781 685 0 566 6
+784 345 1563 685 0 563 6
+1566 345 2345 685 0 570 6
+2 688 781 1028 0 559 6
+784 688 1447 1028 0 724 7
+1450 688 2100 1028 0 991 8
+NumberOfWastes 6
+2348 2 2440 342
+2348 345 2440 685
+2 1031 2440 1220
+2103 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1563 2 1563 342 3 0
+2345 2 2345 342 3 0
+2 685 2440 685 3 0
+781 345 781 685 3 0
+1563 345 1563 685 3 0
+2345 345 2345 685 3 0
+2 1028 2440 1028 3 0
+781 688 781 1028 3 0
+1447 688 1447 1028 3 0
+2100 688 2100 1028 3 0
+SheetIndex 107 107 0
+NumberOfPieces 7
+2 2 1286 961 0 108 3
+1289 2 1939 342 0 1046 8
+1289 345 1939 685 0 977 8
+1289 688 1939 1028 0 971 8
+1942 2 2424 342 0 486 5
+1942 345 2424 685 0 238 5
+1942 688 2424 1028 0 387 5
+NumberOfWastes 6
+2 964 1286 1220
+1289 1031 1939 1220
+2427 2 2440 1220
+1942 1031 2424 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1939 2 1939 1220 3 0
+1289 342 1939 342 3 0
+1289 685 1939 685 3 0
+1289 1028 1939 1028 3 0
+2424 2 2424 1220 3 0
+1942 342 2424 342 3 0
+1942 685 2424 685 3 0
+1942 1028 2424 1028 3 0
+SheetIndex 108 108 0
+NumberOfPieces 7
+2 2 1286 961 0 119 3
+1289 2 1952 342 0 814 7
+1289 345 1952 685 0 821 7
+1289 688 1952 1028 0 864 7
+1955 2 2437 342 0 305 5
+1955 345 2437 685 0 327 5
+1955 688 2437 1028 0 299 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1289 1028 1952 1028 3 0
+1955 342 2440 342 3 0
+2437 2 2437 342 3 0
+2437 345 2437 1220 3 0
+1955 685 2437 685 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 109 109 0
+NumberOfPieces 2
+2 2 1570 955 0 43 1
+1573 2 2327 1010 0 62 2
+NumberOfWastes 5
+2 958 1570 1220
+2330 2 2440 1010
+1573 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 1010 2440 1010 3 0
+2327 2 2327 1010 3 0
+SheetIndex 110 110 0
+NumberOfPieces 9
+2 2 665 342 0 865 7
+668 2 1318 342 0 1021 8
+1321 2 1984 342 0 896 7
+2 345 652 685 0 1018 8
+655 345 1318 685 0 899 7
+1321 345 1984 685 0 908 7
+2 688 665 1028 0 771 7
+668 688 1331 1028 0 904 7
+1334 688 1984 1028 0 1020 8
+NumberOfWastes 7
+1987 2 2440 342
+1987 345 2440 685
+2 1031 665 1220
+668 1031 2440 1220
+1987 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 13
+2 342 2440 342 3 0
+665 2 665 342 3 0
+1318 2 1318 342 3 0
+1984 2 1984 342 3 0
+2 685 2440 685 3 0
+652 345 652 685 3 0
+1318 345 1318 685 3 0
+1984 345 1984 685 3 0
+665 688 665 1220 3 0
+2 1028 665 1028 3 0
+668 1028 2440 1028 3 0
+1331 688 1331 1028 3 0
+1984 688 1984 1028 3 0
+SheetIndex 111 111 0
+NumberOfPieces 3
+2 2 1570 955 0 14 1
+1573 2 2223 342 0 972 8
+1573 345 2223 685 0 1016 8
+NumberOfWastes 5
+2 958 2440 1220
+2226 2 2440 955
+1573 688 2223 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 5
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+2223 2 2223 955 3 0
+1573 342 2223 342 3 0
+1573 685 2223 685 3 0
+SheetIndex 112 112 0
+NumberOfPieces 9
+2 2 781 342 0 567 6
+2 345 652 685 0 968 8
+2 688 665 1028 0 867 7
+784 2 1447 342 0 830 7
+784 345 1434 685 0 1008 8
+784 688 1434 1028 0 1031 8
+1450 2 2113 342 0 723 7
+1450 345 2113 685 0 754 7
+1450 688 2100 1028 0 975 8
+NumberOfWastes 11
+655 345 781 685
+2 1031 665 1220
+668 688 781 1220
+1437 345 1447 1220
+784 1031 1434 1220
+2116 2 2440 342
+2116 345 2440 685
+1450 1031 2100 1220
+2103 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 17
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+652 345 652 685 3 0
+665 688 665 1220 3 0
+2 1028 665 1028 3 0
+1447 2 1447 1220 3 0
+784 342 1447 342 3 0
+1434 345 1434 1220 3 0
+784 685 1434 685 3 0
+784 1028 1434 1028 3 0
+1450 342 2440 342 3 0
+2113 2 2113 342 3 0
+1450 685 2440 685 3 0
+2113 345 2113 685 3 0
+2100 688 2100 1220 3 0
+1450 1028 2100 1028 3 0
+SheetIndex 113 113 0
+NumberOfPieces 3
+2 2 1570 955 0 9 1
+1573 2 2236 342 0 947 7
+1573 345 2236 685 0 827 7
+NumberOfWastes 5
+2 958 2440 1220
+2239 2 2440 955
+1573 688 2236 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 5
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+2236 2 2236 955 3 0
+1573 342 2236 342 3 0
+1573 685 2236 685 3 0
+SheetIndex 114 114 0
+NumberOfPieces 4
+2 2 1570 955 0 23 1
+1573 2 2236 342 0 759 7
+1573 345 2236 685 0 760 7
+1573 688 2223 1028 0 961 8
+NumberOfWastes 7
+2 958 1570 1220
+2239 2 2440 342
+2239 345 2440 1220
+1573 1031 2223 1220
+2226 688 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+2236 345 2236 1220 3 0
+1573 685 2236 685 3 0
+2223 688 2223 1220 3 0
+1573 1028 2223 1028 3 0
+SheetIndex 115 115 0
+NumberOfPieces 7
+2 2 1286 961 0 92 3
+1289 2 1939 342 0 1011 8
+1289 345 1939 685 0 999 8
+1289 688 1939 1028 0 1002 8
+1942 2 2424 342 0 481 5
+1942 345 2424 685 0 277 5
+1942 688 2424 1028 0 283 5
+NumberOfWastes 7
+2 964 1286 1220
+1289 1031 1939 1220
+2427 2 2440 342
+2427 345 2440 1220
+1942 1031 2424 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1939 2 1939 342 3 0
+1939 345 1939 1220 3 0
+1289 685 1939 685 3 0
+1289 1028 1939 1028 3 0
+2424 2 2424 342 3 0
+2424 345 2424 1220 3 0
+1942 685 2424 685 3 0
+1942 1028 2424 1028 3 0
+SheetIndex 116 116 0
+NumberOfPieces 9
+2 2 665 342 0 842 7
+668 2 1331 342 0 745 7
+1334 2 1997 342 0 843 7
+2 345 665 685 0 718 7
+2 688 652 1028 0 1039 8
+668 345 1331 685 0 780 7
+1334 345 1997 685 0 732 7
+668 688 1331 1028 0 715 7
+1334 688 1997 1028 0 717 7
+NumberOfWastes 9
+2000 2 2440 342
+655 688 665 1028
+2 1031 665 1220
+2000 345 2440 685
+668 1031 1331 1220
+1334 1031 1997 1220
+2000 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 15
+2 342 2440 342 3 0
+665 2 665 342 3 0
+1331 2 1331 342 3 0
+1997 2 1997 342 3 0
+665 345 665 1220 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+652 688 652 1028 3 0
+668 685 2440 685 3 0
+1331 345 1331 685 3 0
+1997 345 1997 685 3 0
+1331 688 1331 1220 3 0
+668 1028 1331 1028 3 0
+1997 688 1997 1220 3 0
+1334 1028 1997 1028 3 0
+SheetIndex 117 117 0
+NumberOfPieces 4
+2 2 1570 955 0 40 1
+1573 2 2236 342 0 926 7
+1573 345 2236 685 0 762 7
+1573 688 2223 1028 0 1010 8
+NumberOfWastes 7
+2 958 1570 1220
+2239 2 2440 342
+2239 345 2440 685
+2226 688 2440 1028
+1573 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+1573 685 2440 685 3 0
+2236 345 2236 685 3 0
+1573 1028 2440 1028 3 0
+2223 688 2223 1028 3 0
+SheetIndex 118 118 0
+NumberOfPieces 7
+2 2 1286 961 0 122 3
+1289 2 1952 342 0 690 7
+1289 345 1952 685 0 779 7
+1289 688 1939 1028 0 993 8
+1955 2 2437 342 0 487 5
+1955 345 2437 685 0 317 5
+1955 688 2437 1028 0 303 5
+NumberOfWastes 6
+2 964 1286 1220
+1942 688 1952 1028
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1289 1028 1952 1028 3 0
+1939 688 1939 1028 3 0
+2437 2 2437 1220 3 0
+1955 342 2437 342 3 0
+1955 685 2437 685 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 119 119 0
+NumberOfPieces 4
+2 2 1570 955 0 0 1
+1573 2 2223 342 0 960 8
+1573 345 2223 685 0 989 8
+1573 688 2236 1028 0 709 7
+NumberOfWastes 7
+2 958 1570 1220
+2226 2 2440 342
+2226 345 2440 685
+2239 688 2440 1028
+1573 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2223 2 2223 342 3 0
+1573 685 2440 685 3 0
+2223 345 2223 685 3 0
+1573 1028 2440 1028 3 0
+2236 688 2236 1028 3 0
+SheetIndex 120 120 0
+NumberOfPieces 2
+2 2 756 1010 0 58 2
+759 2 2327 955 0 25 1
+NumberOfWastes 5
+2 1013 756 1220
+2330 2 2440 955
+759 958 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+756 2 756 1220 3 0
+2 1010 756 1010 3 0
+759 955 2440 955 3 0
+2327 2 2327 955 3 0
+SheetIndex 121 121 0
+NumberOfPieces 7
+2 2 1286 961 0 125 3
+1289 2 1952 342 0 914 7
+1289 345 1952 685 0 701 7
+1289 688 1952 1028 0 720 7
+1955 2 2437 342 0 263 5
+1955 345 2437 685 0 231 5
+1955 688 2437 1028 0 342 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1289 685 2440 685 3 0
+1952 345 1952 685 3 0
+1952 688 1952 1220 3 0
+1289 1028 1952 1028 3 0
+2437 2 2437 342 3 0
+2437 345 2437 685 3 0
+1955 1028 2440 1028 3 0
+2437 688 2437 1028 3 0
+SheetIndex 122 122 0
+NumberOfPieces 7
+2 2 665 342 0 862 7
+2 345 665 685 0 901 7
+2 688 665 1028 0 748 7
+668 2 1952 961 0 117 3
+1955 2 2437 342 0 245 5
+1955 345 2437 685 0 509 5
+1955 688 2437 1028 0 379 5
+NumberOfWastes 5
+2 1031 665 1220
+668 964 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+665 2 665 1220 3 0
+2 342 665 342 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+1952 2 1952 1220 3 0
+668 961 1952 961 3 0
+1955 342 2440 342 3 0
+2437 2 2437 342 3 0
+2437 345 2437 1220 3 0
+1955 685 2437 685 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 123 123 0
+NumberOfPieces 9
+2 2 665 342 0 831 7
+2 345 665 685 0 753 7
+2 688 665 1028 0 697 7
+668 2 1331 342 0 863 7
+668 345 1331 685 0 755 7
+668 688 1331 1028 0 959 7
+1334 2 1997 342 0 923 7
+1334 345 2113 685 0 674 6
+1334 688 1997 1028 0 929 7
+NumberOfWastes 8
+2 1031 665 1220
+668 1031 1331 1220
+2000 2 2440 342
+2116 345 2440 1220
+1334 1031 1997 1220
+2000 688 2113 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+665 2 665 1220 3 0
+2 342 665 342 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+1331 2 1331 1220 3 0
+668 342 1331 342 3 0
+668 685 1331 685 3 0
+668 1028 1331 1028 3 0
+1334 342 2440 342 3 0
+1997 2 1997 342 3 0
+2113 345 2113 1220 3 0
+1334 685 2113 685 3 0
+1997 688 1997 1220 3 0
+1334 1028 1997 1028 3 0
+SheetIndex 124 124 0
+NumberOfPieces 4
+2 2 1570 955 0 15 1
+1573 2 2223 342 0 1035 8
+1573 345 2223 685 0 1044 8
+1573 688 2236 1028 0 956 7
+NumberOfWastes 7
+2 958 1570 1220
+2226 2 2440 342
+2226 345 2440 685
+2239 688 2440 1028
+1573 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2223 2 2223 342 3 0
+1573 685 2440 685 3 0
+2223 345 2223 685 3 0
+1573 1028 2440 1028 3 0
+2236 688 2236 1028 3 0
+SheetIndex 125 125 0
+NumberOfPieces 4
+2 2 1570 955 0 35 1
+1573 2 2223 342 0 1023 8
+1573 345 2236 685 0 769 7
+1573 688 2236 1028 0 797 7
+NumberOfWastes 7
+2 958 1570 1220
+2226 2 2440 342
+2239 345 2440 685
+2239 688 2440 1028
+1573 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2223 2 2223 342 3 0
+1573 685 2440 685 3 0
+2236 345 2236 685 3 0
+1573 1028 2440 1028 3 0
+2236 688 2236 1028 3 0
+SheetIndex 126 126 0
+NumberOfPieces 2
+2 2 1570 955 0 8 1
+1573 2 2327 1010 0 82 2
+NumberOfWastes 5
+2 958 1570 1220
+2330 2 2440 1010
+1573 1013 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 4
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 1010 2440 1010 3 0
+2327 2 2327 1010 3 0
+SheetIndex 127 127 0
+NumberOfPieces 4
+2 2 1570 955 0 38 1
+1573 2 2352 342 0 665 6
+1573 345 2352 685 0 621 6
+1573 688 2236 1028 0 876 7
+NumberOfWastes 7
+2 958 1570 1220
+2355 2 2440 342
+2355 345 2440 685
+1573 1031 2236 1220
+2239 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2352 2 2352 342 3 0
+1573 685 2440 685 3 0
+2352 345 2352 685 3 0
+2236 688 2236 1220 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 128 128 0
+NumberOfPieces 4
+2 2 1570 955 0 32 1
+1573 2 2236 342 0 946 7
+1573 345 2236 685 0 915 7
+1573 688 2236 1028 0 737 7
+NumberOfWastes 7
+2 958 1570 1220
+2239 2 2440 342
+2239 345 2440 685
+2239 688 2440 1028
+1573 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+1573 685 2440 685 3 0
+2236 345 2236 685 3 0
+1573 1028 2440 1028 3 0
+2236 688 2236 1028 3 0
+SheetIndex 129 129 0
+NumberOfPieces 4
+2 2 1570 955 0 33 1
+1573 2 2223 342 0 1005 8
+1573 345 2236 685 0 948 7
+1573 688 2223 1028 0 990 8
+NumberOfWastes 7
+2 958 1570 1220
+2226 2 2440 342
+2239 345 2440 685
+2226 688 2440 1028
+1573 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2223 2 2223 342 3 0
+1573 685 2440 685 3 0
+2236 345 2236 685 3 0
+1573 1028 2440 1028 3 0
+2223 688 2223 1028 3 0
+SheetIndex 130 130 0
+NumberOfPieces 4
+2 2 1570 955 0 42 1
+1573 2 2236 342 0 838 7
+1573 345 2236 685 0 878 7
+1573 688 2236 1028 0 768 7
+NumberOfWastes 6
+2 958 1570 1220
+2239 2 2440 342
+2239 345 2440 1220
+1573 1031 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 7
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+2236 345 2236 1220 3 0
+1573 685 2236 685 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 131 131 0
+NumberOfPieces 7
+2 2 1286 961 0 95 3
+1289 2 1952 342 0 750 7
+1289 345 1952 685 0 747 7
+1289 688 1939 1028 0 1017 8
+1955 2 2437 342 0 472 5
+1955 345 2437 685 0 455 5
+1955 688 2437 1028 0 362 5
+NumberOfWastes 6
+2 964 1286 1220
+1289 1031 1939 1220
+1942 688 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+1939 688 1939 1220 3 0
+1289 1028 1939 1028 3 0
+2437 2 2437 1220 3 0
+1955 342 2437 342 3 0
+1955 685 2437 685 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 132 132 0
+NumberOfPieces 5
+2 2 1286 961 0 97 3
+1289 2 1907 644 0 182 4
+1289 647 1952 987 0 933 7
+1955 647 2437 987 0 418 5
+1910 2 2392 342 0 335 5
+NumberOfWastes 6
+2 964 1286 1220
+1289 990 2440 1220
+2395 2 2440 342
+1910 345 2440 644
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 9
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 644 2440 644 3 0
+1907 2 1907 644 3 0
+1289 987 2440 987 3 0
+1952 647 1952 987 3 0
+2437 647 2437 987 3 0
+1910 342 2440 342 3 0
+2392 2 2392 342 3 0
+SheetIndex 133 133 0
+NumberOfPieces 3
+2 2 1570 955 0 5 1
+1573 2 2236 342 0 957 7
+1573 345 2223 685 0 1047 8
+NumberOfWastes 6
+2 958 2440 1220
+2239 2 2440 955
+1573 688 2223 955
+2226 345 2236 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+2236 2 2236 955 3 0
+1573 342 2236 342 3 0
+2223 345 2223 955 3 0
+1573 685 2223 685 3 0
+SheetIndex 134 134 0
+NumberOfPieces 7
+2 2 1286 961 0 121 3
+1289 2 1952 342 0 911 7
+1289 345 1939 685 0 1001 8
+1289 688 1939 1028 0 983 8
+1955 2 2437 342 0 380 5
+1942 345 2424 685 0 424 5
+1942 688 2424 1028 0 242 5
+NumberOfWastes 7
+2 964 1286 1220
+1289 1031 1939 1220
+2427 345 2440 685
+2427 688 2440 1028
+1942 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1939 345 1939 1220 3 0
+1289 685 1939 685 3 0
+1289 1028 1939 1028 3 0
+2437 2 2437 342 3 0
+1942 685 2440 685 3 0
+2424 345 2424 685 3 0
+1942 1028 2440 1028 3 0
+2424 688 2424 1028 3 0
+SheetIndex 135 135 0
+NumberOfPieces 7
+2 2 1286 961 0 102 3
+1289 2 1952 342 0 884 7
+1289 345 1952 685 0 891 7
+1289 688 1939 1028 0 1028 8
+1955 2 2437 342 0 340 5
+1955 345 2437 685 0 235 5
+1942 688 2424 1028 0 436 5
+NumberOfWastes 6
+2 964 1286 1220
+1289 1031 1939 1220
+1942 1031 2424 1220
+2427 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1289 685 2440 685 3 0
+1952 345 1952 685 3 0
+1939 688 1939 1220 3 0
+1289 1028 1939 1028 3 0
+2437 2 2437 342 3 0
+2437 345 2437 685 3 0
+2424 688 2424 1220 3 0
+1942 1028 2424 1028 3 0
+SheetIndex 136 136 0
+NumberOfPieces 7
+2 2 1286 961 0 99 3
+1289 2 1952 342 0 716 7
+1289 345 1952 685 0 951 7
+1289 688 1939 1028 0 994 8
+1955 2 2437 342 0 381 5
+1955 345 2437 685 0 308 5
+1942 688 2424 1028 0 401 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 2440 1220
+2427 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1289 685 2440 685 3 0
+1952 345 1952 685 3 0
+1289 1028 2440 1028 3 0
+1939 688 1939 1028 3 0
+2437 2 2437 342 3 0
+2437 345 2437 685 3 0
+2424 688 2424 1028 3 0
+SheetIndex 137 137 0
+NumberOfPieces 7
+2 2 1286 961 0 118 3
+1289 2 1952 342 0 705 7
+1289 345 1952 685 0 691 7
+1289 688 1939 1028 0 1026 8
+1955 2 2437 342 0 239 5
+1955 345 2437 685 0 394 5
+1942 688 2424 1028 0 250 5
+NumberOfWastes 6
+2 964 1286 1220
+1289 1031 1939 1220
+2427 688 2440 1028
+1942 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1289 685 2440 685 3 0
+1952 345 1952 685 3 0
+1939 688 1939 1220 3 0
+1289 1028 1939 1028 3 0
+2437 2 2437 342 3 0
+2437 345 2437 685 3 0
+1942 1028 2440 1028 3 0
+2424 688 2424 1028 3 0
+SheetIndex 138 138 0
+NumberOfPieces 6
+2 2 1286 961 0 114 3
+1289 2 1952 342 0 886 7
+1289 345 2068 685 0 673 6
+1289 688 1952 1028 0 757 7
+1955 2 2437 342 0 371 5
+1955 688 2437 1028 0 417 5
+NumberOfWastes 6
+2 964 1286 1220
+2071 345 2440 685
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1289 685 2440 685 3 0
+2068 345 2068 685 3 0
+1952 688 1952 1220 3 0
+1289 1028 1952 1028 3 0
+2437 2 2437 342 3 0
+2437 688 2437 1220 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 139 139 0
+NumberOfPieces 4
+2 2 1570 955 0 7 1
+1573 2 2236 342 0 849 7
+1573 345 2236 685 0 804 7
+1573 688 2223 1028 0 1009 8
+NumberOfWastes 6
+2 958 1570 1220
+2239 2 2440 1220
+1573 1031 2223 1220
+2226 688 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 7
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+2236 2 2236 1220 3 0
+1573 342 2236 342 3 0
+1573 685 2236 685 3 0
+2223 688 2223 1220 3 0
+1573 1028 2223 1028 3 0
+SheetIndex 140 140 0
+NumberOfPieces 4
+2 2 1570 955 0 21 1
+1573 2 2236 342 0 781 7
+1573 345 2223 685 0 962 8
+1573 688 2223 1028 0 970 8
+NumberOfWastes 7
+2 958 1570 1220
+2239 2 2440 1220
+2226 345 2236 685
+1573 1031 2223 1220
+2226 688 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 8
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+2236 2 2236 1220 3 0
+1573 342 2236 342 3 0
+1573 685 2236 685 3 0
+2223 345 2223 685 3 0
+2223 688 2223 1220 3 0
+1573 1028 2223 1028 3 0
+SheetIndex 141 141 0
+NumberOfPieces 4
+2 2 1570 955 0 26 1
+1573 2 2352 342 0 616 6
+1573 345 2236 685 0 895 7
+1573 688 2236 1028 0 744 7
+NumberOfWastes 6
+2 958 1570 1220
+2355 2 2440 1220
+2239 345 2352 1220
+1573 1031 2236 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 7
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+2352 2 2352 1220 3 0
+1573 342 2352 342 3 0
+2236 345 2236 1220 3 0
+1573 685 2236 685 3 0
+1573 1028 2236 1028 3 0
+SheetIndex 142 142 0
+NumberOfPieces 4
+2 2 1570 955 0 28 1
+1573 2 2236 342 0 699 7
+1573 345 2223 685 0 979 8
+1573 688 2223 1028 0 1019 8
+NumberOfWastes 6
+2 958 1570 1220
+2239 2 2440 342
+2226 345 2440 1220
+1573 1031 2223 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 7
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+2223 345 2223 1220 3 0
+1573 685 2223 685 3 0
+1573 1028 2223 1028 3 0
+SheetIndex 143 143 0
+NumberOfPieces 3
+2 2 1570 955 0 19 1
+1573 2 2236 342 0 950 7
+1573 345 2236 685 0 766 7
+NumberOfWastes 5
+2 958 2440 1220
+2239 2 2440 955
+1573 688 2236 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 5
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+2236 2 2236 955 3 0
+1573 342 2236 342 3 0
+1573 685 2236 685 3 0
+SheetIndex 144 144 0
+NumberOfPieces 9
+2 2 665 342 0 930 7
+2 345 665 685 0 726 7
+2 688 665 1028 0 958 7
+668 2 1331 342 0 935 7
+1334 2 2113 342 0 532 6
+668 345 1331 685 0 931 7
+1334 345 2113 685 0 513 6
+1334 688 2113 1028 0 514 6
+668 688 1331 1028 0 869 7
+NumberOfWastes 8
+2 1031 665 1220
+2116 2 2440 342
+2116 345 2440 685
+2116 688 2440 1028
+1334 1031 2440 1220
+668 1031 1331 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+665 2 665 1220 3 0
+2 342 665 342 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+1331 2 1331 1220 3 0
+668 342 1331 342 3 0
+1334 342 2440 342 3 0
+2113 2 2113 342 3 0
+668 685 1331 685 3 0
+1334 685 2440 685 3 0
+2113 345 2113 685 3 0
+1334 1028 2440 1028 3 0
+2113 688 2113 1028 3 0
+668 1028 1331 1028 3 0
+SheetIndex 145 145 0
+NumberOfPieces 4
+2 2 1570 955 0 27 1
+1573 2 2352 342 0 529 6
+1573 345 2352 685 0 552 6
+1573 688 2352 1028 0 541 6
+NumberOfWastes 5
+2 958 1570 1220
+2355 2 2440 1220
+1573 1031 2352 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+1570 2 1570 1220 3 0
+2 955 1570 955 3 0
+2352 2 2352 1220 3 0
+1573 342 2352 342 3 0
+1573 685 2352 685 3 0
+1573 1028 2352 1028 3 0
+SheetIndex 146 146 0
+NumberOfPieces 9
+2 2 781 342 0 544 6
+784 2 1447 342 0 765 7
+1450 2 2100 342 0 1045 8
+2 345 781 685 0 678 6
+784 345 1447 685 0 890 7
+1450 345 2113 685 0 882 7
+2 688 665 1028 0 783 7
+668 688 1331 1028 0 770 7
+1334 688 1984 1028 0 967 8
+NumberOfWastes 6
+2103 2 2440 342
+2116 345 2440 685
+2 1031 2440 1220
+1987 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 12
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1447 2 1447 342 3 0
+2100 2 2100 342 3 0
+2 685 2440 685 3 0
+781 345 781 685 3 0
+1447 345 1447 685 3 0
+2113 345 2113 685 3 0
+2 1028 2440 1028 3 0
+665 688 665 1028 3 0
+1331 688 1331 1028 3 0
+1984 688 1984 1028 3 0
+SheetIndex 147 147 0
+NumberOfPieces 6
+2 2 1286 961 0 110 3
+1289 2 2068 342 0 603 6
+1289 345 1952 685 0 912 7
+1289 688 1952 1028 0 822 7
+1955 345 2437 685 0 334 5
+1955 688 2437 1028 0 483 5
+NumberOfWastes 6
+2 964 1286 1220
+2071 2 2440 342
+1289 1031 1952 1220
+1955 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+2068 2 2068 342 3 0
+1289 685 2440 685 3 0
+1952 345 1952 685 3 0
+1952 688 1952 1220 3 0
+1289 1028 1952 1028 3 0
+2437 345 2437 685 3 0
+1955 1028 2440 1028 3 0
+2437 688 2437 1028 3 0
+SheetIndex 148 148 0
+NumberOfPieces 3
+2 2 1570 955 0 1 1
+1573 2 2236 342 0 940 7
+1573 345 2223 685 0 1014 8
+NumberOfWastes 6
+2 958 2440 1220
+2239 2 2440 955
+1573 688 2223 955
+2226 345 2236 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+2236 2 2236 955 3 0
+1573 342 2236 342 3 0
+2223 345 2223 955 3 0
+1573 685 2223 685 3 0
+SheetIndex 149 149 0
+NumberOfPieces 7
+2 2 665 342 0 953 7
+2 345 665 685 0 795 7
+668 2 1952 961 0 105 3
+2 688 665 1028 0 695 7
+1955 2 2437 342 0 337 5
+1955 345 2437 685 0 466 5
+1955 688 2437 1028 0 382 5
+NumberOfWastes 5
+668 964 1952 1220
+2 1031 665 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+665 2 665 1220 3 0
+2 342 665 342 3 0
+2 685 665 685 3 0
+1952 2 1952 1220 3 0
+668 961 1952 961 3 0
+2 1028 665 1028 3 0
+2437 2 2437 1220 3 0
+1955 342 2437 342 3 0
+1955 685 2437 685 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 150 150 0
+NumberOfPieces 9
+2 2 652 342 0 997 8
+655 2 1318 342 0 853 7
+1321 2 2100 342 0 642 6
+655 345 1318 685 0 879 7
+1321 345 2100 685 0 640 6
+655 688 1318 1028 0 852 7
+1321 688 2100 1028 0 684 6
+2 345 652 685 0 980 8
+2 688 652 1028 0 973 8
+NumberOfWastes 8
+2103 2 2440 342
+2103 345 2440 685
+655 1031 1318 1220
+1321 1031 2100 1220
+2103 688 2440 1220
+2 1031 652 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+652 2 652 1220 3 0
+2 342 652 342 3 0
+655 342 2440 342 3 0
+1318 2 1318 342 3 0
+2100 2 2100 342 3 0
+1318 345 1318 1220 3 0
+655 685 1318 685 3 0
+1321 685 2440 685 3 0
+2100 345 2100 685 3 0
+655 1028 1318 1028 3 0
+2100 688 2100 1220 3 0
+1321 1028 2100 1028 3 0
+2 685 652 685 3 0
+2 1028 652 1028 3 0
+SheetIndex 151 151 0
+NumberOfPieces 9
+2 2 781 342 0 675 6
+784 2 1447 342 0 850 7
+1450 2 2229 342 0 634 6
+2 345 781 685 0 614 6
+2 688 665 1028 0 906 7
+784 345 1447 685 0 922 7
+784 688 1447 1028 0 802 7
+1450 345 2113 685 0 730 7
+1450 688 2113 1028 0 749 7
+NumberOfWastes 9
+2232 2 2440 342
+668 688 781 1028
+2 1031 781 1220
+784 1031 1447 1220
+2116 345 2440 685
+2116 688 2440 1028
+1450 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 15
+2 342 2440 342 3 0
+781 2 781 342 3 0
+1447 2 1447 342 3 0
+2229 2 2229 342 3 0
+781 345 781 1220 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+665 688 665 1028 3 0
+1447 345 1447 1220 3 0
+784 685 1447 685 3 0
+784 1028 1447 1028 3 0
+1450 685 2440 685 3 0
+2113 345 2113 685 3 0
+1450 1028 2440 1028 3 0
+2113 688 2113 1028 3 0
+SheetIndex 152 152 0
+NumberOfPieces 3
+2 2 1570 955 0 17 1
+1573 2 2352 342 0 622 6
+1573 345 2223 685 0 1034 8
+NumberOfWastes 6
+2 958 2440 1220
+2355 2 2440 342
+1573 688 2223 955
+2226 345 2440 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+1573 342 2440 342 3 0
+2352 2 2352 342 3 0
+2223 345 2223 955 3 0
+1573 685 2223 685 3 0
+SheetIndex 153 153 0
+NumberOfPieces 4
+2 2 1286 961 0 103 3
+1289 2 2068 342 0 619 6
+1289 345 1952 685 0 913 7
+1289 688 1952 1028 0 806 7
+NumberOfWastes 6
+2 964 1286 1220
+2071 2 2440 1220
+1955 345 2068 1220
+1289 1031 1952 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 7
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+2068 2 2068 1220 3 0
+1289 342 2068 342 3 0
+1952 345 1952 1220 3 0
+1289 685 1952 685 3 0
+1289 1028 1952 1028 3 0
+SheetIndex 154 154 0
+NumberOfPieces 9
+2 2 781 342 0 608 6
+2 345 665 685 0 811 7
+784 2 1563 342 0 647 6
+2 688 665 1028 0 708 7
+1566 2 2229 342 0 798 7
+784 345 1447 685 0 897 7
+784 688 1447 1028 0 939 7
+1450 345 2113 685 0 776 7
+1450 688 2100 1028 0 982 8
+NumberOfWastes 9
+668 345 781 1220
+2 1031 665 1220
+2232 2 2440 342
+784 1031 1447 1220
+2116 345 2440 685
+1450 1031 2100 1220
+2103 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 15
+781 2 781 1220 3 0
+2 342 781 342 3 0
+665 345 665 1220 3 0
+2 685 665 685 3 0
+784 342 2440 342 3 0
+1563 2 1563 342 3 0
+2 1028 665 1028 3 0
+2229 2 2229 342 3 0
+1447 345 1447 1220 3 0
+784 685 1447 685 3 0
+784 1028 1447 1028 3 0
+1450 685 2440 685 3 0
+2113 345 2113 685 3 0
+2100 688 2100 1220 3 0
+1450 1028 2100 1028 3 0
+SheetIndex 155 155 0
+NumberOfPieces 7
+2 2 1286 961 0 115 3
+1289 2 1952 342 0 729 7
+1289 345 1952 685 0 903 7
+1955 2 2437 342 0 408 5
+1955 345 2437 685 0 343 5
+1289 688 1952 1028 0 858 7
+1955 688 2437 1028 0 243 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 11
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1289 342 2440 342 3 0
+1952 2 1952 342 3 0
+1952 345 1952 1220 3 0
+1289 685 1952 685 3 0
+2437 2 2437 342 3 0
+2437 345 2437 1220 3 0
+1955 685 2437 685 3 0
+1289 1028 1952 1028 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 156 156 0
+NumberOfPieces 11
+2 2 781 342 0 626 6
+2 345 781 685 0 645 6
+2 688 665 1028 0 894 7
+784 2 1447 342 0 898 7
+1450 2 2113 342 0 840 7
+784 345 1266 685 0 344 5
+784 688 1266 1028 0 226 5
+1269 345 1919 685 0 1022 8
+1269 688 1919 1028 0 1036 8
+1922 345 2404 685 0 256 5
+1922 688 2404 1028 0 253 5
+NumberOfWastes 9
+2 1031 665 1220
+668 688 781 1220
+2116 2 2440 342
+784 1031 1266 1220
+1269 1031 2440 1220
+2407 345 2440 685
+2407 688 2440 1028
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 17
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+665 688 665 1220 3 0
+2 1028 665 1028 3 0
+784 342 2440 342 3 0
+1447 2 1447 342 3 0
+2113 2 2113 342 3 0
+1266 345 1266 1220 3 0
+784 685 1266 685 3 0
+784 1028 1266 1028 3 0
+1269 685 2440 685 3 0
+1919 345 1919 685 3 0
+1269 1028 2440 1028 3 0
+1919 688 1919 1028 3 0
+2404 345 2404 685 3 0
+2404 688 2404 1028 3 0
+SheetIndex 157 157 0
+NumberOfPieces 12
+2 2 781 342 0 686 6
+2 345 665 685 0 808 7
+2 688 652 1028 0 992 8
+784 2 1266 342 0 348 5
+1269 2 1919 342 0 1025 8
+1269 345 1919 685 0 964 8
+1922 2 2404 342 0 505 5
+1922 345 2404 685 0 338 5
+1269 688 1932 1028 0 941 7
+784 345 1266 685 0 414 5
+784 688 1266 1028 0 228 5
+1935 688 2417 1028 0 430 5
+NumberOfWastes 11
+668 345 781 1220
+655 688 665 1028
+2 1031 665 1220
+2407 2 2440 342
+2407 345 2440 685
+1269 1031 1932 1220
+784 1031 1266 1220
+2420 688 2440 1028
+1935 1031 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 20
+781 2 781 1220 3 0
+2 342 781 342 3 0
+665 345 665 1220 3 0
+2 685 665 685 3 0
+2 1028 665 1028 3 0
+652 688 652 1028 3 0
+1266 2 1266 1220 3 0
+784 342 1266 342 3 0
+1269 342 2440 342 3 0
+1919 2 1919 342 3 0
+1269 685 2440 685 3 0
+1919 345 1919 685 3 0
+2404 2 2404 342 3 0
+2404 345 2404 685 3 0
+1932 688 1932 1220 3 0
+1269 1028 1932 1028 3 0
+784 685 1266 685 3 0
+784 1028 1266 1028 3 0
+1935 1028 2440 1028 3 0
+2417 688 2417 1028 3 0
+SheetIndex 158 158 0
+NumberOfPieces 3
+2 2 1570 955 0 16 1
+1573 2 2236 342 0 892 7
+1573 345 2236 685 0 777 7
+NumberOfWastes 6
+2 958 2440 1220
+2239 2 2440 342
+1573 688 2236 955
+2239 345 2440 955
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 6
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+1573 342 2440 342 3 0
+2236 2 2236 342 3 0
+2236 345 2236 955 3 0
+1573 685 2236 685 3 0
+SheetIndex 159 159 0
+NumberOfPieces 7
+2 2 1286 961 0 120 3
+1289 2 1952 342 0 881 7
+1289 345 1952 685 0 746 7
+1955 2 2437 342 0 461 5
+1955 345 2437 685 0 390 5
+1289 688 1952 1028 0 733 7
+1955 688 2437 1028 0 257 5
+NumberOfWastes 5
+2 964 1286 1220
+1289 1031 1952 1220
+1955 1031 2437 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 10
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0
+1952 2 1952 1220 3 0
+1289 342 1952 342 3 0
+1289 685 1952 685 3 0
+2437 2 2437 1220 3 0
+1955 342 2437 342 3 0
+1955 685 2437 685 3 0
+1289 1028 1952 1028 3 0
+1955 1028 2437 1028 3 0
+SheetIndex 160 160 0
+NumberOfPieces 9
+2 2 781 342 0 633 6
+2 345 781 685 0 609 6
+2 688 652 1028 0 986 8
+784 2 1434 342 0 1003 8
+1437 2 2087 342 0 985 8
+784 345 1266 685 0 332 5
+1269 345 1919 685 0 988 8
+1922 345 2404 685 0 376 5
+784 688 1266 1028 0 266 5
+NumberOfWastes 8
+655 688 781 1028
+2 1031 781 1220
+2090 2 2440 342
+2407 345 2440 685
+784 1031 1266 1220
+1269 688 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 14
+781 2 781 1220 3 0
+2 342 781 342 3 0
+2 685 781 685 3 0
+2 1028 781 1028 3 0
+652 688 652 1028 3 0
+784 342 2440 342 3 0
+1434 2 1434 342 3 0
+2087 2 2087 342 3 0
+784 685 2440 685 3 0
+1266 345 1266 685 3 0
+1919 345 1919 685 3 0
+2404 345 2404 685 3 0
+1266 688 1266 1220 3 0
+784 1028 1266 1028 3 0
+SheetIndex 161 161 0
+NumberOfPieces 1
+2 2 1570 955 0 13 1
+NumberOfWastes 4
+1573 2 2440 955
+2 958 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 2
+2 955 2440 955 3 0
+1570 2 1570 955 3 0
+SheetIndex 162 162 0
+NumberOfPieces 1
+2 2 1286 961 0 124 3
+NumberOfWastes 4
+2 964 1286 1220
+1289 2 2440 1220
+0 0 2440 2
+0 2 2 1220
+NumberOfCuts 2
+1286 2 1286 1220 3 0
+2 961 1286 961 3 0

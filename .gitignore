@@ -1,0 +1,35 @@
+## Build and output directories
+**/bin/
+**/obj/
+**/out/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+## Visual Studio & VS Code
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## JetBrains Rider / Resharper
+.idea/
+*.DotSettings.user
+
+## OS generated files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+## Python cache
+__pycache__/
+*.py[cod]
+*$py.class

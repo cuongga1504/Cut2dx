@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cut2DX Web - Tối Ưu Hóa Sơ Đồ Cắt 2D Chuyên Nghiệp</title>
+  <link rel="stylesheet" href="css/app.css" />
+  <!-- Offline bundled SheetJS library for instant Excel parsing -->
+  <script src="lib/xlsx.full.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Application Header -->
+  <header class="app-header">
+    <div class="header-top">
+      <div class="brand-area">
+        <div class="brand-icon">🪵</div>
+        <div>
+          <div class="brand-title">Cut2DX <span>Web Edition</span></div>
+          <div class="brand-subtitle">Phần mềm Tối ưu hóa Sơ đồ Cắt Tấm 2D & Cưa Hàng Loạt Chuyên Nghiệp</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btnTopImportExcel" class="btn btn-outline-excel" title="Nhập dữ liệu từ file Excel (.xlsx, .xls, .csv)">
+          📥 Nhập từ Excel
+        </button>
+        <button id="btnTopPasteClip" class="btn btn-outline-clip" title="Dán nhanh nhiều dòng sao chép từ Excel hoặc Google Sheets">
+          📋 Paste Clipboard
+        </button>
+        <a href="/api/excel/template" class="btn btn-sm" title="Tải file mẫu Excel chuẩn để điền dữ liệu" download>
+          📄 Tải Excel Mẫu
+        </a>
+        <button id="btnExportHtmlTop" class="btn btn-sm" title="Xuất file báo cáo HTML kèm bản vẽ vector SVG đầy đủ">
+          🌐 Xuất Báo Cáo HTML
+        </button>
+        <button id="btnExportExcelTop" class="btn btn-sm" title="Xuất kết quả tối ưu ra file Excel (.xlsx)">
+          📊 Xuất Excel Kết Quả
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Presets Toolbar -->
+    <div class="toolbar-presets">
+      <span class="presets-label">Bộ dữ liệu mẫu:</span>
+      <button id="btnPresetImage" class="btn btn-sm btn-primary" title="Nạp 8 quy cách chi tiết (1.050 chi tiết) và 163 tấm ván 2440x1220 mm theo mẫu">
+        📸 Mẫu theo ảnh (1.050 chi tiết / 163 tấm)
+      </button>
+      <button id="btnPresetGrain" class="btn btn-sm" title="Ví dụ thớ gỗ dọc, ngang, tự do và khóa hướng xoay">
+        🪵 Ví dụ Thớ Gỗ & Số Lượng
+      </button>
+      <button id="btnPresetBatch" class="btn btn-sm" title="Ví dụ cắt hàng loạt gom giảm số lượng mẫu sơ đồ">
+        🏭 Ví dụ Cắt Hàng Loạt
+      </button>
+      <button id="btnHelpGrainTop" class="btn btn-sm" title="Xem hướng dẫn quy ước thớ gỗ chuẩn Cut2DX">
+        📖 Quy Ước Thớ Gỗ
+      </button>
+      <div style="flex:1;"></div>
+      <button id="btnClearAll" class="btn btn-sm btn-danger" title="Xóa toàn bộ danh sách chi tiết và tấm kho">
+        ✕ Xóa Sạch
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <!-- LEFT PANEL: Data Input & Parameters -->
+    <div class="left-panel">
+
+      <div class="card">
+        <!-- Tabs Nav -->
+        <div class="input-tabs">
+          <div class="input-tab active" data-tab="tab-demand">
+            🧩 1. Chi tiết cần cắt <span id="badgeDemandCount" class="badge badge-info">0</span>
+          </div>
+          <div class="input-tab" data-tab="tab-repo">
+            🪵 2. Tấm vật liệu kho <span id="badgeRepoCount" class="badge badge-warning">0</span>
+          </div>
+          <div class="input-tab" data-tab="tab-settings">
+            ⚙️ 3. Tham số tối ưu
+          </div>
+        </div>
+
+        <!-- Tab 1: Demand Pieces -->
+        <div id="tab-demand" class="tab-pane active">
+          <div class="info-banner">
+            <div class="banner-content">
+              <strong>💡 Mẹo nhập nhanh:</strong> Nhập kích thước & số lượng. Bấm vào bảng và nhấn <strong>Ctrl+V</strong> để dán trực tiếp nhiều dòng từ Excel, hoặc dùng nút <strong>📋 Paste Clipboard</strong> / <strong>📥 Nhập Excel</strong>.
+            </div>
+            <button class="btn btn-sm btn-warning" id="btnHelpGrainBanner">Thớ gỗ ↗</button>
+          </div>
+
+          <div class="table-toolbar">
+            <div class="toolbar-group">
+              <button id="btnAddDemandRow" class="btn btn-sm btn-primary">+ Thêm chi tiết</button>
+              <button id="btnPasteDemand" class="btn btn-sm btn-outline-clip">📋 Paste Clipboard</button>
+              <button id="btnImportDemandExcel" class="btn btn-sm btn-outline-excel">📥 Nhập Excel</button>
+              <button id="btnDeleteSelectedDemand" class="btn btn-sm btn-danger">✕ Xóa dòng chọn</button>
+            </div>
+            <div class="toolbar-group">
+              <span id="lblDemandSummary" class="badge badge-info">8 quy cách (1.050 chi tiết)</span>
+            </div>
+          </div>
+
+          <div class="table-wrapper" id="wrapperDemandTable" tabindex="0" title="Bấm vào đây và nhấn Ctrl+V để dán trực tiếp từ Excel!">
+            <table class="app-table" id="tableDemand">
+              <thead>
+                <tr>
+                  <th style="width: 32px;"><input type="checkbox" id="chkSelectAllDemand" /></th>
+                  <th style="width: 36px;">#</th>
+                  <th style="width: 90px;">Dài (mm)</th>
+                  <th style="width: 90px;">Rộng (mm)</th>
+                  <th style="width: 75px;">SL</th>
+                  <th>Tên / Nhãn chi tiết</th>
+                  <th style="width: 150px;">Thớ gỗ</th>
+                  <th style="width: 65px; text-align: center;">Xoay?</th>
+                  <th style="width: 80px;">Vật liệu</th>
+                  <th style="width: 36px;"></th>
+                </tr>
+              </thead>
+              <tbody id="tbodyDemand">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 2: Repository Pieces (Stock) -->
+        <div id="tab-repo" class="tab-pane">
+          <div class="info-banner">
+            <div class="banner-content">
+              <strong>🪵 Tấm vật liệu trong kho:</strong> Khai báo kích thước khổ ván, số lượng tồn kho và phần cắt bỏ mép viền (Trim: Trên, Trái, Dưới, Phải mm).
+            </div>
+          </div>
+
+          <div class="table-toolbar">
+            <div class="toolbar-group">
+              <button id="btnAddRepoRow" class="btn btn-sm btn-primary">+ Thêm tấm kho</button>
+              <button id="btnPasteRepo" class="btn btn-sm btn-outline-clip">📋 Paste Clipboard</button>
+              <button id="btnImportRepoExcel" class="btn btn-sm btn-outline-excel">📥 Nhập Excel</button>
+              <button id="btnDeleteSelectedRepo" class="btn btn-sm btn-danger">✕ Xóa dòng chọn</button>
+            </div>
+            <div class="toolbar-group">
+              <span id="lblRepoSummary" class="badge badge-warning">1 quy cách (163 tấm)</span>
+            </div>
+          </div>
+
+          <div class="table-wrapper" id="wrapperRepoTable" tabindex="0" title="Bấm vào đây và nhấn Ctrl+V để dán trực tiếp từ Excel!">
+            <table class="app-table" id="tableRepo">
+              <thead>
+                <tr>
+                  <th style="width: 32px;"><input type="checkbox" id="chkSelectAllRepo" /></th>
+                  <th style="width: 36px;">#</th>
+                  <th style="width: 90px;">Dài (mm)</th>
+                  <th style="width: 90px;">Rộng (mm)</th>
+                  <th style="width: 75px;">SL kho</th>
+                  <th>Tên tấm kho</th>
+                  <th style="width: 145px;">Thớ gỗ</th>
+                  <th style="width: 55px;" title="Cắt bỏ mép trên">Trên</th>
+                  <th style="width: 55px;" title="Cắt bỏ mép trái">Trái</th>
+                  <th style="width: 55px;" title="Cắt bỏ mép dưới">Dưới</th>
+                  <th style="width: 55px;" title="Cắt bỏ mép phải">Phải</th>
+                  <th style="width: 36px;"></th>
+                </tr>
+              </thead>
+              <tbody id="tbodyRepo">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab 3: Optimization Parameters -->
+        <div id="tab-settings" class="tab-pane">
+          <div class="param-grid">
+            <div class="form-group col-span-2">
+              <label class="form-label">Thuật toán tối ưu hóa cắt:</label>
+              <select id="selMethod" class="form-control">
+                <option value="0">1. Guillotine (Cắt thẳng mép tới mép - Cưa bàn trượt / Cưa panel)</option>
+                <option value="1">2. Non-Guillotine / Nested (Cắt CNC phay lồng tấm / Laser / Plasma)</option>
+                <option value="2">3. Multi-Stages (Cắt phân tầng tuần tự)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Bề dày mạch cưa (BladeWidth mm):</label>
+              <input type="number" id="numBladeWidth" class="form-control" value="3" min="0" max="50" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Cấp độ tối ưu (1 - 100):</label>
+              <input type="number" id="numOptLevel" class="form-control" value="20" min="1" max="100" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Seed ngẫu nhiên (RandomSeed):</label>
+              <input type="number" id="numRandomSeed" class="form-control" value="1" min="1" max="999999" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kích thước phế liệu hữu ích (MinSize mm):</label>
+              <input type="number" id="numMinUseful" class="form-control" value="100" min="0" max="2000" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Chiều dài nhát cắt tối đa (mm, 0: không giới hạn):</label>
+              <input type="number" id="numMaxCutLen" class="form-control" value="0" min="0" max="100000" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kiểu vân gạch phế liệu (Waste Hatch):</label>
+              <select id="selWasteHatch" class="form-control">
+                <option value="DiagonalCross">☒ Gạch chéo đan lưới (X)</option>
+                <option value="BackwardDiagonal">▨ Gạch xiên chéo (/)</option>
+                <option value="ForwardDiagonal">▧ Gạch xiên chéo (\)</option>
+                <option value="CornerX">✕ Đường chéo chữ X nối 4 góc</option>
+                <option value="Solid">■ Màu cam pastel trơn</option>
+              </select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-checkbox-label">
+                <input type="checkbox" id="chkMinimizePatterns" checked />
+                <span>Gom giảm số lượng mẫu sơ đồ cắt (Batch Mode - Tối ưu cho cưa hàng loạt)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Run Optimization Button -->
+        <div class="run-section">
+          <div class="run-btn-wrapper">
+            <button id="btnRunOptimization" class="btn btn-run" style="flex:1;">
+              <span id="runSpinner" class="spinner" style="display:none;"></span>
+              <span id="runBtnText">▶  BẮT ĐẦU TỐI ƯU HÓA</span>
+            </button>
+          </div>
+        </div>
+
+      </div> <!-- .card -->
+
+    </div> <!-- .left-panel -->
+
+
+    <!-- RIGHT PANEL: Visual SVG Diagram & Results -->
+    <div class="right-panel">
+
+      <!-- KPI Summary Cards -->
+      <div class="kpi-container" id="kpiContainer">
+        <div class="kpi-box highlight">
+          <div class="kpi-label">Tỷ lệ sử dụng</div>
+          <div class="kpi-number" id="kpiUtilization">0.0%</div>
+          <div class="kpi-note">Độ phủ bề mặt trung bình</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-label">Số mẫu sơ đồ (Patterns)</div>
+          <div class="kpi-number text-primary" id="kpiUniquePatterns">0</div>
+          <div class="kpi-note">Đã gom nhóm trùng lặp</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-label">Tấm vật liệu dùng</div>
+          <div class="kpi-number text-success" id="kpiSheetsUsed">0 / 0</div>
+          <div class="kpi-note" id="kpiSheetsNote">Tấm thực dùng / Tồn kho</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-label">Chi tiết đã xếp</div>
+          <div class="kpi-number text-success" id="kpiPiecesPlaced">0 / 0</div>
+          <div class="kpi-note" id="kpiPiecesPercent">Đạt 0% yêu cầu</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-label">Diện tích hữu ích</div>
+          <div class="kpi-number" id="kpiUsefulArea" style="color:#7c3aed;">0.00 m²</div>
+          <div class="kpi-note" id="kpiWasteArea">Phế liệu: 0.00 m²</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-label">Tổng mạch cưa</div>
+          <div class="kpi-number" id="kpiCutLength" style="color:#d97706;">0 mm</div>
+          <div class="kpi-note" id="kpiExecutionTime">Thời gian: 0 ms</div>
+        </div>
+      </div>
+
+      <!-- SVG Diagram Viewer Card -->
+      <div class="viewer-card">
+        <div class="viewer-header">
+          <div class="pattern-nav">
+            <button id="btnPrevPattern" class="btn btn-sm" disabled>◀ Sơ đồ trước</button>
+            <select id="selPatternIndex" class="form-control" style="width: auto; padding: 4px 8px; font-weight:700;">
+              <option value="0">Sơ đồ: 0 / 0</option>
+            </select>
+            <button id="btnNextPattern" class="btn btn-sm" disabled>Sơ đồ sau ▶</button>
+            <span id="badgePatternStamp" class="pattern-stamp" style="display:none;">✂ CẮT x0 TẤM</span>
+          </div>
+
+          <div class="viewer-tools">
+            <button id="btnZoomIn" class="btn btn-sm" title="Phóng to bản vẽ">+</button>
+            <button id="btnZoomOut" class="btn btn-sm" title="Thu nhỏ bản vẽ">-</button>
+            <button id="btnZoomReset" class="btn btn-sm" title="Đặt lại kích thước chuẩn 100%">100%</button>
+            <button id="btnZoomFit" class="btn btn-sm" title="Vừa khung nhìn">Fit</button>
+            <button id="btnExportSvg" class="btn btn-sm btn-outline-primary" title="Tải file bản vẽ SVG của sơ đồ này">
+              🖼 Tải SVG
+            </button>
+          </div>
+        </div>
+
+        <!-- SVG Viewport -->
+        <div class="svg-viewport" id="svgViewport">
+          <div class="empty-state" id="svgEmptyState">
+            <div class="empty-state-icon">📐</div>
+            <div class="empty-state-title">Chưa có kết quả sơ đồ cắt</div>
+            <div class="empty-state-desc">Vui lòng kiểm tra danh sách chi tiết, tấm vật liệu kho và bấm <strong>▶ Bắt đầu tối ưu hóa</strong> để tính toán bản vẽ.</div>
+          </div>
+          <div id="svgContainer" style="width:100%; height:100%; display:none;"></div>
+        </div>
+      </div> <!-- .viewer-card -->
+
+      <!-- Result Tables Tab Control -->
+      <div class="result-tabs-card">
+        <div class="result-tabs-nav">
+          <div class="result-tab-btn active" data-tab="res-tab-patterns">
+            📊 1. Tổng hợp các mẫu sơ đồ (<span id="countResultPatterns">0</span>)
+          </div>
+          <div class="result-tab-btn" data-tab="res-tab-utilized">
+            🧩 2. Chi tiết trên sơ đồ (<span id="countResultPieces">0</span>)
+          </div>
+          <div class="result-tab-btn" data-tab="res-tab-cuts">
+            ✂ 3. Nhát cắt Guillotine (<span id="countResultCuts">0</span>)
+          </div>
+          <div class="result-tab-btn" data-tab="res-tab-waste">
+            🪵 4. Danh sách phế liệu (<span id="countResultWaste">0</span>)
+          </div>
+        </div>
+
+        <!-- Result Tab 1: Patterns Summary -->
+        <div id="res-tab-patterns" class="result-tab-content active">
+          <div class="table-wrapper" style="max-height: 240px;">
+            <table class="app-table" id="tableResultPatterns">
+              <thead>
+                <tr>
+                  <th style="width: 80px;">Sơ đồ</th>
+                  <th>Tên tấm kho</th>
+                  <th>Kích thước tấm</th>
+                  <th style="text-align: right;">Số lượng cắt (SL)</th>
+                  <th style="text-align: right;">Chi tiết / tấm</th>
+                  <th style="text-align: right;">Tổng chi tiết</th>
+                  <th style="text-align: right;">Độ phủ (%)</th>
+                  <th style="text-align: right;">Mạch cắt (mm)</th>
+                  <th style="text-align: right;">Phế liệu / tấm</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyResultPatterns">
+                <tr><td colspan="9" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Result Tab 2: Utilized Pieces -->
+        <div id="res-tab-utilized" class="result-tab-content">
+          <div class="table-wrapper" style="max-height: 240px;">
+            <table class="app-table" id="tableResultUtilized">
+              <thead>
+                <tr>
+                  <th style="width: 40px;">#</th>
+                  <th>Tên / Nhãn chi tiết</th>
+                  <th>Tọa độ (X1, Y1) &rarr; (X2, Y2)</th>
+                  <th>Kích thước (DxR)</th>
+                  <th style="text-align: center;">SL / tấm</th>
+                  <th style="text-align: center;">Tổng SL</th>
+                  <th>Thớ gỗ</th>
+                  <th style="text-align: center;">Xoay?</th>
+                  <th>DemID</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyResultUtilized">
+                <tr><td colspan="9" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Result Tab 3: Cuts -->
+        <div id="res-tab-cuts" class="result-tab-content">
+          <div class="table-wrapper" style="max-height: 240px;">
+            <table class="app-table" id="tableResultCuts">
+              <thead>
+                <tr>
+                  <th style="width: 60px;">Nhát #</th>
+                  <th>Đoạn cắt (X1, Y1) &rarr; (X2, Y2)</th>
+                  <th>Hướng cắt</th>
+                  <th>Độ dày mạch cưa</th>
+                  <th>Tầng (Stage)</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyResultCuts">
+                <tr><td colspan="5" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Result Tab 4: Waste Pieces -->
+        <div id="res-tab-waste" class="result-tab-content">
+          <div class="table-wrapper" style="max-height: 240px;">
+            <table class="app-table" id="tableResultWaste">
+              <thead>
+                <tr>
+                  <th style="width: 60px;">Mảnh #</th>
+                  <th>Tọa độ (X1, Y1) &rarr; (X2, Y2)</th>
+                  <th>Kích thước (DxR)</th>
+                  <th style="text-align: right;">Diện tích 1 tấm</th>
+                  <th style="text-align: right;">Tổng diện tích</th>
+                  <th>Phân loại</th>
+                  <th>Thớ phôi tái sử dụng</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyResultWaste">
+                <tr><td colspan="7" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div> <!-- .result-tabs-card -->
+
+      <!-- Bottom Export Buttons -->
+      <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:4px;">
+        <button id="btnExportHtmlBottom" class="btn btn-outline-primary">
+          🌐 Xuất Báo Cáo HTML Độc Lập
+        </button>
+        <button id="btnPrintReport" class="btn btn-outline-primary" onclick="window.print()">
+          🖨 In Báo Cáo / Lưu PDF
+        </button>
+        <button id="btnExportExcelBottom" class="btn btn-outline-excel">
+          📊 Xuất File Excel (.xlsx)
+        </button>
+        <button id="btnExportTxt" class="btn">
+          💾 Xuất File TXT
+        </button>
+      </div>
+
+    </div> <!-- .right-panel -->
+
+  </main>
+
+
+  <!-- MODAL 1: Paste từ Clipboard -->
+  <div class="modal-overlay" id="modalClipboard">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">📋 Paste Dữ Liệu Từ Clipboard / Excel / Google Sheets</div>
+        <button class="modal-close" data-close="modalClipboard">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <p style="font-size:0.85rem; color:var(--text-muted);">
+            Sao chép các dòng trong Excel (Ctrl+C), sau đó dán (Ctrl+V) vào ô bên dưới:
+          </p>
+          <button id="btnModalReadClipboard" class="btn btn-sm btn-outline-primary">
+            📋 Đọc Tự Động Từ Clipboard
+          </button>
+        </div>
+
+        <textarea id="txtPasteArea" class="paste-textarea" placeholder="Dán dữ liệu sao chép từ Excel hoặc Google Sheets vào đây (Ctrl+V)...&#10;Ví dụ:&#10;1568&#9;953&#9;45&#9;Cánh tủ trên&#9;Dọc&#10;754&#9;1008&#9;45&#9;Hông tủ&#9;Dọc"></textarea>
+
+        <div style="display:flex; gap:16px; flex-wrap:wrap; background:#f8fafc; padding:10px 14px; border-radius:6px; border:1px solid var(--border-light);">
+          <div>
+            <label class="form-label">Mục tiêu dán vào:</label>
+            <select id="selPasteTarget" class="form-control" style="width:230px;">
+              <option value="demand">🧩 Chi tiết cần cắt (Demand)</option>
+              <option value="repo">🪵 Tấm vật liệu kho (Stock)</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Phương thức:</label>
+            <select id="selPasteMode" class="form-control" style="width:210px;">
+              <option value="append">➕ Thêm nối tiếp vào bảng</option>
+              <option value="overwrite">⚠️ Ghi đè toàn bộ bảng</option>
+            </select>
+          </div>
+          <div style="display:flex; align-items:flex-end;">
+            <button id="btnParseClipboardText" class="btn btn-primary">🔍 Phân tích dữ liệu</button>
+          </div>
+        </div>
+
+        <!-- Preview Table -->
+        <div id="pastePreviewSection" style="display:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <strong style="font-size:0.85rem; color:#1e293b;">Xem trước dữ liệu đã nhận diện (<span id="lblPasteRowCount">0</span> dòng):</strong>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Khớp cột tự động: Dài, Rộng, Số lượng, Nhãn, Thớ gỗ...</span>
+          </div>
+          <div class="table-wrapper" style="max-height:200px;">
+            <table class="app-table" id="tablePastePreview">
+              <thead id="theadPastePreview"></thead>
+              <tbody id="tbodyPastePreview"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-close="modalClipboard">Hủy bỏ</button>
+        <button id="btnApplyPaste" class="btn btn-success" disabled>✅ Áp dụng vào bảng</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL 2: Import từ Excel / CSV -->
+  <div class="modal-overlay" id="modalExcel">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">📥 Nhập Dữ Liệu Từ File Excel (.xlsx, .xls, .csv)</div>
+        <button class="modal-close" data-close="modalExcel">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="excel-dropzone" id="excelDropzone">
+          <div class="dropzone-icon">📊</div>
+          <div class="dropzone-text">Kéo thả file Excel (.xlsx, .xls) hoặc CSV vào đây</div>
+          <div class="dropzone-sub">Hoặc bấm vào để chọn file từ máy tính của bạn</div>
+          <input type="file" id="fileExcelInput" accept=".xlsx,.xls,.csv" style="display:none;" />
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <a href="/api/excel/template" class="btn btn-sm btn-outline-excel" download>
+            📄 Tải file Excel mẫu chuẩn (Mau_Nhap_Lieu_Cut2DX.xlsx)
+          </a>
+          <div id="lblExcelFileName" style="font-size:0.85rem; font-weight:600; color:var(--primary);"></div>
+        </div>
+
+        <!-- Options for single-sheet file -->
+        <div id="excelSheetOptions" style="display:none; background:#f8fafc; padding:10px 14px; border-radius:6px; border:1px solid var(--border-light);">
+          <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <div id="groupExcelSheetSelect" style="display:none;">
+              <label class="form-label">Chọn Sheet trong Excel:</label>
+              <select id="selExcelWorksheet" class="form-control" style="width:200px;"></select>
+            </div>
+            <div>
+              <label class="form-label">Dữ liệu này là:</label>
+              <select id="selExcelTarget" class="form-control" style="width:230px;">
+                <option value="auto">🔄 Tự động nhận diện (Multi-sheets)</option>
+                <option value="demand">🧩 Chi tiết cần cắt (Demand)</option>
+                <option value="repo">🪵 Tấm vật liệu kho (Stock)</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Chế độ nhập:</label>
+              <select id="selExcelMode" class="form-control" style="width:200px;">
+                <option value="overwrite">⚠️ Ghi đè dữ liệu cũ</option>
+                <option value="append">➕ Thêm nối tiếp vào bảng</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Excel Preview -->
+        <div id="excelPreviewSection" style="display:none;">
+          <div style="font-size:0.85rem; font-weight:700; color:#1e293b; margin-bottom:6px;">
+            Dữ liệu phát hiện được: <span id="lblExcelStats" class="badge badge-success"></span>
+          </div>
+          <div class="table-wrapper" style="max-height:220px;">
+            <table class="app-table" id="tableExcelPreview">
+              <thead id="theadExcelPreview"></thead>
+              <tbody id="tbodyExcelPreview"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-close="modalExcel">Đóng</button>
+        <button id="btnApplyExcelImport" class="btn btn-success" disabled>✅ Xác nhận Nhập Dữ Liệu</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL 3: Hướng Dẫn Thớ Gỗ (Grain Direction Help) -->
+  <div class="modal-overlay" id="modalGrainHelp">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">🪵 Hướng Dẫn Quy Ước Thớ Gỗ Chuẩn Cut2DX</div>
+        <button class="modal-close" data-close="modalGrainHelp">&times;</button>
+      </div>
+      <div class="modal-body" style="font-size:0.88rem; line-height:1.6;">
+        <p>Hệ thống hỗ trợ 4 chế độ thớ gỗ theo chuẩn quốc tế Cut2DX:</p>
+        <ul style="margin-left:20px; margin-top:8px; display:flex; flex-direction:column; gap:8px;">
+          <li><strong>≡ Dọc (Theo Chiều Dài):</strong> Thớ vân gỗ chạy dọc theo chiều dài tấm/chi tiết. Không được xoay 90° để giữ đúng chiều vân gỗ.</li>
+          <li><strong>||| Ngang (Theo Chiều Rộng):</strong> Thớ vân gỗ chạy ngang theo chiều rộng. Tự động xoay để vân gỗ song song với thớ của tấm ván kho.</li>
+          <li><strong>🔄 Tự Do (Không Thớ):</strong> Vật liệu đồng nhất (MDF trơn, nhôm, kính, mica, alu...). Thuật toán được phép tự do xoay 90° để tối ưu hóa diện tích phế liệu nhỏ nhất.</li>
+          <li><strong>🔒 Cố Định (Khóa Xoay):</strong> Khóa nguyên hướng cắt ban đầu, tuyệt đối không xoay chi tiết.</li>
+        </ul>
+        <div style="background:#eff6ff; padding:12px; border-radius:6px; margin-top:12px; border:1px solid #bfdbfe; color:#1e40af;">
+          <strong>💡 Lưu ý Cắt Hàng Loạt (Batch Mode):</strong> Thuật toán tự động gom các tấm ván có cùng sơ đồ cắt thành một nhóm (Cutting Pattern) kèm theo số lần cưa lặp lại (ví dụ <code>✂ CẮT x45 TẤM</code>), giúp thợ xưởng xếp chồng cưa một lần rất nhanh.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-close="modalGrainHelp">Đã hiểu</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Floating Tooltip for SVG Interactive Hover -->
+  <div class="svg-tooltip" id="svgTooltip"></div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>

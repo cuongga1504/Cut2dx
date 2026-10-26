@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SetRepositoryPiece - Cut 2D X</title>
+
+
+</head>
+
+<body>
+
+		<center><h1>SetRepositoryPiece</h1></center>
+<br>
+<p><b>Name</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>SetRepositoryPiece</i></p>
+		<br>
+		<p><b>When to use it</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After setting the
+		<a href="number_of_repository_pieces.htm">NumberOfRepositoryPieces</a> 
+		property and anytime before starting the optimization.</p>
+		<br>
+		<p><b>Prototype</b></p>
+		<br>
+		<p><b>HRESULT</b> <i>SetRepositoryPiece</i>(</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Index</i>: <b>long</b> /*[in]*/, </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Length</i>: <b>long</b>/*[in]*/, </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Width</i>: long /*[in]*/, </p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>TrimTop</i>: <b>long</b> /*[in]*/,</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>TrimLeft</i>: <b>long</b> /*[in]*/,</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>TrimBottom</i>: <b>long</b> 
+		/*[in]*/,</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>TrimRight</i>: long /*[in]*/,</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>ExternalID</i>: <b>long</b>/*[in]*/,</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<i>Priority</i>: <b>long</b>/*[in]*/,</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<i>Unused</i>: <b>long</b>/*[in]*/</p>
+<p>);</p>
+		<br>
+		<p><b>Explanations</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; With this method you may set the 
+		dimensions of each piece from Repository (Stock).</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The number of sheets to be cut is given 
+		by the <a href="number_of_repository_pieces.htm">NumberOfRepositoryPieces</a> 
+		property.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The dimensions of each piece can be get 
+		using the <a href="get_repository_piece.htm">GetRepositoryPiece</a> method.</p>
+		<br>
+		<p><b>Parameters</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Index</i> - the index of the piece 
+		whose information are set. This number is in range [0...<a href="number_of_repository_pieces.htm">NumberOfRepositoryPieces</a> 
+		- 1].</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Length</i> - the length of the 
+		piece. This number must be integer, greater than 0. For working with real numbers read
+		<a href="working_with_real_numbers.htm">here</a>.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Width</i> - the width of the piece. 
+		This number must be integer, greater than 0. For working with real numbers read
+		<a href="working_with_real_numbers.htm">here</a>.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>TrimTop, TrimLeft, TrimBottom, 
+		TrimRight</i> - margins of material that has to be removed due faults 
+		(see picture below).</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>ExternalID</i> - an user defined 
+		value which can help you to track down the piece during the
+		<a href="on_finish.htm">OnFinish</a> event. This value will be returned by 
+		the <a href="get_repository_piece.htm">GetRepositoryPiece</a> and
+		<a href="get_utilized_repository_piece.htm">GetUtilizedRepositoryPiece</a> 
+		methods.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<i>Priority </i>- priority for cutting a piece. Lower values means 
+		higher priority. 0 is the highest priority. Pieces with higher priority 
+		will be cut before pieces with lower priority.</p>
+
+		<br>
+		<p><b>Remark</b></p>
+		<br>
+		<p>Trim is an operation of removing faulty margins of 
+		a sheet.</p>
+		<br>
+		<center>
+		<img src="trim.jpg" width="319" height="287" alt=Trim>&nbsp;</center>
+		<br>
+		<p>There are 2 ways of removing faulty margins of a 
+		sheet:</p>
+		<br>
+		<p>1. Before cutting the sheet. This is the most 
+		common case.</p>
+		<p>2. During the optimization. </p>
+		<br>
+		<p><b>CASE 1</b></p>
+		<br>
+		<p>Handling things in the first case is very easy. 
+		Just trim the sheet and send the resulted sheet (which is smaller than 
+		the original) to the optimization. In this case the<i> TrimTop, TrimLeft, 
+		TrimBottom, TrimRight</i> must be set to 0.</p>
+		<br>
+		<p><b>Example</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assume that your sheet is 3000x2000 
+		units and you have to remove 10 units from each margin. Simply perform 
+		the trim before optimization and send to the component a sheet of 
+		2980x1980 units.</p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.SetRepositoryPiece(0, 
+		2980, 1980, 0, 0, 0, 0, 0, 0, 0)</p>
+		<br>
+		<br>
+		<p><b>CASE 2</b></p>
+		<br>
+		<p>If you want to perform trim operation during 
+		optimization you have to set the <i>Trim</i> parameters accordingly 
+		(that is, set <i>TrimTop, TrimLeft, TrimBottom, TrimRight </i>to the 
+		values that you want).</p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optimization2DX1.SetRepositoryPiece(0, 
+		3000, 2000, 10, 10, 10, 10, 0, 0, 0)</p>
+		<br>
+		<p>In this case there will be some cuttings (returned 
+		by <a href="get_cut.htm">GetCut</a> method) which will perform the trim 
+		operation. Note that here the trim is not performed for the entire 
+		sheet, but only along the pieces to be cut.</p>
+		<br>
+		<br>
+		<p><b>See Also:</b></p>
+		<br>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<a href="number_of_repository_pieces.htm">NumberOfRepositoryPieces</a>, 
+		<a href="get_repository_piece.htm">GetRepositoryPiece</a>,
+		<a href="working_with_real_numbers.htm">Working with real numbers</a>,
+		<a href="grain_direction.htm">Grain direction</a>.</p>
+
+		<br><br>
+<p><b>Links</b></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.htm">back to index</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.optimalprograms.com">www.optimalprograms.com</a></p>
+</body>
+
+</html>
