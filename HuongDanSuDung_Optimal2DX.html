@@ -296,11 +296,10 @@
             <li><a href="#algorithms">2. Các loại thuật toán cắt 2D</a></li>
             <li><a href="#integration">3. Cài đặt & Tích hợp vào C#</a></li>
             <li><a href="#workflow">4. Quy trình 5 bước tối ưu hóa</a></li>
-            <li><a href="#example-vb">5. Phân tích chi tiết ví dụ chuẩn</a></li>
-            <li><a href="#api-ref">6. Tra cứu toàn bộ API</a></li>
-            <li><a href="#concepts">7. Các thông số & Khái niệm cốt lõi</a></li>
-            <li><a href="#winforms-guide">8. Ứng dụng WinForms trực quan</a></li>
-            <li><a href="#faq">9. Câu hỏi thường gặp (FAQ)</a></li>
+            <li><a href="#api-ref">5. Tra cứu toàn bộ API</a></li>
+            <li><a href="#concepts">6. Các thông số & Khái niệm cốt lõi</a></li>
+            <li><a href="#winforms-guide">7. Ứng dụng WinForms trực quan</a></li>
+            <li><a href="#faq">8. Câu hỏi thường gặp (FAQ)</a></li>
         </ul>
     </nav>
 
@@ -440,87 +439,11 @@ for (int sheet = 0; sheet &lt; totalSheets; sheet++)
 }</code></pre>
         </section>
 
-        <!-- 5. Ví dụ chuẩn -->
-        <section id="example-vb">
-            <h2>5. Phân tích chi tiết ví dụ chuẩn (VB 2005 / C#)</h2>
-            <p>Dưới đây là toàn bộ mã nguồn chương trình Console hoàn chỉnh tái hiện chính xác ví dụ tại trang hướng dẫn của hãng:</p>
-
-            <pre><code>using System;
-using Optimal2DX;
-
-class Program
-{
-    static void Main()
-    {
-        var opt = new Optimization2DX();
-
-        // Bước 1: 14 chi tiết cần cắt
-        opt.NumberOfDemandPieces = 14;
-        opt.SetDemandPiece(0,  60,  40, 1, 0, 0);
-        opt.SetDemandPiece(1,  60,  40, 1, 1, 0);
-        opt.SetDemandPiece(2,  48,  40, 1, 2, 0);
-        opt.SetDemandPiece(3,  60,  53, 1, 3, 0);
-        opt.SetDemandPiece(4,  45,  45, 1, 4, 0);
-        opt.SetDemandPiece(5,  50,  80, 1, 5, 0);
-        opt.SetDemandPiece(6,  45,  75, 1, 6, 0);
-        opt.SetDemandPiece(7, 100, 100, 1, 7, 0);
-        opt.SetDemandPiece(8, 100, 100, 1, 8, 0);
-        opt.SetDemandPiece(9,  90,  90, 1, 9, 0);
-        opt.SetDemandPiece(10, 90,  90, 1, 10, 0);
-        opt.SetDemandPiece(11, 90,  90, 1, 11, 0);
-        opt.SetDemandPiece(12, 110, 110, 1, 12, 0);
-        opt.SetDemandPiece(13, 110, 110, 1, 13, 0);
-
-        // Bước 2: 3 tấm nguyên liệu trong kho
-        opt.NumberOfRepositoryPieces = 3;
-        opt.SetRepositoryPiece(0, 300, 200, 0, 0, 0, 0, 0, 0, 0);
-        opt.SetRepositoryPiece(1, 200, 200, 0, 0, 0, 0, 1, 0, 0);
-        opt.SetRepositoryPiece(2, 300, 250, 0, 0, 0, 0, 2, 0, 0);
-
-        // Bước 3: Tham số
-        opt.BladeWidth = 0;
-        opt.OptimizationLevel = 50;
-        opt.RandomSeed = 1;
-
-        // Bước 4: Chạy tối ưu hóa
-        Console.WriteLine("Đang tối ưu hóa cắt Guillotine...");
-        opt.StartGuillotine();
-
-        // Bước 5: Xem kết quả
-        Console.WriteLine($"Số tấm đã dùng: {opt.TotalNumberOfUtilizedRepositoryPieces}");
-        Console.WriteLine($"Số chi tiết đã cắt: {opt.TotalNumberOfUtilizedDemandPieces} / 14");
-
-        for (int sheet = 0; sheet &lt; opt.TotalNumberOfUtilizedRepositoryPieces; sheet++)
-        {
-            opt.SurfaceCovered(sheet, out double surfCovered, out int repIndex, out int repId);
-            Console.WriteLine($"\n--- TẤM #{sheet + 1} (Kho ID = {repId}) - Độ phủ: {surfCovered:F2}% ---");
-
-            // In nhát cắt
-            opt.NumberOfCuttings(sheet, out int noCuts, out _, out _);
-            Console.WriteLine($"Số nhát cắt: {noCuts}");
-            for (int i = 0; i &lt; noCuts; i++) {
-                opt.GetCut(sheet, i, out int tx, out int ty, out int bx, out int by, out int thick, out _, out _);
-                Console.WriteLine($"  Nhát cưa {i+1}: ({tx}, {ty}) -&gt; ({bx}, {by}), bề dày = {thick}");
-            }
-
-            // In vị trí chi tiết
-            opt.NumberOfUtilizedDemandPieces(sheet, out int noPieces, out _, out _);
-            Console.WriteLine($"Chi tiết đặt được: {noPieces}");
-            for (int i = 0; i &lt; noPieces; i++) {
-                opt.GetUtilizedDemandPiece(sheet, i, out int tx, out int ty, out int bx, out int by, 
-                                           out int rot, out _, out _, out _, out int demId);
-                Console.WriteLine($"  Chi tiết [DemID={demId}]: ({tx},{ty}) - ({bx},{by}) | Kích thước: {Math.Abs(bx-tx)}x{Math.Abs(by-ty)} | Xoay 90°: {(rot == 1 ? "Có" : "Không")}");
-            }
-        }
-    }
-}</code></pre>
-        </section>
-
-        <!-- 6. Tra cứu API -->
+        <!-- 5. Tra cứu API -->
         <section id="api-ref">
-            <h2>6. Tra cứu toàn bộ API (API Reference)</h2>
+            <h2>5. Tra cứu toàn bộ API (API Reference)</h2>
 
-            <h3>6.1. Bảng Thuộc tính (Properties)</h3>
+            <h3>5.1. Bảng Thuộc tính (Properties)</h3>
             <table>
                 <thead>
                     <tr>
@@ -598,7 +521,7 @@ class Program
                 </tbody>
             </table>
 
-            <h3>6.2. Bảng Phương thức (Methods)</h3>
+            <h3>5.2. Bảng Phương thức (Methods)</h3>
             <table>
                 <thead>
                     <tr>
@@ -682,11 +605,11 @@ class Program
             </table>
         </section>
 
-        <!-- 7. Khái niệm cốt lõi -->
+        <!-- 6. Khái niệm cốt lõi -->
         <section id="concepts">
-            <h2>7. Các thông số & Khái niệm kỹ thuật quan trọng</h2>
+            <h2>6. Các thông số & Khái niệm kỹ thuật quan trọng</h2>
 
-            <h3>7.1. Hướng vân gỗ (Grain Direction) & Tham số CanRotate</h3>
+            <h3>6.1. Hướng vân gỗ (Grain Direction) & Tham số CanRotate</h3>
             <p>
                 Đối với các vật liệu như gỗ tự nhiên, gỗ công nghiệp phủ Melamine/Veneer, tấm inox xước bề mặt,... đều có một chiều hướng vân/thớ (Grain Direction) cố định. Để đảm bảo tính thẩm mỹ của sản phẩm nội thất và cơ lý tính của gỗ, các chi tiết cần được cắt đúng theo chiều vân thớ đã định sẵn.
             </p>
@@ -719,7 +642,7 @@ opt.SetDemandPiece(0, 600, 500, 0, 0, 0);</code></pre>
                 </ul>
             </p>
 
-            <h3>7.2. Cắt tỉa mép (Trim Margins)</h3>
+            <h3>6.2. Cắt tỉa mép (Trim Margins)</h3>
             <p>
                 Các tấm phôi khi vận chuyển thường bị nứt, móp méo hoặc dập góc ở 4 mép biên:
             </p>
@@ -728,7 +651,7 @@ opt.SetDemandPiece(0, 600, 500, 0, 0, 0);</code></pre>
                 <li>Thuật toán sẽ tự động trừ đi các dải mép lỗi này. Phần diện tích hữu dụng thực tế để bố trí chi tiết sẽ bắt đầu từ tọa độ <code>(TrimLeft, TrimTop)</code>.</li>
             </ul>
 
-            <h3>7.3. Bề dày mạch cắt (BladeWidth / Kerf)</h3>
+            <h3>6.3. Bề dày mạch cắt (BladeWidth / Kerf)</h3>
             <p>
                 Lưỡi cưa đĩa kim loại thường có bề dày từ <code>2.8 mm - 4.2 mm</code>. Khi cưa một đường, một lượng phôi sẽ bị nghiền thành mùn cưa và biến mất:
             </p>
@@ -738,9 +661,9 @@ opt.SetDemandPiece(0, 600, 500, 0, 0, 0);</code></pre>
             </ul>
         </section>
 
-        <!-- 8. WinForms -->
+        <!-- 7. WinForms -->
         <section id="winforms-guide">
-            <h2>8. Ứng dụng WinForms trực quan (Optimal2DX.WinForms)</h2>
+            <h2>7. Ứng dụng WinForms trực quan (Optimal2DX.WinForms)</h2>
             <p>
                 Dự án mẫu WinForms đã được lập trình sẵn tại thư mục <code>E:\Cut2dx\Optimal2DX_CSharp\Optimal2DX.WinForms</code>. Ứng dụng cung cấp giao diện đồ họa hoàn chỉnh với bảng vẽ GDI+ trực quan:
             </p>
@@ -764,9 +687,9 @@ opt.SetDemandPiece(0, 600, 500, 0, 0, 0);</code></pre>
             </ul>
         </section>
 
-        <!-- 9. FAQ -->
+        <!-- 8. FAQ -->
         <section id="faq">
-            <h2>9. Câu hỏi thường gặp (FAQ)</h2>
+            <h2>8. Câu hỏi thường gặp (FAQ)</h2>
             
             <div class="card" style="margin-bottom: 16px;">
                 <h4>Q: Thuật toán có hỗ trợ số thập phân (số thực như 125.5 mm) không?</h4>
