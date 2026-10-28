@@ -6,12 +6,16 @@ namespace Optimal2DX.Algorithms
 {
     public class NestedPacker
     {
+        private const double Eps = 0.001;
+
         public static List<SheetLayout> Pack(
             List<DemandPiece> demandPieces,
             List<RepositoryPiece> repositoryPieces,
             Chromosome chromosome,
-            int bladeWidth)
+            double bladeWidth)
         {
+            bladeWidth = Math.Round(Math.Max(0.0, bladeWidth), 1, MidpointRounding.AwayFromZero);
+
             var sheets = new List<SheetLayout>();
             var placed = new bool[demandPieces.Count];
             int totalPlacedCount = 0;
@@ -23,10 +27,10 @@ namespace Optimal2DX.Algorithms
 
                 var layout = new SheetLayout(sheets.Count, repo.Index, repo.ExternalID, repo.Length, repo.Width, repo.Label);
 
-                int startX = repo.TrimLeft;
-                int startY = repo.TrimTop;
-                int usableW = repo.UsableLength;
-                int usableH = repo.UsableWidth;
+                double startX = repo.TrimLeft;
+                double startY = repo.TrimTop;
+                double usableW = repo.UsableLength;
+                double usableH = repo.UsableWidth;
 
                 // MaxRects free rectangles
                 var freeRects = new List<FreeRectangle>
@@ -45,8 +49,8 @@ namespace Optimal2DX.Algorithms
 
                     int bestRectIdx = -1;
                     bool bestRotated = false;
-                    int bestShortSide = int.MaxValue;
-                    int bestLongSide = int.MaxValue;
+                    double bestShortSide = double.MaxValue;
+                    double bestLongSide = double.MaxValue;
 
                     for (int i = 0; i < freeRects.Count; i++)
                     {
@@ -55,11 +59,11 @@ namespace Optimal2DX.Algorithms
                         bool tryNormal = true;
                         bool tryRot = piece.CanRotate == 1;
 
-                        if (tryNormal && piece.Length <= fr.Width && piece.Width <= fr.Height)
+                        if (tryNormal && piece.Length <= fr.Width + Eps && piece.Width <= fr.Height + Eps)
                         {
-                            int shortSide = Math.Min(fr.Width - piece.Length, fr.Height - piece.Width);
-                            int longSide = Math.Max(fr.Width - piece.Length, fr.Height - piece.Width);
-                            if (shortSide < bestShortSide || (shortSide == bestShortSide && longSide < bestLongSide))
+                            double shortSide = Math.Min(fr.Width - piece.Length, fr.Height - piece.Width);
+                            double longSide = Math.Max(fr.Width - piece.Length, fr.Height - piece.Width);
+                            if (shortSide < bestShortSide || (Math.Abs(shortSide - bestShortSide) < Eps && longSide < bestLongSide))
                             {
                                 bestShortSide = shortSide;
                                 bestLongSide = longSide;
@@ -68,11 +72,11 @@ namespace Optimal2DX.Algorithms
                             }
                         }
 
-                        if (tryRot && piece.Width <= fr.Width && piece.Length <= fr.Height)
+                        if (tryRot && piece.Width <= fr.Width + Eps && piece.Length <= fr.Height + Eps)
                         {
-                            int shortSide = Math.Min(fr.Width - piece.Width, fr.Height - piece.Length);
-                            int longSide = Math.Max(fr.Width - piece.Width, fr.Height - piece.Length);
-                            if (shortSide < bestShortSide || (shortSide == bestShortSide && longSide < bestLongSide))
+                            double shortSide = Math.Min(fr.Width - piece.Width, fr.Height - piece.Length);
+                            double longSide = Math.Max(fr.Width - piece.Width, fr.Height - piece.Length);
+                            if (shortSide < bestShortSide || (Math.Abs(shortSide - bestShortSide) < Eps && longSide < bestLongSide))
                             {
                                 bestShortSide = shortSide;
                                 bestLongSide = longSide;
@@ -85,13 +89,13 @@ namespace Optimal2DX.Algorithms
                     if (bestRectIdx >= 0)
                     {
                         var targetRect = freeRects[bestRectIdx];
-                        int pw = bestRotated ? piece.Width : piece.Length;
-                        int ph = bestRotated ? piece.Length : piece.Width;
+                        double pw = bestRotated ? piece.Width : piece.Length;
+                        double ph = bestRotated ? piece.Length : piece.Width;
 
-                        int topX = targetRect.X;
-                        int topY = targetRect.Y;
-                        int bottomX = topX + pw;
-                        int bottomY = topY + ph;
+                        double topX = targetRect.X;
+                        double topY = targetRect.Y;
+                        double bottomX = Math.Round(topX + pw, 1, MidpointRounding.AwayFromZero);
+                        double bottomY = Math.Round(topY + ph, 1, MidpointRounding.AwayFromZero);
 
                         layout.UtilizedPieces.Add(new UtilizedPiece(
                             topX, topY, bottomX, bottomY,
@@ -119,7 +123,7 @@ namespace Optimal2DX.Algorithms
                     // Compute waste pieces from non-overlapping free spaces
                     foreach (var fr in freeRects)
                     {
-                        if (fr.Width > 0 && fr.Height > 0)
+                        if (fr.Width > Eps && fr.Height > Eps)
                         {
                             layout.WastePieces.Add(new WastePiece(fr.X, fr.Y, fr.X + fr.Width, fr.Y + fr.Height));
                         }
@@ -138,23 +142,23 @@ namespace Optimal2DX.Algorithms
             for (int i = 0; i < count; i++)
             {
                 var fr = freeRects[i];
-                if (placed.X < fr.X + fr.Width && placed.X + placed.Width > fr.X &&
-                    placed.Y < fr.Y + fr.Height && placed.Y + placed.Height > fr.Y)
+                if (placed.X < fr.X + fr.Width - Eps && placed.X + placed.Width > fr.X + Eps &&
+                    placed.Y < fr.Y + fr.Height - Eps && placed.Y + placed.Height > fr.Y + Eps)
                 {
                     // Overlaps, split into up to 4 sub-rectangles
-                    if (placed.X > fr.X && placed.X < fr.X + fr.Width)
+                    if (placed.X > fr.X + Eps && placed.X < fr.X + fr.Width - Eps)
                     {
                         freeRects.Add(new FreeRectangle(fr.X, fr.Y, placed.X - fr.X, fr.Height));
                     }
-                    if (placed.X + placed.Width < fr.X + fr.Width)
+                    if (placed.X + placed.Width < fr.X + fr.Width - Eps)
                     {
                         freeRects.Add(new FreeRectangle(placed.X + placed.Width, fr.Y, fr.X + fr.Width - (placed.X + placed.Width), fr.Height));
                     }
-                    if (placed.Y > fr.Y && placed.Y < fr.Y + fr.Height)
+                    if (placed.Y > fr.Y + Eps && placed.Y < fr.Y + fr.Height - Eps)
                     {
                         freeRects.Add(new FreeRectangle(fr.X, fr.Y, fr.Width, placed.Y - fr.Y));
                     }
-                    if (placed.Y + placed.Height < fr.Y + fr.Height)
+                    if (placed.Y + placed.Height < fr.Y + fr.Height - Eps)
                     {
                         freeRects.Add(new FreeRectangle(fr.X, placed.Y + placed.Height, fr.Width, fr.Y + fr.Height - (placed.Y + placed.Height)));
                     }
@@ -176,13 +180,13 @@ namespace Optimal2DX.Algorithms
                     var b = freeRects[j];
 
                     // If b is inside a, remove b
-                    if (b.X >= a.X && b.Y >= a.Y && b.X + b.Width <= a.X + a.Width && b.Y + b.Height <= a.Y + a.Height)
+                    if (b.X >= a.X - Eps && b.Y >= a.Y - Eps && b.X + b.Width <= a.X + a.Width + Eps && b.Y + b.Height <= a.Y + a.Height + Eps)
                     {
                         freeRects.RemoveAt(j);
                         j--;
                     }
                     // If a is inside b, remove a
-                    else if (a.X >= b.X && a.Y >= b.Y && a.X + a.Width <= b.X + b.Width && a.Y + a.Height <= b.Y + b.Height)
+                    else if (a.X >= b.X - Eps && a.Y >= b.Y - Eps && a.X + a.Width <= b.X + b.Width + Eps && a.Y + a.Height <= b.Y + b.Height + Eps)
                     {
                         freeRects.RemoveAt(i);
                         i--;

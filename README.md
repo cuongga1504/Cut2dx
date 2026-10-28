@@ -63,7 +63,7 @@ Lớp điều khiển chính: `Optimal2DX.Core.Optimal2DX`
 | :--- | :---: | :---: | :--- |
 | `NumberOfDemandPieces` | `int` | `get; set;` | Số lượng chi tiết cần cắt. Thiết lập giá trị này sẽ khởi tạo/cấp phát mảng dữ liệu chi tiết. |
 | `NumberOfRepositoryPieces` | `int` | `get; set;` | Số lượng tấm nguyên liệu trong kho. Thiết lập giá trị này sẽ cấp phát mảng tấm kho. |
-| `BladeWidth` | `int` | `get; set;` | Bề dày của mạch cưa / tia cắt (*kerf*). Vật liệu bị tiêu hao giữa các nhát cưa. Mặc định: `0`. |
+| `BladeWidth` | `double` | `get; set;` | Bề dày của mạch cưa / tia cắt (*kerf*). Cho phép số lẻ và tự động làm tròn đến 1 chữ số thập phân (ví dụ: `3.2 mm`). Mặc định: `0`. |
 | `OptimizationLevel` | `int` | `get; set;` | Cấp độ tìm kiếm di truyền (`1` đến `100`). Càng cao thuật toán tìm nghiệm càng kỹ, thời gian chạy tăng dần. Mặc định: `50`. |
 | `RandomSeed` | `int` | `get; set;` | Seed khởi tạo bộ sinh ngẫu nhiên. Giữ nguyên seed sẽ cho ra kết quả sắp xếp giống hệt nhau. Mặc định: `1`. |
 | `MinimalUsefulSize` | `int` | `get; set;` | Kích thước cạnh tối thiểu để một mảnh thừa được coi là *"phế liệu có ích / tái sử dụng"*. Mảnh nhỏ hơn sẽ tính là *"phế phẩm vụn"* (*Garbage*). |
@@ -191,9 +191,9 @@ Dừng sớm tiến trình tối ưu hóa. Thuật toán sẽ lập tức kết 
 3. **Khóa góc xoay**: Thiết lập `canRotate = 0` trong `SetDemandPiece` để thuật toán không xoay góc 90°, đảm bảo 100% chi tiết cắt ra đúng chiều vân.
 
 ### Bề dày mạch cắt (BladeWidth / Kerf)
-Lưỡi cưa đĩa kim loại thường dày từ `2.8 mm - 4.2 mm`. Khi cưa một nhát, một lượng phôi sẽ bị hao hụt thành mùn cưa:
-- Thiết lập `BladeWidth = 3` (ví dụ lưỡi cưa 3 mm).
-- Thuật toán sẽ tự động cộng bù khoảng cách 3 mm giữa các chi tiết liền kề, giữ cho kích thước thành phẩm chuẩn xác tuyệt đối.
+Lưỡi cưa đĩa kim loại thường dày từ `2.8 mm - 4.2 mm` (ví dụ: `3.2 mm` hoặc `3.5 mm`). Khi cưa một nhát, một lượng phôi sẽ bị hao hụt thành mùn cưa:
+- Thiết lập `BladeWidth = 3.2` (hỗ trợ số thực/số lẻ và tự động làm tròn đến 1 chữ số thập phân).
+- Thuật toán sẽ tự động cộng bù khoảng cách mạch cắt giữa các chi tiết liền kề, giữ cho kích thước thành phẩm chuẩn xác tuyệt đối.
 
 ### Cắt tỉa mép (Trim Margins)
 Tấm ván công nghiệp khi vận chuyển thường bị nứt mép hoặc dập góc:
@@ -248,7 +248,7 @@ class Program
         Optimal2DX opt = new Optimal2DX();
 
         // 1. Cấu hình thông số cắt
-        opt.BladeWidth = 3;           // Bề dày mạch cưa: 3 mm
+        opt.BladeWidth = 3.2;         // Bề dày mạch cưa: 3.2 mm
         opt.OptimizationLevel = 80;    // Mức độ tối ưu: 80%
 
         // 2. Khai báo tấm phôi nguyên liệu trong kho (2440 x 1220 mm)

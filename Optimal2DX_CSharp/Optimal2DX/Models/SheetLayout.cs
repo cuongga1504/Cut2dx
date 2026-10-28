@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Optimal2DX.Models
@@ -19,14 +20,14 @@ namespace Optimal2DX.Models
         {
             get
             {
-                long totalSheetArea = (long)SheetLength * SheetWidth;
+                double totalSheetArea = (double)SheetLength * SheetWidth;
                 if (totalSheetArea <= 0) return 0;
-                long totalUtilizedArea = 0;
+                double totalUtilizedArea = 0;
                 foreach (var piece in UtilizedPieces)
                 {
                     totalUtilizedArea += piece.Area;
                 }
-                return ((double)totalUtilizedArea / totalSheetArea) * 100.0;
+                return Math.Round((totalUtilizedArea / totalSheetArea) * 100.0, 2, MidpointRounding.AwayFromZero);
             }
         }
 
@@ -39,7 +40,7 @@ namespace Optimal2DX.Models
                 {
                     total += cut.Length;
                 }
-                return total;
+                return Math.Round(total, 1, MidpointRounding.AwayFromZero);
             }
         }
 
@@ -52,11 +53,11 @@ namespace Optimal2DX.Models
                 {
                     total += waste.Area;
                 }
-                return total;
+                return Math.Round(total, 2, MidpointRounding.AwayFromZero);
             }
         }
 
-        public double GarbageWaste(int minimalUsefulSize)
+        public double GarbageWaste(double minimalUsefulSize)
         {
             double total = 0;
             foreach (var waste in WastePieces)
@@ -66,7 +67,7 @@ namespace Optimal2DX.Models
                     total += waste.Area;
                 }
             }
-            return total;
+            return Math.Round(total, 2, MidpointRounding.AwayFromZero);
         }
 
         public SheetLayout(int sheetIndex, int repositoryIndex, int repositoryExternalId, int sheetLength, int sheetWidth, string repositoryLabel = "")

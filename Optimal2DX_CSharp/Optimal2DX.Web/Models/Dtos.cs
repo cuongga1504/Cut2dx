@@ -40,7 +40,7 @@ public class OptimizationRequestDto
     
     // Parameters
     public int Method { get; set; } = 0; // 0: Guillotine, 1: Nested, 2: MultiStages
-    public int BladeWidth { get; set; } = 3;
+    public double BladeWidth { get; set; } = 3.2;
     public int OptimizationLevel { get; set; } = 50;
     public int RandomSeed { get; set; } = 1;
     public int MinimalUsefulSize { get; set; } = 100;
@@ -53,12 +53,12 @@ public class UtilizedPieceDto
 {
     public int Index { get; set; }
     public string Label { get; set; } = string.Empty;
-    public int TopX { get; set; }
-    public int TopY { get; set; }
-    public int BottomX { get; set; }
-    public int BottomY { get; set; }
-    public int Width { get; set; }
-    public int Height { get; set; }
+    public double TopX { get; set; }
+    public double TopY { get; set; }
+    public double BottomX { get; set; }
+    public double BottomY { get; set; }
+    public double Width { get; set; }
+    public double Height { get; set; }
     public int Rotated { get; set; }
     public int DemandIndex { get; set; }
     public int DemandExternalID { get; set; }
@@ -69,11 +69,11 @@ public class UtilizedPieceDto
 public class CutItemDto
 {
     public int Index { get; set; }
-    public int TopX { get; set; }
-    public int TopY { get; set; }
-    public int BottomX { get; set; }
-    public int BottomY { get; set; }
-    public int CutThickness { get; set; }
+    public double TopX { get; set; }
+    public double TopY { get; set; }
+    public double BottomX { get; set; }
+    public double BottomY { get; set; }
+    public double CutThickness { get; set; }
     public int Level { get; set; }
     public string Direction { get; set; } = string.Empty;
 }
@@ -81,13 +81,13 @@ public class CutItemDto
 public class WastePieceItemDto
 {
     public int Index { get; set; }
-    public int TopX { get; set; }
-    public int TopY { get; set; }
-    public int BottomX { get; set; }
-    public int BottomY { get; set; }
-    public int Width { get; set; }
-    public int Height { get; set; }
-    public long Area { get; set; }
+    public double TopX { get; set; }
+    public double TopY { get; set; }
+    public double BottomX { get; set; }
+    public double BottomY { get; set; }
+    public double Width { get; set; }
+    public double Height { get; set; }
+    public double Area { get; set; }
     public bool IsUseful { get; set; }
     public string Classification { get; set; } = string.Empty;
     public string GrainAvailable { get; set; } = string.Empty;

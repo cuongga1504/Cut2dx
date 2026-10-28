@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -190,7 +191,7 @@ public class CuttingOptimizationService
         }
 
         // 3. Parameters
-        opt.BladeWidth = Math.Max(0, req.BladeWidth);
+        opt.BladeWidth = Math.Round(Math.Max(0.0, req.BladeWidth), 1, MidpointRounding.AwayFromZero);
         opt.OptimizationLevel = Math.Clamp(req.OptimizationLevel, 1, 100);
         opt.RandomSeed = req.RandomSeed > 0 ? req.RandomSeed : 1;
         opt.MinimalUsefulSize = Math.Max(0, req.MinimalUsefulSize);
@@ -312,7 +313,7 @@ public class CuttingOptimizationService
             for (int i = 0; i < sheet.Cuts.Count; i++)
             {
                 var cut = sheet.Cuts[i];
-                string dir = (cut.TopX == cut.BottomX) ? "Dọc" : (cut.TopY == cut.BottomY) ? "Ngang" : "Khác";
+                string dir = (Math.Abs(cut.TopX - cut.BottomX) < 0.05) ? "Dọc" : (Math.Abs(cut.TopY - cut.BottomY) < 0.05) ? "Ngang" : "Khác";
                 patternDto.Cuts.Add(new CutItemDto
                 {
                     Index = i + 1,
@@ -361,7 +362,7 @@ public class CuttingOptimizationService
     private string GenerateSvg(
         SheetLayout sheet,
         int patternIdx,
-        int bladeWidth,
+        double bladeWidth,
         string repoLabel,
         int repeatCount,
         string wasteHatchStyle,
@@ -441,20 +442,25 @@ public class CuttingOptimizationService
         foreach (var wp in sheet.WastePieces)
         {
             if (wp.Width <= 0 || wp.Height <= 0) continue;
-            int rx = marginX + wp.TopX;
-            int ry = marginY + wp.TopY;
-            int rw = wp.Width;
-            int rh = wp.Height;
+            double rx = marginX + wp.TopX;
+            double ry = marginY + wp.TopY;
+            double rw = wp.Width;
+            double rh = wp.Height;
 
-            sb.AppendLine($"  <rect x=\"{rx}\" y=\"{ry}\" width=\"{rw}\" height=\"{rh}\" fill=\"#fffbeb\" stroke=\"#f59e0b\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\" />");
-            sb.AppendLine($"  <rect x=\"{rx}\" y=\"{ry}\" width=\"{rw}\" height=\"{rh}\" fill=\"url(#wasteHatch_{patternIdx})\" />");
+            string sRx = rx.ToString("0.#", CultureInfo.InvariantCulture);
+            string sRy = ry.ToString("0.#", CultureInfo.InvariantCulture);
+            string sRw = rw.ToString("0.#", CultureInfo.InvariantCulture);
+            string sRh = rh.ToString("0.#", CultureInfo.InvariantCulture);
+
+            sb.AppendLine($"  <rect x=\"{sRx}\" y=\"{sRy}\" width=\"{sRw}\" height=\"{sRh}\" fill=\"#fffbeb\" stroke=\"#f59e0b\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\" />");
+            sb.AppendLine($"  <rect x=\"{sRx}\" y=\"{sRy}\" width=\"{sRw}\" height=\"{sRh}\" fill=\"url(#wasteHatch_{patternIdx})\" />");
 
             if (rw >= 80 && rh >= 40)
             {
-                int cx = rx + rw / 2;
-                int cy = ry + rh / 2;
-                sb.AppendLine($"  <rect x=\"{cx - 50}\" y=\"{cy - 14}\" width=\"100\" height=\"28\" rx=\"4\" fill=\"rgba(255,255,255,0.85)\" stroke=\"#f59e0b\" stroke-width=\"1\" />");
-                sb.AppendLine($"  <text x=\"{cx}\" y=\"{cy + 4}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#b45309\" text-anchor=\"middle\">{rw} x {rh}</text>");
+                double cx = rx + rw / 2;
+                double cy = ry + rh / 2;
+                sb.AppendLine($"  <rect x=\"{(cx - 50).ToString("0.#", CultureInfo.InvariantCulture)}\" y=\"{(cy - 14).ToString("0.#", CultureInfo.InvariantCulture)}\" width=\"100\" height=\"28\" rx=\"4\" fill=\"rgba(255,255,255,0.85)\" stroke=\"#f59e0b\" stroke-width=\"1\" />");
+                sb.AppendLine($"  <text x=\"{cx.ToString("0.#", CultureInfo.InvariantCulture)}\" y=\"{(cy + 4).ToString("0.#", CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#b45309\" text-anchor=\"middle\">{rw:0.#} x {rh:0.#}</text>");
             }
         }
 
@@ -462,10 +468,15 @@ public class CuttingOptimizationService
         for (int i = 0; i < sheet.UtilizedPieces.Count; i++)
         {
             var p = sheet.UtilizedPieces[i];
-            int px = marginX + p.TopX;
-            int py = marginY + p.TopY;
-            int pw = p.Width;
-            int ph = p.Height;
+            double px = marginX + p.TopX;
+            double py = marginY + p.TopY;
+            double pw = p.Width;
+            double ph = p.Height;
+
+            string sPx = px.ToString("0.#", CultureInfo.InvariantCulture);
+            string sPy = py.ToString("0.#", CultureInfo.InvariantCulture);
+            string sPw = pw.ToString("0.#", CultureInfo.InvariantCulture);
+            string sPh = ph.ToString("0.#", CultureInfo.InvariantCulture);
 
             string colorFill = PieceColors[i % PieceColors.Length];
             string colorStroke = PieceStrokeColors[i % PieceStrokeColors.Length];
@@ -479,29 +490,30 @@ public class CuttingOptimizationService
             string safeLabel = WebUtility.HtmlEncode(pieceLabel);
             string rotMarker = p.Rotated == 1 ? " ↻ 90°" : "";
 
-            sb.AppendLine($"  <g class=\"svg-piece\" data-piece-id=\"{i + 1}\" data-label=\"{safeLabel}\" data-dim=\"{pw}x{ph}\" data-pos=\"({p.TopX},{p.TopY})-({p.BottomX},{p.BottomY})\">");
-            sb.AppendLine($"    <rect x=\"{px}\" y=\"{py}\" width=\"{pw}\" height=\"{ph}\" fill=\"{colorFill}\" stroke=\"{colorStroke}\" stroke-width=\"2\" rx=\"3\" filter=\"url(#pieceShadow)\" />");
+            sb.AppendLine($"  <g class=\"svg-piece\" data-piece-id=\"{i + 1}\" data-label=\"{safeLabel}\" data-dim=\"{pw:0.#}x{ph:0.#}\" data-pos=\"({p.TopX:0.#},{p.TopY:0.#})-({p.BottomX:0.#},{p.BottomY:0.#})\">");
+            sb.AppendLine($"    <rect x=\"{sPx}\" y=\"{sPy}\" width=\"{sPw}\" height=\"{sPh}\" fill=\"{colorFill}\" stroke=\"{colorStroke}\" stroke-width=\"2\" rx=\"3\" filter=\"url(#pieceShadow)\" />");
 
             // Text labels if piece is big enough
             if (pw >= 45 && ph >= 30)
             {
-                int cx = px + pw / 2;
-                int cy = py + ph / 2;
+                double cx = px + pw / 2;
+                double cy = py + ph / 2;
+                string sCx = cx.ToString("0.#", CultureInfo.InvariantCulture);
 
                 if (ph >= 60 && pw >= 75)
                 {
                     // Piece # Badge
-                    sb.AppendLine($"    <rect x=\"{px + 4}\" y=\"{py + 4}\" width=\"24\" height=\"20\" rx=\"3\" fill=\"{colorStroke}\" />");
-                    sb.AppendLine($"    <text x=\"{px + 16}\" y=\"{py + 18}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#ffffff\" text-anchor=\"middle\">{i + 1}</text>");
+                    sb.AppendLine($"    <rect x=\"{(px + 4).ToString("0.#", CultureInfo.InvariantCulture)}\" y=\"{(py + 4).ToString("0.#", CultureInfo.InvariantCulture)}\" width=\"24\" height=\"20\" rx=\"3\" fill=\"{colorStroke}\" />");
+                    sb.AppendLine($"    <text x=\"{(px + 16).ToString("0.#", CultureInfo.InvariantCulture)}\" y=\"{(py + 18).ToString("0.#", CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"12\" font-weight=\"bold\" fill=\"#ffffff\" text-anchor=\"middle\">{i + 1}</text>");
 
                     // Piece Name
-                    sb.AppendLine($"    <text x=\"{cx}\" y=\"{cy - 6}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"15\" font-weight=\"bold\" fill=\"#1e293b\" text-anchor=\"middle\">{safeLabel}</text>");
+                    sb.AppendLine($"    <text x=\"{sCx}\" y=\"{(cy - 6).ToString("0.#", CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"15\" font-weight=\"bold\" fill=\"#1e293b\" text-anchor=\"middle\">{safeLabel}</text>");
                     // Piece Dimension
-                    sb.AppendLine($"    <text x=\"{cx}\" y=\"{cy + 15}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#475569\" text-anchor=\"middle\">{pw} x {ph}{rotMarker}</text>");
+                    sb.AppendLine($"    <text x=\"{sCx}\" y=\"{(cy + 15).ToString("0.#", CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#475569\" text-anchor=\"middle\">{pw:0.#} x {ph:0.#}{rotMarker}</text>");
                 }
                 else
                 {
-                    sb.AppendLine($"    <text x=\"{cx}\" y=\"{cy + 5}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#1e293b\" text-anchor=\"middle\">{pw}x{ph}</text>");
+                    sb.AppendLine($"    <text x=\"{sCx}\" y=\"{(cy + 5).ToString("0.#", CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, Arial, sans-serif\" font-size=\"13\" font-weight=\"bold\" fill=\"#1e293b\" text-anchor=\"middle\">{pw:0.#}x{ph:0.#}</text>");
                 }
             }
             sb.AppendLine("  </g>");
@@ -510,12 +522,17 @@ public class CuttingOptimizationService
         // 3. Draw Cuts (Guillotine cut lines)
         foreach (var c in sheet.Cuts)
         {
-            int cx1 = marginX + c.TopX;
-            int cy1 = marginY + c.TopY;
-            int cx2 = marginX + c.BottomX;
-            int cy2 = marginY + c.BottomY;
+            double cx1 = marginX + c.TopX;
+            double cy1 = marginY + c.TopY;
+            double cx2 = marginX + c.BottomX;
+            double cy2 = marginY + c.BottomY;
 
-            sb.AppendLine($"  <line x1=\"{cx1}\" y1=\"{cy1}\" x2=\"{cx2}\" y2=\"{cy2}\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"5,3\" opacity=\"0.85\" />");
+            string sCx1 = cx1.ToString("0.#", CultureInfo.InvariantCulture);
+            string sCy1 = cy1.ToString("0.#", CultureInfo.InvariantCulture);
+            string sCx2 = cx2.ToString("0.#", CultureInfo.InvariantCulture);
+            string sCy2 = cy2.ToString("0.#", CultureInfo.InvariantCulture);
+
+            sb.AppendLine($"  <line x1=\"{sCx1}\" y1=\"{sCy1}\" x2=\"{sCx2}\" y2=\"{sCy2}\" stroke=\"#ef4444\" stroke-width=\"1.8\" stroke-dasharray=\"5,3\" opacity=\"0.85\" />");
         }
 
         sb.AppendLine("</svg>");

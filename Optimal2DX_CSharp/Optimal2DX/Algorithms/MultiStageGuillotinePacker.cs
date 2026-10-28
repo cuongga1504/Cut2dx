@@ -6,16 +6,20 @@ namespace Optimal2DX.Algorithms
 {
     public class MultiStageGuillotinePacker
     {
+        private const double Eps = 0.001;
+
         public static List<SheetLayout> Pack(
             List<DemandPiece> demandPieces,
             List<RepositoryPiece> repositoryPieces,
             Chromosome chromosome,
-            int bladeWidth,
+            double bladeWidth,
             int firstDirection, // 0 = Horizontal first, 1 = Vertical first
             int numberOfStages,
             int onlySameHeightInStrip,
             int heightTolerance)
         {
+            bladeWidth = Math.Round(Math.Max(0.0, bladeWidth), 1, MidpointRounding.AwayFromZero);
+
             var sheets = new List<SheetLayout>();
             var placed = new bool[demandPieces.Count];
             int totalPlacedCount = 0;
@@ -27,15 +31,15 @@ namespace Optimal2DX.Algorithms
 
                 var layout = new SheetLayout(sheets.Count, repo.Index, repo.ExternalID, repo.Length, repo.Width, repo.Label);
 
-                int startX = repo.TrimLeft;
-                int startY = repo.TrimTop;
-                int usableW = repo.UsableLength;
-                int usableH = repo.UsableWidth;
+                double startX = repo.TrimLeft;
+                double startY = repo.TrimTop;
+                double usableW = repo.UsableLength;
+                double usableH = repo.UsableWidth;
 
                 // Strip-based packing (Shelf algorithm)
-                int currentX = startX;
-                int currentY = startY;
-                int currentStripThickness = 0; // strip height (if horizontal) or strip width (if vertical)
+                double currentX = startX;
+                double currentY = startY;
+                double currentStripThickness = 0; // strip height (if horizontal) or strip width (if vertical)
                 bool horizontalFirst = (firstDirection == 0);
 
                 bool placedAny = false;
@@ -48,8 +52,8 @@ namespace Optimal2DX.Algorithms
                     var piece = demandPieces[pieceIdx];
 
                     // Check orientations
-                    int pw = piece.Length;
-                    int ph = piece.Width;
+                    double pw = piece.Length;
+                    double ph = piece.Width;
                     bool rotated = false;
 
                     if (piece.CanRotate == 1 && chromosome.Rotated[pieceIdx])
@@ -62,31 +66,31 @@ namespace Optimal2DX.Algorithms
                     if (horizontalFirst)
                     {
                         // Horizontal strips: strips stacked along Y axis, items placed along X axis
-                        if (currentX + pw > startX + usableW)
+                        if (currentX + pw > startX + usableW + Eps)
                         {
                             // Close current strip, move to next strip
-                            if (currentStripThickness > 0)
+                            if (currentStripThickness > Eps)
                             {
-                                int stripEndY = currentY + currentStripThickness;
+                                double stripEndY = Math.Round(currentY + currentStripThickness, 1, MidpointRounding.AwayFromZero);
                                 layout.Cuts.Add(new Cut(startX, stripEndY, startX + usableW, stripEndY, bladeWidth, level: 1));
-                                currentY = stripEndY + bladeWidth;
+                                currentY = Math.Round(stripEndY + bladeWidth, 1, MidpointRounding.AwayFromZero);
                                 currentX = startX;
                                 currentStripThickness = 0;
                             }
                         }
 
                         // Check if fits vertically
-                        if (currentY + ph <= startY + usableH && currentX + pw <= startX + usableW)
+                        if (currentY + ph <= startY + usableH + Eps && currentX + pw <= startX + usableW + Eps)
                         {
                             layout.UtilizedPieces.Add(new UtilizedPiece(
-                                currentX, currentY, currentX + pw, currentY + ph,
+                                currentX, currentY, Math.Round(currentX + pw, 1, MidpointRounding.AwayFromZero), Math.Round(currentY + ph, 1, MidpointRounding.AwayFromZero),
                                 rotated ? 1 : 0, piece.Index, piece.ExternalID, piece.Grain, piece.Label
                             ));
 
                             // Stage 2 cut: vertical cut separating piece in strip
                             layout.Cuts.Add(new Cut(currentX + pw, currentY, currentX + pw, currentY + ph, bladeWidth, level: 2));
 
-                            currentX += pw + bladeWidth;
+                            currentX = Math.Round(currentX + pw + bladeWidth, 1, MidpointRounding.AwayFromZero);
                             if (ph > currentStripThickness)
                             {
                                 currentStripThickness = ph;
@@ -100,29 +104,29 @@ namespace Optimal2DX.Algorithms
                     else
                     {
                         // Vertical strips: strips stacked along X axis, items placed along Y axis
-                        if (currentY + ph > startY + usableH)
+                        if (currentY + ph > startY + usableH + Eps)
                         {
-                            if (currentStripThickness > 0)
+                            if (currentStripThickness > Eps)
                             {
-                                int stripEndX = currentX + currentStripThickness;
+                                double stripEndX = Math.Round(currentX + currentStripThickness, 1, MidpointRounding.AwayFromZero);
                                 layout.Cuts.Add(new Cut(stripEndX, startY, stripEndX, startY + usableH, bladeWidth, level: 1));
-                                currentX = stripEndX + bladeWidth;
+                                currentX = Math.Round(stripEndX + bladeWidth, 1, MidpointRounding.AwayFromZero);
                                 currentY = startY;
                                 currentStripThickness = 0;
                             }
                         }
 
-                        if (currentX + pw <= startX + usableW && currentY + ph <= startY + usableH)
+                        if (currentX + pw <= startX + usableW + Eps && currentY + ph <= startY + usableH + Eps)
                         {
                             layout.UtilizedPieces.Add(new UtilizedPiece(
-                                currentX, currentY, currentX + pw, currentY + ph,
+                                currentX, currentY, Math.Round(currentX + pw, 1, MidpointRounding.AwayFromZero), Math.Round(currentY + ph, 1, MidpointRounding.AwayFromZero),
                                 rotated ? 1 : 0, piece.Index, piece.ExternalID, piece.Grain, piece.Label
                             ));
 
                             // Stage 2 cut: horizontal cut separating piece in vertical strip
                             layout.Cuts.Add(new Cut(currentX, currentY + ph, currentX + pw, currentY + ph, bladeWidth, level: 2));
 
-                            currentY += ph + bladeWidth;
+                            currentY = Math.Round(currentY + ph + bladeWidth, 1, MidpointRounding.AwayFromZero);
                             if (pw > currentStripThickness)
                             {
                                 currentStripThickness = pw;
@@ -140,24 +144,24 @@ namespace Optimal2DX.Algorithms
                     // Compute waste pieces (remaining unallocated area)
                     if (horizontalFirst)
                     {
-                        int remY = currentY + currentStripThickness;
-                        if (remY < startY + usableH)
+                        double remY = Math.Round(currentY + currentStripThickness, 1, MidpointRounding.AwayFromZero);
+                        if (remY < startY + usableH - Eps)
                         {
                             layout.WastePieces.Add(new WastePiece(startX, remY, startX + usableW, startY + usableH));
                         }
-                        if (currentX < startX + usableW && currentStripThickness > 0)
+                        if (currentX < startX + usableW - Eps && currentStripThickness > Eps)
                         {
                             layout.WastePieces.Add(new WastePiece(currentX, currentY, startX + usableW, currentY + currentStripThickness));
                         }
                     }
                     else
                     {
-                        int remX = currentX + currentStripThickness;
-                        if (remX < startX + usableW)
+                        double remX = Math.Round(currentX + currentStripThickness, 1, MidpointRounding.AwayFromZero);
+                        if (remX < startX + usableW - Eps)
                         {
                             layout.WastePieces.Add(new WastePiece(remX, startY, startX + usableW, startY + usableH));
                         }
-                        if (currentY < startY + usableH && currentStripThickness > 0)
+                        if (currentY < startY + usableH - Eps && currentStripThickness > Eps)
                         {
                             layout.WastePieces.Add(new WastePiece(currentX, currentY, currentX + currentStripThickness, startY + usableH));
                         }

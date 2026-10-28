@@ -41,7 +41,7 @@ public static class HtmlReportExporter
         List<GroupedSheetLayout> groupedLayouts,
         DataGridView dgvDemand,
         DataGridView dgvRepo,
-        int bladeWidth,
+        double bladeWidth,
         int minUsefulSize,
         string filePath)
     {
@@ -101,7 +101,7 @@ public static class HtmlReportExporter
         sb.AppendLine("      <h1>BÁO CÁO TỐI ƯU HÓA SƠ ĐỒ CẮT 2D</h1>");
         sb.AppendLine($"      <p class=\"subtitle\">Hệ thống tính toán tối ưu cắt tấm công nghiệp • Xuất ngày: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</p>");
         sb.AppendLine("      <div class=\"report-meta\">");
-        sb.AppendLine($"        <span><strong>Độ dày mạch cưa (Kerf):</strong> {bladeWidth} mm</span>");
+        sb.AppendLine($"        <span><strong>Độ dày mạch cưa (Kerf):</strong> {bladeWidth:0.#} mm</span>");
         sb.AppendLine($"        <span><strong>Khổ phế liệu tái sử dụng:</strong> &ge; {minUsefulSize} mm</span>");
         sb.AppendLine($"        <span><strong>Chế độ tối ưu:</strong> {(opt.MinimizePatterns == 1 ? "Gom giảm số lượng sơ đồ (Batch Mode)" : "Phân tán tự do")}</span>");
         sb.AppendLine("      </div>");
@@ -186,10 +186,10 @@ public static class HtmlReportExporter
             foreach (var up in grp.RepresentativeSheet.UtilizedPieces)
             {
                 // Key kích thước gốc của chi tiết
-                int w = up.Width;
-                int h = up.Height;
+                double w = up.Width;
+                double h = up.Height;
                 if (up.Rotated == 1) (w, h) = (h, w);
-                string key = $"{w}x{h}";
+                string key = $"{w:0.#}x{h:0.#}";
                 if (!placedCountByDim.ContainsKey(key)) placedCountByDim[key] = 0;
                 placedCountByDim[key] += grp.Count;
             }
@@ -358,7 +358,7 @@ public static class HtmlReportExporter
         sb.AppendLine("    </section>");
     }
 
-    private static void AppendPatternsSection(StringBuilder sb, List<GroupedSheetLayout> grouped, int bladeWidth)
+    private static void AppendPatternsSection(StringBuilder sb, List<GroupedSheetLayout> grouped, double bladeWidth)
     {
         sb.AppendLine("    <section id=\"sec-patterns\" class=\"section-card\">");
         sb.AppendLine("      <div class=\"section-title\">");
@@ -446,7 +446,7 @@ public static class HtmlReportExporter
         sb.AppendLine("    </section>");
     }
 
-    private static void AppendSvgDiagram(StringBuilder sb, SheetLayout sheet, int patternIdx, int bladeWidth, string repoLabel, int repeatCount)
+    private static void AppendSvgDiagram(StringBuilder sb, SheetLayout sheet, int patternIdx, double bladeWidth, string repoLabel, int repeatCount)
     {
         int sw = sheet.SheetLength;
         int sh = sheet.SheetWidth;
@@ -490,25 +490,30 @@ public static class HtmlReportExporter
         foreach (var wp in sheet.WastePieces)
         {
             if (wp.Width <= 0 || wp.Height <= 0) continue;
-            int rx = marginX + wp.TopX;
-            int ry = marginY + wp.TopY;
-            int rw = wp.Width;
-            int rh = wp.Height;
+            double rx = marginX + wp.TopX;
+            double ry = marginY + wp.TopY;
+            double rw = wp.Width;
+            double rh = wp.Height;
+
+            string sRx = rx.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sRy = ry.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sRw = rw.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sRh = rh.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
 
             // Nền cam nhạt + gạch chéo đan lưới
-            sb.AppendLine($"  <rect x=\"{rx}\" y=\"{ry}\" width=\"{rw}\" height=\"{rh}\" fill=\"#fef4ea\" stroke=\"#c88242\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\" />");
-            sb.AppendLine($"  <rect x=\"{rx}\" y=\"{ry}\" width=\"{rw}\" height=\"{rh}\" fill=\"url(#wasteHatch_{patternIdx})\" />");
+            sb.AppendLine($"  <rect x=\"{sRx}\" y=\"{sRy}\" width=\"{sRw}\" height=\"{sRh}\" fill=\"#fef4ea\" stroke=\"#c88242\" stroke-width=\"1.5\" stroke-dasharray=\"6,4\" />");
+            sb.AppendLine($"  <rect x=\"{sRx}\" y=\"{sRy}\" width=\"{sRw}\" height=\"{sRh}\" fill=\"url(#wasteHatch_{patternIdx})\" />");
 
             // Khung nhãn phế liệu nếu kích thước vừa đủ
             if (rw >= 110 && rh >= 55)
             {
-                int badgeW = Math.Min(rw - 10, 110);
-                int badgeH = Math.Min(rh - 10, 48);
-                int bx = rx + (rw - badgeW) / 2;
-                int by = ry + (rh - badgeH) / 2;
-                sb.AppendLine($"  <rect x=\"{bx}\" y=\"{by}\" width=\"{badgeW}\" height=\"{badgeH}\" rx=\"5\" fill=\"rgba(255,255,255,0.92)\" stroke=\"#d49758\" stroke-width=\"1\" />");
-                sb.AppendLine($"  <text x=\"{bx + badgeW / 2}\" y=\"{by + 20}\" font-family=\"Segoe UI, sans-serif\" font-size=\"18\" font-style=\"italic\" font-weight=\"bold\" fill=\"#9c4e0b\" text-anchor=\"middle\">w</text>");
-                sb.AppendLine($"  <text x=\"{bx + badgeW / 2}\" y=\"{by + 38}\" font-family=\"Segoe UI, sans-serif\" font-size=\"16\" font-weight=\"bold\" fill=\"#9c4e0b\" text-anchor=\"middle\">{wp.Width}x{wp.Height}</text>");
+                double badgeW = Math.Min(rw - 10, 110);
+                double badgeH = Math.Min(rh - 10, 48);
+                double bx = rx + (rw - badgeW) / 2;
+                double by = ry + (rh - badgeH) / 2;
+                sb.AppendLine($"  <rect x=\"{bx.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" y=\"{by.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" width=\"{badgeW.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" height=\"{badgeH.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" rx=\"5\" fill=\"rgba(255,255,255,0.92)\" stroke=\"#d49758\" stroke-width=\"1\" />");
+                sb.AppendLine($"  <text x=\"{(bx + badgeW / 2).ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" y=\"{(by + 20).ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, sans-serif\" font-size=\"18\" font-style=\"italic\" font-weight=\"bold\" fill=\"#9c4e0b\" text-anchor=\"middle\">w</text>");
+                sb.AppendLine($"  <text x=\"{(bx + badgeW / 2).ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" y=\"{(by + 38).ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, sans-serif\" font-size=\"16\" font-weight=\"bold\" fill=\"#9c4e0b\" text-anchor=\"middle\">{wp.Width:0.#}x{wp.Height:0.#}</text>");
             }
         }
 
@@ -516,31 +521,39 @@ public static class HtmlReportExporter
         for (int p = 0; p < sheet.UtilizedPieces.Count; p++)
         {
             var up = sheet.UtilizedPieces[p];
-            int rx = marginX + up.TopX;
-            int ry = marginY + up.TopY;
-            int rw = up.Width;
-            int rh = up.Height;
+            double rx = marginX + up.TopX;
+            double ry = marginY + up.TopY;
+            double rw = up.Width;
+            double rh = up.Height;
             string color = PieceColors[p % PieceColors.Length];
 
+            string sRx = rx.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sRy = ry.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sRw = rw.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sRh = rh.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+
             sb.AppendLine($"  <g class=\"part-group\">");
-            sb.AppendLine($"    <rect x=\"{rx}\" y=\"{ry}\" width=\"{rw}\" height=\"{rh}\" fill=\"{color}\" stroke=\"#1f2937\" stroke-width=\"2\" rx=\"2\" />");
+            sb.AppendLine($"    <rect x=\"{sRx}\" y=\"{sRy}\" width=\"{sRw}\" height=\"{sRh}\" fill=\"{color}\" stroke=\"#1f2937\" stroke-width=\"2\" rx=\"2\" />");
 
             // Nhãn và kích thước chi tiết
             if (rw >= 70 && rh >= 40)
             {
-                int cx = rx + rw / 2;
-                int cy = ry + rh / 2;
+                double cx = rx + rw / 2;
+                double cy = ry + rh / 2;
                 string cleanLabel = up.Label?.Trim() ?? "";
-                if (string.IsNullOrEmpty(cleanLabel)) cleanLabel = $"#{p + 1} ({up.Width}x{up.Height})";
+                if (string.IsNullOrEmpty(cleanLabel)) cleanLabel = $"#{p + 1} ({up.Width:0.#}x{up.Height:0.#})";
                 cleanLabel = WebUtility.HtmlEncode(cleanLabel);
                 if (cleanLabel.Length > 20) cleanLabel = cleanLabel.Substring(0, 18) + "...";
 
-                sb.AppendLine($"    <text x=\"{cx}\" y=\"{cy - 6}\" font-family=\"Segoe UI, sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"#111827\" text-anchor=\"middle\">{cleanLabel}</text>");
-                sb.AppendLine($"    <text x=\"{cx}\" y=\"{cy + 16}\" font-family=\"Segoe UI, sans-serif\" font-size=\"17\" font-weight=\"600\" fill=\"#374151\" text-anchor=\"middle\">{up.Width} x {up.Height} mm</text>");
+                string sCx = cx.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+                string sCy = cy.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+
+                sb.AppendLine($"    <text x=\"{sCx}\" y=\"{(cy - 6).ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, sans-serif\" font-size=\"20\" font-weight=\"bold\" fill=\"#111827\" text-anchor=\"middle\">{cleanLabel}</text>");
+                sb.AppendLine($"    <text x=\"{sCx}\" y=\"{(cy + 16).ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, sans-serif\" font-size=\"17\" font-weight=\"600\" fill=\"#374151\" text-anchor=\"middle\">{up.Width:0.#} x {up.Height:0.#} mm</text>");
 
                 if (up.Rotated == 1 && rw >= 90)
                 {
-                    sb.AppendLine($"    <text x=\"{cx}\" y=\"{cy + 34}\" font-family=\"Segoe UI, sans-serif\" font-size=\"14\" font-weight=\"bold\" fill=\"#b45309\" text-anchor=\"middle\">↻ Xoay 90°</text>");
+                    sb.AppendLine($"    <text x=\"{sCx}\" y=\"{(cy + 34).ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)}\" font-family=\"Segoe UI, sans-serif\" font-size=\"14\" font-weight=\"bold\" fill=\"#b45309\" text-anchor=\"middle\">↻ Xoay 90°</text>");
                 }
             }
             sb.AppendLine("  </g>");
@@ -549,12 +562,19 @@ public static class HtmlReportExporter
         // 3. Vẽ nhát cắt Guillotine (Cut lines)
         foreach (var c in sheet.Cuts)
         {
-            int cx1 = marginX + c.TopX;
-            int cy1 = marginY + c.TopY;
-            int cx2 = marginX + c.BottomX;
-            int cy2 = marginY + c.BottomY;
-            float thick = Math.Max(1.5f, c.CutThickness);
-            sb.AppendLine($"  <line x1=\"{cx1}\" y1=\"{cy1}\" x2=\"{cx2}\" y2=\"{cy2}\" stroke=\"#e11d48\" stroke-width=\"{thick}\" stroke-opacity=\"0.75\" />");
+            double cx1 = marginX + c.TopX;
+            double cy1 = marginY + c.TopY;
+            double cx2 = marginX + c.BottomX;
+            double cy2 = marginY + c.BottomY;
+            double thick = Math.Max(1.5, c.CutThickness);
+
+            string sCx1 = cx1.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sCy1 = cy1.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sCx2 = cx2.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sCy2 = cy2.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            string sThick = thick.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+
+            sb.AppendLine($"  <line x1=\"{sCx1}\" y1=\"{sCy1}\" x2=\"{sCx2}\" y2=\"{sCy2}\" stroke=\"#e11d48\" stroke-width=\"{sThick}\" stroke-opacity=\"0.75\" />");
         }
 
         sb.AppendLine("</svg>");

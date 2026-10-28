@@ -1,31 +1,33 @@
+using System;
+
 namespace Optimal2DX.Models
 {
     public class Cut
     {
-        public int TopX { get; set; }
-        public int TopY { get; set; }
-        public int BottomX { get; set; }
-        public int BottomY { get; set; }
-        public int CutThickness { get; set; }
+        public double TopX { get; set; }
+        public double TopY { get; set; }
+        public double BottomX { get; set; }
+        public double BottomY { get; set; }
+        public double CutThickness { get; set; }
         public int Level { get; set; } // Stage / hierarchy level
 
         public double Length
         {
             get
             {
-                int dx = BottomX - TopX;
-                int dy = BottomY - TopY;
+                double dx = BottomX - TopX;
+                double dy = BottomY - TopY;
                 return Math.Sqrt(dx * dx + dy * dy);
             }
         }
 
-        public Cut(int topX, int topY, int bottomX, int bottomY, int cutThickness, int level = 0)
+        public Cut(double topX, double topY, double bottomX, double bottomY, double cutThickness, int level = 0)
         {
-            TopX = topX;
-            TopY = topY;
-            BottomX = bottomX;
-            BottomY = bottomY;
-            CutThickness = cutThickness;
+            TopX = Math.Round(topX, 1, MidpointRounding.AwayFromZero);
+            TopY = Math.Round(topY, 1, MidpointRounding.AwayFromZero);
+            BottomX = Math.Round(bottomX, 1, MidpointRounding.AwayFromZero);
+            BottomY = Math.Round(bottomY, 1, MidpointRounding.AwayFromZero);
+            CutThickness = Math.Round(cutThickness, 1, MidpointRounding.AwayFromZero);
             Level = level;
         }
     }

@@ -45,6 +45,8 @@ namespace Optimal2DX.Models
             SheetIndices.Add(representativeSheet.SheetIndex);
         }
 
+        private static bool Diff(double a, double b) => Math.Abs(a - b) > 0.05;
+
         /// <summary>
         /// So sánh hai sơ đồ tấm xem có giống hệt nhau về quy cách cắt hay không.
         /// Hai sơ đồ được coi là giống nhau khi có:
@@ -68,12 +70,12 @@ namespace Optimal2DX.Models
 
             for (int i = 0; i < p1.Count; i++)
             {
-                if (p1[i].TopX != p2[i].TopX || p1[i].TopY != p2[i].TopY ||
-                    p1[i].BottomX != p2[i].BottomX || p1[i].BottomY != p2[i].BottomY ||
+                if (Diff(p1[i].TopX, p2[i].TopX) || Diff(p1[i].TopY, p2[i].TopY) ||
+                    Diff(p1[i].BottomX, p2[i].BottomX) || Diff(p1[i].BottomY, p2[i].BottomY) ||
                     p1[i].Rotated != p2[i].Rotated)
                     return false;
 
-                if (p1[i].Width != p2[i].Width || p1[i].Height != p2[i].Height)
+                if (Diff(p1[i].Width, p2[i].Width) || Diff(p1[i].Height, p2[i].Height))
                     return false;
 
                 if (p1[i].Grain != p2[i].Grain)
@@ -86,9 +88,9 @@ namespace Optimal2DX.Models
 
             for (int i = 0; i < c1.Count; i++)
             {
-                if (c1[i].TopX != c2[i].TopX || c1[i].TopY != c2[i].TopY ||
-                    c1[i].BottomX != c2[i].BottomX || c1[i].BottomY != c2[i].BottomY ||
-                    c1[i].CutThickness != c2[i].CutThickness)
+                if (Diff(c1[i].TopX, c2[i].TopX) || Diff(c1[i].TopY, c2[i].TopY) ||
+                    Diff(c1[i].BottomX, c2[i].BottomX) || Diff(c1[i].BottomY, c2[i].BottomY) ||
+                    Diff(c1[i].CutThickness, c2[i].CutThickness))
                     return false;
             }
 
@@ -98,8 +100,8 @@ namespace Optimal2DX.Models
 
             for (int i = 0; i < w1.Count; i++)
             {
-                if (w1[i].TopX != w2[i].TopX || w1[i].TopY != w2[i].TopY ||
-                    w1[i].BottomX != w2[i].BottomX || w1[i].BottomY != w2[i].BottomY)
+                if (Diff(w1[i].TopX, w2[i].TopX) || Diff(w1[i].TopY, w2[i].TopY) ||
+                    Diff(w1[i].BottomX, w2[i].BottomX) || Diff(w1[i].BottomY, w2[i].BottomY))
                     return false;
             }
 

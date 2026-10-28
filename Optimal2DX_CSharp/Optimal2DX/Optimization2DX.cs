@@ -22,7 +22,12 @@ namespace Optimal2DX
 
         // Properties
         public int OptimizationLevel { get; set; } = 50;
-        public int BladeWidth { get; set; } = 0;
+        private double _bladeWidth = 0.0;
+        public double BladeWidth
+        {
+            get => _bladeWidth;
+            set => _bladeWidth = Math.Round(Math.Max(0.0, value), 1, MidpointRounding.AwayFromZero);
+        }
 
         public int NumberOfDemandPieces
         {
@@ -477,6 +482,27 @@ namespace Optimal2DX
                 if (cutIndex >= 0 && cutIndex < s.Cuts.Count)
                 {
                     var c = s.Cuts[cutIndex];
+                    topX = (int)Math.Round(c.TopX);
+                    topY = (int)Math.Round(c.TopY);
+                    bottomX = (int)Math.Round(c.BottomX);
+                    bottomY = (int)Math.Round(c.BottomY);
+                    cutThickness = (int)Math.Round(c.CutThickness);
+                    return;
+                }
+            }
+            topX = 0; topY = 0; bottomX = 0; bottomY = 0; cutThickness = 0; repositoryIndex = 0; repositoryExternalId = 0;
+        }
+
+        public void GetCut(int sheetIndex, int cutIndex, out double topX, out double topY, out double bottomX, out double bottomY, out double cutThickness, out int repositoryIndex, out int repositoryExternalId)
+        {
+            if (sheetIndex >= 0 && sheetIndex < _results.Count)
+            {
+                var s = _results[sheetIndex];
+                repositoryIndex = s.RepositoryIndex;
+                repositoryExternalId = s.RepositoryExternalID;
+                if (cutIndex >= 0 && cutIndex < s.Cuts.Count)
+                {
+                    var c = s.Cuts[cutIndex];
                     topX = c.TopX;
                     topY = c.TopY;
                     bottomX = c.BottomX;
@@ -489,6 +515,28 @@ namespace Optimal2DX
         }
 
         public void GetCutMultiStages(int sheetIndex, int cutIndex, out int topX, out int topY, out int bottomX, out int bottomY, out int cutThickness, out int level, out int repositoryIndex, out int repositoryExternalId)
+        {
+            if (sheetIndex >= 0 && sheetIndex < _results.Count)
+            {
+                var s = _results[sheetIndex];
+                repositoryIndex = s.RepositoryIndex;
+                repositoryExternalId = s.RepositoryExternalID;
+                if (cutIndex >= 0 && cutIndex < s.Cuts.Count)
+                {
+                    var c = s.Cuts[cutIndex];
+                    topX = (int)Math.Round(c.TopX);
+                    topY = (int)Math.Round(c.TopY);
+                    bottomX = (int)Math.Round(c.BottomX);
+                    bottomY = (int)Math.Round(c.BottomY);
+                    cutThickness = (int)Math.Round(c.CutThickness);
+                    level = c.Level;
+                    return;
+                }
+            }
+            topX = 0; topY = 0; bottomX = 0; bottomY = 0; cutThickness = 0; level = 0; repositoryIndex = 0; repositoryExternalId = 0;
+        }
+
+        public void GetCutMultiStages(int sheetIndex, int cutIndex, out double topX, out double topY, out double bottomX, out double bottomY, out double cutThickness, out int level, out int repositoryIndex, out int repositoryExternalId)
         {
             if (sheetIndex >= 0 && sheetIndex < _results.Count)
             {
@@ -520,6 +568,29 @@ namespace Optimal2DX
                 if (pieceIndex >= 0 && pieceIndex < s.UtilizedPieces.Count)
                 {
                     var p = s.UtilizedPieces[pieceIndex];
+                    topX = (int)Math.Round(p.TopX);
+                    topY = (int)Math.Round(p.TopY);
+                    bottomX = (int)Math.Round(p.BottomX);
+                    bottomY = (int)Math.Round(p.BottomY);
+                    rotated = p.Rotated;
+                    demandIndex = p.DemandIndex;
+                    demandExternalId = p.DemandExternalID;
+                    return;
+                }
+            }
+            topX = 0; topY = 0; bottomX = 0; bottomY = 0; rotated = 0; repositoryIndex = 0; demandIndex = 0; repositoryExternalId = 0; demandExternalId = 0;
+        }
+
+        public void GetUtilizedDemandPiece(int sheetIndex, int pieceIndex, out double topX, out double topY, out double bottomX, out double bottomY, out int rotated, out int repositoryIndex, out int demandIndex, out int repositoryExternalId, out int demandExternalId)
+        {
+            if (sheetIndex >= 0 && sheetIndex < _results.Count)
+            {
+                var s = _results[sheetIndex];
+                repositoryIndex = s.RepositoryIndex;
+                repositoryExternalId = s.RepositoryExternalID;
+                if (pieceIndex >= 0 && pieceIndex < s.UtilizedPieces.Count)
+                {
+                    var p = s.UtilizedPieces[pieceIndex];
                     topX = p.TopX;
                     topY = p.TopY;
                     bottomX = p.BottomX;
@@ -534,6 +605,26 @@ namespace Optimal2DX
         }
 
         public void GetWastePiece(int sheetIndex, int wasteIndex, out int topX, out int topY, out int bottomX, out int bottomY, out int repositoryIndex, out int repositoryExternalId)
+        {
+            if (sheetIndex >= 0 && sheetIndex < _results.Count)
+            {
+                var s = _results[sheetIndex];
+                repositoryIndex = s.RepositoryIndex;
+                repositoryExternalId = s.RepositoryExternalID;
+                if (wasteIndex >= 0 && wasteIndex < s.WastePieces.Count)
+                {
+                    var w = s.WastePieces[wasteIndex];
+                    topX = (int)Math.Round(w.TopX);
+                    topY = (int)Math.Round(w.TopY);
+                    bottomX = (int)Math.Round(w.BottomX);
+                    bottomY = (int)Math.Round(w.BottomY);
+                    return;
+                }
+            }
+            topX = 0; topY = 0; bottomX = 0; bottomY = 0; repositoryIndex = 0; repositoryExternalId = 0;
+        }
+
+        public void GetWastePiece(int sheetIndex, int wasteIndex, out double topX, out double topY, out double bottomX, out double bottomY, out int repositoryIndex, out int repositoryExternalId)
         {
             if (sheetIndex >= 0 && sheetIndex < _results.Count)
             {
@@ -696,7 +787,7 @@ namespace Optimal2DX
             {
                 sb.AppendLine("//PARAMETERS");
                 sb.AppendLine($"Optimization2DX2->set_OptimizationLevel({OptimizationLevel});");
-                sb.AppendLine($"Optimization2DX2->set_BladeWidth({BladeWidth});");
+                sb.AppendLine($"Optimization2DX2->set_BladeWidth({BladeWidth.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)});");
                 sb.AppendLine($"Optimization2DX2->set_RandomSeed({RandomSeed});");
                 sb.AppendLine($"Optimization2DX2->set_MinimalUsefulSize({MinimalUsefulSize});");
             }

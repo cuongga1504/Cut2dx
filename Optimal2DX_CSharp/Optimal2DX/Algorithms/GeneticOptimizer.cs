@@ -8,7 +8,7 @@ namespace Optimal2DX.Algorithms
     {
         private readonly List<DemandPiece> _demandPieces;
         private readonly List<RepositoryPiece> _repositoryPieces;
-        private readonly int _bladeWidth;
+        private readonly double _bladeWidth;
         private readonly int _optimizationLevel;
         private readonly int _randomSeed;
         private readonly int _cutAllStripsFirst;
@@ -21,7 +21,7 @@ namespace Optimal2DX.Algorithms
         public GeneticOptimizer(
             List<DemandPiece> demandPieces,
             List<RepositoryPiece> repositoryPieces,
-            int bladeWidth,
+            double bladeWidth,
             int optimizationLevel,
             int randomSeed,
             int cutAllStripsFirst,
@@ -33,7 +33,7 @@ namespace Optimal2DX.Algorithms
         {
             _demandPieces = demandPieces;
             _repositoryPieces = repositoryPieces;
-            _bladeWidth = bladeWidth;
+            _bladeWidth = Math.Round(Math.Max(0.0, bladeWidth), 1, MidpointRounding.AwayFromZero);
             _optimizationLevel = optimizationLevel;
             _randomSeed = randomSeed;
             _cutAllStripsFirst = cutAllStripsFirst;
@@ -181,9 +181,9 @@ namespace Optimal2DX.Algorithms
         {
             if (layouts == null || layouts.Count == 0) return 0;
 
-            long totalUtilizedArea = 0;
+            double totalUtilizedArea = 0;
             int totalPiecesPlaced = 0;
-            long totalWasteArea = 0;
+            double totalWasteArea = 0;
 
             foreach (var sheet in layouts)
             {

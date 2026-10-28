@@ -63,7 +63,7 @@ namespace Optimal2DX.Example
             }
 
             // 3. Cấu hình thông số tối ưu
-            opt.BladeWidth = 3;
+            opt.BladeWidth = 3.2;
             opt.OptimizationLevel = 5;
             opt.MinimizePatterns = 1; // Bật chế độ Batch Pattern Optimizer
 

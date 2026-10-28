@@ -52,7 +52,7 @@ public class HtmlReportService
         sb.AppendLine("      </div>");
         sb.AppendLine("      <div class=\"header-badges\">");
         sb.AppendLine($"        <span class=\"badge-stat\">⏱ Thời gian tính: <strong>{result.ExecutionTimeMs} ms</strong></span>");
-        sb.AppendLine($"        <span class=\"badge-stat\">⚡ Mạch cưa: <strong>{req.BladeWidth} mm</strong></span>");
+        sb.AppendLine($"        <span class=\"badge-stat\">⚡ Mạch cưa: <strong>{req.BladeWidth:0.#} mm</strong></span>");
         sb.AppendLine($"        <span class=\"badge-stat\">🎯 Cấp độ tối ưu: <strong>{req.OptimizationLevel}/100</strong></span>");
         sb.AppendLine("      </div>");
         sb.AppendLine("    </header>");

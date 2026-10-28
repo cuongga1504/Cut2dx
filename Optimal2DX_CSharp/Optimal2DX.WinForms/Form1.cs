@@ -381,7 +381,7 @@ public partial class Form1 : Form
         tableSettings.Controls.Add(_cboMethod, 1, 0);
 
         tableSettings.Controls.Add(new Label { Text = "Bề dày mạch cưa (BladeWidth):", Anchor = AnchorStyles.Left, AutoSize = true }, 0, 1);
-        _numBladeWidth = new NumericUpDown { Minimum = 0, Maximum = 100, Value = 0, Dock = DockStyle.Fill };
+        _numBladeWidth = new NumericUpDown { Minimum = 0, Maximum = 100, Value = 3.2m, DecimalPlaces = 1, Increment = 0.1m, Dock = DockStyle.Fill };
         tableSettings.Controls.Add(_numBladeWidth, 1, 1);
 
         tableSettings.Controls.Add(new Label { Text = "Cấp độ tối ưu (OptimizationLevel 1-100):", Anchor = AnchorStyles.Left, AutoSize = true }, 0, 2);
@@ -715,7 +715,7 @@ public partial class Form1 : Form
         // #: 1 | Chiều dài: 2440 | Chiều rộng: 1220 | Số lượng: 163 | Vật liệu: "MDF" | Thớ gỗ: ≡ | Nhãn: "Ván MDF 2440x1220" | Giá: 0 | Phần cắt bỏ: Trên 2, Trái 2, Dưới 0, Phải 0 | Mức độ ưu tiên: 0
         AddRepoRow(1, 2440, 1220, 163, "≡ Dọc (Theo Dài)", "Ván MDF 2440x1220", "MDF", 0, 2, 2, 0, 0, 0, 1);
 
-        _numBladeWidth.Value = 3;
+        _numBladeWidth.Value = 3.2m;
         _numOptLevel.Value = 20;
         _numSeed.Value = 1;
         _numMinUseful.Value = 100;
@@ -765,7 +765,7 @@ public partial class Form1 : Form
         AddRepoRow(2, 200, 200, 1, "≡ Dọc (Theo Dài)", "Tấm kho #2 (200x200)", "", 0, 0, 0, 0, 0, 0, 1);
         AddRepoRow(3, 300, 250, 1, "≡ Dọc (Theo Dài)", "Tấm kho #3 (300x250)", "", 0, 0, 0, 0, 0, 0, 2);
 
-        _numBladeWidth.Value = 0;
+        _numBladeWidth.Value = 0m;
         _numOptLevel.Value = 50;
         _numSeed.Value = 1;
         _cboMethod.SelectedIndex = 0;
@@ -792,7 +792,7 @@ public partial class Form1 : Form
         AddDemandRow(8, 500, 450, 4, "🔄 Tự do (Không thớ)", "Đáy hộc kéo", "", true, 8, 0);
         AddDemandRow(9, 400, 150, 4, "🔄 Tự do (Không thớ)", "Thanh nẹp hộc kéo", "", true, 9, 0);
 
-        _numBladeWidth.Value = 3;
+        _numBladeWidth.Value = 3.2m;
         _numOptLevel.Value = 60;
         _numSeed.Value = 1;
         _numMinUseful.Value = 100;
@@ -827,7 +827,7 @@ public partial class Form1 : Form
         AddDemandRow(2, 600, 400, 12, "≡ Dọc (Theo Dài)", "Hộc tủ ngăn kéo (600x400)", "", false, 2, 0);
         AddDemandRow(3, 400, 300, 16, "🔄 Tự do (Không thớ)", "Đáy tủ con (400x300)", "", true, 3, 0);
 
-        _numBladeWidth.Value = 3;
+        _numBladeWidth.Value = 3.2m;
         _numOptLevel.Value = 70;
         _numSeed.Value = 1;
         _numMinUseful.Value = 150;
@@ -1000,7 +1000,7 @@ public partial class Form1 : Form
         }
 
         // 3. Parameters
-        _opt.BladeWidth = (int)_numBladeWidth.Value;
+        _opt.BladeWidth = (double)_numBladeWidth.Value;
         _opt.OptimizationLevel = (int)_numOptLevel.Value;
         _opt.RandomSeed = (int)_numSeed.Value;
         _opt.MinimalUsefulSize = (int)_numMinUseful.Value;
@@ -1134,9 +1134,9 @@ public partial class Form1 : Form
         for (int i = 0; i < activeSheet.UtilizedPieces.Count; i++)
         {
             var p = activeSheet.UtilizedPieces[i];
-            int tx = p.TopX, ty = p.TopY, bx = p.BottomX, by = p.BottomY;
-            int w = p.Width;
-            int h = p.Height;
+            double tx = p.TopX, ty = p.TopY, bx = p.BottomX, by = p.BottomY;
+            double w = p.Width;
+            double h = p.Height;
             int rot = p.Rotated;
             int demIdx = p.DemandIndex;
             int demId = p.DemandExternalID;
@@ -1174,8 +1174,8 @@ public partial class Form1 : Form
             _dgvUtilized.Rows.Add(
                 i + 1,
                 pieceLabel,
-                $"({tx}, {ty}) - ({bx}, {by})",
-                $"{w} x {h}",
+                $"({tx:0.#}, {ty:0.#}) - ({bx:0.#}, {by:0.#})",
+                $"{w:0.#} x {h:0.#}",
                 "1",
                 patternRepeatCount.ToString(),
                 grainLabel,
@@ -1189,8 +1189,8 @@ public partial class Form1 : Form
         for (int i = 0; i < activeSheet.Cuts.Count; i++)
         {
             var c = activeSheet.Cuts[i];
-            string dir = (c.TopX == c.BottomX) ? "Dọc" : (c.TopY == c.BottomY) ? "Ngang" : "Khác";
-            _dgvCuts.Rows.Add(i + 1, $"({c.TopX}, {c.TopY}) -> ({c.BottomX}, {c.BottomY})", dir, c.CutThickness, c.Level > 0 ? c.Level.ToString() : "-");
+            string dir = (Math.Abs(c.TopX - c.BottomX) < 0.05) ? "Dọc" : (Math.Abs(c.TopY - c.BottomY) < 0.05) ? "Ngang" : "Khác";
+            _dgvCuts.Rows.Add(i + 1, $"({c.TopX:0.#}, {c.TopY:0.#}) -> ({c.BottomX:0.#}, {c.BottomY:0.#})", dir, c.CutThickness.ToString("0.#"), c.Level > 0 ? c.Level.ToString() : "-");
         }
 
         // Populate Waste table
@@ -1198,8 +1198,8 @@ public partial class Form1 : Form
         for (int i = 0; i < activeSheet.WastePieces.Count; i++)
         {
             var w = activeSheet.WastePieces[i];
-            int ww = w.Width;
-            int wh = w.Height;
+            double ww = w.Width;
+            double wh = w.Height;
             bool isReusable = (ww >= _opt.MinimalUsefulSize && wh >= _opt.MinimalUsefulSize);
             string cls = isReusable ? "Tái sử dụng" : "Vụn";
             string grainAvail = isReusable
@@ -1207,10 +1207,10 @@ public partial class Form1 : Form
                 : "-";
             _dgvWaste.Rows.Add(
                 i + 1,
-                $"({w.TopX}, {w.TopY}) - ({w.BottomX}, {w.BottomY})",
-                $"{ww} x {wh}",
-                w.Area,
-                w.Area * patternRepeatCount,
+                $"({w.TopX:0.#}, {w.TopY:0.#}) - ({w.BottomX:0.#}, {w.BottomY:0.#})",
+                $"{ww:0.#} x {wh:0.#}",
+                $"{w.Area:0.##}",
+                $"{w.Area * patternRepeatCount:0.##}",
                 cls,
                 grainAvail
             );
@@ -1372,10 +1372,10 @@ public partial class Form1 : Form
             for (int i = 0; i < activeSheet.WastePieces.Count; i++)
             {
                 var w = activeSheet.WastePieces[i];
-                float rx = originX + w.TopX * scale;
-                float ry = originY + w.TopY * scale;
-                float rw = w.Width * scale;
-                float rh = w.Height * scale;
+                float rx = originX + (float)w.TopX * scale;
+                float ry = originY + (float)w.TopY * scale;
+                float rw = (float)w.Width * scale;
+                float rh = (float)w.Height * scale;
 
                 if (rw <= 0 || rh <= 0) continue;
 
@@ -1454,10 +1454,10 @@ public partial class Form1 : Form
             for (int i = 0; i < activeSheet.UtilizedPieces.Count; i++)
             {
                 var p = activeSheet.UtilizedPieces[i];
-                float rx = originX + p.TopX * scale;
-                float ry = originY + p.TopY * scale;
-                float rw = p.Width * scale;
-                float rh = p.Height * scale;
+                float rx = originX + (float)p.TopX * scale;
+                float ry = originY + (float)p.TopY * scale;
+                float rw = (float)p.Width * scale;
+                float rh = (float)p.Height * scale;
 
                 var rect = new RectangleF(rx, ry, rw, rh);
                 Color color = pieceColors[p.DemandIndex % pieceColors.Length];
@@ -1505,10 +1505,10 @@ public partial class Form1 : Form
                         _ => (p.Rotated == 1 ? "[⟳ Xoay 90°]" : "[⟳ Tự do]")
                     };
 
-                    int pw = p.Width;
-                    int ph = p.Height;
+                    double pw = p.Width;
+                    double ph = p.Height;
                     string line1 = pieceLabel;
-                    string line2 = $"{pw}x{ph} {grainSymbol}";
+                    string line2 = $"{pw:0.#}x{ph:0.#} {grainSymbol}";
 
                     var sz1 = g.MeasureString(line1, labelFont);
                     var sz2 = g.MeasureString(line2, subFont);
@@ -1553,10 +1553,10 @@ public partial class Form1 : Form
             {
                 var c = activeSheet.Cuts[i];
 
-                float p1x = originX + c.TopX * scale;
-                float p1y = originY + c.TopY * scale;
-                float p2x = originX + c.BottomX * scale;
-                float p2y = originY + c.BottomY * scale;
+                float p1x = originX + (float)c.TopX * scale;
+                float p1y = originY + (float)c.TopY * scale;
+                float p2x = originX + (float)c.BottomX * scale;
+                float p2y = originY + (float)c.BottomY * scale;
 
                 g.DrawLine(cutPen, p1x, p1y, p2x, p2y);
 
@@ -1670,7 +1670,7 @@ public partial class Form1 : Form
                     if (string.IsNullOrEmpty(pieceLabel) && pc.DemandIndex >= 0 && pc.DemandIndex < _demandMeta.Count)
                         pieceLabel = _demandMeta[pc.DemandIndex].Label;
 
-                    sw.WriteLine($"    {p + 1,2}. [{pieceLabel}] Tọa độ: ({pc.TopX,5},{pc.TopY,5}) -> ({pc.BottomX,5},{pc.BottomY,5}) | Kích thước: {pc.Width,4} x {pc.Height,4} | Xoay: {(pc.Rotated == 1 ? "90°" : "0°")} | SL/tấm: 1 | Tổng SL: {grp.Count}");
+                    sw.WriteLine($"    {p + 1,2}. [{pieceLabel}] Tọa độ: ({pc.TopX,5:0.#},{pc.TopY,5:0.#}) -> ({pc.BottomX,5:0.#},{pc.BottomY,5:0.#}) | Kích thước: {pc.Width,4:0.#} x {pc.Height,4:0.#} | Xoay: {(pc.Rotated == 1 ? "90°" : "0°")} | SL/tấm: 1 | Tổng SL: {grp.Count}");
                 }
                 sw.WriteLine();
 
@@ -1678,8 +1678,8 @@ public partial class Form1 : Form
                 for (int c = 0; c < s.Cuts.Count; c++)
                 {
                     var ct = s.Cuts[c];
-                    string dir = (ct.TopX == ct.BottomX) ? "Dọc" : (ct.TopY == ct.BottomY) ? "Ngang" : "Khác";
-                    sw.WriteLine($"    Nhát {c + 1,2}: ({ct.TopX,5},{ct.TopY,5}) -> ({ct.BottomX,5},{ct.BottomY,5}) | Hướng: {dir,-5} | Độ dày: {ct.CutThickness} | Tầng: {ct.Level}");
+                    string dir = (Math.Abs(ct.TopX - ct.BottomX) < 0.05) ? "Dọc" : (Math.Abs(ct.TopY - ct.BottomY) < 0.05) ? "Ngang" : "Khác";
+                    sw.WriteLine($"    Nhát {c + 1,2}: ({ct.TopX,5:0.#},{ct.TopY,5:0.#}) -> ({ct.BottomX,5:0.#},{ct.BottomY,5:0.#}) | Hướng: {dir,-5} | Độ dày: {ct.CutThickness:0.#} | Tầng: {ct.Level}");
                 }
                 sw.WriteLine();
 
@@ -1688,7 +1688,7 @@ public partial class Form1 : Form
                 {
                     var wt = s.WastePieces[w];
                     bool isReusable = (wt.Width >= _opt.MinimalUsefulSize && wt.Height >= _opt.MinimalUsefulSize);
-                    sw.WriteLine($"    Mảnh {w + 1,2}: ({wt.TopX,5},{wt.TopY,5}) -> ({wt.BottomX,5},{wt.BottomY,5}) | Kích thước: {wt.Width,4} x {wt.Height,4} | DT 1 tấm: {wt.Area,7} | Tổng DT: {wt.Area * grp.Count,8} | Loại: {(isReusable ? "Tái sử dụng" : "Vụn")}");
+                    sw.WriteLine($"    Mảnh {w + 1,2}: ({wt.TopX,5:0.#},{wt.TopY,5:0.#}) -> ({wt.BottomX,5:0.#},{wt.BottomY,5:0.#}) | Kích thước: {wt.Width,4:0.#} x {wt.Height,4:0.#} | DT 1 tấm: {wt.Area,7:0.##} | Tổng DT: {wt.Area * grp.Count,8:0.##} | Loại: {(isReusable ? "Tái sử dụng" : "Vụn")}");
                 }
                 sw.WriteLine();
             }
@@ -1721,7 +1721,7 @@ public partial class Form1 : Form
                     _groupedLayouts,
                     _dgvDemand,
                     _dgvRepo,
-                    (int)_numBladeWidth.Value,
+                    (double)_numBladeWidth.Value,
                     (int)_numMinUseful.Value,
                     sfd.FileName
                 );
@@ -1829,7 +1829,7 @@ public partial class Form1 : Form
             }
         }
 
-        _opt.BladeWidth = 3;
+        _opt.BladeWidth = 3.2;
         _opt.OptimizationLevel = 5;
         _opt.MinimizePatterns = 1;
         _opt.StartGuillotine();

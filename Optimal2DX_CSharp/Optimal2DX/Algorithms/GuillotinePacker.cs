@@ -6,30 +6,34 @@ namespace Optimal2DX.Algorithms
 {
     public class FreeRectangle
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
 
-        public FreeRectangle(int x, int y, int width, int height)
+        public FreeRectangle(double x, double y, double width, double height)
         {
-            X = x;
-            Y = y;
-            Width = width;
-            Height = height;
+            X = Math.Round(x, 1, MidpointRounding.AwayFromZero);
+            Y = Math.Round(y, 1, MidpointRounding.AwayFromZero);
+            Width = Math.Round(width, 1, MidpointRounding.AwayFromZero);
+            Height = Math.Round(height, 1, MidpointRounding.AwayFromZero);
         }
     }
 
     public class GuillotinePacker
     {
+        private const double Eps = 0.001;
+
         public static List<SheetLayout> Pack(
             List<DemandPiece> demandPieces,
             List<RepositoryPiece> repositoryPieces,
             Chromosome chromosome,
-            int bladeWidth,
+            double bladeWidth,
             int cutAllStripsFirst,
             int maximalCutLength)
         {
+            bladeWidth = Math.Round(Math.Max(0.0, bladeWidth), 1, MidpointRounding.AwayFromZero);
+
             var sheets = new List<SheetLayout>();
             var placed = new bool[demandPieces.Count];
             int totalPlacedCount = 0;
@@ -42,10 +46,10 @@ namespace Optimal2DX.Algorithms
                 var layout = new SheetLayout(sheets.Count, repo.Index, repo.ExternalID, repo.Length, repo.Width, repo.Label);
 
                 // Origin offset by Trim
-                int startX = repo.TrimLeft;
-                int startY = repo.TrimTop;
-                int usableW = repo.UsableLength;
-                int usableH = repo.UsableWidth;
+                double startX = repo.TrimLeft;
+                double startY = repo.TrimTop;
+                double usableW = repo.UsableLength;
+                double usableH = repo.UsableWidth;
 
                 var freeRects = new List<FreeRectangle>
                 {
@@ -64,8 +68,8 @@ namespace Optimal2DX.Algorithms
                     // Find best free rectangle
                     int bestRectIdx = -1;
                     bool bestRotated = false;
-                    int bestShortSide = int.MaxValue;
-                    int bestLongSide = int.MaxValue;
+                    double bestShortSide = double.MaxValue;
+                    double bestLongSide = double.MaxValue;
 
                     for (int i = 0; i < freeRects.Count; i++)
                     {
@@ -75,14 +79,14 @@ namespace Optimal2DX.Algorithms
                         bool tryNormal = true;
                         bool tryRot = piece.CanRotate == 1;
 
-                        if (tryNormal && piece.Length <= fr.Width && piece.Width <= fr.Height)
+                        if (tryNormal && piece.Length <= fr.Width + Eps && piece.Width <= fr.Height + Eps)
                         {
-                            int leftoverH = fr.Width - piece.Length;
-                            int leftoverV = fr.Height - piece.Width;
-                            int shortSide = Math.Min(leftoverH, leftoverV);
-                            int longSide = Math.Max(leftoverH, leftoverV);
+                            double leftoverH = fr.Width - piece.Length;
+                            double leftoverV = fr.Height - piece.Width;
+                            double shortSide = Math.Min(leftoverH, leftoverV);
+                            double longSide = Math.Max(leftoverH, leftoverV);
 
-                            if (shortSide < bestShortSide || (shortSide == bestShortSide && longSide < bestLongSide))
+                            if (shortSide < bestShortSide || (Math.Abs(shortSide - bestShortSide) < Eps && longSide < bestLongSide))
                             {
                                 bestShortSide = shortSide;
                                 bestLongSide = longSide;
@@ -91,14 +95,14 @@ namespace Optimal2DX.Algorithms
                             }
                         }
 
-                        if (tryRot && piece.Width <= fr.Width && piece.Length <= fr.Height)
+                        if (tryRot && piece.Width <= fr.Width + Eps && piece.Length <= fr.Height + Eps)
                         {
-                            int leftoverH = fr.Width - piece.Width;
-                            int leftoverV = fr.Height - piece.Length;
-                            int shortSide = Math.Min(leftoverH, leftoverV);
-                            int longSide = Math.Max(leftoverH, leftoverV);
+                            double leftoverH = fr.Width - piece.Width;
+                            double leftoverV = fr.Height - piece.Length;
+                            double shortSide = Math.Min(leftoverH, leftoverV);
+                            double longSide = Math.Max(leftoverH, leftoverV);
 
-                            if (shortSide < bestShortSide || (shortSide == bestShortSide && longSide < bestLongSide))
+                            if (shortSide < bestShortSide || (Math.Abs(shortSide - bestShortSide) < Eps && longSide < bestLongSide))
                             {
                                 bestShortSide = shortSide;
                                 bestLongSide = longSide;
@@ -114,13 +118,13 @@ namespace Optimal2DX.Algorithms
                         var targetRect = freeRects[bestRectIdx];
                         freeRects.RemoveAt(bestRectIdx);
 
-                        int pw = bestRotated ? piece.Width : piece.Length;
-                        int ph = bestRotated ? piece.Length : piece.Width;
+                        double pw = bestRotated ? piece.Width : piece.Length;
+                        double ph = bestRotated ? piece.Length : piece.Width;
 
-                        int topX = targetRect.X;
-                        int topY = targetRect.Y;
-                        int bottomX = topX + pw;
-                        int bottomY = topY + ph;
+                        double topX = targetRect.X;
+                        double topY = targetRect.Y;
+                        double bottomX = Math.Round(topX + pw, 1, MidpointRounding.AwayFromZero);
+                        double bottomY = Math.Round(topY + ph, 1, MidpointRounding.AwayFromZero);
 
                         layout.UtilizedPieces.Add(new UtilizedPiece(
                             topX, topY, bottomX, bottomY,
@@ -152,7 +156,7 @@ namespace Optimal2DX.Algorithms
                     // Remaining free rectangles become waste pieces
                     foreach (var fr in freeRects)
                     {
-                        if (fr.Width > 0 && fr.Height > 0)
+                        if (fr.Width > Eps && fr.Height > Eps)
                         {
                             layout.WastePieces.Add(new WastePiece(fr.X, fr.Y, fr.X + fr.Width, fr.Y + fr.Height));
                         }
@@ -170,43 +174,46 @@ namespace Optimal2DX.Algorithms
 
         private static void PerformGuillotineSplit(
             FreeRectangle rect,
-            int pw,
-            int ph,
-            int blade,
+            double pw,
+            double ph,
+            double blade,
             byte splitGene,
             int cutAllStripsFirst,
             int maxCutLength,
             List<Cut> cuts,
             List<FreeRectangle> freeRects)
         {
-            int w = rect.Width;
-            int h = rect.Height;
-            int x = rect.X;
-            int y = rect.Y;
+            double w = rect.Width;
+            double h = rect.Height;
+            double x = rect.X;
+            double y = rect.Y;
 
-            if (pw == w && ph == h)
+            bool sameW = Math.Abs(pw - w) < Eps;
+            bool sameH = Math.Abs(ph - h) < Eps;
+
+            if (sameW && sameH)
             {
                 return;
             }
 
-            if (pw == w && ph < h)
+            if (sameW && ph < h)
             {
                 // Single horizontal cut
                 cuts.Add(new Cut(x, y + ph, x + w, y + ph, blade));
-                int remH = h - ph - blade;
-                if (remH > 0)
+                double remH = Math.Round(h - ph - blade, 1, MidpointRounding.AwayFromZero);
+                if (remH > Eps)
                 {
                     freeRects.Add(new FreeRectangle(x, y + ph + blade, w, remH));
                 }
                 return;
             }
 
-            if (pw < w && ph == h)
+            if (pw < w && sameH)
             {
                 // Single vertical cut
                 cuts.Add(new Cut(x + pw, y, x + pw, y + h, blade));
-                int remW = w - pw - blade;
-                if (remW > 0)
+                double remW = Math.Round(w - pw - blade, 1, MidpointRounding.AwayFromZero);
+                if (remW > Eps)
                 {
                     freeRects.Add(new FreeRectangle(x + pw + blade, y, remW, h));
                 }
@@ -237,14 +244,14 @@ namespace Optimal2DX.Algorithms
                 // Cut 2: Vertical in upper strip
                 cuts.Add(new Cut(x + pw, y, x + pw, y + ph, blade));
 
-                int rightW = w - pw - blade;
-                if (rightW > 0)
+                double rightW = Math.Round(w - pw - blade, 1, MidpointRounding.AwayFromZero);
+                if (rightW > Eps)
                 {
                     freeRects.Add(new FreeRectangle(x + pw + blade, y, rightW, ph));
                 }
 
-                int bottomH = h - ph - blade;
-                if (bottomH > 0)
+                double bottomH = Math.Round(h - ph - blade, 1, MidpointRounding.AwayFromZero);
+                if (bottomH > Eps)
                 {
                     freeRects.Add(new FreeRectangle(x, y + ph + blade, w, bottomH));
                 }
@@ -256,14 +263,14 @@ namespace Optimal2DX.Algorithms
                 // Cut 2: Horizontal in left strip
                 cuts.Add(new Cut(x, y + ph, x + pw, y + ph, blade));
 
-                int bottomH = h - ph - blade;
-                if (bottomH > 0)
+                double bottomH = Math.Round(h - ph - blade, 1, MidpointRounding.AwayFromZero);
+                if (bottomH > Eps)
                 {
                     freeRects.Add(new FreeRectangle(x, y + ph + blade, pw, bottomH));
                 }
 
-                int rightW = w - pw - blade;
-                if (rightW > 0)
+                double rightW = Math.Round(w - pw - blade, 1, MidpointRounding.AwayFromZero);
+                if (rightW > Eps)
                 {
                     freeRects.Add(new FreeRectangle(x + pw + blade, y, rightW, h));
                 }

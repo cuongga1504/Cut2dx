@@ -16,11 +16,12 @@ namespace Optimal2DX.Algorithms
         public static List<SheetLayout> Optimize(
             List<DemandPiece> demandPieces,
             List<RepositoryPiece> repositoryPieces,
-            int bladeWidth,
+            double bladeWidth,
             int optimizationLevel,
             Func<bool> isStopRequested,
             Action onProgress)
         {
+            bladeWidth = Math.Round(Math.Max(0.0, bladeWidth), 1, MidpointRounding.AwayFromZero);
             var sheets = new List<SheetLayout>();
             if (demandPieces == null || demandPieces.Count == 0 || repositoryPieces == null || repositoryPieces.Count == 0)
                 return sheets;
@@ -181,7 +182,7 @@ namespace Optimal2DX.Algorithms
             List<DemandPiece> demandPieces,
             List<int> candidateIndices,
             RepositoryPiece repo,
-            int bladeWidth,
+            double bladeWidth,
             Dictionary<string, Queue<int>> specGroups,
             int availableStockSheets)
         {

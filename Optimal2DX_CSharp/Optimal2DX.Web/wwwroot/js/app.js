@@ -389,7 +389,7 @@ function loadSampleImagePreset() {
   appState.demandList = JSON.parse(JSON.stringify(SAMPLE_IMAGE_DEMAND));
   appState.repoList = JSON.parse(JSON.stringify(SAMPLE_IMAGE_REPO));
 
-  document.getElementById("numBladeWidth").value = 3;
+  document.getElementById("numBladeWidth").value = 3.2;
   document.getElementById("numOptLevel").value = 20;
   document.getElementById("numRandomSeed").value = 1;
   document.getElementById("numMinUseful").value = 100;
@@ -412,7 +412,7 @@ function loadSampleGrainPreset() {
     { length: 2440, width: 1220, quantity: 30, label: "Tấm ván sồi 2440x1220", sheetGrain: "≡ Dọc (Theo Dài)", material: "Gỗ sồi", trimTop: 5, trimLeft: 5, trimBottom: 5, trimRight: 5, price: 0 }
   ];
 
-  document.getElementById("numBladeWidth").value = 3;
+  document.getElementById("numBladeWidth").value = 3.2;
   document.getElementById("numOptLevel").value = 50;
   document.getElementById("chkMinimizePatterns").checked = true;
 
@@ -431,7 +431,7 @@ function loadSampleBatchPreset() {
     { length: 2440, width: 1220, quantity: 60, label: "Ván MFC Phủ Melamine", sheetGrain: "≡ Dọc (Theo Dài)", material: "MFC", trimTop: 3, trimLeft: 3, trimBottom: 3, trimRight: 3, price: 0 }
   ];
 
-  document.getElementById("numBladeWidth").value = 3;
+  document.getElementById("numBladeWidth").value = 3.2;
   document.getElementById("numOptLevel").value = 50;
   document.getElementById("chkMinimizePatterns").checked = true;
 
@@ -996,7 +996,7 @@ async function executeOptimization() {
       externalID: 0
     })),
     method: parseInt(document.getElementById("selMethod").value) || 0,
-    bladeWidth: parseInt(document.getElementById("numBladeWidth").value) || 0,
+    bladeWidth: Math.round((parseFloat(document.getElementById("numBladeWidth").value) || 0) * 10) / 10,
     optimizationLevel: parseInt(document.getElementById("numOptLevel").value) || 50,
     randomSeed: parseInt(document.getElementById("numRandomSeed").value) || 1,
     minimalUsefulSize: parseInt(document.getElementById("numMinUseful").value) || 100,
@@ -1394,7 +1394,7 @@ async function downloadHtmlReport() {
     demandPieces: appState.demandList,
     repoPieces: appState.repoList,
     method: parseInt(document.getElementById("selMethod").value) || 0,
-    bladeWidth: parseInt(document.getElementById("numBladeWidth").value) || 3,
+    bladeWidth: Math.round((parseFloat(document.getElementById("numBladeWidth").value) || 3.2) * 10) / 10,
     optimizationLevel: parseInt(document.getElementById("numOptLevel").value) || 50,
     randomSeed: parseInt(document.getElementById("numRandomSeed").value) || 1,
     minimalUsefulSize: parseInt(document.getElementById("numMinUseful").value) || 100,

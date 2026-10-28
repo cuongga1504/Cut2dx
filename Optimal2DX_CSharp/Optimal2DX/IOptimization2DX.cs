@@ -6,7 +6,7 @@ namespace Optimal2DX
     {
         // Properties
         int OptimizationLevel { get; set; }
-        int BladeWidth { get; set; }
+        double BladeWidth { get; set; }
         int NumberOfDemandPieces { get; set; }
         int NumberOfRepositoryPieces { get; set; }
         int RandomSeed { get; set; }
@@ -56,11 +56,17 @@ namespace Optimal2DX
         void NumberOfWastePieces(int sheetIndex, out int numberOfWastePieces, out int repositoryIndex, out int repositoryExternalId);
         void SurfaceCovered(int sheetIndex, out double surfaceCovered, out int repositoryIndex, out int repositoryExternalId);
 
+        // Integer versions for legacy backward compatibility
         void GetCut(int sheetIndex, int cutIndex, out int topX, out int topY, out int bottomX, out int bottomY, out int cutThickness, out int repositoryIndex, out int repositoryExternalId);
         void GetCutMultiStages(int sheetIndex, int cutIndex, out int topX, out int topY, out int bottomX, out int bottomY, out int cutThickness, out int level, out int repositoryIndex, out int repositoryExternalId);
-
         void GetUtilizedDemandPiece(int sheetIndex, int pieceIndex, out int topX, out int topY, out int bottomX, out int bottomY, out int rotated, out int repositoryIndex, out int demandIndex, out int repositoryExternalId, out int demandExternalId);
         void GetWastePiece(int sheetIndex, int wasteIndex, out int topX, out int topY, out int bottomX, out int bottomY, out int repositoryIndex, out int repositoryExternalId);
+
+        // High-precision double versions
+        void GetCut(int sheetIndex, int cutIndex, out double topX, out double topY, out double bottomX, out double bottomY, out double cutThickness, out int repositoryIndex, out int repositoryExternalId);
+        void GetCutMultiStages(int sheetIndex, int cutIndex, out double topX, out double topY, out double bottomX, out double bottomY, out double cutThickness, out int level, out int repositoryIndex, out int repositoryExternalId);
+        void GetUtilizedDemandPiece(int sheetIndex, int pieceIndex, out double topX, out double topY, out double bottomX, out double bottomY, out int rotated, out int repositoryIndex, out int demandIndex, out int repositoryExternalId, out int demandExternalId);
+        void GetWastePiece(int sheetIndex, int wasteIndex, out double topX, out double topY, out double bottomX, out double bottomY, out int repositoryIndex, out int repositoryExternalId);
 
         void DemandPieceUtilized(int demandIndex, out int sheetIndex, out int repositoryIndex, out int demandExternalId, out int repositoryExternalId);
         void RepositoryPieceUtilized(int index, out int utilized, out int repositoryExternalId);

@@ -465,8 +465,8 @@ for (int sheet = 0; sheet &lt; totalSheets; sheet++)
                     </tr>
                     <tr>
                         <td><code>BladeWidth</code></td>
-                        <td><code>int</code></td>
-                        <td>Bề dày của mạch cưa / tia cắt (kerf). Vật liệu bị tiêu hao giữa các nhát cưa. Mặc định: <code>0</code>.</td>
+                        <td><code>double</code></td>
+                        <td>Bề dày của mạch cưa / tia cắt (kerf). Cho phép số lẻ và tự động làm tròn đến 1 chữ số thập phân (ví dụ <code>3.2 mm</code>). Mặc định: <code>0</code>.</td>
                     </tr>
                     <tr>
                         <td><code>OptimizationLevel</code></td>
@@ -653,11 +653,11 @@ opt.SetDemandPiece(0, 600, 500, 0, 0, 0);</code></pre>
 
             <h3>6.3. Bề dày mạch cắt (BladeWidth / Kerf)</h3>
             <p>
-                Lưỡi cưa đĩa kim loại thường có bề dày từ <code>2.8 mm - 4.2 mm</code>. Khi cưa một đường, một lượng phôi sẽ bị nghiền thành mùn cưa và biến mất:
+                Lưỡi cưa đĩa kim loại thường có bề dày từ <code>2.8 mm - 4.2 mm</code> (ví dụ: <code>3.2 mm</code> hoặc <code>3.5 mm</code>). Khi cưa một đường, một lượng phôi sẽ bị nghiền thành mùn cưa và biến mất:
             </p>
             <ul>
-                <li>Thiết lập <code>BladeWidth = 3</code> (ví dụ với lưỡi cưa 3 mm).</li>
-                <li>Thuật toán sẽ tự động cộng bù khoảng cách <code>3 mm</code> giữa tất cả các chi tiết liền kề để sau khi cưa, kích thước các tấm thành phẩm vẫn chuẩn xác 100%.</li>
+                <li>Thiết lập <code>BladeWidth = 3.2</code> (cho phép số lẻ và tự động làm tròn đến 1 chữ số thập phân).</li>
+                <li>Thuật toán sẽ tự động cộng bù khoảng cách mạch cắt giữa tất cả các chi tiết liền kề để sau khi cưa, kích thước các tấm thành phẩm vẫn chuẩn xác 100%.</li>
             </ul>
         </section>
 
