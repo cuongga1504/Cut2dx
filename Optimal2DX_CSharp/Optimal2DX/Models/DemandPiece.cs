@@ -10,10 +10,11 @@ namespace Optimal2DX.Models
         public int Priority { get; set; }
         public GrainDirection Grain { get; set; } = GrainDirection.None;
         public string Label { get; set; } = string.Empty;
+        public string Material { get; set; } = string.Empty;
 
         public long Area => (long)Length * Width;
 
-        public DemandPiece(int index, int length, int width, int canRotate, int externalId, int priority, GrainDirection grain = GrainDirection.None, string label = "")
+        public DemandPiece(int index, int length, int width, int canRotate, int externalId, int priority, GrainDirection grain = GrainDirection.None, string label = "", string material = "")
         {
             Index = index;
             Length = length;
@@ -23,11 +24,12 @@ namespace Optimal2DX.Models
             Priority = priority;
             Grain = grain;
             Label = label ?? string.Empty;
+            Material = material ?? string.Empty;
         }
 
         public DemandPiece Clone()
         {
-            return new DemandPiece(Index, Length, Width, CanRotate, ExternalID, Priority, Grain, Label);
+            return new DemandPiece(Index, Length, Width, CanRotate, ExternalID, Priority, Grain, Label, Material);
         }
     }
 }

@@ -124,7 +124,8 @@ public class CuttingOptimizationService
                     (int)r.Price,
                     r.Priority,
                     sheetGrain,
-                    label
+                    label,
+                    r.Material ?? ""
                 );
                 currentRepoIdx++;
             }
@@ -184,7 +185,8 @@ public class CuttingOptimizationService
                     d.ExternalID > 0 ? d.ExternalID : i + 1,
                     d.Priority,
                     primarySheetGrain,
-                    label
+                    label,
+                    d.Material ?? ""
                 );
                 currentDemandIdx++;
             }
@@ -227,6 +229,17 @@ public class CuttingOptimizationService
         result.TotalUniquePatterns = groupedLayouts.Count;
         result.UnplacedPiecesCount = Math.Max(0, totalDemandRequested - totalPlacedPieces);
 
+        if (result.UnplacedPiecesCount > 0)
+        {
+            var demandMats = req.DemandPieces.Where(d => d.Quantity > 0).Select(d => (d.Material ?? "").Trim()).Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+            var repoMats = req.RepoPieces.Where(r => r.Quantity > 0).Select(r => (r.Material ?? "").Trim()).ToHashSet(StringComparer.OrdinalIgnoreCase);
+            var missingMats = demandMats.Where(m => !string.IsNullOrEmpty(m) && !repoMats.Contains(m)).ToList();
+            if (missingMats.Count > 0)
+            {
+                result.WarningMessage = $"Chú ý: Có {result.UnplacedPiecesCount} chi tiết chưa thể cắt do trong kho thiếu tấm vật liệu tương ứng: [{string.Join(", ", missingMats)}]!";
+            }
+        }
+
         // Aggregate areas
         double totalUsefulArea = 0;
         double totalCutLength = 0;
@@ -263,6 +276,7 @@ public class CuttingOptimizationService
             {
                 PatternIndex = pIdx,
                 RepositoryLabel = repoLabel,
+                Material = sheet.Material,
                 SheetLength = sheet.SheetLength,
                 SheetWidth = sheet.SheetWidth,
                 SheetCount = repeatCount,
@@ -279,14 +293,14 @@ public class CuttingOptimizationService
             {
                 var up = sheet.UtilizedPieces[i];
                 string pieceLabel = up.Label;
-                string mat = "";
+                string mat = !string.IsNullOrEmpty(up.Material) ? up.Material : "";
                 string grainLabel = "⟳ Tự do (Không thớ)";
 
                 if (up.DemandIndex >= 0 && up.DemandIndex < demandMetaList.Count)
                 {
                     var meta = demandMetaList[up.DemandIndex];
                     if (string.IsNullOrEmpty(pieceLabel)) pieceLabel = meta.Label;
-                    mat = meta.Material;
+                    if (string.IsNullOrEmpty(mat)) mat = meta.Material;
                     grainLabel = meta.Grain;
                 }
                 if (string.IsNullOrEmpty(pieceLabel)) pieceLabel = $"Chi tiết #{up.DemandExternalID}";

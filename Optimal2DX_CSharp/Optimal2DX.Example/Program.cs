@@ -85,6 +85,71 @@ namespace Optimal2DX.Example
                 var grp = grouped[g];
                 Console.WriteLine($"  Sơ đồ #{g + 1}: [{grp.RepositoryLabel}] | CẮT x{grp.Count} TẤM | Độ phủ: {grp.SurfaceCovered:F1}% | Chi tiết: {grp.RepresentativeSheet.UtilizedPieces.Count}/tấm (Tổng {grp.RepresentativeSheet.UtilizedPieces.Count * grp.Count})");
             }
+
+            // -------------------------------------------------------------------------
+            // TEST MULTI-MATERIAL SEGREGATION
+            // -------------------------------------------------------------------------
+            Console.WriteLine("\n================================================================================");
+            Console.WriteLine("     KIỂM THỬ TÁCH BIỆT THEO VẬT LIỆU (MULTI-MATERIAL MATCHING TEST)");
+            Console.WriteLine("================================================================================");
+
+            var matOpt = new Optimization2DX();
+            matOpt.BladeWidth = 3.2;
+            matOpt.OptimizationLevel = 10;
+            matOpt.MinimizePatterns = 1;
+
+            // 2 tấm ván kho MDF, 2 tấm Melamine
+            matOpt.NumberOfRepositoryPieces = 4;
+            matOpt.SetRepositoryPiece(0, 2440, 1220, 2, 2, 0, 0, 1, 0, 0, SheetGrainDirection.AlongLength, "Tấm MDF #1", "MDF 17mm");
+            matOpt.SetRepositoryPiece(1, 2440, 1220, 2, 2, 0, 0, 2, 0, 0, SheetGrainDirection.AlongLength, "Tấm MDF #2", "MDF 17mm");
+            matOpt.SetRepositoryPiece(2, 2440, 1220, 2, 2, 0, 0, 3, 0, 0, SheetGrainDirection.AlongLength, "Tấm Melamine #1", "Melamine 18mm");
+            matOpt.SetRepositoryPiece(3, 2440, 1220, 2, 2, 0, 0, 4, 0, 0, SheetGrainDirection.AlongLength, "Tấm Melamine #2", "Melamine 18mm");
+
+            // Chi tiết: 6 chi tiết MDF 17mm, 6 chi tiết Melamine 18mm, 4 chi tiết Alu 3mm (không có tấm kho)
+            matOpt.NumberOfDemandPieces = 16;
+            for (int i = 0; i < 6; i++)
+            {
+                matOpt.SetDemandPieceWithGrain(i, 600, 400, GrainDirection.AlongLength, i + 1, 0, SheetGrainDirection.AlongLength, $"Chi tiết MDF #{i + 1}", "MDF 17mm");
+            }
+            for (int i = 6; i < 12; i++)
+            {
+                matOpt.SetDemandPieceWithGrain(i, 700, 500, GrainDirection.AlongLength, i + 1, 0, SheetGrainDirection.AlongLength, $"Chi tiết Melamine #{i - 5}", "Melamine 18mm");
+            }
+            for (int i = 12; i < 16; i++)
+            {
+                matOpt.SetDemandPieceWithGrain(i, 800, 600, GrainDirection.AlongLength, i + 1, 0, SheetGrainDirection.AlongLength, $"Chi tiết Alu #{i - 11}", "Alu 3mm");
+            }
+
+            matOpt.StartGuillotine();
+
+            Console.WriteLine($"• Tổng số chi tiết yêu cầu: {matOpt.NumberOfDemandPieces}");
+            Console.WriteLine($"• Số chi tiết đã xếp: {matOpt.TotalNumberOfUtilizedDemandPieces}");
+            Console.WriteLine($"• Số chi tiết chưa xếp (do thiếu kho): {matOpt.NumberOfDemandPieces - matOpt.TotalNumberOfUtilizedDemandPieces}");
+            Console.WriteLine($"• Số tấm kho đã sử dụng: {matOpt.TotalNumberOfUtilizedRepositoryPieces}");
+
+            bool materialCrossContamination = false;
+            foreach (var sheet in matOpt.Results)
+            {
+                Console.WriteLine($"  [Tấm kết quả #{sheet.SheetIndex + 1}] Vật liệu tấm: '{sheet.Material}' | Nhãn: '{sheet.RepositoryLabel}' | Chi tiết: {sheet.UtilizedPieces.Count}");
+                foreach (var up in sheet.UtilizedPieces)
+                {
+                    Console.WriteLine($"     -> Chi tiết: '{up.Label}' | Vật liệu: '{up.Material}'");
+                    if (!string.Equals(sheet.Material, up.Material, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine($"     [LỖI TRỘN VẬT LIỆU]: Chi tiết '{up.Material}' được xếp lên tấm '{sheet.Material}'!");
+                        materialCrossContamination = true;
+                    }
+                }
+            }
+
+            if (!materialCrossContamination && matOpt.TotalNumberOfUtilizedDemandPieces == 12)
+            {
+                Console.WriteLine("\n>>> KẾT QUẢ KIỂM THỬ: THÀNH CÔNG RỰC RỠ! VẬT LIỆU ĐƯỢC TÁCH BIỆT HOÀN TOÀN, KHÔNG LẪN LỘN!");
+            }
+            else
+            {
+                Console.WriteLine("\n>>> KẾT QUẢ KIỂM THỬ: THẤT BẠI! CÓ VẤN ĐỀ VỀ VẬT LIỆU!");
+            }
         }
     }
 }

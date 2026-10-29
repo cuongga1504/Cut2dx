@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Optimal2DX.Algorithms;
 using Optimal2DX.Models;
@@ -161,11 +162,16 @@ namespace Optimal2DX
 
         public void SetDemandPiece(int index, int length, int width, int canRotate, int externalId, int priority, GrainDirection grain, string label)
         {
+            SetDemandPiece(index, length, width, canRotate, externalId, priority, grain, label, "");
+        }
+
+        public void SetDemandPiece(int index, int length, int width, int canRotate, int externalId, int priority, GrainDirection grain, string label, string material)
+        {
             while (_demandPieces.Count <= index)
             {
-                _demandPieces.Add(new DemandPiece(_demandPieces.Count, 0, 0, 1, _demandPieces.Count, 0, GrainDirection.None, ""));
+                _demandPieces.Add(new DemandPiece(_demandPieces.Count, 0, 0, 1, _demandPieces.Count, 0, GrainDirection.None, "", ""));
             }
-            _demandPieces[index] = new DemandPiece(index, length, width, canRotate, externalId, priority, grain, label);
+            _demandPieces[index] = new DemandPiece(index, length, width, canRotate, externalId, priority, grain, label, material);
         }
 
         /// <summary>
@@ -174,27 +180,32 @@ namespace Optimal2DX
         /// </summary>
         public void SetDemandPieceWithGrain(int index, int length, int width, GrainDirection grain, int externalId = 0, int priority = 0, SheetGrainDirection sheetGrain = SheetGrainDirection.AlongLength)
         {
-            SetDemandPieceWithGrain(index, length, width, grain, externalId, priority, sheetGrain, "");
+            SetDemandPieceWithGrain(index, length, width, grain, externalId, priority, sheetGrain, "", "");
         }
 
         public void SetDemandPieceWithGrain(int index, int length, int width, GrainDirection grain, int externalId = 0, int priority = 0, SheetGrainDirection sheetGrain = SheetGrainDirection.AlongLength, string label = "")
+        {
+            SetDemandPieceWithGrain(index, length, width, grain, externalId, priority, sheetGrain, label, "");
+        }
+
+        public void SetDemandPieceWithGrain(int index, int length, int width, GrainDirection grain, int externalId = 0, int priority = 0, SheetGrainDirection sheetGrain = SheetGrainDirection.AlongLength, string label = "", string material = "")
         {
             if (sheetGrain == SheetGrainDirection.AlongLength || sheetGrain == SheetGrainDirection.None)
             {
                 switch (grain)
                 {
                     case GrainDirection.None:
-                        SetDemandPiece(index, length, width, 1, externalId, priority, grain, label);
+                        SetDemandPiece(index, length, width, 1, externalId, priority, grain, label, material);
                         break;
                     case GrainDirection.AlongLength:
-                        SetDemandPiece(index, length, width, 0, externalId, priority, grain, label);
+                        SetDemandPiece(index, length, width, 0, externalId, priority, grain, label, material);
                         break;
                     case GrainDirection.AlongWidth:
                         // Theo tài liệu Cut2DX: Cạnh song song với thớ gỗ đặt làm Length
-                        SetDemandPiece(index, width, length, 0, externalId, priority, grain, label);
+                        SetDemandPiece(index, width, length, 0, externalId, priority, grain, label, material);
                         break;
                     case GrainDirection.FixedNoRotate:
-                        SetDemandPiece(index, length, width, 0, externalId, priority, grain, label);
+                        SetDemandPiece(index, length, width, 0, externalId, priority, grain, label, material);
                         break;
                 }
             }
@@ -203,16 +214,16 @@ namespace Optimal2DX
                 switch (grain)
                 {
                     case GrainDirection.None:
-                        SetDemandPiece(index, length, width, 1, externalId, priority, grain, label);
+                        SetDemandPiece(index, length, width, 1, externalId, priority, grain, label, material);
                         break;
                     case GrainDirection.AlongLength:
-                        SetDemandPiece(index, width, length, 0, externalId, priority, grain, label);
+                        SetDemandPiece(index, width, length, 0, externalId, priority, grain, label, material);
                         break;
                     case GrainDirection.AlongWidth:
-                        SetDemandPiece(index, length, width, 0, externalId, priority, grain, label);
+                        SetDemandPiece(index, length, width, 0, externalId, priority, grain, label, material);
                         break;
                     case GrainDirection.FixedNoRotate:
-                        SetDemandPiece(index, length, width, 0, externalId, priority, grain, label);
+                        SetDemandPiece(index, length, width, 0, externalId, priority, grain, label, material);
                         break;
                 }
             }
@@ -229,6 +240,19 @@ namespace Optimal2DX
         {
             if (index >= 0 && index < _demandPieces.Count)
                 _demandPieces[index].Label = label ?? string.Empty;
+        }
+
+        public string GetDemandPieceMaterial(int index)
+        {
+            if (index >= 0 && index < _demandPieces.Count)
+                return _demandPieces[index].Material;
+            return string.Empty;
+        }
+
+        public void SetDemandPieceMaterial(int index, string material)
+        {
+            if (index >= 0 && index < _demandPieces.Count)
+                _demandPieces[index].Material = material ?? string.Empty;
         }
 
         public void GetDemandPiece(int index, out int length, out int width, out int canRotate, out int externalId, out int priority)
@@ -268,11 +292,16 @@ namespace Optimal2DX
 
         public void SetRepositoryPiece(int index, int length, int width, int trimTop, int trimLeft, int trimBottom, int trimRight, int externalId, int priority, int numberOfHoles, SheetGrainDirection grain, string label)
         {
+            SetRepositoryPiece(index, length, width, trimTop, trimLeft, trimBottom, trimRight, externalId, priority, numberOfHoles, grain, label, "");
+        }
+
+        public void SetRepositoryPiece(int index, int length, int width, int trimTop, int trimLeft, int trimBottom, int trimRight, int externalId, int priority, int numberOfHoles, SheetGrainDirection grain, string label, string material)
+        {
             while (_repositoryPieces.Count <= index)
             {
-                _repositoryPieces.Add(new RepositoryPiece(_repositoryPieces.Count, 0, 0, 0, 0, 0, 0, _repositoryPieces.Count, 0, 0, SheetGrainDirection.AlongLength, ""));
+                _repositoryPieces.Add(new RepositoryPiece(_repositoryPieces.Count, 0, 0, 0, 0, 0, 0, _repositoryPieces.Count, 0, 0, SheetGrainDirection.AlongLength, "", ""));
             }
-            _repositoryPieces[index] = new RepositoryPiece(index, length, width, trimTop, trimLeft, trimBottom, trimRight, externalId, priority, numberOfHoles, grain, label);
+            _repositoryPieces[index] = new RepositoryPiece(index, length, width, trimTop, trimLeft, trimBottom, trimRight, externalId, priority, numberOfHoles, grain, label, material);
         }
 
         public string GetRepositoryPieceLabel(int index)
@@ -286,6 +315,33 @@ namespace Optimal2DX
         {
             if (index >= 0 && index < _repositoryPieces.Count)
                 _repositoryPieces[index].Label = label ?? string.Empty;
+        }
+
+        public string GetRepositoryPieceMaterial(int index)
+        {
+            if (index >= 0 && index < _repositoryPieces.Count)
+                return _repositoryPieces[index].Material;
+            return string.Empty;
+        }
+
+        public void SetRepositoryPieceMaterial(int index, string material)
+        {
+            if (index >= 0 && index < _repositoryPieces.Count)
+                _repositoryPieces[index].Material = material ?? string.Empty;
+        }
+
+        public string GetSheetMaterial(int sheetIndex)
+        {
+            if (sheetIndex >= 0 && sheetIndex < _results.Count)
+                return _results[sheetIndex].Material;
+            return string.Empty;
+        }
+
+        public string GetUtilizedPieceMaterial(int sheetIndex, int pieceIndex)
+        {
+            if (sheetIndex >= 0 && sheetIndex < _results.Count && pieceIndex >= 0 && pieceIndex < _results[sheetIndex].UtilizedPieces.Count)
+                return _results[sheetIndex].UtilizedPieces[pieceIndex].Material;
+            return string.Empty;
         }
 
         public string GetSheetRepositoryLabel(int sheetIndex)
@@ -378,12 +434,63 @@ namespace Optimal2DX
         private void RunOptimization(int method)
         {
             _stopRequested = false;
+            _results.Clear();
+
+            static string NormalizeMat(string? m) => string.IsNullOrWhiteSpace(m) ? string.Empty : m.Trim();
+
+            // Group demand pieces by normalized material
+            var demandGroups = _demandPieces
+                .GroupBy(p => NormalizeMat(p.Material), StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            // Group repository pieces by normalized material
+            var repoGroups = _repositoryPieces
+                .GroupBy(r => NormalizeMat(r.Material), StringComparer.OrdinalIgnoreCase)
+                .ToDictionary(g => g.Key, g => g.ToList(), StringComparer.OrdinalIgnoreCase);
+
+            var allResults = new List<SheetLayout>();
+
+            foreach (var demandGroup in demandGroups)
+            {
+                if (_stopRequested) break;
+
+                string matKey = demandGroup.Key;
+                if (!repoGroups.TryGetValue(matKey, out var matchingRepo) || matchingRepo.Count == 0)
+                {
+                    // No repository sheets available with this material; demand pieces remain unplaced
+                    continue;
+                }
+
+                var subDemands = demandGroup.ToList();
+                var subResults = RunSubOptimization(method, subDemands, matchingRepo);
+
+                foreach (var sheet in subResults)
+                {
+                    if (string.IsNullOrEmpty(sheet.Material))
+                    {
+                        var repoMatch = matchingRepo.FirstOrDefault(r => r.Index == sheet.RepositoryIndex);
+                        sheet.Material = repoMatch?.Material ?? matKey;
+                    }
+
+                    sheet.SheetIndex = allResults.Count;
+                    allResults.Add(sheet);
+                }
+            }
+
+            _results = allResults;
+            OnFinish?.Invoke();
+        }
+
+        private List<SheetLayout> RunSubOptimization(int method, List<DemandPiece> demandPieces, List<RepositoryPiece> repositoryPieces)
+        {
+            if (demandPieces.Count == 0 || repositoryPieces.Count == 0)
+                return new List<SheetLayout>();
 
             if (method == 1 && MinimizePatterns == 1)
             {
-                _results = BatchPatternOptimizer.Optimize(
-                    _demandPieces,
-                    _repositoryPieces,
+                return BatchPatternOptimizer.Optimize(
+                    demandPieces,
+                    repositoryPieces,
                     BladeWidth,
                     OptimizationLevel,
                     () => _stopRequested,
@@ -393,8 +500,8 @@ namespace Optimal2DX
             else
             {
                 var optimizer = new GeneticOptimizer(
-                    _demandPieces,
-                    _repositoryPieces,
+                    demandPieces,
+                    repositoryPieces,
                     BladeWidth,
                     OptimizationLevel,
                     RandomSeed,
@@ -406,10 +513,8 @@ namespace Optimal2DX
                     MaximalCutLength
                 );
 
-                _results = optimizer.Optimize(method, () => _stopRequested, () => OnProgress?.Invoke());
+                return optimizer.Optimize(method, () => _stopRequested, () => OnProgress?.Invoke());
             }
-
-            OnFinish?.Invoke();
         }
 
         public void NumberOfCuttings(int sheetIndex, out int numberOfCuts, out int repositoryIndex, out int repositoryExternalId)

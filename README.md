@@ -15,6 +15,7 @@
    - [Hướng vân gỗ (Grain Direction)](#hướng-vân-gỗ-grain-direction)
    - [Bề dày mạch cắt (BladeWidth / Kerf)](#bề-dày-mạch-cắt-bladewidth--kerf)
    - [Cắt tỉa mép (Trim Margins)](#cắt-tỉa-mép-trim-margins)
+   - [Khớp vật liệu (Material Matching)](#khớp-vật-liệu-material-matching)
 6. [Hướng dẫn cài đặt & Khởi chạy](#6-hướng-dẫn-cài-đặt--khởi-chạy)
    - [Ứng dụng Web (ASP.NET Core)](#ứng-dụng-web-optimal2dxweb)
    - [Ứng dụng WinForms](#ứng-dụng-winforms-optimal2dxwinforms)
@@ -199,6 +200,12 @@ Lưỡi cưa đĩa kim loại thường dày từ `2.8 mm - 4.2 mm` (ví dụ: `
 Tấm ván công nghiệp khi vận chuyển thường bị nứt mép hoặc dập góc:
 - Khai báo các giá trị `trimTop`, `trimLeft`, `trimBottom`, `trimRight` trong hàm `SetRepositoryPiece`.
 - Thuật toán tự động loại bỏ các dải biên bị lỗi này và bố trí chi tiết bắt đầu từ vị trí sạch `(trimLeft, trimTop)`.
+
+### Khớp vật liệu (Material Matching)
+Trong sản xuất thực tế, các chi tiết làm từ các loại vật liệu khác nhau (ví dụ: `MDF 17mm`, `Melamine 18mm`, `Gỗ sồi`, `Alu 3mm`):
+- **Nguyên tắc**: Chi tiết cần cắt thuộc loại vật liệu nào thì **bắt buộc chỉ được xếp lên tấm ván trong kho có cùng loại vật liệu đó** (so khớp chính xác theo tên vật liệu, không phân biệt hoa thường).
+- **Cách ly bài toán**: Các nhóm vật liệu khác nhau được thuật toán tối ưu hóa hoàn toàn độc lập, đảm bảo không có sự cắt lẫn lộn giữa các chất liệu.
+- **Cảnh báo thiếu phôi**: Trường hợp có chi tiết yêu cầu vật liệu mà trong kho không còn tấm ván phù hợp, chi tiết đó sẽ giữ nguyên trạng thái chưa xếp (*Unplaced*) và ứng dụng sẽ đưa ra thông báo cảnh báo rõ ràng.
 
 ---
 

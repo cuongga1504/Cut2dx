@@ -29,7 +29,7 @@ namespace Optimal2DX.Algorithms
                 var repo = repositoryPieces[r];
                 if (repo.UsableLength <= 0 || repo.UsableWidth <= 0) continue;
 
-                var layout = new SheetLayout(sheets.Count, repo.Index, repo.ExternalID, repo.Length, repo.Width, repo.Label);
+                var layout = new SheetLayout(sheets.Count, repo.Index, repo.ExternalID, repo.Length, repo.Width, repo.Label, repo.Material);
 
                 double startX = repo.TrimLeft;
                 double startY = repo.TrimTop;
@@ -84,7 +84,7 @@ namespace Optimal2DX.Algorithms
                         {
                             layout.UtilizedPieces.Add(new UtilizedPiece(
                                 currentX, currentY, Math.Round(currentX + pw, 1, MidpointRounding.AwayFromZero), Math.Round(currentY + ph, 1, MidpointRounding.AwayFromZero),
-                                rotated ? 1 : 0, piece.Index, piece.ExternalID, piece.Grain, piece.Label
+                                rotated ? 1 : 0, piece.Index, piece.ExternalID, piece.Grain, piece.Label, piece.Material
                             ));
 
                             // Stage 2 cut: vertical cut separating piece in strip
@@ -120,7 +120,7 @@ namespace Optimal2DX.Algorithms
                         {
                             layout.UtilizedPieces.Add(new UtilizedPiece(
                                 currentX, currentY, Math.Round(currentX + pw, 1, MidpointRounding.AwayFromZero), Math.Round(currentY + ph, 1, MidpointRounding.AwayFromZero),
-                                rotated ? 1 : 0, piece.Index, piece.ExternalID, piece.Grain, piece.Label
+                                rotated ? 1 : 0, piece.Index, piece.ExternalID, piece.Grain, piece.Label, piece.Material
                             ));
 
                             // Stage 2 cut: horizontal cut separating piece in vertical strip

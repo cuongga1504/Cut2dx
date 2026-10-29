@@ -25,7 +25,7 @@ namespace Optimal2DX.Algorithms
                 var repo = repositoryPieces[r];
                 if (repo.UsableLength <= 0 || repo.UsableWidth <= 0) continue;
 
-                var layout = new SheetLayout(sheets.Count, repo.Index, repo.ExternalID, repo.Length, repo.Width, repo.Label);
+                var layout = new SheetLayout(sheets.Count, repo.Index, repo.ExternalID, repo.Length, repo.Width, repo.Label, repo.Material);
 
                 double startX = repo.TrimLeft;
                 double startY = repo.TrimTop;
@@ -103,7 +103,8 @@ namespace Optimal2DX.Algorithms
                             piece.Index,
                             piece.ExternalID,
                             piece.Grain,
-                            piece.Label
+                            piece.Label,
+                            piece.Material
                         ));
 
                         placed[pieceIdx] = true;

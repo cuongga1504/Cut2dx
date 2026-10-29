@@ -26,10 +26,16 @@ namespace Optimal2DX.Algorithms
             if (demandPieces == null || demandPieces.Count == 0 || repositoryPieces == null || repositoryPieces.Count == 0)
                 return sheets;
 
-            // Nhóm các chi tiết theo quy cách (Specification)
-            var specGroups = demandPieces
-                .GroupBy(p => $"{p.Length}x{p.Width}_{p.Grain}_{p.CanRotate}_{p.ExternalID}")
-                .ToDictionary(g => g.Key, g => new Queue<int>(g.Select(p => p.Index)));
+            // Ánh xạ piece.Index sang DemandPiece để tra cứu an toàn
+            var pieceByIndex = demandPieces.ToDictionary(p => p.Index);
+
+            // Nhóm các chi tiết theo quy cách (Specification) sử dụng chỉ số cục bộ 0..Count-1
+            var specGroups = Enumerable.Range(0, demandPieces.Count)
+                .GroupBy(i => {
+                    var p = demandPieces[i];
+                    return $"{p.Length}x{p.Width}_{p.Grain}_{p.CanRotate}_{p.ExternalID}";
+                })
+                .ToDictionary(g => g.Key, g => new Queue<int>(g));
 
             int currentRepoIdx = 0;
             int stepCounter = 0;
@@ -59,7 +65,7 @@ namespace Optimal2DX.Algorithms
                 }
 
                 // Tìm mẫu sơ đồ cơ sở tối ưu nhất (kết hợp độ phủ và số lần lặp lại)
-                var baseSheet = FindBestBaseSheet(demandPieces, remainingIndices, repo, bladeWidth, specGroups, repositoryPieces.Count - currentRepoIdx);
+                var baseSheet = FindBestBaseSheet(demandPieces, remainingIndices, repo, bladeWidth, specGroups, repositoryPieces.Count - currentRepoIdx, pieceByIndex);
 
                 if (baseSheet == null || baseSheet.UtilizedPieces.Count == 0)
                     break;
@@ -68,7 +74,7 @@ namespace Optimal2DX.Algorithms
                 var specUsage = new Dictionary<string, int>();
                 foreach (var up in baseSheet.UtilizedPieces)
                 {
-                    var origPiece = demandPieces[up.DemandIndex];
+                    var origPiece = pieceByIndex[up.DemandIndex];
                     string key = $"{origPiece.Length}x{origPiece.Width}_{origPiece.Grain}_{origPiece.CanRotate}_{origPiece.ExternalID}";
                     if (!specUsage.ContainsKey(key)) specUsage[key] = 0;
                     specUsage[key]++;
@@ -98,7 +104,7 @@ namespace Optimal2DX.Algorithms
                 for (int r = 0; r < repCount; r++)
                 {
                     var curRepo = repositoryPieces[currentRepoIdx++];
-                    var sheetLayout = new SheetLayout(sheets.Count, curRepo.Index, curRepo.ExternalID, curRepo.Length, curRepo.Width, curRepo.Label);
+                    var sheetLayout = new SheetLayout(sheets.Count, curRepo.Index, curRepo.ExternalID, curRepo.Length, curRepo.Width, curRepo.Label, curRepo.Material);
 
                     foreach (var c in baseSheet.Cuts)
                         sheetLayout.Cuts.Add(new Cut(c.TopX, c.TopY, c.BottomX, c.BottomY, c.CutThickness, c.Level));
@@ -108,14 +114,15 @@ namespace Optimal2DX.Algorithms
 
                     foreach (var up in baseSheet.UtilizedPieces)
                     {
-                        var origPiece = demandPieces[up.DemandIndex];
+                        var origPiece = pieceByIndex[up.DemandIndex];
                         string key = $"{origPiece.Length}x{origPiece.Width}_{origPiece.Grain}_{origPiece.CanRotate}_{origPiece.ExternalID}";
-                        int actualDemandIdx = specGroups[key].Dequeue();
+                        int actualLocalIdx = specGroups[key].Dequeue();
+                        var actualPiece = demandPieces[actualLocalIdx];
 
                         sheetLayout.UtilizedPieces.Add(new UtilizedPiece(
                             up.TopX, up.TopY, up.BottomX, up.BottomY,
-                            up.Rotated, actualDemandIdx, origPiece.ExternalID,
-                            origPiece.Grain, origPiece.Label
+                            up.Rotated, actualPiece.Index, actualPiece.ExternalID,
+                            actualPiece.Grain, actualPiece.Label, actualPiece.Material
                         ));
                     }
 
@@ -152,17 +159,16 @@ namespace Optimal2DX.Algorithms
 
                 foreach (var rs in residualSheets)
                 {
-                    var mappedLayout = new SheetLayout(sheets.Count, rs.RepositoryIndex, rs.RepositoryExternalID, rs.SheetLength, rs.SheetWidth, rs.RepositoryLabel);
+                    var mappedLayout = new SheetLayout(sheets.Count, rs.RepositoryIndex, rs.RepositoryExternalID, rs.SheetLength, rs.SheetWidth, rs.RepositoryLabel, rs.Material);
                     foreach (var c in rs.Cuts) mappedLayout.Cuts.Add(new Cut(c.TopX, c.TopY, c.BottomX, c.BottomY, c.CutThickness, c.Level));
                     foreach (var w in rs.WastePieces) mappedLayout.WastePieces.Add(new WastePiece(w.TopX, w.TopY, w.BottomX, w.BottomY));
 
                     foreach (var up in rs.UtilizedPieces)
                     {
-                        var origPiece = demandPieces[up.DemandIndex];
                         mappedLayout.UtilizedPieces.Add(new UtilizedPiece(
                             up.TopX, up.TopY, up.BottomX, up.BottomY,
-                            up.Rotated, origPiece.Index, origPiece.ExternalID,
-                            origPiece.Grain, origPiece.Label
+                            up.Rotated, up.DemandIndex, up.DemandExternalID,
+                            up.Grain, up.Label, up.Material
                         ));
                     }
 
@@ -184,7 +190,8 @@ namespace Optimal2DX.Algorithms
             RepositoryPiece repo,
             double bladeWidth,
             Dictionary<string, Queue<int>> specGroups,
-            int availableStockSheets)
+            int availableStockSheets,
+            Dictionary<int, DemandPiece> pieceByIndex)
         {
             SheetLayout? bestSheet = null;
             double bestScore = -1;
@@ -235,7 +242,7 @@ namespace Optimal2DX.Algorithms
                         var specUsage = new Dictionary<string, int>();
                         foreach (var up in candidate.UtilizedPieces)
                         {
-                            var origPiece = demandPieces[up.DemandIndex];
+                            var origPiece = pieceByIndex[up.DemandIndex];
                             string key = $"{origPiece.Length}x{origPiece.Width}_{origPiece.Grain}_{origPiece.CanRotate}_{origPiece.ExternalID}";
                             if (!specUsage.ContainsKey(key)) specUsage[key] = 0;
                             specUsage[key]++;

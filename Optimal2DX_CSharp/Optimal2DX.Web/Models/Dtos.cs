@@ -97,6 +97,7 @@ public class PatternResultDto
 {
     public int PatternIndex { get; set; }
     public string RepositoryLabel { get; set; } = string.Empty;
+    public string Material { get; set; } = string.Empty;
     public int SheetLength { get; set; }
     public int SheetWidth { get; set; }
     public int SheetCount { get; set; }
@@ -115,6 +116,7 @@ public class OptimizationResultDto
 {
     public bool Success { get; set; } = true;
     public string? ErrorMessage { get; set; }
+    public string? WarningMessage { get; set; }
     public long ExecutionTimeMs { get; set; }
 
     // Summary KPIs

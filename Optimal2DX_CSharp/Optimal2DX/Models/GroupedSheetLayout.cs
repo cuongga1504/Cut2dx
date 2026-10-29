@@ -32,6 +32,7 @@ namespace Optimal2DX.Models
         public int SheetLength => RepresentativeSheet.SheetLength;
         public int SheetWidth => RepresentativeSheet.SheetWidth;
         public string RepositoryLabel => RepresentativeSheet.RepositoryLabel;
+        public string Material => RepresentativeSheet.Material;
         public int RepositoryIndex => RepresentativeSheet.RepositoryIndex;
         public int RepositoryExternalID => RepresentativeSheet.RepositoryExternalID;
         public double SurfaceCovered => RepresentativeSheet.SurfaceCovered;
@@ -60,6 +61,7 @@ namespace Optimal2DX.Models
             if (s1 == null || s2 == null) return s1 == s2;
             if (s1.SheetLength != s2.SheetLength || s1.SheetWidth != s2.SheetWidth) return false;
             if (!string.Equals(s1.RepositoryLabel, s2.RepositoryLabel, StringComparison.OrdinalIgnoreCase)) return false;
+            if (!string.Equals(s1.Material, s2.Material, StringComparison.OrdinalIgnoreCase)) return false;
             if (s1.UtilizedPieces.Count != s2.UtilizedPieces.Count) return false;
             if (s1.Cuts.Count != s2.Cuts.Count) return false;
             if (s1.WastePieces.Count != s2.WastePieces.Count) return false;

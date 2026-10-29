@@ -9,6 +9,8 @@
 ## Visual Studio & VS Code
 .vs/
 *.user
+*.pubxml.user
+PublishProfiles/
 *.userosscache
 *.sln.docstates
 *.suo

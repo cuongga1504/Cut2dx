@@ -27,6 +27,7 @@ public partial class Form1 : Form
         public GrainDirection Grain { get; set; }
         public int ExternalID { get; set; }
         public string Label { get; set; } = string.Empty;
+        public string Material { get; set; } = string.Empty;
     }
 
     // Track input metadata per repository sheet
@@ -36,6 +37,7 @@ public partial class Form1 : Form
         public int Width { get; set; }
         public SheetGrainDirection Grain { get; set; }
         public string Label { get; set; } = string.Empty;
+        public string Material { get; set; } = string.Empty;
         public int ExternalID { get; set; }
     }
 
@@ -537,6 +539,7 @@ public partial class Form1 : Form
         _dgvPatterns = CreateResultGrid();
         _dgvPatterns.Columns.Add("Pattern", "Mẫu sơ đồ");
         _dgvPatterns.Columns.Add("SheetLabel", "Tên tấm kho");
+        _dgvPatterns.Columns.Add("Material", "Vật liệu");
         _dgvPatterns.Columns.Add("SheetSize", "Kích thước tấm");
         _dgvPatterns.Columns.Add("Count", "Số lượng cắt (SL)");
         _dgvPatterns.Columns.Add("PiecesPerSheet", "Chi tiết / Tấm");
@@ -563,6 +566,7 @@ public partial class Form1 : Form
         _dgvUtilized = CreateResultGrid();
         _dgvUtilized.Columns.Add("Idx", "#");
         _dgvUtilized.Columns.Add("Label", "Tên / Nhãn chi tiết");
+        _dgvUtilized.Columns.Add("Material", "Vật liệu");
         _dgvUtilized.Columns.Add("Pos", "Tọa độ (X1, Y1) - (X2, Y2)");
         _dgvUtilized.Columns.Add("Size", "Kích thước (WxH)");
         _dgvUtilized.Columns.Add("QtyPerSheet", "SL / Tấm");
@@ -926,10 +930,11 @@ public partial class Form1 : Form
                     Width = width,
                     Grain = sheetGrain,
                     Label = label,
+                    Material = material,
                     ExternalID = extId
                 });
 
-                _opt.SetRepositoryPiece(currentRepoIdx, length, width, top, left, bottom, right, extId, 0, 0, sheetGrain, label);
+                _opt.SetRepositoryPiece(currentRepoIdx, length, width, top, left, bottom, right, extId, 0, 0, sheetGrain, label, material);
                 currentRepoIdx++;
             }
         }
@@ -964,6 +969,7 @@ public partial class Form1 : Form
             if (row.IsNewRow) continue;
 
             string label = row.Cells["Label"].Value?.ToString()?.Trim() ?? "";
+            string material = row.Cells["Material"].Value?.ToString()?.Trim() ?? "";
             if (string.IsNullOrEmpty(label)) label = $"Chi tiết #{r + 1}";
             int length = Convert.ToInt32(row.Cells["Length"].Value ?? 0);
             int width = Convert.ToInt32(row.Cells["Width"].Value ?? 0);
@@ -991,10 +997,11 @@ public partial class Form1 : Form
                     Width = width,
                     Grain = grain,
                     ExternalID = extId,
-                    Label = label
+                    Label = label,
+                    Material = material
                 });
 
-                _opt.SetDemandPieceWithGrain(currentDemandIdx, length, width, grain, extId, pri, primarySheetGrain, label);
+                _opt.SetDemandPieceWithGrain(currentDemandIdx, length, width, grain, extId, pri, primarySheetGrain, label, material);
                 currentDemandIdx++;
             }
         }
@@ -1075,6 +1082,7 @@ public partial class Form1 : Form
             _dgvPatterns.Rows.Add(
                 $"Sơ đồ #{grp.PatternIndex + 1}",
                 grp.RepositoryLabel,
+                grp.Material,
                 $"{grp.SheetLength} x {grp.SheetWidth}",
                 $"{grp.Count} tấm",
                 grp.RepresentativeSheet.UtilizedPieces.Count,
@@ -1170,10 +1178,12 @@ public partial class Form1 : Form
                 }
             }
 
+            string mat = !string.IsNullOrEmpty(p.Material) ? p.Material : (demIdx >= 0 && demIdx < _demandMeta.Count ? _demandMeta[demIdx].Material : "");
             string rotLabel = rot == 1 ? "90° (Đã xoay)" : "0° (Nguyên)";
             _dgvUtilized.Rows.Add(
                 i + 1,
                 pieceLabel,
+                mat,
                 $"({tx:0.#}, {ty:0.#}) - ({bx:0.#}, {by:0.#})",
                 $"{w:0.#} x {h:0.#}",
                 "1",

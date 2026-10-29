@@ -42,9 +42,16 @@ namespace Optimal2DX
         // Methods
         void SetDemandPiece(int index, int length, int width, int canRotate, int externalId, int priority);
         void GetDemandPiece(int index, out int length, out int width, out int canRotate, out int externalId, out int priority);
+        void SetDemandPieceMaterial(int index, string material);
+        string GetDemandPieceMaterial(int index);
 
         void SetRepositoryPiece(int index, int length, int width, int trimTop, int trimLeft, int trimBottom, int trimRight, int externalId, int priority, int numberOfHoles);
         void GetRepositoryPiece(int index, out int length, out int width, out int trimTop, out int trimLeft, out int trimBottom, out int trimRight, out int externalId, out int priority, out int numberOfHoles);
+        void SetRepositoryPieceMaterial(int index, string material);
+        string GetRepositoryPieceMaterial(int index);
+
+        string GetSheetMaterial(int sheetIndex);
+        string GetUtilizedPieceMaterial(int sheetIndex, int pieceIndex);
 
         void StartGuillotine();
         void StartNested();

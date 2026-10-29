@@ -11,6 +11,7 @@ namespace Optimal2DX.Models
         public int SheetLength { get; set; }
         public int SheetWidth { get; set; }
         public string RepositoryLabel { get; set; } = string.Empty;
+        public string Material { get; set; } = string.Empty;
 
         public List<UtilizedPiece> UtilizedPieces { get; set; } = new List<UtilizedPiece>();
         public List<Cut> Cuts { get; set; } = new List<Cut>();
@@ -70,7 +71,7 @@ namespace Optimal2DX.Models
             return Math.Round(total, 2, MidpointRounding.AwayFromZero);
         }
 
-        public SheetLayout(int sheetIndex, int repositoryIndex, int repositoryExternalId, int sheetLength, int sheetWidth, string repositoryLabel = "")
+        public SheetLayout(int sheetIndex, int repositoryIndex, int repositoryExternalId, int sheetLength, int sheetWidth, string repositoryLabel = "", string material = "")
         {
             SheetIndex = sheetIndex;
             RepositoryIndex = repositoryIndex;
@@ -78,6 +79,7 @@ namespace Optimal2DX.Models
             SheetLength = sheetLength;
             SheetWidth = sheetWidth;
             RepositoryLabel = repositoryLabel ?? string.Empty;
+            Material = material ?? string.Empty;
         }
     }
 }

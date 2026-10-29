@@ -292,6 +292,7 @@ function renderRepoTable() {
       <td><input type="number" class="inp-repo-wid" data-idx="${idx}" value="${item.width}" min="1" /></td>
       <td><input type="number" class="inp-repo-qty" data-idx="${idx}" value="${item.quantity}" min="1" /></td>
       <td><input type="text" class="inp-repo-lbl" data-idx="${idx}" value="${escapeHtml(item.label || '')}" placeholder="Tên tấm ván" /></td>
+      <td><input type="text" class="inp-repo-mat" data-idx="${idx}" value="${escapeHtml(item.material || '')}" placeholder="Vật liệu" /></td>
       <td>
         <select class="sel-repo-grain" data-idx="${idx}">
           <option value="≡ Dọc (Theo Dài)" ${item.sheetGrain?.includes("Dọc") ? "selected" : ""}>≡ Dọc (Theo Dài)</option>
@@ -338,6 +339,7 @@ function handleRepoChange(e) {
     updateRepoSummaryBadge();
   }
   else if (e.target.classList.contains("inp-repo-lbl")) item.label = e.target.value;
+  else if (e.target.classList.contains("inp-repo-mat")) item.material = e.target.value;
   else if (e.target.classList.contains("sel-repo-grain")) item.sheetGrain = e.target.value;
   else if (e.target.classList.contains("inp-repo-top")) item.trimTop = parseInt(e.target.value) || 0;
   else if (e.target.classList.contains("inp-repo-left")) item.trimLeft = parseInt(e.target.value) || 0;
@@ -350,7 +352,7 @@ function updateRepoSummaryBadge() {
   document.getElementById("lblRepoSummary").textContent = `${appState.repoList.length} quy cách (${totalQty.toLocaleString()} tấm)`;
 }
 
-function addRepoRow(len = 2440, wid = 1220, qty = 10, lbl = "", grain = "≡ Dọc (Theo Dài)", top = 2, left = 2, bot = 0, right = 0) {
+function addRepoRow(len = 2440, wid = 1220, qty = 10, lbl = "", grain = "≡ Dọc (Theo Dài)", top = 2, left = 2, bot = 0, right = 0, mat = "MDF") {
   const nextIdx = appState.repoList.length + 1;
   appState.repoList.push({
     length: len,
@@ -358,7 +360,7 @@ function addRepoRow(len = 2440, wid = 1220, qty = 10, lbl = "", grain = "≡ D�
     quantity: qty,
     label: lbl || `Ván MDF #${nextIdx} (${len}x${wid})`,
     sheetGrain: grain,
-    material: "MDF",
+    material: mat || "MDF",
     trimTop: top,
     trimLeft: left,
     trimBottom: bot,
@@ -580,6 +582,7 @@ function renderPastePreview(target, items) {
         <th>Chiều rộng (mm)</th>
         <th>Số lượng tồn kho</th>
         <th>Tên tấm ván</th>
+        <th>Vật liệu</th>
         <th>Thớ gỗ</th>
         <th>Cắt mép (Trim T,L,B,R)</th>
       </tr>
@@ -591,12 +594,13 @@ function renderPastePreview(target, items) {
         <td><strong>${it.width}</strong></td>
         <td>${it.quantity}</td>
         <td>${escapeHtml(it.label)}</td>
+        <td><span class="badge badge-secondary">${escapeHtml(it.material || '')}</span></td>
         <td>${escapeHtml(it.sheetGrain)}</td>
         <td>${it.trimTop}, ${it.trimLeft}, ${it.trimBottom}, ${it.trimRight}</td>
       </tr>
     `).join("");
     if (items.length > 15) {
-      tbody.innerHTML += `<tr><td colspan="7" style="text-align:center; color:var(--text-muted); font-style:italic;">... và ${items.length - 15} dòng khác</td></tr>`;
+      tbody.innerHTML += `<tr><td colspan="8" style="text-align:center; color:var(--text-muted); font-style:italic;">... và ${items.length - 15} dòng khác</td></tr>`;
     }
   }
 }
@@ -1046,6 +1050,11 @@ async function executeOptimization() {
 }
 
 function renderOptimizationResults(res) {
+  const warning = res.warningMessage || res.WarningMessage;
+  if (warning) {
+    showToast(warning, "warning");
+  }
+
   // 1. KPI Cards
   const util = res.overallUtilizationPercent ?? res.OverallUtilizationPercent ?? 0;
   const uniquePatterns = res.totalUniquePatterns ?? res.TotalUniquePatterns ?? 0;
@@ -1080,7 +1089,8 @@ function renderOptimizationResults(res) {
     opt.value = idx;
     const count = p.sheetCount ?? p.SheetCount ?? 1;
     const label = p.repositoryLabel ?? p.RepositoryLabel ?? `Tấm #${idx + 1}`;
-    opt.textContent = `Sơ đồ #${idx + 1} (${count} tấm) - [${label}]`;
+    const mat = p.material ?? p.Material ?? "";
+    opt.textContent = mat ? `Sơ đồ #${idx + 1} (${count} tấm) - [${label}] - [${mat}]` : `Sơ đồ #${idx + 1} (${count} tấm) - [${label}]`;
     selPattern.appendChild(opt);
   });
 
@@ -1090,6 +1100,7 @@ function renderOptimizationResults(res) {
   tbodyPatterns.innerHTML = patterns.map((p, idx) => {
     const count = p.sheetCount ?? p.SheetCount ?? 1;
     const label = p.repositoryLabel ?? p.RepositoryLabel ?? `Tấm #${idx + 1}`;
+    const mat = p.material ?? p.Material ?? "";
     const len = p.sheetLength ?? p.SheetLength ?? 0;
     const wid = p.sheetWidth ?? p.SheetWidth ?? 0;
     const pPerSheet = p.piecesPerSheet ?? p.PiecesPerSheet ?? 0;
@@ -1102,6 +1113,7 @@ function renderOptimizationResults(res) {
     <tr style="cursor:pointer;" class="${idx === 0 ? 'selected' : ''}" data-pattern-idx="${idx}">
       <td><span class="badge badge-info">Sơ đồ #${idx + 1}</span></td>
       <td><strong>${escapeHtml(label)}</strong></td>
+      <td><span class="badge badge-secondary">${escapeHtml(mat)}</span></td>
       <td>${len} x ${wid} mm</td>
       <td style="text-align:right;"><strong class="text-success">${count} tấm</strong></td>
       <td style="text-align:right;">${pPerSheet}</td>
@@ -1172,6 +1184,7 @@ function changePattern(idx) {
   tbodyUtilized.innerHTML = utilizedPieces.map(up => {
     const upIdx = up.index ?? up.Index ?? 0;
     const upLabel = up.label ?? up.Label ?? "";
+    const upMat = up.material ?? up.Material ?? "";
     const tx = up.topX ?? up.TopX ?? 0;
     const ty = up.topY ?? up.TopY ?? 0;
     const bx = up.bottomX ?? up.BottomX ?? 0;
@@ -1186,6 +1199,7 @@ function changePattern(idx) {
     <tr data-piece-id="${upIdx}">
       <td><span class="badge" style="background:#f1f5f9; color:#334155;">#${upIdx}</span></td>
       <td><strong>${escapeHtml(upLabel)}</strong></td>
+      <td><span class="badge badge-secondary">${escapeHtml(upMat)}</span></td>
       <td style="font-family:monospace;">(${tx}, ${ty}) &rarr; (${bx}, ${by})</td>
       <td><strong>${w} x ${h} mm</strong></td>
       <td style="text-align:center;">1</td>
@@ -1373,8 +1387,8 @@ function resetResultsView() {
   document.getElementById("kpiCutLength").textContent = "0 mm";
   document.getElementById("kpiExecutionTime").textContent = "Thời gian: 0 ms";
 
-  document.getElementById("tbodyResultPatterns").innerHTML = '<tr><td colspan="9" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>';
-  document.getElementById("tbodyResultUtilized").innerHTML = '<tr><td colspan="9" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>';
+  document.getElementById("tbodyResultPatterns").innerHTML = '<tr><td colspan="10" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>';
+  document.getElementById("tbodyResultUtilized").innerHTML = '<tr><td colspan="10" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>';
   document.getElementById("tbodyResultCuts").innerHTML = '<tr><td colspan="5" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>';
   document.getElementById("tbodyResultWaste").innerHTML = '<tr><td colspan="7" class="text-center" style="padding:20px; color:var(--text-muted);">Chưa có dữ liệu</td></tr>';
 }
