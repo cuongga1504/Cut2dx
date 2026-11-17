@@ -247,10 +247,9 @@ public partial class Form1 : Form
             FlatStyle = FlatStyle.Flat
         };
         colDemandGrain.Items.AddRange(new object[] {
+            "",
             "≡ Dọc (Theo Dài)",
-            "||| Ngang (Theo Rộng)",
-            "🔄 Tự do (Không thớ)",
-            "🔒 Cố định (Không xoay)"
+            "||| Ngang (Theo Rộng)"
         });
         _dgvDemand.Columns.Add(colDemandGrain);
 
@@ -273,7 +272,7 @@ public partial class Form1 : Form
         btnAddDemand.Click += (s, e) =>
         {
             int idx = _dgvDemand.Rows.Count + 1;
-            AddDemandRow(idx, 50, 50, 1, "≡ Dọc (Theo Dài)", $"Chi tiết #{idx}");
+            AddDemandRow(idx, 50, 50, 1, "", $"Chi tiết #{idx}");
         };
 
         var btnDelDemand = new Button { Text = "- Xóa dòng chọn", AutoSize = true, BackColor = Color.FromArgb(250, 240, 240), FlatStyle = FlatStyle.Flat };
@@ -322,9 +321,9 @@ public partial class Form1 : Form
             FlatStyle = FlatStyle.Flat
         };
         colRepoGrain.Items.AddRange(new object[] {
+            "",
             "≡ Dọc (Theo Dài)",
-            "||| Ngang (Theo Rộng)",
-            "🔄 Không thớ"
+            "||| Ngang (Theo Rộng)"
         });
         _dgvRepo.Columns.Add(colRepoGrain);
 
@@ -343,7 +342,7 @@ public partial class Form1 : Form
         btnAddRepo.Click += (s, e) =>
         {
             int idx = _dgvRepo.Rows.Count + 1;
-            AddRepoRow(idx, 2440, 1220, 1, "≡ Dọc (Theo Dài)", $"Tấm #{idx}");
+            AddRepoRow(idx, 2440, 1220, 1, "", $"Tấm #{idx}");
         };
         var btnDelRepo = new Button { Text = "- Xóa tấm", AutoSize = true, BackColor = Color.FromArgb(250, 240, 240), FlatStyle = FlatStyle.Flat };
         btnDelRepo.FlatAppearance.BorderColor = Color.FromArgb(235, 200, 200);
@@ -651,18 +650,18 @@ public partial class Form1 : Form
         if (colName == "Grain")
         {
             string grainStr = row.Cells["Grain"].Value?.ToString() ?? "";
-            bool canRot = grainStr.Contains("Tự do");
+            bool canRot = string.IsNullOrWhiteSpace(grainStr);
             row.Cells["CanRotate"].Value = canRot;
         }
         else if (colName == "CanRotate")
         {
             bool canRot = Convert.ToBoolean(row.Cells["CanRotate"].Value ?? false);
             string curGrain = row.Cells["Grain"].Value?.ToString() ?? "";
-            if (canRot && !curGrain.Contains("Tự do"))
+            if (canRot && !string.IsNullOrWhiteSpace(curGrain))
             {
-                row.Cells["Grain"].Value = "🔄 Tự do (Không thớ)";
+                row.Cells["Grain"].Value = "";
             }
-            else if (!canRot && curGrain.Contains("Tự do"))
+            else if (!canRot && string.IsNullOrWhiteSpace(curGrain))
             {
                 row.Cells["Grain"].Value = "≡ Dọc (Theo Dài)";
             }
@@ -683,67 +682,52 @@ public partial class Form1 : Form
         };
     }
 
-    private void AddDemandRow(int index, int length, int width, int quantity, string grain = "≡ Dọc (Theo Dài)", string label = "", string material = "", bool? canRotate = null, int extId = 0, int priority = 0)
+    private void AddDemandRow(int index, int length, int width, int quantity, string grain = "", string label = "", string material = "", bool? canRotate = null, int extId = 0, int priority = 0)
     {
-        bool rot = canRotate ?? grain.Contains("Tự do");
+        bool rot = canRotate ?? string.IsNullOrWhiteSpace(grain);
         _dgvDemand.Rows.Add(index, length, width, quantity, material, grain, label, rot, extId, priority);
     }
 
-    private void AddRepoRow(int index, int length, int width, int quantity, string grain = "≡ Dọc (Theo Dài)", string label = "", string material = "", int price = 0, int trimTop = 0, int trimLeft = 0, int trimBottom = 0, int trimRight = 0, int priority = 0, int extId = 0)
+    private void AddRepoRow(int index, int length, int width, int quantity, string grain = "", string label = "", string material = "", int price = 0, int trimTop = 0, int trimLeft = 0, int trimBottom = 0, int trimRight = 0, int priority = 0, int extId = 0)
     {
         _dgvRepo.Rows.Add(index, length, width, quantity, material, grain, label, price, trimTop, trimLeft, trimBottom, trimRight, priority, extId);
     }
 
     /// <summary>
     /// Cài đặt bộ dữ liệu mẫu theo hình ảnh:
-    /// - 8 quy cách chi tiết (tổng cộng 1.050 chi tiết) với thớ gỗ ≡
-    /// - 1 quy cách tấm vật liệu được sử dụng: 2440 x 1220 mm (163 tấm), Thớ gỗ ≡, Cắt bỏ: Trên 2, Trái 2, Dưới 0, Phải 0
+    /// - 4 quy cách chi tiết (588 chi tiết), thớ gỗ để trống (tự do xoay)
+    /// - 1 quy cách tấm vật liệu: 2465 x 1855 mm (500 tấm), Thớ gỗ để trống, Cắt bỏ: Trên 2, Trái 2
     /// </summary>
     private void LoadImageSampleData(bool showMessage = false)
     {
         _dgvDemand.Rows.Clear();
         _dgvRepo.Rows.Clear();
 
-        // 8 dòng quy cách chi tiết cần cắt theo đúng hình ảnh (Tổng 1.050 chi tiết):
-        // #: 1..8 | Chiều dài | Chiều rộng | Số lượng | Vật liệu | Thớ gỗ | Nhãn
-        AddDemandRow(1, 1568,  953,  45, "≡ Dọc (Theo Dài)");
-        AddDemandRow(2,  754, 1008,  45, "≡ Dọc (Theo Dài)");
-        AddDemandRow(3, 1284,  959,  36, "≡ Dọc (Theo Dài)");
-        AddDemandRow(4,  618,  642,  96, "≡ Dọc (Theo Dài)");
-        AddDemandRow(5,  482,  340, 288, "≡ Dọc (Theo Dài)");
-        AddDemandRow(6,  779,  340, 180, "≡ Dọc (Theo Dài)");
-        AddDemandRow(7,  663,  340, 270, "≡ Dọc (Theo Dài)");
-        AddDemandRow(8,  650,  340,  90, "≡ Dọc (Theo Dài)");
+        // 4 dòng quy cách chi tiết cần cắt theo đúng hình ảnh (Tổng 588 chi tiết):
+        AddDemandRow(1,  560, 214, 196, "", "Ván hông");
+        AddDemandRow(2, 1220, 214, 196, "", "Ván trước/sau");
+        AddDemandRow(3, 1206, 546,  98, "", "Ván đáy");
+        AddDemandRow(4, 1216, 556,  98, "", "Ván mặt");
 
         // Các tấm vật liệu được sử dụng:
-        // #: 1 | Chiều dài: 2440 | Chiều rộng: 1220 | Số lượng: 163 | Vật liệu: "MDF" | Thớ gỗ: ≡ | Nhãn: "Ván MDF 2440x1220" | Giá: 0 | Phần cắt bỏ: Trên 2, Trái 2, Dưới 0, Phải 0 | Mức độ ưu tiên: 0
-        AddRepoRow(1, 2440, 1220, 163, "≡ Dọc (Theo Dài)", "Ván MDF 2440x1220", "MDF", 0, 2, 2, 0, 0, 0, 1);
+        AddRepoRow(1, 2465, 1855, 500, "", "Ván MDF 14mm", "", 0, 2, 2, 0, 0, 0, 1);
 
-        _numBladeWidth.Value = 3.2m;
-        _numOptLevel.Value = 20;
+        _numBladeWidth.Value = 4.5m;
+        _numOptLevel.Value = 80;
         _numSeed.Value = 1;
-        _numMinUseful.Value = 100;
+        _numMinUseful.Value = 20;
         _cboMethod.SelectedIndex = 0;
+        _chkMinimizePatterns.Checked = true;
 
         if (showMessage)
         {
             MessageBox.Show(
                 "Đã nạp thành công bộ dữ liệu mẫu chuẩn theo hình ảnh!\n\n" +
-                "• Chi tiết cần cắt: 8 quy cách, tổng cộng 1.050 chi tiết\n" +
-                "  1. 1568 x 953  - SL: 45 (Thớ gỗ dọc)\n" +
-                "  2. 754 x 1008  - SL: 45 (Thớ gỗ dọc)\n" +
-                "  3. 1284 x 959  - SL: 36 (Thớ gỗ dọc)\n" +
-                "  4. 618 x 642   - SL: 96 (Thớ gỗ dọc)\n" +
-                "  5. 482 x 340   - SL: 288 (Thớ gỗ dọc)\n" +
-                "  6. 779 x 340   - SL: 180 (Thớ gỗ dọc)\n" +
-                "  7. 663 x 340   - SL: 270 (Thớ gỗ dọc)\n" +
-                "  8. 650 x 340   - SL: 90 (Thớ gỗ dọc)\n\n" +
-                "• Các tấm vật liệu được sử dụng: 163 tấm khổ 2440 x 1220 mm\n" +
-                "  - Cắt bỏ viền (Trim): Trên 2mm, Trái 2mm, Dưới 0mm, Phải 0mm\n" +
-                "  - Mức độ ưu tiên: 0, Giá: 0\n" +
-                "• Thớ gỗ: ≡ Cố định dọc theo chiều dài cho toàn bộ các tấm & chi tiết.\n\n" +
-                "Bấm '▶ Chạy tối ưu hóa' để tiến hành tính toán và xếp sơ đồ cắt!",
-                "Dữ liệu mẫu từ hình ảnh",
+                "• Chi tiết cần cắt: 4 quy cách (588 chi tiết), Thớ gỗ để trống (Tự do xoay)\n" +
+                "• Tấm gỗ kho: 2465 x 1855 mm (500 tấm), Cắt bỏ viền Trên 2, Trái 2\n" +
+                "• Mạch cưa: 4.5 mm, Cấp độ tối ưu: 80, Phế liệu hữu ích >= 20 mm\n\n" +
+                "Bấm '▶ BẮT ĐẦU TỐI ƯU HÓA' để thực hiện xếp phôi!",
+                "Mẫu Dữ Liệu Theo Ảnh",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
@@ -755,19 +739,19 @@ public partial class Form1 : Form
         _dgvDemand.Rows.Clear();
         _dgvRepo.Rows.Clear();
 
-        AddDemandRow(1,  60,  40, 2, "🔄 Tự do (Không thớ)", "Phôi A (60x40)", "", true, 0, 0);
-        AddDemandRow(2,  48,  40, 1, "🔄 Tự do (Không thớ)", "Phôi B (48x40)", "", true, 1, 0);
-        AddDemandRow(3,  60,  53, 1, "🔄 Tự do (Không thớ)", "Phôi C (60x53)", "", true, 2, 0);
-        AddDemandRow(4,  45,  45, 1, "🔄 Tự do (Không thớ)", "Phôi D (45x45)", "", true, 3, 0);
-        AddDemandRow(5,  50,  80, 1, "🔄 Tự do (Không thớ)", "Phôi E (50x80)", "", true, 4, 0);
-        AddDemandRow(6,  45,  75, 1, "🔄 Tự do (Không thớ)", "Phôi F (45x75)", "", true, 5, 0);
-        AddDemandRow(7, 100, 100, 2, "🔄 Tự do (Không thớ)", "Cánh tủ (100x100)", "", true, 6, 0);
-        AddDemandRow(8,  90,  90, 3, "🔄 Tự do (Không thớ)", "Mặt hộc (90x90)", "", true, 7, 0);
-        AddDemandRow(9, 110, 110, 2, "🔄 Tự do (Không thớ)", "Tấm nóc/đáy (110x110)", "", true, 8, 0);
+        AddDemandRow(1,  60,  40, 2, "", "Phôi A (60x40)", "", true, 0, 0);
+        AddDemandRow(2,  48,  40, 1, "", "Phôi B (48x40)", "", true, 1, 0);
+        AddDemandRow(3,  60,  53, 1, "", "Phôi C (60x53)", "", true, 2, 0);
+        AddDemandRow(4,  45,  45, 1, "", "Phôi D (45x45)", "", true, 3, 0);
+        AddDemandRow(5,  50,  80, 1, "", "Phôi E (50x80)", "", true, 4, 0);
+        AddDemandRow(6,  45,  75, 1, "", "Phôi F (45x75)", "", true, 5, 0);
+        AddDemandRow(7, 100, 100, 2, "", "Cánh tủ (100x100)", "", true, 6, 0);
+        AddDemandRow(8,  90,  90, 3, "", "Mặt hộc (90x90)", "", true, 7, 0);
+        AddDemandRow(9, 110, 110, 2, "", "Tấm nóc/đáy (110x110)", "", true, 8, 0);
 
-        AddRepoRow(1, 300, 200, 1, "≡ Dọc (Theo Dài)", "Tấm kho #1 (300x200)", "", 0, 0, 0, 0, 0, 0, 0);
-        AddRepoRow(2, 200, 200, 1, "≡ Dọc (Theo Dài)", "Tấm kho #2 (200x200)", "", 0, 0, 0, 0, 0, 0, 1);
-        AddRepoRow(3, 300, 250, 1, "≡ Dọc (Theo Dài)", "Tấm kho #3 (300x250)", "", 0, 0, 0, 0, 0, 0, 2);
+        AddRepoRow(1, 300, 200, 1, "", "Tấm kho #1 (300x200)", "", 0, 0, 0, 0, 0, 0, 0);
+        AddRepoRow(2, 200, 200, 1, "", "Tấm kho #2 (200x200)", "", 0, 0, 0, 0, 0, 0, 1);
+        AddRepoRow(3, 300, 250, 1, "", "Tấm kho #3 (300x250)", "", 0, 0, 0, 0, 0, 0, 2);
 
         _numBladeWidth.Value = 0m;
         _numOptLevel.Value = 50;
@@ -791,10 +775,10 @@ public partial class Form1 : Form
         AddDemandRow(3, 800, 400, 2, "≡ Dọc (Theo Dài)", "Cánh tủ dài hông", "", false, 3, 0);
         AddDemandRow(4, 400, 700, 1, "||| Ngang (Theo Rộng)", "Mặt bàn trà vân ngang", "", false, 4, 0);
         AddDemandRow(5, 900, 450, 2, "≡ Dọc (Theo Dài)", "Mặt hộc tủ trên", "", false, 5, 0);
-        AddDemandRow(6, 700, 350, 2, "🔒 Cố định (Không xoay)", "Vách ngăn đứng", "", false, 6, 0);
-        AddDemandRow(7, 600, 600, 2, "🔄 Tự do (Không thớ)", "Tấm lưng tủ (MDF)", "", true, 7, 0);
-        AddDemandRow(8, 500, 450, 4, "🔄 Tự do (Không thớ)", "Đáy hộc kéo", "", true, 8, 0);
-        AddDemandRow(9, 400, 150, 4, "🔄 Tự do (Không thớ)", "Thanh nẹp hộc kéo", "", true, 9, 0);
+        AddDemandRow(6, 700, 350, 2, "≡ Dọc (Theo Dài)", "Vách ngăn đứng", "", false, 6, 0);
+        AddDemandRow(7, 600, 600, 2, "", "Tấm lưng tủ (MDF)", "", true, 7, 0);
+        AddDemandRow(8, 500, 450, 4, "", "Đáy hộc kéo", "", true, 8, 0);
+        AddDemandRow(9, 400, 150, 4, "", "Thanh nẹp hộc kéo", "", true, 9, 0);
 
         _numBladeWidth.Value = 3.2m;
         _numOptLevel.Value = 60;
@@ -829,7 +813,7 @@ public partial class Form1 : Form
 
         AddDemandRow(1, 800, 400, 12, "≡ Dọc (Theo Dài)", "Cánh tủ quần áo (800x400)", "", false, 1, 0);
         AddDemandRow(2, 600, 400, 12, "≡ Dọc (Theo Dài)", "Hộc tủ ngăn kéo (600x400)", "", false, 2, 0);
-        AddDemandRow(3, 400, 300, 16, "🔄 Tự do (Không thớ)", "Đáy tủ con (400x300)", "", true, 3, 0);
+        AddDemandRow(3, 400, 300, 16, "", "Đáy tủ con (400x300)", "", true, 3, 0);
 
         _numBladeWidth.Value = 3.2m;
         _numOptLevel.Value = 70;
@@ -918,8 +902,8 @@ public partial class Form1 : Form
             SheetGrainDirection sheetGrain = grainStr switch
             {
                 var s when s.Contains("Ngang") || s.Contains("|||") => SheetGrainDirection.AlongWidth,
-                var s when s.Contains("Không thớ") => SheetGrainDirection.None,
-                _ => SheetGrainDirection.AlongLength
+                var s when s.Contains("Dọc") || s.Contains("≡") => SheetGrainDirection.AlongLength,
+                _ => SheetGrainDirection.None
             };
 
             for (int k = 0; k < qty; k++)
@@ -940,7 +924,7 @@ public partial class Form1 : Form
         }
 
         // Primary sheet grain (first sheet)
-        SheetGrainDirection primarySheetGrain = _repoMeta.Count > 0 ? _repoMeta[0].Grain : SheetGrainDirection.AlongLength;
+        SheetGrainDirection primarySheetGrain = _repoMeta.Count > 0 ? _repoMeta[0].Grain : SheetGrainDirection.None;
 
         // 2. Read Demand Pieces (Expanded by Quantity)
         int totalDemandPieces = 0;

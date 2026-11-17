@@ -23,20 +23,16 @@ const appState = {
   pendingExcelData: null
 };
 
-// Preset 1: Mẫu theo ảnh (8 quy cách, 1.050 chi tiết / 163 tấm kho)
+// Preset 1: Mẫu theo ảnh (4 quy cách, 588 chi tiết / 500 tấm kho)
 const SAMPLE_IMAGE_DEMAND = [
-  { length: 1568, width: 953,  quantity: 45,  label: "Cánh tủ trên",    grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "MDF" },
-  { length: 754,  width: 1008, quantity: 45,  label: "Hông tủ trái",    grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "MDF" },
-  { length: 1284, width: 959,  quantity: 36,  label: "Hông tủ phải",    grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "MDF" },
-  { length: 618,  width: 642,  quantity: 96,  label: "Đáy tủ",          grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "MDF" },
-  { length: 482,  width: 340,  quantity: 288, label: "Ngăn kéo lớn",    grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "MDF" },
-  { length: 779,  width: 340,  quantity: 180, label: "Đợt ngăn di động",grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "MDF" },
-  { length: 663,  width: 340,  quantity: 270, label: "Thành ngăn kéo",  grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "MDF" },
-  { length: 650,  width: 340,  quantity: 90,  label: "Hậu tủ nhỏ",      grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "MDF" }
+  { length: 560,  width: 214, quantity: 196, label: "Ván hông",      grain: "", canRotate: true, material: "MDF 14mm" },
+  { length: 1220, width: 214, quantity: 196, label: "Ván trước/sau", grain: "", canRotate: true, material: "MDF 14mm" },
+  { length: 1206, width: 546, quantity: 98,  label: "Ván đáy",       grain: "", canRotate: true, material: "MDF 14mm" },
+  { length: 1216, width: 556, quantity: 98,  label: "Ván mặt",       grain: "", canRotate: true, material: "MDF 14mm" }
 ];
 
 const SAMPLE_IMAGE_REPO = [
-  { length: 2440, width: 1220, quantity: 163, label: "Ván MDF 2440x1220", sheetGrain: "≡ Dọc (Theo Dài)", material: "MDF", trimTop: 2, trimLeft: 2, trimBottom: 0, trimRight: 0, price: 0 }
+  { length: 2465, width: 1855, quantity: 500, label: "Ván MDF 14mm", sheetGrain: "", material: "MDF 14mm", trimTop: 2, trimLeft: 2, trimBottom: 0, trimRight: 0, price: 0 }
 ];
 
 // Document Ready Initialization
@@ -174,10 +170,9 @@ function renderDemandTable() {
       <td><input type="text" class="inp-dem-lbl" data-idx="${idx}" value="${escapeHtml(item.label || '')}" placeholder="Nhãn chi tiết" /></td>
       <td>
         <select class="sel-dem-grain" data-idx="${idx}">
+          <option value="" ${!item.grain ? "selected" : ""}></option>
           <option value="≡ Dọc (Theo Dài)" ${item.grain?.includes("Dọc") ? "selected" : ""}>≡ Dọc (Theo Dài)</option>
           <option value="||| Ngang (Theo Rộng)" ${item.grain?.includes("Ngang") ? "selected" : ""}>||| Ngang (Theo Rộng)</option>
-          <option value="🔄 Tự do (Không thớ)" ${item.grain?.includes("Tự do") ? "selected" : ""}>🔄 Tự do (Không thớ)</option>
-          <option value="🔒 Cố định (Không xoay)" ${item.grain?.includes("Cố định") ? "selected" : ""}>🔒 Cố định (Không xoay)</option>
         </select>
       </td>
       <td style="text-align: center;">
@@ -223,7 +218,7 @@ function handleDemandChange(e) {
   else if (e.target.classList.contains("inp-dem-mat")) item.material = e.target.value;
   else if (e.target.classList.contains("sel-dem-grain")) {
     item.grain = e.target.value;
-    const canRot = item.grain.includes("Tự do");
+    const canRot = !item.grain || item.grain.trim() === "";
     item.canRotate = canRot;
     const tr = e.target.closest("tr");
     const chkRot = tr.querySelector(".chk-dem-rot");
@@ -231,8 +226,13 @@ function handleDemandChange(e) {
   }
   else if (e.target.classList.contains("chk-dem-rot")) {
     item.canRotate = e.target.checked;
-    if (item.canRotate && !item.grain.includes("Tự do")) {
-      item.grain = "🔄 Tự do (Không thớ)";
+    if (item.canRotate && item.grain && item.grain.trim() !== "") {
+      item.grain = "";
+      const tr = e.target.closest("tr");
+      const selGrain = tr.querySelector(".sel-dem-grain");
+      if (selGrain) selGrain.value = "";
+    } else if (!item.canRotate && (!item.grain || item.grain.trim() === "")) {
+      item.grain = "≡ Dọc (Theo Dài)";
       const tr = e.target.closest("tr");
       const selGrain = tr.querySelector(".sel-dem-grain");
       if (selGrain) selGrain.value = item.grain;
@@ -245,15 +245,16 @@ function updateDemandSummaryBadge() {
   document.getElementById("lblDemandSummary").textContent = `${appState.demandList.length} quy cách (${totalQty.toLocaleString()} chi tiết)`;
 }
 
-function addDemandRow(len = 500, wid = 350, qty = 1, lbl = "", grain = "≡ Dọc (Theo Dài)", mat = "MDF") {
+function addDemandRow(len = 500, wid = 350, qty = 1, lbl = "", grain = "", mat = "MDF") {
   const nextIdx = appState.demandList.length + 1;
+  const canRot = !grain || grain.trim() === "";
   appState.demandList.push({
     length: len,
     width: wid,
     quantity: qty,
     label: lbl || `Chi tiết #${nextIdx}`,
     grain: grain,
-    canRotate: grain.includes("Tự do"),
+    canRotate: canRot,
     material: mat
   });
   renderDemandTable();
@@ -295,9 +296,9 @@ function renderRepoTable() {
       <td><input type="text" class="inp-repo-mat" data-idx="${idx}" value="${escapeHtml(item.material || '')}" placeholder="Vật liệu" /></td>
       <td>
         <select class="sel-repo-grain" data-idx="${idx}">
+          <option value="" ${!item.sheetGrain ? "selected" : ""}></option>
           <option value="≡ Dọc (Theo Dài)" ${item.sheetGrain?.includes("Dọc") ? "selected" : ""}>≡ Dọc (Theo Dài)</option>
           <option value="||| Ngang (Theo Rộng)" ${item.sheetGrain?.includes("Ngang") ? "selected" : ""}>||| Ngang (Theo Rộng)</option>
-          <option value="🔄 Không thớ" ${item.sheetGrain?.includes("Không thớ") ? "selected" : ""}>🔄 Không thớ</option>
         </select>
       </td>
       <td><input type="number" class="inp-repo-top" data-idx="${idx}" value="${item.trimTop || 0}" min="0" style="padding:4px 2px;" /></td>
@@ -352,7 +353,7 @@ function updateRepoSummaryBadge() {
   document.getElementById("lblRepoSummary").textContent = `${appState.repoList.length} quy cách (${totalQty.toLocaleString()} tấm)`;
 }
 
-function addRepoRow(len = 2440, wid = 1220, qty = 10, lbl = "", grain = "≡ Dọc (Theo Dài)", top = 2, left = 2, bot = 0, right = 0, mat = "MDF") {
+function addRepoRow(len = 2440, wid = 1220, qty = 10, lbl = "", grain = "", top = 2, left = 2, bot = 0, right = 0, mat = "MDF") {
   const nextIdx = appState.repoList.length + 1;
   appState.repoList.push({
     length: len,
@@ -391,24 +392,24 @@ function loadSampleImagePreset() {
   appState.demandList = JSON.parse(JSON.stringify(SAMPLE_IMAGE_DEMAND));
   appState.repoList = JSON.parse(JSON.stringify(SAMPLE_IMAGE_REPO));
 
-  document.getElementById("numBladeWidth").value = 3.2;
-  document.getElementById("numOptLevel").value = 20;
+  document.getElementById("numBladeWidth").value = 4.5;
+  document.getElementById("numOptLevel").value = 80;
   document.getElementById("numRandomSeed").value = 1;
-  document.getElementById("numMinUseful").value = 100;
+  document.getElementById("numMinUseful").value = 20;
   document.getElementById("selMethod").value = "0"; // Guillotine
   document.getElementById("chkMinimizePatterns").checked = true;
 
   renderDemandTable();
   renderRepoTable();
-  showToast("Đã nạp bộ dữ liệu mẫu chuẩn theo ảnh (1.050 chi tiết / 163 tấm kho)!", "success");
+  showToast("Đã nạp bộ dữ liệu mẫu chuẩn theo ảnh (588 chi tiết / 500 tấm kho)!", "success");
 }
 
 function loadSampleGrainPreset() {
   appState.demandList = [
     { length: 1200, width: 400, quantity: 20, label: "Mặt bàn (Thớ Dọc)",    grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "Gỗ sồi" },
     { length: 400,  width: 800, quantity: 20, label: "Hông tủ (Thớ Ngang)",  grain: "||| Ngang (Theo Rộng)", canRotate: false, material: "Gỗ sồi" },
-    { length: 500,  width: 350, quantity: 40, label: "Đáy ngăn kéo (Tự do)", grain: "🔄 Tự do (Không thớ)", canRotate: true, material: "Gỗ sồi" },
-    { length: 600,  width: 300, quantity: 15, label: "Khóa xoay cố định",    grain: "🔒 Cố định (Không xoay)", canRotate: false, material: "Gỗ sồi" }
+    { length: 500,  width: 350, quantity: 40, label: "Đáy ngăn kéo (Tự do)", grain: "", canRotate: true, material: "Gỗ sồi" },
+    { length: 600,  width: 300, quantity: 15, label: "Khóa xoay cố định",    grain: "≡ Dọc (Theo Dài)", canRotate: false, material: "Gỗ sồi" }
   ];
   appState.repoList = [
     { length: 2440, width: 1220, quantity: 30, label: "Tấm ván sồi 2440x1220", sheetGrain: "≡ Dọc (Theo Dài)", material: "Gỗ sồi", trimTop: 5, trimLeft: 5, trimBottom: 5, trimRight: 5, price: 0 }
@@ -978,9 +979,9 @@ async function executeOptimization() {
       width: parseInt(d.width) || 0,
       quantity: parseInt(d.quantity) || 1,
       material: d.material || "",
-      grain: d.grain || "≡ Dọc (Theo Dài)",
+      grain: d.grain || "",
       label: d.label || "",
-      canRotate: Boolean(d.canRotate),
+      canRotate: d.canRotate !== undefined ? Boolean(d.canRotate) : (!d.grain || d.grain.trim() === ""),
       externalID: 0,
       priority: 0
     })),
@@ -989,7 +990,7 @@ async function executeOptimization() {
       width: parseInt(r.width) || 0,
       quantity: parseInt(r.quantity) || 1,
       material: r.material || "",
-      sheetGrain: r.sheetGrain || "≡ Dọc (Theo Dài)",
+      sheetGrain: r.sheetGrain || "",
       label: r.label || "",
       price: 0,
       trimTop: parseInt(r.trimTop) || 0,
@@ -1577,20 +1578,19 @@ function parsePositiveInt(val, def = 0) {
 }
 
 function normalizeGrainString(val) {
-  if (!val) return "≡ Dọc (Theo Dài)";
+  if (!val) return "";
   const str = String(val).toLowerCase();
   if (str.includes("ngang") || str.includes("width") || str.includes("|||")) return "||| Ngang (Theo Rộng)";
-  if (str.includes("tự do") || str.includes("tu do") || str.includes("none") || str.includes("không thớ") || str.includes("🔄")) return "🔄 Tự do (Không thớ)";
-  if (str.includes("cố định") || str.includes("co dinh") || str.includes("fixed") || str.includes("🔒")) return "🔒 Cố định (Không xoay)";
-  return "≡ Dọc (Theo Dài)";
+  if (str.includes("dọc") || str.includes("doc") || str.includes("length") || str.includes("≡")) return "≡ Dọc (Theo Dài)";
+  return "";
 }
 
 function normalizeSheetGrainString(val) {
-  if (!val) return "≡ Dọc (Theo Dài)";
+  if (!val) return "";
   const str = String(val).toLowerCase();
   if (str.includes("ngang") || str.includes("width") || str.includes("|||")) return "||| Ngang (Theo Rộng)";
-  if (str.includes("không thớ") || str.includes("khong tho") || str.includes("none") || str.includes("🔄")) return "🔄 Không thớ";
-  return "≡ Dọc (Theo Dài)";
+  if (str.includes("dọc") || str.includes("doc") || str.includes("length") || str.includes("≡")) return "≡ Dọc (Theo Dài)";
+  return "";
 }
 
 function escapeHtml(str) {

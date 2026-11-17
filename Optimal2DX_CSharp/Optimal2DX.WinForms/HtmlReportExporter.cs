@@ -207,7 +207,8 @@ public static class HtmlReportExporter
             string label = row.Cells["Label"].Value?.ToString()?.Trim() ?? "";
             if (string.IsNullOrEmpty(label)) label = $"Chi tiết #{rowIdx} ({len}x{wid})";
             int qty = Convert.ToInt32(row.Cells["Quantity"].Value ?? 1);
-            string grain = row.Cells["Grain"].Value?.ToString() ?? "-";
+            string grain = row.Cells["Grain"].Value?.ToString() ?? "";
+            if (string.IsNullOrWhiteSpace(grain)) grain = "-";
 
             string key1 = $"{len}x{wid}";
             string key2 = $"{wid}x{len}";
@@ -302,7 +303,8 @@ public static class HtmlReportExporter
             else if (string.IsNullOrEmpty(label))
                 label = $"Ván kho #{rowIdx} ({len}x{wid})";
             int stockQty = Convert.ToInt32(row.Cells["Quantity"].Value ?? 1);
-            string grain = row.Cells["SheetGrain"].Value?.ToString() ?? "Dọc (Theo Dài)";
+            string grain = row.Cells["SheetGrain"].Value?.ToString() ?? "";
+            if (string.IsNullOrWhiteSpace(grain)) grain = "-";
 
             int top = Convert.ToInt32(row.Cells["TrimTop"].Value ?? 0);
             int left = Convert.ToInt32(row.Cells["TrimLeft"].Value ?? 0);

@@ -89,8 +89,8 @@ public class CuttingOptimizationService
             SheetGrainDirection sheetGrain = grainStr switch
             {
                 var s when s.Contains("Ngang") || s.Contains("|||") => SheetGrainDirection.AlongWidth,
-                var s when s.Contains("Không thớ") => SheetGrainDirection.None,
-                _ => SheetGrainDirection.AlongLength
+                var s when s.Contains("Dọc") || s.Contains("≡") => SheetGrainDirection.AlongLength,
+                _ => SheetGrainDirection.None
             };
 
             for (int k = 0; k < qty; k++)
@@ -131,7 +131,10 @@ public class CuttingOptimizationService
             }
         }
 
-        SheetGrainDirection primarySheetGrain = repoMetaList.Count > 0 ? (repoMetaList[0].SheetGrain?.Contains("Ngang") == true ? SheetGrainDirection.AlongWidth : SheetGrainDirection.AlongLength) : SheetGrainDirection.AlongLength;
+        SheetGrainDirection primarySheetGrain = repoMetaList.Count > 0 ? (
+            repoMetaList[0].SheetGrain?.Contains("Ngang") == true ? SheetGrainDirection.AlongWidth :
+            repoMetaList[0].SheetGrain?.Contains("Dọc") == true ? SheetGrainDirection.AlongLength : SheetGrainDirection.None
+        ) : SheetGrainDirection.None;
 
         // 2. Demand Pieces
         int totalDemandRequested = req.DemandPieces.Sum(d => Math.Max(0, d.Quantity));
@@ -158,7 +161,6 @@ public class CuttingOptimizationService
             {
                 var s when s.Contains("Ngang") || s.Contains("|||") => GrainDirection.AlongWidth,
                 var s when s.Contains("Dọc") || s.Contains("≡") => GrainDirection.AlongLength,
-                var s when s.Contains("Cố định") || s.Contains("Khóa") => GrainDirection.FixedNoRotate,
                 _ => GrainDirection.None
             };
 
@@ -294,7 +296,7 @@ public class CuttingOptimizationService
                 var up = sheet.UtilizedPieces[i];
                 string pieceLabel = up.Label;
                 string mat = !string.IsNullOrEmpty(up.Material) ? up.Material : "";
-                string grainLabel = "⟳ Tự do (Không thớ)";
+                string grainLabel = "-";
 
                 if (up.DemandIndex >= 0 && up.DemandIndex < demandMetaList.Count)
                 {

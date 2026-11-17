@@ -7,35 +7,120 @@ namespace Optimal2DX.Algorithms
 {
     /// <summary>
     /// Thuật toán tối ưu hóa cắt 2D theo hướng tối thiểu hóa số lượng mẫu sơ đồ cắt (Pattern Minimization / Batch Production).
-    /// Áp dụng chiến lược 2 tầng (Two-Tier Hybrid Architecture):
-    /// - Tầng 1: Tìm kiếm các mẫu sơ đồ cắt chuẩn có độ phủ cao và tính hệ số nhân bản tối đa (Replication Factor) để cắt hàng loạt nhiều tấm cùng lúc.
-    /// - Tầng 2: Vét các chi tiết phần dư còn lại vào các tấm ván cuối cùng bằng thuật toán Guillotine Best-Fit.
+    /// Áp dụng chiến lược 2 tầng kết hợp Đối chứng Đa chính sách Toàn cục (Global Multi-Policy Selection):
+    /// - Chạy đối chứng giữa chế độ xoay tự do (Free Rotation), chế độ khóa hướng theo băng (Grain-Aligned),
+    ///   và chế độ chuẩn hóa chiều dài/rộng (Normalized Orientation) để tránh bẫy xoay tham lam làm vỡ tỷ lệ bộ (Kit Ratio).
     /// </summary>
     public class BatchPatternOptimizer
     {
+        private static string GetSpecKey(DemandPiece p)
+            => $"{p.Length}x{p.Width}_{(int)p.Grain}_{p.CanRotate}_{p.Material}";
+
         public static List<SheetLayout> Optimize(
             List<DemandPiece> demandPieces,
             List<RepositoryPiece> repositoryPieces,
             double bladeWidth,
             int optimizationLevel,
-            Func<bool> isStopRequested,
-            Action onProgress)
+            Func<bool>? isStopRequested,
+            Action? onProgress)
+        {
+            if (demandPieces == null || demandPieces.Count == 0 || repositoryPieces == null || repositoryPieces.Count == 0)
+                return new List<SheetLayout>();
+
+            // 1. Chạy với cấu hình CanRotate hiện tại của người dùng
+            var bestResult = RunBatchCore(demandPieces, repositoryPieces, bladeWidth, isStopRequested, onProgress);
+
+            // 2. Nếu có bất kỳ chi tiết nào đang bật CanRotate == 1 (Không có thớ / Cho phép xoay),
+            // chạy thêm nhánh đối chứng giữ nguyên hướng gốc (CanRotate = 0) và nhánh chuẩn hóa (Length >= Width)
+            // để tránh bẫy xoay tham lam (BSSF/BAF) trên 1 tấm đơn lẻ làm vỡ tỷ lệ bộ của toàn đơn hàng.
+            if (demandPieces.Any(p => p.CanRotate == 1) && !(isStopRequested != null && isStopRequested()))
+            {
+                // Nhánh B: Khóa hướng gốc (CanRotate = 0)
+                var lockedDemands = demandPieces
+                    .Select(p => new DemandPiece(p.Index, p.Length, p.Width, 0, p.ExternalID, p.Priority, p.Grain, p.Label, p.Material))
+                    .ToList();
+
+                var resultLocked = RunBatchCore(lockedDemands, repositoryPieces, bladeWidth, isStopRequested, null);
+                if (IsBetterGlobalSolution(resultLocked, bestResult))
+                {
+                    bestResult = resultLocked;
+                }
+
+                // Nhánh C: Chuẩn hóa cạnh dài dọc theo chiều dài tấm ván (Length >= Width) và khóa xoay
+                var normalizedDemands = demandPieces
+                    .Select(p => p.CanRotate == 1
+                        ? new DemandPiece(
+                            p.Index,
+                            Math.Max(p.Length, p.Width),
+                            Math.Min(p.Length, p.Width),
+                            0, p.ExternalID, p.Priority, p.Grain, p.Label, p.Material)
+                        : p.Clone())
+                    .ToList();
+
+                var resultNormalized = RunBatchCore(normalizedDemands, repositoryPieces, bladeWidth, isStopRequested, null);
+
+                var origByIdx = demandPieces.ToDictionary(p => p.Index);
+                foreach (var sheet in resultNormalized)
+                {
+                    foreach (var up in sheet.UtilizedPieces)
+                    {
+                        var orig = origByIdx[up.DemandIndex];
+                        bool isRot = Math.Abs(up.Width - orig.Width) < 0.1 && Math.Abs(up.Height - orig.Length) < 0.1 && orig.Length != orig.Width;
+                        up.Rotated = isRot ? 1 : 0;
+                    }
+                }
+
+                if (IsBetterGlobalSolution(resultNormalized, bestResult))
+                {
+                    bestResult = resultNormalized;
+                }
+            }
+
+            return bestResult;
+        }
+
+        private static bool IsBetterGlobalSolution(List<SheetLayout> candidate, List<SheetLayout> currentBest)
+        {
+            if (candidate == null || candidate.Count == 0) return false;
+            if (currentBest == null || currentBest.Count == 0) return true;
+
+            int candPlaced = candidate.Sum(s => s.UtilizedPieces.Count);
+            int bestPlaced = currentBest.Sum(s => s.UtilizedPieces.Count);
+            if (candPlaced != bestPlaced)
+                return candPlaced > bestPlaced; // Ưu tiên xếp được nhiều phôi hơn
+
+            if (candidate.Count != currentBest.Count)
+                return candidate.Count < currentBest.Count; // Ưu tiên tốn ít tấm ván hơn (vd: 49 tấm < 51 tấm)
+
+            int candPatterns = GroupedSheetLayout.GroupSheets(candidate).Count;
+            int bestPatterns = GroupedSheetLayout.GroupSheets(currentBest).Count;
+            if (candPatterns != bestPatterns)
+                return candPatterns < bestPatterns; // Cùng số tấm thì ưu tiên ít mẫu sơ đồ hơn
+
+            double candCuts = candidate.Sum(s => s.Cuts.Count);
+            double bestCuts = currentBest.Sum(s => s.Cuts.Count);
+            return candCuts < bestCuts;
+        }
+
+        private static List<SheetLayout> RunBatchCore(
+            List<DemandPiece> demandPieces,
+            List<RepositoryPiece> repositoryPieces,
+            double bladeWidth,
+            Func<bool>? isStopRequested,
+            Action? onProgress)
         {
             bladeWidth = Math.Round(Math.Max(0.0, bladeWidth), 1, MidpointRounding.AwayFromZero);
             var sheets = new List<SheetLayout>();
-            if (demandPieces == null || demandPieces.Count == 0 || repositoryPieces == null || repositoryPieces.Count == 0)
-                return sheets;
 
-            // Ánh xạ piece.Index sang DemandPiece để tra cứu an toàn
-            var pieceByIndex = demandPieces.ToDictionary(p => p.Index);
+            var pieceByIndex = new Dictionary<int, DemandPiece>(demandPieces.Count);
+            foreach (var dp in demandPieces)
+            {
+                pieceByIndex[dp.Index] = dp;
+            }
 
-            // Nhóm các chi tiết theo quy cách (Specification) sử dụng chỉ số cục bộ 0..Count-1
-            var specGroups = Enumerable.Range(0, demandPieces.Count)
-                .GroupBy(i => {
-                    var p = demandPieces[i];
-                    return $"{p.Length}x{p.Width}_{p.Grain}_{p.CanRotate}_{p.ExternalID}";
-                })
-                .ToDictionary(g => g.Key, g => new Queue<int>(g));
+            var specGroups = demandPieces
+                .GroupBy(GetSpecKey)
+                .ToDictionary(g => g.Key, g => new Queue<int>(g.Select(p => p.Index)));
 
             int currentRepoIdx = 0;
             int stepCounter = 0;
@@ -55,32 +140,42 @@ namespace Optimal2DX.Algorithms
                     continue;
                 }
 
-                var activeQueues = specGroups.Values.Where(q => q.Count > 0).ToList();
-                if (activeQueues.Count == 0) break;
-
-                var remainingIndices = new List<int>();
-                foreach (var q in activeQueues)
+                int sameSpecRepoCount = 1;
+                for (int k = currentRepoIdx + 1; k < repositoryPieces.Count; k++)
                 {
-                    remainingIndices.AddRange(q);
+                    var nextR = repositoryPieces[k];
+                    if (nextR.Length == repo.Length && nextR.Width == repo.Width &&
+                        nextR.TrimTop == repo.TrimTop && nextR.TrimLeft == repo.TrimLeft &&
+                        nextR.TrimBottom == repo.TrimBottom && nextR.TrimRight == repo.TrimRight &&
+                        nextR.Grain == repo.Grain &&
+                        string.Equals(nextR.Material, repo.Material, StringComparison.OrdinalIgnoreCase))
+                    {
+                        sameSpecRepoCount++;
+                    }
+                    else break;
                 }
 
-                // Tìm mẫu sơ đồ cơ sở tối ưu nhất (kết hợp độ phủ và số lần lặp lại)
-                var baseSheet = FindBestBaseSheet(demandPieces, remainingIndices, repo, bladeWidth, specGroups, repositoryPieces.Count - currentRepoIdx, pieceByIndex);
+                var baseSheet = FindBestBaseSheet(
+                    demandPieces,
+                    pieceByIndex,
+                    repo,
+                    bladeWidth,
+                    specGroups,
+                    sameSpecRepoCount,
+                    isStopRequested);
 
                 if (baseSheet == null || baseSheet.UtilizedPieces.Count == 0)
                     break;
 
-                // Thống kê số lượng mỗi quy cách dùng trên sơ đồ cơ sở này
                 var specUsage = new Dictionary<string, int>();
                 foreach (var up in baseSheet.UtilizedPieces)
                 {
                     var origPiece = pieceByIndex[up.DemandIndex];
-                    string key = $"{origPiece.Length}x{origPiece.Width}_{origPiece.Grain}_{origPiece.CanRotate}_{origPiece.ExternalID}";
+                    string key = GetSpecKey(origPiece);
                     if (!specUsage.ContainsKey(key)) specUsage[key] = 0;
                     specUsage[key]++;
                 }
 
-                // Tính số lần nhân bản tối đa
                 int maxRep = int.MaxValue;
                 foreach (var kvp in specUsage)
                 {
@@ -89,18 +184,16 @@ namespace Optimal2DX.Algorithms
                     if (rep < maxRep) maxRep = rep;
                 }
 
-                int availableSheets = repositoryPieces.Count - currentRepoIdx;
-                int repCount = Math.Min(maxRep, availableSheets);
+                int repCount = Math.Min(maxRep, sameSpecRepoCount);
+                int totalRemainingPieces = specGroups.Values.Sum(q => q.Count);
 
-                // Nếu sơ đồ chỉ dùng được 1 lần và số lượng còn lại ít -> chuyển sang Tầng 2 để vét gọn
-                if (repCount < 2 && activeQueues.Sum(q => q.Count) < 50)
+                if (repCount < 2 && baseSheet.SurfaceCovered < 86.0 && totalRemainingPieces <= 60)
                 {
                     break;
                 }
 
                 repCount = Math.Max(1, repCount);
 
-                // Nhân bản sơ đồ cơ sở cho repCount tấm
                 for (int r = 0; r < repCount; r++)
                 {
                     var curRepo = repositoryPieces[currentRepoIdx++];
@@ -115,14 +208,14 @@ namespace Optimal2DX.Algorithms
                     foreach (var up in baseSheet.UtilizedPieces)
                     {
                         var origPiece = pieceByIndex[up.DemandIndex];
-                        string key = $"{origPiece.Length}x{origPiece.Width}_{origPiece.Grain}_{origPiece.CanRotate}_{origPiece.ExternalID}";
-                        int actualLocalIdx = specGroups[key].Dequeue();
-                        var actualPiece = demandPieces[actualLocalIdx];
+                        string key = GetSpecKey(origPiece);
+                        int actualDemandIdx = specGroups[key].Dequeue();
+                        var dequeuedPiece = pieceByIndex[actualDemandIdx];
 
                         sheetLayout.UtilizedPieces.Add(new UtilizedPiece(
                             up.TopX, up.TopY, up.BottomX, up.BottomY,
-                            up.Rotated, actualPiece.Index, actualPiece.ExternalID,
-                            actualPiece.Grain, actualPiece.Label, actualPiece.Material
+                            up.Rotated, dequeuedPiece.Index, dequeuedPiece.ExternalID,
+                            dequeuedPiece.Grain, dequeuedPiece.Label, dequeuedPiece.Material
                         ));
                     }
 
@@ -130,49 +223,95 @@ namespace Optimal2DX.Algorithms
                 }
 
                 stepCounter++;
-                if (stepCounter % 3 == 0)
+                if (stepCounter % 2 == 0)
                 {
                     onProgress?.Invoke();
                 }
             }
 
             // =========================================================================
-            // TẦNG 2: VÉT PHẦN DƯ BẰNG GUILLOTINE PACKER (TIER 2: RESIDUAL PACKING)
+            // TẦNG 2: VÉT PHẦN DƯ BẰNG ĐA CHIẾN LƯỢC GUILLOTINE (TIER 2: MULTI-PASS RESIDUAL)
             // =========================================================================
-            var residualDemandIndices = new List<int>();
+            var residualDemands = new List<DemandPiece>();
             foreach (var q in specGroups.Values)
             {
-                residualDemandIndices.AddRange(q);
+                while (q.Count > 0)
+                {
+                    residualDemands.Add(pieceByIndex[q.Dequeue()]);
+                }
             }
 
-            if (residualDemandIndices.Count > 0 && currentRepoIdx < repositoryPieces.Count && !(isStopRequested != null && isStopRequested()))
+            if (residualDemands.Count > 0 && currentRepoIdx < repositoryPieces.Count && !(isStopRequested != null && isStopRequested()))
             {
                 var remainingRepo = repositoryPieces.Skip(currentRepoIdx).ToList();
-                var residualDemands = residualDemandIndices.Select(idx => demandPieces[idx]).ToList();
 
-                var chrResidual = new Chromosome(residualDemands.Count);
-                chrResidual.Order = Enumerable.Range(0, residualDemands.Count)
-                    .OrderByDescending(i => residualDemands[i].Area)
-                    .ToArray();
-
-                var residualSheets = GuillotinePacker.Pack(residualDemands, remainingRepo, chrResidual, bladeWidth, 0, 0);
-
-                foreach (var rs in residualSheets)
+                var localDemands = new List<DemandPiece>(residualDemands.Count);
+                for (int i = 0; i < residualDemands.Count; i++)
                 {
-                    var mappedLayout = new SheetLayout(sheets.Count, rs.RepositoryIndex, rs.RepositoryExternalID, rs.SheetLength, rs.SheetWidth, rs.RepositoryLabel, rs.Material);
-                    foreach (var c in rs.Cuts) mappedLayout.Cuts.Add(new Cut(c.TopX, c.TopY, c.BottomX, c.BottomY, c.CutThickness, c.Level));
-                    foreach (var w in rs.WastePieces) mappedLayout.WastePieces.Add(new WastePiece(w.TopX, w.TopY, w.BottomX, w.BottomY));
+                    var d = residualDemands[i];
+                    localDemands.Add(new DemandPiece(i, d.Length, d.Width, d.CanRotate, d.ExternalID, d.Priority, d.Grain, d.Label, d.Material));
+                }
 
-                    foreach (var up in rs.UtilizedPieces)
+                List<SheetLayout>? bestResidualSheets = null;
+                double bestResidualScore = double.MinValue;
+
+                var sortStrategies = new List<int[]>
+                {
+                    Enumerable.Range(0, localDemands.Count).OrderByDescending(i => localDemands[i].Area).ToArray(),
+                    Enumerable.Range(0, localDemands.Count).OrderByDescending(i => Math.Max(localDemands[i].Length, localDemands[i].Width)).ThenByDescending(i => localDemands[i].Area).ToArray(),
+                    Enumerable.Range(0, localDemands.Count).OrderByDescending(i => localDemands[i].Width).ThenByDescending(i => localDemands[i].Length).ToArray(),
+                    Enumerable.Range(0, localDemands.Count).OrderByDescending(i => localDemands[i].Length).ThenByDescending(i => localDemands[i].Width).ToArray(),
+                    Enumerable.Range(0, localDemands.Count).OrderByDescending(i => localDemands[i].Length + localDemands[i].Width).ToArray()
+                };
+
+                foreach (var order in sortStrategies)
+                {
+                    for (int stripMode = 0; stripMode <= 2; stripMode++)
                     {
-                        mappedLayout.UtilizedPieces.Add(new UtilizedPiece(
-                            up.TopX, up.TopY, up.BottomX, up.BottomY,
-                            up.Rotated, up.DemandIndex, up.DemandExternalID,
-                            up.Grain, up.Label, up.Material
-                        ));
-                    }
+                        for (byte heuristic = 0; heuristic <= 3; heuristic++)
+                        {
+                            for (int splitMode = 0; splitMode <= 2; splitMode++)
+                            {
+                                var chr = new Chromosome(localDemands.Count)
+                                {
+                                    Order = order,
+                                    PlacementHeuristic = heuristic
+                                };
+                                for (int i = 0; i < localDemands.Count; i++)
+                                    chr.SplitDirection[i] = (byte)splitMode;
 
-                    sheets.Add(mappedLayout);
+                                var candidateSheets = GuillotinePacker.Pack(localDemands, remainingRepo, chr, bladeWidth, stripMode, 0);
+                                double score = ScoreResidualSolution(candidateSheets);
+                                if (score > bestResidualScore)
+                                {
+                                    bestResidualScore = score;
+                                    bestResidualSheets = candidateSheets;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (bestResidualSheets != null)
+                {
+                    foreach (var rs in bestResidualSheets)
+                    {
+                        var mappedLayout = new SheetLayout(sheets.Count, rs.RepositoryIndex, rs.RepositoryExternalID, rs.SheetLength, rs.SheetWidth, rs.RepositoryLabel, rs.Material);
+                        foreach (var c in rs.Cuts) mappedLayout.Cuts.Add(new Cut(c.TopX, c.TopY, c.BottomX, c.BottomY, c.CutThickness, c.Level));
+                        foreach (var w in rs.WastePieces) mappedLayout.WastePieces.Add(new WastePiece(w.TopX, w.TopY, w.BottomX, w.BottomY));
+
+                        foreach (var up in rs.UtilizedPieces)
+                        {
+                            var origPiece = residualDemands[up.DemandIndex];
+                            mappedLayout.UtilizedPieces.Add(new UtilizedPiece(
+                                up.TopX, up.TopY, up.BottomX, up.BottomY,
+                                up.Rotated, origPiece.Index, origPiece.ExternalID,
+                                origPiece.Grain, origPiece.Label, origPiece.Material
+                            ));
+                        }
+
+                        sheets.Add(mappedLayout);
+                    }
                 }
             }
 
@@ -180,93 +319,226 @@ namespace Optimal2DX.Algorithms
             return sheets;
         }
 
-        /// <summary>
-        /// Tìm kiếm mẫu sơ đồ cơ sở tối ưu trên 1 tấm ván sử dụng nhiều thuật toán kết hợp.
-        /// Điểm số đánh giá cân bằng giữa Độ phủ diện tích (%) và Khả năng nhân bản (Repetition Count).
-        /// </summary>
+        private static double ScoreResidualSolution(List<SheetLayout> sheets)
+        {
+            if (sheets == null || sheets.Count == 0) return double.MinValue;
+            int placedCount = 0;
+            double totalArea = 0;
+            double maxSingleWasteOnLastSheet = 0;
+
+            for (int s = 0; s < sheets.Count; s++)
+            {
+                var sh = sheets[s];
+                placedCount += sh.UtilizedPieces.Count;
+                foreach (var p in sh.UtilizedPieces) totalArea += p.Area;
+
+                if (s == sheets.Count - 1)
+                {
+                    foreach (var w in sh.WastePieces)
+                    {
+                        if (w.Area > maxSingleWasteOnLastSheet)
+                            maxSingleWasteOnLastSheet = w.Area;
+                    }
+                }
+            }
+
+            return (placedCount * 100_000_000.0)
+                 + (totalArea * 10.0)
+                 - (sheets.Count * 10_000_000.0)
+                 + (maxSingleWasteOnLastSheet * 0.5);
+        }
+
         private static SheetLayout? FindBestBaseSheet(
-            List<DemandPiece> demandPieces,
-            List<int> candidateIndices,
+            List<DemandPiece> allDemandPieces,
+            Dictionary<int, DemandPiece> pieceByIndex,
             RepositoryPiece repo,
             double bladeWidth,
             Dictionary<string, Queue<int>> specGroups,
             int availableStockSheets,
-            Dictionary<int, DemandPiece> pieceByIndex)
+            Func<bool>? isStopRequested)
         {
-            SheetLayout? bestSheet = null;
-            double bestScore = -1;
+            long sheetUsableArea = repo.UsableArea;
+            if (sheetUsableArea <= 0) return null;
 
-            var singleRepoList = new List<RepositoryPiece> { repo };
+            var activeSpecs = new List<string>();
+            var boundedPoolBySpec = new Dictionary<string, List<int>>();
+            var allBoundedIndices = new List<int>();
 
-            var activeSpecs = specGroups.Where(g => g.Value.Count > 0).Select(g => g.Key).ToList();
+            foreach (var kvp in specGroups)
+            {
+                if (kvp.Value.Count == 0) continue;
+                int sampleIdx = kvp.Value.Peek();
+                var samplePiece = pieceByIndex[sampleIdx];
+                if (samplePiece.Area <= 0) continue;
+
+                bool fitsNormal = samplePiece.Length <= repo.UsableLength && samplePiece.Width <= repo.UsableWidth;
+                bool fitsRot = samplePiece.CanRotate == 1 && samplePiece.Width <= repo.UsableLength && samplePiece.Length <= repo.UsableWidth;
+                if (!fitsNormal && !fitsRot) continue;
+
+                int maxPossibleOnOneSheet = Math.Max(1, (int)(sheetUsableArea / samplePiece.Area) + 2);
+                var list = kvp.Value.Take(maxPossibleOnOneSheet).ToList();
+
+                activeSpecs.Add(kvp.Key);
+                boundedPoolBySpec[kvp.Key] = list;
+                allBoundedIndices.AddRange(list);
+            }
+
+            if (allBoundedIndices.Count == 0) return null;
+
+            var localPieces = new List<DemandPiece>(allBoundedIndices.Count);
+            var localIdxByOrigIdx = new Dictionary<int, int>(allBoundedIndices.Count);
+            for (int i = 0; i < allBoundedIndices.Count; i++)
+            {
+                var orig = pieceByIndex[allBoundedIndices[i]];
+                localIdxByOrigIdx[orig.Index] = i;
+                localPieces.Add(new DemandPiece(i, orig.Length, orig.Width, orig.CanRotate, orig.ExternalID, orig.Priority, orig.Grain, orig.Label, orig.Material));
+            }
+
+            var localAllIndices = Enumerable.Range(0, localPieces.Count).ToList();
             var candidateOrders = new List<int[]>();
 
-            // 1. Thứ tự đơn điệu theo kích thước (Monotonic Dimension Sorting)
-            candidateOrders.Add(candidateIndices.OrderByDescending(i => demandPieces[i].Area).ToArray());
-            candidateOrders.Add(candidateIndices.OrderByDescending(i => Math.Max(demandPieces[i].Length, demandPieces[i].Width)).ToArray());
-            candidateOrders.Add(candidateIndices.OrderByDescending(i => demandPieces[i].Width).ThenByDescending(i => demandPieces[i].Length).ToArray());
-            candidateOrders.Add(candidateIndices.OrderByDescending(i => demandPieces[i].Length).ThenByDescending(i => demandPieces[i].Width).ToArray());
+            candidateOrders.Add(localAllIndices.OrderByDescending(i => localPieces[i].Area).ToArray());
+            candidateOrders.Add(localAllIndices.OrderByDescending(i => Math.Max(localPieces[i].Length, localPieces[i].Width)).ThenByDescending(i => localPieces[i].Area).ToArray());
+            candidateOrders.Add(localAllIndices.OrderByDescending(i => localPieces[i].Width).ThenByDescending(i => localPieces[i].Length).ToArray());
+            candidateOrders.Add(localAllIndices.OrderByDescending(i => localPieces[i].Length).ThenByDescending(i => localPieces[i].Width).ToArray());
+            candidateOrders.Add(localAllIndices.OrderByDescending(i => localPieces[i].Length + localPieces[i].Width).ToArray());
 
-            // 2. Thứ tự phối hợp theo cặp quy cách bổ trợ (Lead Spec + Complementary Pairs)
-            // Nhằm giải quyết triệt để bài toán các chi tiết có chiều dài bổ trợ nhau hoặc cùng chiều rộng (vd: 340mm)
+            candidateOrders.Add(localAllIndices
+                .OrderByDescending(i => specGroups[GetSpecKey(localPieces[i])].Count)
+                .ThenByDescending(i => localPieces[i].Area)
+                .ToArray());
+
+            if (activeSpecs.Count > 1)
+            {
+                int minSpecCount = activeSpecs.Min(k => specGroups[k].Count);
+                var specsByAreaDesc = activeSpecs
+                    .OrderByDescending(k => pieceByIndex[specGroups[k].Peek()].Area)
+                    .ToList();
+                var specsByWidthDesc = activeSpecs
+                    .OrderByDescending(k => pieceByIndex[specGroups[k].Peek()].Width)
+                    .ThenByDescending(k => pieceByIndex[specGroups[k].Peek()].Length)
+                    .ToList();
+
+                foreach (var specOrdering in new[] { specsByAreaDesc, specsByWidthDesc })
+                {
+                    for (int mult = 1; mult <= 4; mult++)
+                    {
+                        var interleaved = new List<int>(localPieces.Count);
+                        var posBySpec = specOrdering.ToDictionary(k => k, _ => 0);
+
+                        while (interleaved.Count < localPieces.Count)
+                        {
+                            bool addedAny = false;
+                            foreach (var k in specOrdering)
+                            {
+                                var pool = boundedPoolBySpec[k];
+                                int pos = posBySpec[k];
+                                if (pos >= pool.Count) continue;
+
+                                int ratio = Math.Max(1, (int)Math.Round((double)specGroups[k].Count / Math.Max(1, minSpecCount)));
+                                int takeCount = Math.Min(ratio * mult, pool.Count - pos);
+                                for (int t = 0; t < takeCount; t++)
+                                {
+                                    interleaved.Add(localIdxByOrigIdx[pool[pos + t]]);
+                                }
+                                posBySpec[k] = pos + takeCount;
+                                addedAny = true;
+                            }
+                            if (!addedAny) break;
+                        }
+                        candidateOrders.Add(interleaved.ToArray());
+                    }
+                }
+            }
+
             foreach (var leadKey in activeSpecs)
             {
-                var leadQueue = specGroups[leadKey];
-                var otherSpecs = activeSpecs.Where(k => k != leadKey).ToList();
+                var leadLocal = boundedPoolBySpec[leadKey].Select(origIdx => localIdxByOrigIdx[origIdx]).ToList();
+                var pureLeadFirst = leadLocal.Concat(localAllIndices).Distinct().ToArray();
+                candidateOrders.Add(pureLeadFirst);
 
-                foreach (var compKey in otherSpecs)
+                foreach (var compKey in activeSpecs)
                 {
-                    var compQueue = specGroups[compKey];
-                    var mixed = leadQueue.Take(12)
-                        .Concat(compQueue.Take(18))
-                        .Concat(candidateIndices)
+                    if (compKey == leadKey) continue;
+                    var compLocal = boundedPoolBySpec[compKey].Select(origIdx => localIdxByOrigIdx[origIdx]).ToList();
+                    var mixed = leadLocal
+                        .Concat(compLocal)
+                        .Concat(localAllIndices)
                         .Distinct()
                         .ToArray();
                     candidateOrders.Add(mixed);
                 }
             }
 
+            var singleRepoList = new List<RepositoryPiece> { repo };
+            SheetLayout? bestSheet = null;
+            double bestScore = -1;
+
             foreach (var order in candidateOrders)
             {
-                for (int splitMode = 0; splitMode <= 1; splitMode++)
+                if (isStopRequested != null && isStopRequested()) break;
+
+                for (int stripMode = 0; stripMode <= 2; stripMode++)
                 {
-                    var chr = new Chromosome(demandPieces.Count);
-                    chr.Order = order;
-
-                    var res = GuillotinePacker.Pack(demandPieces, singleRepoList, chr, bladeWidth, splitMode, 0);
-                    if (res.Count > 0 && res[0].UtilizedPieces.Count > 0)
+                    for (byte heuristic = 0; heuristic <= 3; heuristic++)
                     {
-                        var candidate = res[0];
-
-                        // Tính hệ số nhân bản của mẫu này
-                        var specUsage = new Dictionary<string, int>();
-                        foreach (var up in candidate.UtilizedPieces)
+                        for (int splitMode = 0; splitMode <= 1; splitMode++)
                         {
-                            var origPiece = pieceByIndex[up.DemandIndex];
-                            string key = $"{origPiece.Length}x{origPiece.Width}_{origPiece.Grain}_{origPiece.CanRotate}_{origPiece.ExternalID}";
-                            if (!specUsage.ContainsKey(key)) specUsage[key] = 0;
-                            specUsage[key]++;
-                        }
+                            var chr = new Chromosome(localPieces.Count)
+                            {
+                                Order = order,
+                                PlacementHeuristic = heuristic
+                            };
+                            for (int i = 0; i < localPieces.Count; i++)
+                                chr.SplitDirection[i] = (byte)splitMode;
 
-                        int rep = int.MaxValue;
-                        foreach (var kvp in specUsage)
-                        {
-                            int avail = specGroups[kvp.Key].Count;
-                            int r = avail / kvp.Value;
-                            if (r < rep) rep = r;
-                        }
-                        if (rep == int.MaxValue) rep = 1;
-                        rep = Math.Min(rep, availableStockSheets);
+                            var res = GuillotinePacker.Pack(localPieces, singleRepoList, chr, bladeWidth, stripMode, 0);
+                            if (res.Count > 0 && res[0].UtilizedPieces.Count > 0)
+                            {
+                                var candidate = res[0];
 
-                        // Hàm mục tiêu cân bằng: Độ phủ diện tích x (1 + 0.35 * log2(1 + số lần lặp))
-                        double score = candidate.SurfaceCovered * (1.0 + 0.35 * Math.Log2(1 + Math.Max(1, rep)));
+                                var specUsage = new Dictionary<string, int>();
+                                foreach (var up in candidate.UtilizedPieces)
+                                {
+                                    var lp = localPieces[up.DemandIndex];
+                                    string key = GetSpecKey(lp);
+                                    if (!specUsage.ContainsKey(key)) specUsage[key] = 0;
+                                    specUsage[key]++;
+                                }
 
-                        if (score > bestScore)
-                        {
-                            bestScore = score;
-                            bestSheet = candidate;
+                                int rep = int.MaxValue;
+                                foreach (var kvp in specUsage)
+                                {
+                                    int avail = specGroups[kvp.Key].Count;
+                                    int r = avail / kvp.Value;
+                                    if (r < rep) rep = r;
+                                }
+                                if (rep == int.MaxValue) rep = 1;
+                                rep = Math.Min(rep, availableStockSheets);
+
+                                double cutEfficiencyBonus = -0.002 * candidate.Cuts.Count;
+                                double score = candidate.SurfaceCovered * (1.0 + 0.35 * Math.Log(1 + Math.Max(1, rep), 2))
+                                             + cutEfficiencyBonus;
+
+                                if (score > bestScore)
+                                {
+                                    bestScore = score;
+                                    bestSheet = candidate;
+                                }
+                            }
                         }
                     }
+                }
+            }
+
+            if (bestSheet != null)
+            {
+                foreach (var up in bestSheet.UtilizedPieces)
+                {
+                    int origIdx = allBoundedIndices[up.DemandIndex];
+                    var origPiece = pieceByIndex[origIdx];
+                    up.DemandIndex = origPiece.Index;
+                    up.DemandExternalID = origPiece.ExternalID;
                 }
             }
 

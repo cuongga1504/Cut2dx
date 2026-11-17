@@ -150,6 +150,76 @@ namespace Optimal2DX.Example
             {
                 Console.WriteLine("\n>>> KẾT QUẢ KIỂM THỬ: THẤT BẠI! CÓ VẤN ĐỀ VỀ VẬT LIỆU!");
             }
+
+            TestUserImageDataset();
+        }
+
+        static void TestUserImageDataset()
+        {
+            Console.WriteLine("\n================================================================================");
+            Console.WriteLine("     KIỂM THỬ BỘ DỮ LIỆU TỪ HÌNH ẢNH CỦA NGƯỜI DÙNG (588 CHI TIẾT)");
+            Console.WriteLine("     Kho: 2465 x 1855 mm (Trim 2,2) | Mạch cưa: 4.5 mm | Thớ gỗ: Tự do");
+            Console.WriteLine("================================================================================\n");
+
+            var opt = new Optimization2DX();
+            opt.BladeWidth = 4.5;
+            opt.OptimizationLevel = 80;
+            opt.MinimalUsefulSize = 20;
+            opt.MinimizePatterns = 1;
+
+            // 500 tấm kho 2465 x 1855 (TrimTop: 2, TrimLeft: 2)
+            opt.NumberOfRepositoryPieces = 500;
+            for (int i = 0; i < 500; i++)
+            {
+                opt.SetRepositoryPiece(i, 2465, 1855, 2, 2, 0, 0, 1, 0, 0, SheetGrainDirection.None, "Ván MDF 14mm", "MDF 14mm");
+            }
+
+            int[] lens = { 560, 1220, 1206, 1216 };
+            int[] wids = { 214, 214, 546, 556 };
+            int[] qtys = { 196, 196, 98, 98 };
+            string[] labels = { "Ván hông", "Ván trước/sau", "Ván đáy", "Ván mặt" };
+
+            int totalDemands = qtys.Sum();
+            opt.NumberOfDemandPieces = totalDemands;
+
+            int dIdx = 0;
+            for (int i = 0; i < lens.Length; i++)
+            {
+                for (int k = 0; k < qtys[i]; k++)
+                {
+                    opt.SetDemandPieceWithGrain(
+                        dIdx,
+                        lens[i],
+                        wids[i],
+                        GrainDirection.None,
+                        i + 1,
+                        0,
+                        SheetGrainDirection.None,
+                        labels[i],
+                        "MDF 14mm"
+                    );
+                    dIdx++;
+                }
+            }
+
+            var sw = Stopwatch.StartNew();
+            opt.StartGuillotine();
+            sw.Stop();
+
+            var grouped = opt.GetGroupedSheetLayouts();
+
+            Console.WriteLine($"[KẾT QUẢ TỐI ƯU HÓA]:");
+            Console.WriteLine($"• Thời gian tính: {sw.ElapsedMilliseconds} ms");
+            Console.WriteLine($"• Chi tiết đã xếp: {opt.TotalNumberOfUtilizedDemandPieces} / {opt.NumberOfDemandPieces}");
+            Console.WriteLine($"• Số tấm kho đã dùng: {opt.TotalNumberOfUtilizedRepositoryPieces} tấm");
+            Console.WriteLine($"• Số lượng sơ đồ cắt độc lập (Unique Patterns): {grouped.Count}");
+
+            for (int i = 0; i < grouped.Count; i++)
+            {
+                var g = grouped[i];
+                int totalPiecesInGroup = g.RepresentativeSheet.UtilizedPieces.Count * g.Count;
+                Console.WriteLine($"  Sơ đồ #{i + 1}: [{g.Material}] | CẮT x{g.Count} TẤM | Độ phủ: {g.SurfaceCovered:F1}% | Chi tiết: {g.RepresentativeSheet.UtilizedPieces.Count}/tấm (Tổng {totalPiecesInGroup})");
+            }
         }
     }
 }
